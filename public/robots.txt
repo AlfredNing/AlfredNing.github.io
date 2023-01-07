@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://AlfredNing.github.io/sitemap.xml
