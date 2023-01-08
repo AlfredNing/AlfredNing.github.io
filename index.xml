@@ -4,12 +4,17 @@
     <title>AlfredNing</title>
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
-    <image>
-      <url>https://AlfredNing.github.io/img/home.jpg</url>
-      <link>https://AlfredNing.github.io/img/home.jpg</link>
-    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Jan 2023 17:34:29 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hhh</title>
+      <link>https://AlfredNing.github.io/note/program/2/</link>
+      <pubDate>Sun, 08 Jan 2023 17:34:29 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/2/</guid>
+      <description>hhh</description>
+    </item>
+    
     
     
   </channel>
