@@ -12,7 +12,7 @@ googleAnalytics: UA-123-45
 
 minify:
   disableXML: true
-  minifyOutput: true
+  # minifyOutput: true
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
@@ -20,7 +20,6 @@ params:
   description: "AlfredNing Blog"
   keywords: [Blog, Portfolio, PaperMod]
   author: AlfredNing
-  images: ["img/home.jpg"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
@@ -60,7 +59,8 @@ params:
     enabled: true # needs to be explicitly set
     title: 个人博客
     subtitle: "保持**为什么**的态度，思考与推理的衍生物"
-    # imageUrl: "<img location>"
+    imageUrl: "https://pbs.twimg.com/media/Fl7-NppakAIg2WK?format=jpg&name=900x900"
+    imageTitle: "😄😄"
     # imageWidth: 120
     # imageHeight: 120
     # imageTitle: my image
@@ -104,25 +104,27 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: archives
-      name: 归档
-      weight: 5
     - identifier: thinking
       name: 🤔想法
-      url: /thinking/
+      url: thinking/
       weight: 10  
     - identifier: note
       name: 📓笔记
-      url: /note/
+      url: note/
       weight: 20
     - identifier: about
       name: 🤙关于
-      url: /about/
+      url: about/
       weight: 30
     - identifier: search
-      name: 🔎
-      url: /search/
-      weight: 40              
+      name: 🔎搜索
+      url: search/
+      weight: 40
+    - identifier: archives
+      url: archives
+      name: 🗄️归档
+      weight: 45       
+         
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
