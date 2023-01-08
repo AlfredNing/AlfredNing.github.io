@@ -1,5 +1,5 @@
 baseURL: "https://AlfredNing.github.io"
-title: ExampleSite
+title: AlfredNing
 paginate: 5
 theme: PaperMod
 
@@ -20,8 +20,7 @@ params:
   description: "AlfredNing Blog"
   keywords: [Blog, Portfolio, PaperMod]
   author: AlfredNing
-  # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
+  images: ["img/home.jpg"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
@@ -71,11 +70,6 @@ params:
     #   - name: Tags
     #     url: tags
 
-  # home-info mode
-  homeInfoParams:
-    Title: "个人博客"
-    Content: "保持**为什么**的态度，思考与推理的衍生物"
-
   # socialIcons:
   #   - name: github
   #     url: "https://github.com/"
@@ -110,10 +104,26 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: categories
-      name: categories
-      url: /categories/
-      weight: 10   
+    - identifier: archives
+      name: 归档
+      weight: 5
+    - identifier: thinking
+      name: 🤔想法
+      url: /thinking/
+      weight: 10  
+    - identifier: note
+      name: 📓笔记
+      url: /note/
+      weight: 20
+    - identifier: about
+      name: 🤙关于
+      url: /about/
+      weight: 30
+    - identifier: search
+      name: 🔎
+      url: /search/
+      weight: 40              
+
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
