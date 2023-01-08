@@ -13,14 +13,14 @@ googleAnalytics: UA-123-45
 minify:
   disableXML: true
   # minifyOutput: true
-
+defaultContentLanguage: zh
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Alfreding
   description: "AlfredNing Blog"
   keywords: [Blog, Portfolio, PaperMod]
   author: AlfredNing
-  DateFormat: "January 2, 2006"
+  DateFormat: "2006年-01月-02日"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
@@ -29,10 +29,10 @@ params:
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: false
-  ShowWordCount: true
-  ShowRssButtonInSectionTermList: true
+  # ShowWordCount: true
+  ShowRssButtonInSectionTermList: false
   UseHugoToc: true
-  disableSpecial1stPost: false
+  # disableSpecial1stPost: false
   disableScrollToTop: false
   comments: false
   hidemeta: false
@@ -49,11 +49,10 @@ params:
     apple_touch_icon: "<link / abs url>"
     safari_pinned_tab: "<link / abs url>"
 
-  label:
-    text: "AlfredNing"
-    icon: /apple-touch-icon.png
-    iconHeight: 35
-
+  # label:
+  #   text: "AlfredNing"
+  #   icon: /apple-touch-icon.png
+  #   iconHeight: 35
   # profile-mode
   profileMode:
     enabled: true # needs to be explicitly set
@@ -87,10 +86,10 @@ params:
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
 
-  editPost:
-    URL: "https://github.com/AlfredNing.github.io/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+  # editPost:
+  #   URL: "https://github.com/AlfredNing.github.io/content"
+  #   Text: "Suggest Changes" # edit text
+  #   appendFilePath: true # to append file path to Edit link
 
   # for search
   # https://fusejs.io/api/options.html
@@ -104,28 +103,39 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: thinking
-      name: 🤔想法
-      url: thinking/
-      weight: 10  
     - identifier: note
       name: 📓笔记
       url: note/
-      weight: 20
-    - identifier: about
-      name: 🤙关于
-      url: about/
-      weight: 30
+      weight: 10  
+    - identifier: thinking
+      name: 🤔想法
+      url: thinking/
+      weight: 20  
     - identifier: search
       name: 🔎搜索
       url: search/
-      weight: 40
+      weight: 30
+    - identifier: Tags
+      url: tags/
+      name: 🏷️标签
+      weight: 40       
     - identifier: archives
       url: archives
       name: 🗄️归档
-      weight: 45       
+      weight: 45     
+    - identifier: about
+      name: 🤙关于
+      url: about/   
+      weight: 50           
          
-
+#search working
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+  page:
+    - HTML
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
