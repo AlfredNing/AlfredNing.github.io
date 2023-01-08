@@ -37,7 +37,7 @@ params:
   comments: false
   hidemeta: false
   hideSummary: false
-  showtoc: false
+  showtoc: true
   tocopen: false
 
   assets:
@@ -57,7 +57,7 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: 个人博客
-    subtitle: "保持**为什么**的态度，思考与推理的衍生物"
+    subtitle: "???**为什么**???，因为需要多多思考"
     imageUrl: "https://pbs.twimg.com/media/Fl7-NppakAIg2WK?format=jpg&name=900x900"
     imageTitle: "😄😄"
     # imageWidth: 120
@@ -100,7 +100,7 @@ params:
     distance: 1000
     threshold: 0.4
     minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
+    keys: ["title", "permalink", "summary", "content"] 
 menu:
   main:
     - identifier: note
