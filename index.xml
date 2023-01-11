@@ -12,7 +12,22 @@
       <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://AlfredNing.github.io/note/program/algorithm/kmp/</guid>
-      <description>使用场景 多用于子串匹配问题</description>
+      <description>使用场景 多用于子串匹配问题
+流程 在暴力解的过程当中有加速
+定义： 在该位置之前的前缀与后缀的长度，但不能取到字符串的整体长度，定义为指标信息
+解释：
+对匹配串建立上述指标信息 匹配过程 求解证明 x-r 与 y-r&amp;rsquo;是相同，从i位置匹配match串等同于从match的q位置进行匹配
+i位置到r位置一定不能匹配match
+**验证：**假设i位置到r位置，有个k位置能够匹配match串，那就说明从k位置到x位置是相同的，也就是match串y位置之前字符串的一个后缀，此时，与next的数组定义违反，出现了一个更长的。假设不成立。
+next数组生成 match长度为M,时间复杂度为O(M)
+next[0] = -1;
+next[1] = 0;
+next[2] = 0位置和1位置决定;
+求i位置的next[i]时候，前面所有位置都已经准备好
+next证明 来到i位置next[i]最大为next[i+1]+1
+假设next[i]&amp;gt;next[i-1] + 1,
+那么说明next[i-1]求解错误，矛盾，不成立
+代码实现 public class Kmp { public static int getIndexOf(String s, String match) { if (s == null || match == null || match.length() &amp;lt; 1 || s.length() &amp;lt; match.length()) { return -1; } char[] strs = s.toCharArray(); char[] matchs = match.</description>
     </item>
     
     
