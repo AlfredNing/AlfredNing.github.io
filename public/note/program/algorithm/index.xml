@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>AlfredNing</title>
-    <link>https://AlfredNing.github.io/</link>
-    <description>Recent content on AlfredNing</description>
+    <title>算法 on AlfredNing</title>
+    <link>https://AlfredNing.github.io/note/program/algorithm/</link>
+    <description>Recent content in 算法 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/program/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kmp</title>
       <link>https://AlfredNing.github.io/note/program/algorithm/kmp/</link>
@@ -29,8 +29,6 @@ next证明 来到i位置next[i]最大为next[i+1]+1
 那么说明next[i-1]求解错误，矛盾，不成立
 代码实现 public class Kmp { public static int getIndexOf(String s, String match) { if (s == null || match == null || match.length() &amp;lt; 1 || s.length() &amp;lt; match.length()) { return -1; } char[] strs = s.toCharArray(); char[] matchs = match.</description>
     </item>
-    
-    
     
   </channel>
 </rss>

@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>笔记 | AlfredNing</title>
+<title>算法 | AlfredNing</title>
 <meta name="keywords" content="">
-<meta name="description" content="输出大于输入，知识是用来解释问题，解决问题，预测问题">
+<meta name="description" content="AlfredNing Blog">
 <meta name="author" content="AlfredNing">
-<link rel="canonical" href="https://AlfredNing.github.io/note/">
+<link rel="canonical" href="https://AlfredNing.github.io/tags/%E7%AE%97%E6%B3%95/">
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://AlfredNing.github.io/note/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://AlfredNing.github.io/tags/%E7%AE%97%E6%B3%95/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,30 +70,15 @@ if (!doNotTrack) {
 	
 	ga('send', 'pageview');
 }
-</script><meta property="og:title" content="笔记" />
-<meta property="og:description" content="输出大于输入，知识是用来解释问题，解决问题，预测问题" />
+</script><meta property="og:title" content="算法" />
+<meta property="og:description" content="AlfredNing Blog" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://AlfredNing.github.io/note/" /><meta property="og:site_name" content="Alfreding" />
+<meta property="og:url" content="https://AlfredNing.github.io/tags/%E7%AE%97%E6%B3%95/" /><meta property="og:site_name" content="Alfreding" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="笔记"/>
-<meta name="twitter:description" content="输出大于输入，知识是用来解释问题，解决问题，预测问题"/>
+<meta name="twitter:title" content="算法"/>
+<meta name="twitter:description" content="AlfredNing Blog"/>
 
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "笔记",
-      "item": "https://AlfredNing.github.io/note/"
-    }
-  ]
-}
-</script>
 </head>
 
 <body class="list" id="top">
@@ -138,7 +123,7 @@ if (!doNotTrack) {
         <ul id="menu">
             <li>
                 <a href="https://AlfredNing.github.io/note/" title="📓笔记">
-                    <span class="active">📓笔记</span>
+                    <span>📓笔记</span>
                 </a>
             </li>
             <li>
@@ -170,28 +155,40 @@ if (!doNotTrack) {
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/tags/">🏷️标签</a></div>
   <h1>
-    笔记
+    算法
   </h1>
-  <div class="post-description">
-    输出大于输入，知识是用来解释问题，解决问题，预测问题
-  </div>
 </header>
 
-<article class="post-entry"> 
+<article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>编程
+    <h2>Kmp
     </h2>
   </header>
   <div class="entry-content">
-    <p></p>
+    <p>使用场景 多用于子串匹配问题
+流程 在暴力解的过程当中有加速
+定义： 在该位置之前的前缀与后缀的长度，但不能取到字符串的整体长度，定义为指标信息
+解释：
+对匹配串建立上述指标信息 匹配过程 求解证明 x-r 与 y-r’是相同，从i位置匹配match串等同于从match的q位置进行匹配
+i位置到r位置一定不能匹配match
+验证：假设i位置到r位置，有个k位置能够匹配match串，那就说明从k位置到x位置是相同的，也就是match串y位置之前字符串的一个后缀，此时，与next的数组定义违反，出现了一个更长的。假设不成立。
+next数组生成 match长度为M,时间复杂度为O(M)
+next[0] = -1;
+next[1] = 0;
+next[2] = 0位置和1位置决定;
+求i位置的next[i]时候，前面所有位置都已经准备好
+next证明 来到i位置next[i]最大为next[i&#43;1]&#43;1
+假设next[i]&gt;next[i-1] &#43; 1,
+那么说明next[i-1]求解错误，矛盾，不成立
+代码实现 public class Kmp { public static int getIndexOf(String s, String match) { if (s == null || match == null || match.length() &lt; 1 || s.length() &lt; match.length()) { return -1; } char[] strs = s.toCharArray(); char[] matchs = match....</p>
   </div>
-  <footer class="entry-footer">创建:&nbsp;<span title='2023-01-08 00:00:00 +0000 UTC'>2023年-01月-08日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-01月-08日&nbsp;|&nbsp;字数:&nbsp;0字&nbsp;|&nbsp;时长:&nbsp;0分钟&nbsp;|&nbsp;AlfredNing
+  <footer class="entry-footer">创建:&nbsp;<span title='2023-01-09 00:00:00 +0000 UTC'>2023年-01月-09日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-01月-09日&nbsp;|&nbsp;字数:&nbsp;232字&nbsp;|&nbsp;时长:&nbsp;2分钟&nbsp;|&nbsp;AlfredNing
 
 
 </footer>
-  <a class="entry-link" aria-label="post link to 编程" href="https://AlfredNing.github.io/note/program/"></a>
+  <a class="entry-link" aria-label="post link to Kmp" href="https://AlfredNing.github.io/note/program/algorithm/kmp/"></a>
 </article>
     </main>
     
