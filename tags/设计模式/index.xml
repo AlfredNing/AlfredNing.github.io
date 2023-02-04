@@ -5,7 +5,34 @@
     <link>https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
     <description>Recent content in 设计模式 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 16 Jan 2023 08:36:37 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Feb 2023 10:18:28 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>工厂模式-简单工厂模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 04 Feb 2023 10:18:28 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+      <description>任何可以产生对象的方法和类，都可以被称为工厂。
+创建型设计模式，父类提供创建对象的方法，允许子类决定实例化对象的类型
+分类 根据产品是具体产品还是具体工厂：
+简单工厂模式 工厂方法模式 根据工厂的抽象程度
+工厂方法模式 抽象工厂模式 简单工厂模式 只对不同类对象的创建进行了一层薄薄的封装，通过向工厂传递类型来指定要创建的对象。
+工厂方法模式 工厂方法模式将生产具体产品的任务分发给具体的产品工厂
+抽象工厂模式 针对不同产品的创建。在工厂方法模式下，在抽象工厂里面增加创建产品的接口，并在具体子工厂中实现产品的创建
+工厂模式代码示例合</description>
+    </item>
+    
+    <item>
+      <title>策略模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Fri, 03 Feb 2023 07:38:26 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <description>对于做同一件事有多种方法，Comparator接口。
+Context：环境类 Strategy: 抽象策略类 ConcreteStrategy: 具体策略类 使用场景 如果在一个系统里面有许多类，它们之间的区别仅在于它们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为。
+策略模式示例代码</description>
+    </item>
+    
     <item>
       <title>单例模式</title>
       <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
