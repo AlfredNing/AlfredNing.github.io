@@ -5,7 +5,19 @@
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 04 Feb 2023 10:18:28 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Feb 2023 15:50:55 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>门面模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 05 Feb 2023 15:50:55 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</guid>
+      <description>提供高层次的接口，统一门面对象进行，使得子系统易于使用。
+选择性的暴露方法
+角色分类：
+门面角色: 客户端可以调用这个角色的方法 子系统角色：可以同时有一个或者多个子系统 门面模式示例代码</description>
+    </item>
+    
     <item>
       <title>工厂模式</title>
       <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
