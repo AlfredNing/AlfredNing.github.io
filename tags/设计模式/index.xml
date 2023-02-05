@@ -5,7 +5,19 @@
     <link>https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
     <description>Recent content in 设计模式 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 05 Feb 2023 16:05:46 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Feb 2023 23:28:12 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>装饰者模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 05 Feb 2023 23:28:12 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>动态的将责任添加到对象上，动态添加功能。
+分类：
+父组件，供子组件使用 装饰者：组合其他组件，一部分功能是自己的，调用被装饰者，等同于保留被装饰者的功能 具体组件：实现具体方法 饮料添加各种配料，返回最终的价格。
+代码示例</description>
+    </item>
+    
     <item>
       <title>调停者模式</title>
       <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%B0%83%E5%81%9C%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
