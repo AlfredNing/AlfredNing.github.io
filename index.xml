@@ -5,7 +5,19 @@
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 05 Feb 2023 15:50:55 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Feb 2023 16:05:46 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>调停者模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%B0%83%E5%81%9C%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 05 Feb 2023 16:05:46 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%B0%83%E5%81%9C%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>门面模式对外，调停者模式对内
+对象的行为模式，调停者模式包装了一系列对象相互作用的方式，使得这些对象不必相互明显引用。从而使它们可以较松散地耦合。当这些对象中的某些对象之间的相互作用发生改变时，不会立即影响到其他的一些对象之间的相互作用。从而保证这些相互作用可以彼此独立地变化
+角色：
+抽象调停者角色 具体调停者角色 抽象同事类角色 具体公式类角色 示例代码</description>
+    </item>
+    
     <item>
       <title>门面模式</title>
       <link>https://AlfredNing.github.io/note/program/design_pattern/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</link>
