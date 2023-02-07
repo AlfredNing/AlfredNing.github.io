@@ -5,7 +5,20 @@
     <link>https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
     <description>Recent content in 设计模式 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 07 Feb 2023 20:13:12 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Feb 2023 20:29:05 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>享元模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 07 Feb 2023 20:29:05 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 对象的结构模式，以共享的方式高效的支持大量的细粒度对象
+java中String类型就是享元模式 享元模式采用一个共享来避免大量拥有相同内容对象的开销
+分类 单纯享元模式 所有的享元对象都是可以共享的
+角色：
+抽象享元(Flyweight)角色：抽象接口 具体享元(ConcreteFlyweight)角色：实现抽象享元角色所规定出的接口 享元工厂(FlyweightFactory)角色：本角色负责创建和管理享元角色 复合享元模式 抽象享元(Flyweight)角色：抽象接口 具体享元(ConcreteFlyweight)角色：实现抽象享元角色所规定出的接口 复合享元角色：复合享元角色所代表的对象是不可以共享的，但是一个复合享元对象可以分解成为多个本身是单纯享元对象的组合。复合享元角色又称作不可共享的享元对象 享元工厂(FlyweightFactory)角色：本角色负责创建和管理享元角色 </description>
+    </item>
+    
     <item>
       <title>组合模式</title>
       <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</link>
