@@ -5,7 +5,18 @@
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 07 Feb 2023 20:48:23 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Feb 2023 20:57:19 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>迭代器模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 07 Feb 2023 20:57:19 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 迭代器模式又叫做游标模式，作用：提供一种方法访问一个容器元素中的各个对象，而又不暴露该对象的内部细节
+角色：
+迭代器角色 具体迭代器角色 容器角色 具体容器角色 </description>
+    </item>
+    
     <item>
       <title>代理模式</title>
       <link>https://AlfredNing.github.io/note/program/design_pattern/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</link>
