@@ -7,6 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 06 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/program/design_pattern/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>组合模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 07 Feb 2023 20:13:12 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</guid>
+      <description>描述部分与整体的关系，组装树形结构
+角色 抽象构件角色 树叶构件角色 树枝构件角色 分类 透明式：在该方式中，由于抽象构件声明了所有子类中的全部方法，所以客户端无须区别树叶对象和树枝对象，对客户端来说是透明的 安全式：在该方式中，将管理子构件的方法移到树枝构件中，抽象构件和树叶构件没有对子对象的管理方法，这样就避免了上一种方式的安全性问题，但由于叶子和分支有不同的接口，客户端在调用时要知道树叶对象和树枝对象的存在，所以失去了透明性 组合模式代码</description>
+    </item>
+    
+    <item>
       <title>观察者模式</title>
       <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 19:50:02 +0800</pubDate>
