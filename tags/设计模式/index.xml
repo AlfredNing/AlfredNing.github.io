@@ -5,7 +5,20 @@
     <link>https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
     <description>Recent content in 设计模式 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 07 Feb 2023 20:29:05 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Feb 2023 20:48:23 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>代理模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 07 Feb 2023 20:48:23 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</guid>
+      <description>代理模式是一种使用代理对象来执行目标对象的方法并在代理对象中增强目标对象方法的一种设计模式
+静态代理 动态代理 静态代理的特点如下：
+使用静态代理时，通常客户类不需要感知RealSubject。 静态代理的缺点：代理对象需要与目标对象实现一样的接口，因此接口较多时需要定义和维护大量的代理类代码。 与适配器的差异：适配器通常考虑改变接口形态，而代理则不会也不能改变接口形态。 与装饰器的差异：被代理对象由代理对象创建，客户端甚至不需要知道被代理类的存在；被装饰对象则由客户端创建并传给装饰对象，可以层层嵌套，层层装饰。代理模式常用于控制被代理对象的访问，而装饰模式是增加被装饰者的功能。
+JDK动态代理的特点如下：
+通过实现InvocationHandler接口完成代理逻辑。 通过反射代理方法，比较消耗系统性能，但可以减少代理类的数量，使用更灵活。 代理类必须实现接口。 代理模式</description>
+    </item>
+    
     <item>
       <title>享元模式</title>
       <link>https://AlfredNing.github.io/note/program/design_pattern/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</link>
