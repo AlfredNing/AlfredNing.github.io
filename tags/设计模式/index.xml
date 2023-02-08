@@ -5,7 +5,18 @@
     <link>https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
     <description>Recent content in 设计模式 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 08 Feb 2023 08:11:47 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Feb 2023 22:36:18 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>桥接模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Wed, 08 Feb 2023 22:36:18 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <description>将抽象部分与实现部分相分离，使他们都可以独立的变化。结构式模式
+角色 实现接口 抽象接口 具体实现 具体抽象实现 应用 具体到实际应用上，需要将抽象与实现分离开来，对客户端无感知的一种行为。
+示例代码</description>
+    </item>
+    
     <item>
       <title>适配器模式</title>
       <link>https://AlfredNing.github.io/note/program/design_pattern/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
