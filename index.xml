@@ -5,7 +5,20 @@
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 09 Feb 2023 21:37:39 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Feb 2023 21:50:27 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>模板方法模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 09 Feb 2023 21:50:27 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</guid>
+      <description>类的行为模式。使用示例：Servlet的应用
+抽象类：将部分逻辑以具体的方法以及具体的构造函数的形式实现。然后声明一些抽象方法来迫使子类实现剩余的逻辑。不同的子类可以以不同的实现方式实现这些抽象方法，从而对剩余逻辑有不同的实现。
+模板方法所代表的行为称为顶级行为，其逻辑称为顶级逻辑
+角色 抽象模板：顶层逻辑骨架 具体模板：具体实现顶层逻辑 子类可以置换掉父类的可变部分，但是子类却不可以改变模板方法所代表的顶级逻辑
+方法 模板方法：一个抽象类可以有任意多个模板方法，而不限于一个。每一个模板方法都可以调用任意多个具体方法 基本方法： 抽象方法：一个抽象方法由抽象类声明，由具体子类实现 具体方法：一个具体方法由抽象类声明并实现，而子类并不实现或置换 钩子方法：一个钩子方法由抽象类声明并实现，而子类会加以扩展。通常抽象类给出的实现是一个空实现，作为方法的默认实现 示例代码</description>
+    </item>
+    
     <item>
       <title>备忘录模式</title>
       <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/</link>
