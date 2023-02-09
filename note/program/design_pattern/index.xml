@@ -7,6 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 06 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/program/design_pattern/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>解释器模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 09 Feb 2023 23:18:43 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <description>解释器模式是类的行为模式。给定一个语言之后，解释器模式可以定义出其文法的一种表示，并同时提供一个解释器。客户端可以使用这个解释器来解释这个语言中的句子
+角色 抽象表达式(Expression)角色：声明一个所有的具体表达式角色都需要实现的抽象接口。这个接口主要是一个interpret()方法，称做解释操作 终结符表达式(Terminal Expression)角色：实现了抽象表达式角色所要求的接口 非终结符表达式(Nonterminal Expression)角色：文法中的每一条规则都需要一个具体的非终结符表达式 环境(Context)角色：这个角色的任务一般是用来存放文法中各个终结符所对应的具体值 示例代码</description>
+    </item>
+    
+    <item>
       <title>状态模式</title>
       <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 09 Feb 2023 22:12:21 +0800</pubDate>
