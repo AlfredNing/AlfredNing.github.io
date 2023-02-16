@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>笔记 on AlfredNing</title>
-    <link>https://AlfredNing.github.io/note/</link>
-    <description>Recent content in 笔记 on AlfredNing</description>
+    <title>http on AlfredNing</title>
+    <link>https://AlfredNing.github.io/tags/http/</link>
+    <description>Recent content in http on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Feb 2023 12:22:58 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTTP权威指南</title>
       <link>https://AlfredNing.github.io/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</link>

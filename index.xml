@@ -5,7 +5,43 @@
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 09 Feb 2023 23:36:46 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Feb 2023 12:22:58 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTP权威指南</title>
+      <link>https://AlfredNing.github.io/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Wed, 15 Feb 2023 12:22:58 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</guid>
+      <description>Web的基础 HTTP概述 http使用的是可靠的数据传输协议 组成 web客户端 类似浏览器
+web服务器： 通常web服务器使用http协议，通常成为http服务器
+资源 Web服务器是Web资源（Web resource）的宿主。Web资源是Web内容的源头。资源并不一定非的是静态文件，根据需要生成的软件程序
+html文件 word文件 其它任何格式 媒体类型 MIME类型(MIME TYPE) ： 数据格式标签，最初是用于解决在不同的电子邮件系统中之间搬移报文时候存在的问题，http借鉴了。weu服务器会为所有的http对象数据附近一个MIME类型（Content-Type,Content-Length)
+URI 每一个web服务服务器资源名都有一个名字，被称为统一资源标识符(Uniform Resouce Identifier)，具有两种形式URL、URN
+URL: 统一资源定位符 HTTP 协议 + 地址 + 某个资源
+URN： 统一资源名 URN是作为特定内容的唯一名称使用的，与目前的资源所在地无关
+事务 </description>
+    </item>
+    
+    <item>
+      <title>Jvm初识</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/jvm%E5%88%9D%E8%AF%86/</link>
+      <pubDate>Tue, 14 Feb 2023 07:58:50 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/jvm%E5%88%9D%E8%AF%86/</guid>
+      <description>JDK关系 Oracle JDK 与 Open JDK 关系
+Oracle JDK是由oracle 公司开发的，Open JDK 是由IBM，Apple，SAP AG，Redhat等顶级公司合作开发 Oracle JDK大多数的功能是开源的，一些功能是开源。Open JDK完全开源 Oracle JDK以前的1.0版以前的版本是由Sun开发的，后来被Oracle收购并为其他版本维护，而OpenJDK最初只基于Java SDK或JDK版本7 Oracle JDK不会为即将发布的版本提供长期支持，用户每次都必须通过更新到最新版本获得支持来获取最新版本 Oracle JDK将从其10.0.X版本将收费，用户必须付费或必须依赖OpenJDK才能使用其免费版本 Oracle JDK在运行JDK时不会产生任何问题，而OpenJDK在为某些用户运行JDK时会产生一些问题 在响应性和JVM性能方面，Oracle JDK与OpenJDK相比提供了更好的性能 Oracle JDK具有良好的GC选项和更好的渲染器，而OpenJDK具有更少的GC选项，并且由于其包含自己的渲染器的分布，因此具有较慢的图形渲染器选项 Oracle JDK的构建过程基于OpenJDK，因此OpenJDK与Oracle JDK之间没有技术差异 Oracle JDK将更多地关注稳定性，它重视更多的企业级用户，而OpenJDK经常发布以支持其他性能，这可能会导致不稳定 JDK与JVM的关系 JDK: Java Development ToolKit(java开发工具包)。JDK是整个java的核心，包括了运行环境，java工具和java的基础类库。
+jvm:Java Virtual Machine(java虚拟机)。通过在实际的计算机上模拟仿真各种计算机功能来实现。
+使用JDK（调用JAVA API）开发JAVA程序后，通过JDK中的编译程序（javac）将Java程序编译为Java字节码，在JRE上运行这些字节码，JVM会解析并映射到真实操作系统的CPU指令集和OS的系统调用
+如何理解java是跨平台的语言 当java的源代码经过编译程序编译成字节码，需要运行在不同的平台上面时，无需编译。
+如何理解JVM是跨语言的平台 jvm面对的是字节码文件，只关心字节码文件，不关心何种编程语言，只要实现jvm规范即可。Java不是最强大的语言，但是JVM是最强大的虚拟机。
+JVM的类型 Sun Classic VM &amp;ndash;&amp;gt;解释型
+Exact VM &amp;ndash;&amp;gt; Solaris
+SUN公司的 HotSpot VM
+BEA 的 JRockit &amp;ndash;&amp;gt; 不包含解释器，服务器端，JMC
+IBM 的 J9
+KVM和CDC/CLDC Hotspot</description>
+    </item>
+    
     <item>
       <title>设计原则</title>
       <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</link>
