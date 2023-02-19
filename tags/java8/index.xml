@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>java8 on AlfredNing</title>
+    <link>https://AlfredNing.github.io/tags/java8/</link>
+    <description>Recent content in java8 on AlfredNing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 18 Feb 2023 12:47:59 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/java8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java8</title>
+      <link>https://AlfredNing.github.io/note/program/java/java8/</link>
+      <pubDate>Sat, 18 Feb 2023 12:47:59 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/java/java8/</guid>
+      <description>新特性 lambda表达式 方法引用 函数接口 流式处理 新日期时间API Optional类 新工具、JavaScript执行引擎 javaFx 函数编程 lambda表达式 想要在代码块以后某个时间点执行 可以转换为函数式接口 闭包作用域中有效访问final变量 任何一个lambda表达式都可以转换为所使用API中对应的函数式接口，注意：lambda表达式转换为函数式接口时候，注意检查期异常 不允许声明一个与局部变量同名的参数或者局部变量 lambda使用this,创建该lambda表达式方法的参数 组成 可选的类型声明 可选的参数小括号 可选的大括号 可选的返回值【只有一句表达式可以省略】 功能 内联功能的实现
+注意 变量引用不可变，实际内容可变
+函数接口 只包含一个抽象方法的接口，可以通过lambda表达式创建该接口的对象
+方法引用 方法引用用其名称指向方法
+引用符号:: 指向方法
+对象::实例方法 类:: 静态方法 类::实例方法（第一个参数会成为执行方法的对象) 构造器引用 类::new
+java中无法构造一个泛型类型T的数组，但可以通过数组引用解决。
+例如：stream.toArray(Class::new)
+默认方法 类优先原则
+接口中有一个默认方法，一个类也有同名的方法。另一个类继承了父类，实现了该接口。这种情况下，只有父类的方法会起作用。 出于兼容性，这样在接口中添加方法，不会对以前的编写的代码产生影响。不能对Object的方法定义默认方法
+静态方法 为接口添加静态方法
+Stream API 原则：做什么，而不是怎么做
+Stream不会自己存储元素。元素可能被存储在底层的集合当中，或者根据需要产生出来 Stream操作符不会改变源对象的。相反，他们会返回一个持有结果的新Stream Stream操作符可能是延迟执行的。意味着他们等到需要结果的时候才执行 Stream使用三阶段 创建Stream 中间操作 终止操作产生结果 创建Stream Stream.of() Arrays.Stream 可选长度参数
+空Stream: Stream.Empty()
+Stream.generate(Supplier func);
+Stream.iterate(seed, operator)
+Pattern类的splitAsStream
+Files.lines(path) : 记得使用try-with-resources语句</description>
+    </item>
+    
+  </channel>
+</rss>
