@@ -18,7 +18,20 @@ Pattern类的splitAsStream
 Files.lines(path) : 记得使用try-with-resources语句...</p></div><footer class=entry-footer>创建:&nbsp;<span title='2023-02-18 12:47:59 +0800 +0800'>2023年-02月-18日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-02月-18日&nbsp;|&nbsp;字数:&nbsp;378字&nbsp;|&nbsp;时长:&nbsp;2分钟&nbsp;|&nbsp;AlfredNing</footer><a class=entry-link aria-label="post link to Java8" href=https://AlfredNing.github.io/note/program/java/java8/></a></article><article class=post-entry><header class=entry-header><h2>字节码文件</h2></header><div class=entry-content><p>字节码文件 字节码文件 字节码文件跨平台 JVM实现遵守JVM虚拟机规范，所有JVM的环境都是一样的，所以字节码文件可以在各种虚拟机上执行
 通过Class文件，更多的计算机语言支持Java虚拟机平台。Class文件不仅仅是Java虚拟机的执行入口，更是Java生态圈的核心
 字节码文件内容 源代码经过编译器生成一个字节码文件，字节码文件是一种二进制的文件，内容是JVM的指令，而C/C++由编译器直接生成机器码。随着Java平台的不断发展，在将来，Class文件的内容也一定会做进一步的扩充，但是其基本的格式和结构不会做重大调整
-字节码文件编译器 作用范围</p></div><footer class=entry-footer>创建:&nbsp;<span title='2023-02-17 08:01:55 +0800 +0800'>2023年-02月-17日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-02月-17日&nbsp;|&nbsp;字数:&nbsp;9字&nbsp;|&nbsp;时长:&nbsp;1分钟&nbsp;|&nbsp;AlfredNing</footer><a class=entry-link aria-label="post link to 字节码文件" href=https://AlfredNing.github.io/note/program/jvm/%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6/></a></article><article class=post-entry><header class=entry-header><h2>Jvm初识</h2></header><div class=entry-content><p>JDK关系 Oracle JDK 与 Open JDK 关系
+字节码文件编译器 作用范围 编译器种类 前端编译器
+javac (全量编译器)/Eclipse中的ECJ Eclipse Compiler for Java （增量编译器） 主要任务：将java源代码转化为符合jvm规范的字节码文件 劣势：前端编译器并不会直接涉及编译优化等方面的技术，而是将这些具体优化细节移交给HotSpot的JIT编译器负责 后端编译器
+AOT(静态提前编译器，Ahead Of Time Compiler)
+jdk9引入了AOT编译器(静态提前编译器，Ahead Of Time Compiler)
+Java 9 引入了实验性 AOT 编译工具jaotc。它借助了 Graal 编译器，将所输入的 Java 类文件转换为机器码，并存放至生成的动态共享库之中。
+所谓 AOT 编译，是与即时编译相对立的一个概念。我们知道，即时编译指的是在程序的运行过程中，将字节码转换为可在硬件上直接运行的机器码，并部署至托管环境中的过程。而 AOT 编译指的则是，在程序运行之前，便将字节码转换为机器码的过程。
+.java -> .class -> .so
+最大好处：Java虚拟机加载已经预编译成二进制库，可以直接执行。不必等待即时编译器的预热，减少Java应用给人带来“第一次运行慢”的不良体验。
+缺点：
+破坏了java“一次编译，到处运行”，必须为每个不同硬件、OS编译对应的发行包。 降低了Java链接过程的动态性，加载的代码在编译期就必须全部已知。 还需要继续优化中，最初只支持Linux x64 java base
+类的class对象 外部类，成员(成员内部类，静态内部类)，局部内部类，匿名内部类 接口 数组 枚举 注解 基本数据类型 void 字节码指令 Java虚拟机的指令是由一个字节长度、代表着某种特定操作含义的操作码[opcode]以及跟随其后的零至多个代表此操作所需操作数的操作数[operand]组成。虚拟机中许多指令并不包含操作数，只有一个操作码
+字节码相关面试
+idea插件：jclasslib
+import org.testng.annotations.Test; /** * @author Alfred....</p></div><footer class=entry-footer>创建:&nbsp;<span title='2023-02-17 08:01:55 +0800 +0800'>2023年-02月-17日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-02月-17日&nbsp;|&nbsp;字数:&nbsp;765字&nbsp;|&nbsp;时长:&nbsp;4分钟&nbsp;|&nbsp;AlfredNing</footer><a class=entry-link aria-label="post link to 字节码文件" href=https://AlfredNing.github.io/note/program/jvm/%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6/></a></article><article class=post-entry><header class=entry-header><h2>Jvm初识</h2></header><div class=entry-content><p>JDK关系 Oracle JDK 与 Open JDK 关系
 Oracle JDK是由oracle 公司开发的，Open JDK 是由IBM，Apple，SAP AG，Redhat等顶级公司合作开发 Oracle JDK大多数的功能是开源的，一些功能是开源。Open JDK完全开源 Oracle JDK以前的1.0版以前的版本是由Sun开发的，后来被Oracle收购并为其他版本维护，而OpenJDK最初只基于Java SDK或JDK版本7 Oracle JDK不会为即将发布的版本提供长期支持，用户每次都必须通过更新到最新版本获得支持来获取最新版本 Oracle JDK将从其10.0.X版本将收费，用户必须付费或必须依赖OpenJDK才能使用其免费版本 Oracle JDK在运行JDK时不会产生任何问题，而OpenJDK在为某些用户运行JDK时会产生一些问题 在响应性和JVM性能方面，Oracle JDK与OpenJDK相比提供了更好的性能 Oracle JDK具有良好的GC选项和更好的渲染器，而OpenJDK具有更少的GC选项，并且由于其包含自己的渲染器的分布，因此具有较慢的图形渲染器选项 Oracle JDK的构建过程基于OpenJDK，因此OpenJDK与Oracle JDK之间没有技术差异 Oracle JDK将更多地关注稳定性，它重视更多的企业级用户，而OpenJDK经常发布以支持其他性能，这可能会导致不稳定 JDK与JVM的关系 JDK: Java Development ToolKit(java开发工具包)。JDK是整个java的核心，包括了运行环境，java工具和java的基础类库。
 jvm:Java Virtual Machine(java虚拟机)。通过在实际的计算机上模拟仿真各种计算机功能来实现。
 使用JDK（调用JAVA API）开发JAVA程序后，通过JDK中的编译程序（javac）将Java程序编译为Java字节码，在JRE上运行这些字节码，JVM会解析并映射到真实操作系统的CPU指令集和OS的系统调用

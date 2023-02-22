@@ -41,7 +41,20 @@ Files.lines(path) : 记得使用try-with-resources语句</description>
       <description>字节码文件 字节码文件 字节码文件跨平台 JVM实现遵守JVM虚拟机规范，所有JVM的环境都是一样的，所以字节码文件可以在各种虚拟机上执行
 通过Class文件，更多的计算机语言支持Java虚拟机平台。Class文件不仅仅是Java虚拟机的执行入口，更是Java生态圈的核心
 字节码文件内容 源代码经过编译器生成一个字节码文件，字节码文件是一种二进制的文件，内容是JVM的指令，而C/C++由编译器直接生成机器码。随着Java平台的不断发展，在将来，Class文件的内容也一定会做进一步的扩充，但是其基本的格式和结构不会做重大调整
-字节码文件编译器 作用范围 </description>
+字节码文件编译器 作用范围 编译器种类 前端编译器
+javac (全量编译器)/Eclipse中的ECJ	Eclipse Compiler for Java （增量编译器） 主要任务：将java源代码转化为符合jvm规范的字节码文件 劣势：前端编译器并不会直接涉及编译优化等方面的技术，而是将这些具体优化细节移交给HotSpot的JIT编译器负责 后端编译器
+AOT(静态提前编译器，Ahead Of Time Compiler)
+jdk9引入了AOT编译器(静态提前编译器，Ahead Of Time Compiler)
+Java 9 引入了实验性 AOT 编译工具jaotc。它借助了 Graal 编译器，将所输入的 Java 类文件转换为机器码，并存放至生成的动态共享库之中。
+所谓 AOT 编译，是与即时编译相对立的一个概念。我们知道，即时编译指的是在程序的运行过程中，将字节码转换为可在硬件上直接运行的机器码，并部署至托管环境中的过程。而 AOT 编译指的则是，在程序运行之前，便将字节码转换为机器码的过程。
+.java -&amp;gt; .class -&amp;gt; .so
+最大好处：Java虚拟机加载已经预编译成二进制库，可以直接执行。不必等待即时编译器的预热，减少Java应用给人带来“第一次运行慢”的不良体验。
+缺点：
+破坏了java“一次编译，到处运行”，必须为每个不同硬件、OS编译对应的发行包。 降低了Java链接过程的动态性，加载的代码在编译期就必须全部已知。 还需要继续优化中，最初只支持Linux x64 java base
+类的class对象 外部类，成员(成员内部类，静态内部类)，局部内部类，匿名内部类 接口 数组 枚举 注解 基本数据类型 void 字节码指令 Java虚拟机的指令是由一个字节长度、代表着某种特定操作含义的操作码[opcode]以及跟随其后的零至多个代表此操作所需操作数的操作数[operand]组成。虚拟机中许多指令并不包含操作数，只有一个操作码
+字节码相关面试
+idea插件：jclasslib
+import org.testng.annotations.Test; /** * @author Alfred.</description>
     </item>
     
     <item>
