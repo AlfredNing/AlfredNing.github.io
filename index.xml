@@ -5,7 +5,24 @@
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 18 Feb 2023 12:47:59 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Feb 2023 20:16:54 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>类的加载</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/</link>
+      <pubDate>Thu, 23 Feb 2023 20:16:54 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/</guid>
+      <description>类的加载过程 Java数据类型分为数据基本数据类型和引用数据类型
+基本类型由虚拟机预先定义，引用类型需要进行类的加载
+类的加载大过程分为三步, 总过程七步
+装载 将java的class文件加载到机器内存，并在内存中构建出Java类的原型-类模板对象
+查找类的二进制文件，生成class实例
+加载类，需要完成以下三件事情：
+通过类的全名，获取类的二进制数据流 解析类的二进制数据流转换为方法区的数据结构(Java类模型) 创建java.lang.class类的实例，表示该类型 类模板对象 Java类在内存中的一个快照，JVM从字节码文件解析出来的常量池、类字段、类方法等类信息存储到类模板中。在运行期通过类模板获取Java类的任意信息，能够对Java类的成员变量进行遍历，进行方法调用。反射机制也是基于此，如果没有存储Java类的声明信息，JVM在运行期也无法进行反射
+获取二进制数据流 class字节码文件符号JVM规范
+通过读取class后缀的文件 读入jar、zip等归档数据包，提取类文件(热部署jar包原理基础) 事先存放在数据库的二进制数据 使用类型Http之类的协议通过网络进行加载 在运行时生成一段class的二进制信息等 class实例位置 类将.class文件加载至元空间后，会在堆中创建一个Java.lang.Class对象，用来封装类位于方法区内的数据结构，该Class对象是在加载类的过程中创建的，每个类都对应有一个Class类型的对象 数组类的加载 数组类本身不是由类加载器负责创建，而是由JVM在运行时根据需要去创建。加载器只负责加载数据元素的数据类型(基本数据类型和引用数据类型)，申请内存分配长度</description>
+    </item>
+    
     <item>
       <title>Java8</title>
       <link>https://AlfredNing.github.io/note/program/java/java8/</link>
