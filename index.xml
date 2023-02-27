@@ -5,7 +5,26 @@
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 27 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Feb 2023 21:33:26 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>运行时内存</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/</link>
+      <pubDate>Mon, 27 Feb 2023 21:33:26 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/</guid>
+      <description>jvm内存结构图
+哪些内存结构与线程意义对应，其实问的是线程共有和私有 共有： 堆和方法区 私有： 本地方法栈、虚拟机栈、程序计数器
+程序计数器 保证程序在程序系统中能够执行下去，CPU必须具有某些手段来确定下一条指令的地址。而程序计数器正是起到这种作用，所以通常又称为指令计数器 一条指令的地址。而程序计数器正是起到这种作用，所以通常又称为指令计数器。 在程序开始执行前，必须将它的起始地址，即程序的一条指令所在的内存单元地址送入PC，因此程序计数器（PC）的内容即是从内存提取的第一条指令的地址。当执行指令时，CPU将自动修改PC的内容，即每执行一条指令PC增加一个量，这个量等于指令所含的字节数，以便使其保持的总是将要执行的下一条指令的地址 由于大多数指令都是按顺序来执行的，所以修改的过程通常只是简单的对PC加1 当程序转移时，转移指令执行的最终结果就是要改变PC的值，此PC值就是转去的地址，以此实现转移。有些机器中也称PC为指令指针IP（Instruction Pointer） 特征 JVM中的程序计数寄存器（Program Counter Register）中， Register 的命名源于CPU的寄存器，寄存器存储指令相关的现场信息。 CPU只有把数据装载到寄存器才能够运行。
+JVM中的PC寄存器是对物理PC寄存器的一种抽象模拟
+很小的内存结构，忽略不计，也是运行最快的存储区域，不会随着程序的运行需要更大的空间 在JVM规范中，每个线程都有自己的程序计数器，是线程私有的，生命周期与线程生命周期保持一致 它是唯一一个在JVM虚拟机规范中没有规定任何OutOtMemoryError 情况的区域 问题 为什么使用PC寄存器来记录当前线程的执行地址 因为CPU需要不停的切换各个线程，准确知道执行的位置。JVM的字节码解释器就需要通过改变PC寄存器的值来明确下一条应该执行什么样的字节码指令 PC寄存器为什么被设置为线程私有 多线程在一个特定的时间段内之会执行某一个线程的方法，CPU需要不停的做任务切换**。为了准确记录各个线程正在执行的当前字节码指令，最好的办法就是为每一个线程分配PC寄存器**，这样一来各个线程之间便可以进行独立计算，从而不会出现相互干扰的情况 虚拟机栈 栈管运行，堆管内存
+栈解决程序的运行问题，即程序如何执行，或者说如何处理数据。堆解决的是数据存储的问题，即数据怎么放、放在哪儿
+栈是否有GC？ 不存在GC, 但有OOM
+抛出的异常：
+StackOverFlowError OutOfMemoryError Java 虚拟机规范允许Java栈的大小是动态的或者是固定不变的 如果采用固定大小的Java虚拟机栈，那每一个线程的Java虚拟机栈容量可以在线程创建的时候独立选定。如果线程请求分配的栈容量超过Java虚拟机栈允许的最大容量，Java虚拟机将会抛出一个 StackOverflowError 异常 如果Java虚拟机栈可以动态扩展，并且在尝试扩展的时候无法申请到足够的内存，或者在创建新的线程时没有足够的内存去创建对应的虚拟机栈，那Java虚拟机将会抛出—个 OutOfMemoryError 异常 设置栈大小 -Xss size (即：-XX:ThreadStackSize)
+一般为：512k-1M 栈的大小直接决定了函数调用的最大深度 设置的栈空间值过大，会导致系统可以用于创建线程的数量减少 一般一个进程中通常有3000-5000个线程
+栈帧 栈的基本单位是栈帧</description>
+    </item>
+    
     <item>
       <title>类的加载</title>
       <link>https://AlfredNing.github.io/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/</link>
@@ -46,10 +65,10 @@ Java程序的主动使用
     
     <item>
       <title>Java8</title>
-      <link>https://AlfredNing.github.io/note/program/java/java8/</link>
+      <link>https://AlfredNing.github.io/note/program/java8/java8/</link>
       <pubDate>Sat, 18 Feb 2023 12:47:59 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/java/java8/</guid>
+      <guid>https://AlfredNing.github.io/note/program/java8/java8/</guid>
       <description>新特性 lambda表达式 方法引用 函数接口 流式处理 新日期时间API Optional类 新工具、JavaScript执行引擎 javaFx 函数编程 lambda表达式 想要在代码块以后某个时间点执行 可以转换为函数式接口 闭包作用域中有效访问final变量 任何一个lambda表达式都可以转换为所使用API中对应的函数式接口，注意：lambda表达式转换为函数式接口时候，注意检查期异常 不允许声明一个与局部变量同名的参数或者局部变量 lambda使用this,创建该lambda表达式方法的参数 组成 可选的类型声明 可选的参数小括号 可选的大括号 可选的返回值【只有一句表达式可以省略】 功能 内联功能的实现
 注意 变量引用不可变，实际内容可变
 函数接口 只包含一个抽象方法的接口，可以通过lambda表达式创建该接口的对象
