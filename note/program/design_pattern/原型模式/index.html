@@ -21,7 +21,7 @@ Java中的克隆方法 Java的所有类都是从java.lang.Object类继承而来�
 Java语言提供的Cloneable接口只起一个作用，就是在运行时期通知Java虚拟机可以安全地在这个类上使用clone()方法。通过调用这个clone()方法可以得到一个对象的复制。由于Object类本身并不实现Cloneable接口，因此如果所考虑的类没有实现Cloneable接口时，调用clone()方法会抛出CloneNotSupportedException异常。
 原型模式的优点 原型模式允许在运行时动态改变具体的实现类型。原型模式可以在运行期间，由客户来注册符合原型接口的实现类型，也可以动态地改变具体的实现类型，看起来接口没有任何变化，但其实运行的已经是另外一个类实例了。因为克隆一个原型就类似于实例化一个类。
 原型模式的缺点 原型模式最主要的缺点是每一个类都必须配备一个克隆方法。配备克隆方法需要对类的功能进行通盘考虑，这对于全新的类来说不是很难，而对于已经有的类不一定很容易，特别是当一个类引用不支持序列化的间接对象，或者引用含有循环结构的时候。
-示例代码"><meta property="og:type" content="article"><meta property="og:url" content="https://AlfredNing.github.io/note/program/design_pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"><meta property="article:section" content="note"><meta property="article:published_time" content="2023-02-09T08:54:46+08:00"><meta property="article:modified_time" content="2023-02-09T08:54:46+08:00"><meta property="og:site_name" content="Alfreding"><meta name=twitter:card content="summary"><meta name=twitter:title content="原型模式"><meta name=twitter:description content="对象的创建模式。通过一个原型对象来指明所有创建的对象的类型，然后复用这个原型对象的方法来创建出更多同类型的对象。
+示例代码"><meta property="og:type" content="article"><meta property="og:url" content="https://AlfredNing.github.io/note/program/design_pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"><meta property="article:section" content="note"><meta property="article:published_time" content="2023-02-09T08:54:46+08:00"><meta property="article:modified_time" content="2023-02-09T08:54:46+08:00"><meta property="og:site_name" content="Alfred.Ning"><meta name=twitter:card content="summary"><meta name=twitter:title content="原型模式"><meta name=twitter:description content="对象的创建模式。通过一个原型对象来指明所有创建的对象的类型，然后复用这个原型对象的方法来创建出更多同类型的对象。
 实现一个自身可以克隆的接口
 分类 简单形式 角色：
 客户角色 抽象原型角色 具体原型角色 登记形式 角色：

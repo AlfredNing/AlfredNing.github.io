@@ -57,7 +57,7 @@ Java程序的主动使用
 当调用类的静态方法时，即当使用了字节码invokestatic指令。
 当使用类、接口的静态字段时(final修饰特殊考虑)，比如，使用getstatic或者putstatic指令。
 当使用java.lang.reflect包中的方法反射类的方法时。比如：Class.forName(&ldquo;com.atguigu.java.Test&rdquo;)
-当初始化子类时，如果发现其父类还没有进行过初始化，则需要先触发其父类的初始化。"><meta property="og:type" content="article"><meta property="og:url" content="https://AlfredNing.github.io/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/"><meta property="article:section" content="note"><meta property="article:published_time" content="2023-02-23T20:16:54+08:00"><meta property="article:modified_time" content="2023-02-23T20:16:54+08:00"><meta property="og:site_name" content="Alfreding"><meta name=twitter:card content="summary"><meta name=twitter:title content="类的加载"><meta name=twitter:description content="类的加载过程 Java数据类型分为数据基本数据类型和引用数据类型
+当初始化子类时，如果发现其父类还没有进行过初始化，则需要先触发其父类的初始化。"><meta property="og:type" content="article"><meta property="og:url" content="https://AlfredNing.github.io/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/"><meta property="article:section" content="note"><meta property="article:published_time" content="2023-02-23T20:16:54+08:00"><meta property="article:modified_time" content="2023-02-23T20:16:54+08:00"><meta property="og:site_name" content="Alfred.Ning"><meta name=twitter:card content="summary"><meta name=twitter:title content="类的加载"><meta name=twitter:description content="类的加载过程 Java数据类型分为数据基本数据类型和引用数据类型
 基本类型由虚拟机预先定义，引用类型需要进行类的加载
 类的加载大过程分为三步, 总过程七步
 装载 将java的class文件加载到机器内存，并在内存中构建出Java类的原型-类模板对象

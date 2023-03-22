@@ -17,7 +17,7 @@
 违反了迪米特原则，因为具体元素对访问者公布细节； 违反了依赖倒置原则，依赖了具体类，没有依赖抽象； 对象结构变化困难，若对象结构发生了改变，访问者的接口和访问者的实现也都要发生相应的改变；
 使用场景：
 对象结构中对象对应的类很少改变，但经常需要在此对象结构上定义新的操作； 需要对一个对象结构中的对象进行很多不同的并且不相关的操作，而需要避免让这些操作&#34;污染&#34;这些对象的类，也不希望在增加新操作时修改这些类。
-访问者模式示例"><meta property="og:type" content="article"><meta property="og:url" content="https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/"><meta property="article:section" content="note"><meta property="article:published_time" content="2023-02-07T21:17:34+08:00"><meta property="article:modified_time" content="2023-02-07T21:17:34+08:00"><meta property="og:site_name" content="Alfreding"><meta name=twitter:card content="summary"><meta name=twitter:title content="访问者模式"><meta name=twitter:description content="对象的行为模式。在不修改已有程序的前提下，通过添加额外的访问者来完成对已有代码功能的提升。
+访问者模式示例"><meta property="og:type" content="article"><meta property="og:url" content="https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/"><meta property="article:section" content="note"><meta property="article:published_time" content="2023-02-07T21:17:34+08:00"><meta property="article:modified_time" content="2023-02-07T21:17:34+08:00"><meta property="og:site_name" content="Alfred.Ning"><meta name=twitter:card content="summary"><meta name=twitter:title content="访问者模式"><meta name=twitter:description content="对象的行为模式。在不修改已有程序的前提下，通过添加额外的访问者来完成对已有代码功能的提升。
 将数据结构与操作分离
 角色：
 抽象访问者: 声明了一个或者多个方法操作，形成所有的具体访问者角色必须实现的接口 具体访问者: 实现抽象访问者所声明的接口，也就是抽象访问者所声明的各个访问操作 抽象节点: 声明一个接受操作，接受一个访问者对象作为一个参数 具体节点: 实现了抽象节点所规定的接受操作 结构对象: 遍历结构的元素 访问者模式优点：
