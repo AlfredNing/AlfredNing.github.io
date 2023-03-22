@@ -16,10 +16,10 @@ minify:
 defaultContentLanguage: zh
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: Alfreding
-  description: "AlfredNing Blog"
+  title: Alfred.Ning
+  description: "Alfred.Ning Blog"
   keywords: [Blog, Portfolio, PaperMod]
-  author: AlfredNing
+  author: Alfred.Ning
   DateFormat: "2006年-01月-02日"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
