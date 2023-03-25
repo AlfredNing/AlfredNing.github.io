@@ -5,7 +5,20 @@
     <link>https://AlfredNing.github.io/tags/%E7%AE%97%E6%B3%95/</link>
     <description>Recent content in 算法 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Mar 2023 08:37:28 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>并查集</title>
+      <link>https://AlfredNing.github.io/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <pubDate>Sat, 25 Mar 2023 08:37:28 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <description>算法定义 有若干个样本a、c、d、e&amp;hellip; 类型假设是V
+在并查集一开始认为每个样本都在单独的集合里
+设计两个方法
+`isSameSet(V x, V y)： 查询两个样本x和有是否在同一个集合里面 union(V x, V y) : 把x和y各自所有集合的样本合并成一个集合 两个算法的时间复杂度越小越好
+算法流程 算法实现 import java.util.HashMap; import java.util.List; import java.util.Stack; /** * 并查集实现 * * @author Alfred.Ning * @since 2023年03月25日 09:23:00 */ public class UnionFindImpl { public static class Node&amp;lt;V&amp;gt; { V value; public Node(V v) { value = v; } } public static class UnionFind&amp;lt;V&amp;gt; { private HashMap&amp;lt;V, Node&amp;lt;V&amp;gt;&amp;gt; nodes; private HashMap&amp;lt;Node&amp;lt;V&amp;gt;, Node&amp;lt;V&amp;gt;&amp;gt; parents; private HashMap&amp;lt;Node&amp;lt;V&amp;gt;, Integer&amp;gt; sizeMap; public UnionFind(List&amp;lt;V&amp;gt; values) { nodes = new HashMap&amp;lt;&amp;gt;(); parents = new HashMap&amp;lt;&amp;gt;(); sizeMap = new HashMap&amp;lt;&amp;gt;(); for (V v : values) { Node&amp;lt;V&amp;gt; node = new Node&amp;lt;&amp;gt;(v); nodes.</description>
+    </item>
+    
     <item>
       <title>Kmp</title>
       <link>https://AlfredNing.github.io/note/program/algorithm/kmp/</link>
