@@ -6,5 +6,21 @@
     <description>Recent content in 笔记 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTP权威指南</title>
+      <link>https://AlfredNing.github.io/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Wed, 15 Feb 2023 12:22:58 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</guid>
+      <description>Web的基础 HTTP概述 http使用的是可靠的数据传输协议 组成 web客户端 类似浏览器
+web服务器： 通常web服务器使用http协议，通常成为http服务器
+资源 Web服务器是Web资源（Web resource）的宿主。Web资源是Web内容的源头。资源并不一定非的是静态文件，根据需要生成的软件程序
+html文件 word文件 其它任何格式 媒体类型 MIME类型(MIME TYPE) ： 数据格式标签，最初是用于解决在不同的电子邮件系统中之间搬移报文时候存在的问题，http借鉴了。weu服务器会为所有的http对象数据附近一个MIME类型（Content-Type,Content-Length)
+URI 每一个web服务服务器资源名都有一个名字，被称为统一资源标识符(Uniform Resouce Identifier)，具有两种形式URL、URN
+URL: 统一资源定位符 HTTP 协议 + 地址 + 某个资源
+URN： 统一资源名 URN是作为特定内容的唯一名称使用的，与目前的资源所在地无关
+事务 </description>
+    </item>
+    
   </channel>
 </rss>

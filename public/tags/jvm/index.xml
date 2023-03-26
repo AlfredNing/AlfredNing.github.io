@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>jvm on AlfredNing</title>
+    <link>https://AlfredNing.github.io/tags/jvm/</link>
+    <description>Recent content in jvm on AlfredNing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 27 Feb 2023 21:33:26 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>运行时内存</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/</link>
+      <pubDate>Mon, 27 Feb 2023 21:33:26 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/</guid>
+      <description>jvm内存结构图
+哪些内存结构与线程意义对应，其实问的是线程共有和私有 共有： 堆和方法区 私有： 本地方法栈、虚拟机栈、程序计数器
+程序计数器 保证程序在程序系统中能够执行下去，CPU必须具有某些手段来确定下一条指令的地址。而程序计数器正是起到这种作用，所以通常又称为指令计数器 一条指令的地址。而程序计数器正是起到这种作用，所以通常又称为指令计数器。 在程序开始执行前，必须将它的起始地址，即程序的一条指令所在的内存单元地址送入PC，因此程序计数器（PC）的内容即是从内存提取的第一条指令的地址。当执行指令时，CPU将自动修改PC的内容，即每执行一条指令PC增加一个量，这个量等于指令所含的字节数，以便使其保持的总是将要执行的下一条指令的地址 由于大多数指令都是按顺序来执行的，所以修改的过程通常只是简单的对PC加1 当程序转移时，转移指令执行的最终结果就是要改变PC的值，此PC值就是转去的地址，以此实现转移。有些机器中也称PC为指令指针IP（Instruction Pointer） 特征 JVM中的程序计数寄存器（Program Counter Register）中， Register 的命名源于CPU的寄存器，寄存器存储指令相关的现场信息。 CPU只有把数据装载到寄存器才能够运行。
+JVM中的PC寄存器是对物理PC寄存器的一种抽象模拟
+很小的内存结构，忽略不计，也是运行最快的存储区域，不会随着程序的运行需要更大的空间 在JVM规范中，每个线程都有自己的程序计数器，是线程私有的，生命周期与线程生命周期保持一致 它是唯一一个在JVM虚拟机规范中没有规定任何OutOtMemoryError 情况的区域 问题 为什么使用PC寄存器来记录当前线程的执行地址 因为CPU需要不停的切换各个线程，准确知道执行的位置。JVM的字节码解释器就需要通过改变PC寄存器的值来明确下一条应该执行什么样的字节码指令 PC寄存器为什么被设置为线程私有 多线程在一个特定的时间段内之会执行某一个线程的方法，CPU需要不停的做任务切换**。为了准确记录各个线程正在执行的当前字节码指令，最好的办法就是为每一个线程分配PC寄存器**，这样一来各个线程之间便可以进行独立计算，从而不会出现相互干扰的情况 虚拟机栈 栈管运行，堆管内存
+栈解决程序的运行问题，即程序如何执行，或者说如何处理数据。堆解决的是数据存储的问题，即数据怎么放、放在哪儿
+Java虚拟机栈（Java Virtual Machine Stack），早期也叫Java栈。每个线程在创建时都会创建一个虚拟机栈，其内部保存一个个的栈帧（Stack Frame），对应着一次次的Java方法调用。 是线程私有的 生命周期: 生命周期和线程一致。
+特点: 栈是一种快速有效的分配存储方式，访问速度仅次于程序计数器。
+栈是否有GC？ 不存在GC, 但有OOM
+抛出的异常：
+StackOverFlowError OutOfMemoryError Java 虚拟机规范允许Java栈的大小是动态的或者是固定不变的 如果采用固定大小的Java虚拟机栈，那每一个线程的Java虚拟机栈容量可以在线程创建的时候独立选定。如果线程请求分配的栈容量超过Java虚拟机栈允许的最大容量，Java虚拟机将会抛出一个 StackOverflowError 异常 如果Java虚拟机栈可以动态扩展，并且在尝试扩展的时候无法申请到足够的内存，或者在创建新的线程时没有足够的内存去创建对应的虚拟机栈，那Java虚拟机将会抛出—个 OutOfMemoryError 异常 设置栈大小 -Xsssize (即：-XX:ThreadStackSize)
+一般为：512k-1M 栈的大小直接决定了函数调用的最大深度 设置的栈空间值过大，会导致系统可以用于创建线程的数量减少 一般一个进程中通常有3000-5000个线程
+jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
+栈帧 栈的基本单位是栈帧，每个线程都有自己的栈，栈中的数据都是以栈帧存在的。
+方法与栈帧的关系 在这个线程执行的方法都有一个栈帧 栈帧是一个内存区块，是一个数据集，维护着方法执行过程中的各种数据信息 栈的内部结构 局部变量表 操作数栈或表达式栈 动态链接或指向运行时常量池的方法引用 方法返回地址（或方法正常退出或者异常退出的定义） 一些附加信息 局部变量表 - Local Varibales 局部变量表被称为局部变量数组或者本地变量表 定义为一个数字数组，主要用于存储方法参数和定义在方法体内的局部变量，数据类别包括：基本数据类型，对象引用、以returnAddress类型 局部变量表的大小是在编译器确定，保存在方法的code属性的maximum local variables数据项中。在方法运行期间是不会改变局部变量表的大小的 方法嵌套调用的次数由栈的大小决定。一般来说，栈越大，方法嵌套调用次数越多。对一个函数而言，它的参数和局部变量越多，使得局部变量表膨胀，它的栈帧就越大，以满足方法调用所需传递的信息增大的需求。进而函数调用就会占用更多的栈空间，导致其嵌套调用次数就会减 **局部变量表的变量只在当前方法调用中有效。**在方法执行时，虚拟机通过使用局部变量表完成参数值到参数变量列表的传递过程。当方法调用结束后，随着方法栈帧的销毁，局部变量表也会随之销毁。 静态变量与局部变量区别 类变量表有两次初始化的机会，第一次准备阶段，执行系统初始化，赋零值，另一次是在初始化阶段，赋予代码中指定的初始值 和类变量初始化不同，局部变量表不存在系统初始化的过程，一旦定义了局部变量则必须人为的初始化，否则无法使用 与GC ROOTS的关系 局部变量表的变量也是重要的垃圾回收节点，只要被局部变量中直接或者间接引用的对象都不会被回收</description>
+    </item>
+    
+    <item>
+      <title>类的加载</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/</link>
+      <pubDate>Thu, 23 Feb 2023 20:16:54 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/</guid>
+      <description>类的加载过程 Java数据类型分为数据基本数据类型和引用数据类型
+基本类型由虚拟机预先定义，引用类型需要进行类的加载
+类的加载大过程分为三步, 总过程七步
+装载 将java的class文件加载到机器内存，并在内存中构建出Java类的原型-类模板对象
+查找类的二进制文件，生成class实例
+加载类，需要完成以下三件事情：
+通过类的全名，获取类的二进制数据流 解析类的二进制数据流转换为方法区的数据结构(Java类模型) 创建java.lang.class类的实例，表示该类型 类模板对象 Java类在内存中的一个快照，JVM从字节码文件解析出来的常量池、类字段、类方法等类信息存储到类模板中。在运行期通过类模板获取Java类的任意信息，能够对Java类的成员变量进行遍历，进行方法调用。反射机制也是基于此，如果没有存储Java类的声明信息，JVM在运行期也无法进行反射
+获取二进制数据流 class字节码文件符号JVM规范
+通过读取class后缀的文件 读入jar、zip等归档数据包，提取类文件(热部署jar包原理基础) 事先存放在数据库的二进制数据 使用类型Http之类的协议通过网络进行加载 在运行时生成一段class的二进制信息等 class实例位置 类将.class文件加载至元空间后，会在堆中创建一个Java.lang.Class对象，用来封装类位于方法区内的数据结构，该Class对象是在加载类的过程中创建的，每个类都对应有一个Class类型的对象数组类的加载 数组类本身不是由类加载器负责创建，而是由JVM在运行时根据需要去创建。加载器只负责加载数据元素的数据类型(基本数据类型和引用数据类型)，申请内存分配长度
+链接 验证阶段 保证加载的字节码是合法、合理并符合jvm规范
+格式验证回合装载阶段一起执行。验证通过之后，类加载器才会把验证成功的二级制数据信息加载到方法区中 格式验证之外的验证操作都在方法区中进行 准备阶段 为类的静态变量分配内存，并将其初始化为默认值。
+Java并不支持boolean类型，对于boolean类型，内部实现是int,由于int的默认值是0,故对应的，boolean的默认值就是false
+解析阶段 将类、接口、自动和方法的符号引用转换为直接应用
+符号引用就是一些字面量的引用，和虚拟机的内部数据结构和和内存布局无关。比较容易理解的就是在Class类文件中，通过常量池进行了大量的符号引用。通过解析操作，符号引用就可以转化为目标方法在类中方法表的位置，从而使得方法被成功调用。
+解析就是将符号引用转换为直接引用。换言之，直接引用存在，一定存在符号引用，反之不然
+Java虚拟机规范并没有要求解析操作一定要按照顺序执行
+在HotSpot VM中，加载、验证、准备和初始化会按照顺序有条不紊地执行，但链接阶段中的解析操作往往会伴随着JVM在执行完初始化之后再执行
+初始化 为静态变量赋予正确的初始值
+开始执行java字节码，执行类的初始化方法
+clinit方法：该方法只能由JVM编译器生成，程序开发者无法自定义一个同名的方法，无法在java程序中调用该方法，该方法由java字节码组成 init方法：由类的静态成员变量赋值及其static语句块产生 clinit方法的生成 以下几种情况，不会生产clinit方法
+一个类中没有声明任何类变量，也没静态代码块 一个类中声明类变量，但没有明确使用类的初始化语句以及静态代码块进行初始化操作 一个类中包含static final 修饰的基本类型字段，这些类字段使用编译时常量表达式 clinit是由虚拟机保证在多线程环境下正确的加锁同步，是线程安全的。如果有很长的耗时操作，是会造成死锁的。
+类的加载 加载 = 装载 + 链接 + 初始化
+Java程序的主动使用
+主动使用的说明 Class只有在必须要首次使用的时候才会被装载，Java虚拟机不会无条件地装载Class类型。Java虚拟机规定，一个类或接口在初次使用前，必须要进行初始化。这里指的“使用”，是指主动使用。
+主动使用只有下列几种情况：（即：如果出现如下的情况，则会对类进行初始化操作。而初始化操作之前的加载、验证、准备已经完成。）
+当创建一个类的实例时，比如使用new关键字，或者通过反射、克隆、反序列化。
+当调用类的静态方法时，即当使用了字节码invokestatic指令。
+当使用类、接口的静态字段时(final修饰特殊考虑)，比如，使用getstatic或者putstatic指令。
+当使用java.lang.reflect包中的方法反射类的方法时。比如：Class.forName(&amp;ldquo;com.atguigu.java.Test&amp;rdquo;)
+当初始化子类时，如果发现其父类还没有进行过初始化，则需要先触发其父类的初始化。</description>
+    </item>
+    
+    <item>
+      <title>字节码文件</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Fri, 17 Feb 2023 08:01:55 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6/</guid>
+      <description>字节码文件 字节码文件 字节码文件跨平台 JVM实现遵守JVM虚拟机规范，所有JVM的环境都是一样的，所以字节码文件可以在各种虚拟机上执行
+通过Class文件，更多的计算机语言支持Java虚拟机平台。Class文件不仅仅是Java虚拟机的执行入口，更是Java生态圈的核心
+字节码文件内容 源代码经过编译器生成一个字节码文件，字节码文件是一种二进制的文件，内容是JVM的指令，而C/C++由编译器直接生成机器码。随着Java平台的不断发展，在将来，Class文件的内容也一定会做进一步的扩充，但是其基本的格式和结构不会做重大调整
+字节码文件编译器 作用范围 编译器种类 前端编译器
+javac (全量编译器)/Eclipse中的ECJ	Eclipse Compiler for Java （增量编译器） 主要任务：将java源代码转化为符合jvm规范的字节码文件 劣势：前端编译器并不会直接涉及编译优化等方面的技术，而是将这些具体优化细节移交给HotSpot的JIT编译器负责 后端编译器
+AOT(静态提前编译器，Ahead Of Time Compiler)
+jdk9引入了AOT编译器(静态提前编译器，Ahead Of Time Compiler)
+Java 9 引入了实验性 AOT 编译工具jaotc。它借助了 Graal 编译器，将所输入的 Java 类文件转换为机器码，并存放至生成的动态共享库之中。
+所谓 AOT 编译，是与即时编译相对立的一个概念。我们知道，即时编译指的是在程序的运行过程中，将字节码转换为可在硬件上直接运行的机器码，并部署至托管环境中的过程。而 AOT 编译指的则是，在程序运行之前，便将字节码转换为机器码的过程。
+.java -&amp;gt; .class -&amp;gt; .so
+最大好处：Java虚拟机加载已经预编译成二进制库，可以直接执行。不必等待即时编译器的预热，减少Java应用给人带来“第一次运行慢”的不良体验。
+缺点：
+破坏了java“一次编译，到处运行”，必须为每个不同硬件、OS编译对应的发行包。 降低了Java链接过程的动态性，加载的代码在编译期就必须全部已知。 还需要继续优化中，最初只支持Linux x64 java base
+类的class对象 外部类，成员(成员内部类，静态内部类)，局部内部类，匿名内部类 接口 数组 枚举 注解 基本数据类型 void 字节码指令 Java虚拟机的指令是由一个字节长度、代表着某种特定操作含义的操作码[opcode]以及跟随其后的零至多个代表此操作所需操作数的操作数[operand]组成。虚拟机中许多指令并不包含操作数，只有一个操作码
+字节码相关面试
+idea插件：jclasslib
+import org.testng.annotations.Test; /** * @author Alfred.</description>
+    </item>
+    
+    <item>
+      <title>Jvm初识</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/jvm%E5%88%9D%E8%AF%86/</link>
+      <pubDate>Tue, 14 Feb 2023 07:58:50 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/jvm%E5%88%9D%E8%AF%86/</guid>
+      <description>JDK关系 Oracle JDK 与 Open JDK 关系
+Oracle JDK是由oracle 公司开发的，Open JDK 是由IBM，Apple，SAP AG，Redhat等顶级公司合作开发 Oracle JDK大多数的功能是开源的，一些功能是开源。Open JDK完全开源 Oracle JDK以前的1.0版以前的版本是由Sun开发的，后来被Oracle收购并为其他版本维护，而OpenJDK最初只基于Java SDK或JDK版本7 Oracle JDK不会为即将发布的版本提供长期支持，用户每次都必须通过更新到最新版本获得支持来获取最新版本 Oracle JDK将从其10.0.X版本将收费，用户必须付费或必须依赖OpenJDK才能使用其免费版本 Oracle JDK在运行JDK时不会产生任何问题，而OpenJDK在为某些用户运行JDK时会产生一些问题 在响应性和JVM性能方面，Oracle JDK与OpenJDK相比提供了更好的性能 Oracle JDK具有良好的GC选项和更好的渲染器，而OpenJDK具有更少的GC选项，并且由于其包含自己的渲染器的分布，因此具有较慢的图形渲染器选项 Oracle JDK的构建过程基于OpenJDK，因此OpenJDK与Oracle JDK之间没有技术差异 Oracle JDK将更多地关注稳定性，它重视更多的企业级用户，而OpenJDK经常发布以支持其他性能，这可能会导致不稳定 JDK与JVM的关系 JDK: Java Development ToolKit(java开发工具包)。JDK是整个java的核心，包括了运行环境，java工具和java的基础类库。
+jvm:Java Virtual Machine(java虚拟机)。通过在实际的计算机上模拟仿真各种计算机功能来实现。
+使用JDK（调用JAVA API）开发JAVA程序后，通过JDK中的编译程序（javac）将Java程序编译为Java字节码，在JRE上运行这些字节码，JVM会解析并映射到真实操作系统的CPU指令集和OS的系统调用
+如何理解java是跨平台的语言 当java的源代码经过编译程序编译成字节码，需要运行在不同的平台上面时，无需编译。
+如何理解JVM是跨语言的平台 jvm面对的是字节码文件，只关心字节码文件，不关心何种编程语言，只要实现jvm规范即可。Java不是最强大的语言，但是JVM是最强大的虚拟机。
+JVM的类型 Sun Classic VM &amp;ndash;&amp;gt;解释型
+Exact VM &amp;ndash;&amp;gt; Solaris
+SUN公司的 HotSpot VM
+BEA 的 JRockit &amp;ndash;&amp;gt; 不包含解释器，服务器端，JMC
+IBM 的 J9
+KVM和CDC/CLDC Hotspot</description>
+    </item>
+    
+  </channel>
+</rss>

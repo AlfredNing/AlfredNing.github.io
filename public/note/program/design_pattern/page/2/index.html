@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>设计模式 | AlfredNing</title>
+<meta name="keywords" content="">
+<meta name="description" content="设计模式 - AlfredNing">
+<meta name="author" content="Alfred.Ning">
+<link rel="canonical" href="https://AlfredNing.github.io/note/program/design_pattern/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="yandex-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.04a2bdb2f4eabd29dd97f76a3c76512da23fc76565cdcbfcfb0efd278404737a.css" integrity="sha256-BKK9svTqvSndl/dqPHZRLaI/x2Vlzcv8&#43;w79J4QEc3o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="16x16" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="apple-touch-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="mask-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://AlfredNing.github.io/note/program/design_pattern/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="设计模式" />
+<meta property="og:description" content="Alfred.Ning Blog" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://AlfredNing.github.io/note/program/design_pattern/" /><meta property="og:site_name" content="Alfred.Ning" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="设计模式"/>
+<meta name="twitter:description" content="Alfred.Ning Blog"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "笔记",
+      "item": "https://AlfredNing.github.io/note/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "编程",
+      "item": "https://AlfredNing.github.io/note/program/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "设计模式",
+      "item": "https://AlfredNing.github.io/note/program/design_pattern/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://AlfredNing.github.io" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://AlfredNing.github.io/note/" title="📓笔记">
+                    <span>📓笔记</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://AlfredNing.github.io/thinking/" title="🤔想法">
+                    <span>🤔想法</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://AlfredNing.github.io/search/" title="🔎搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔎搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://AlfredNing.github.io/tags/" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://AlfredNing.github.io/archives" title="🗄️归档">
+                    <span>🗄️归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://AlfredNing.github.io/about" title="🤙关于">
+                    <span>🤙关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a></div>
+  <h1>
+    设计模式
+  </h1>
+</header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>原型模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>对象的创建模式。通过一个原型对象来指明所有创建的对象的类型，然后复用这个原型对象的方法来创建出更多同类型的对象。
+实现一个自身可以克隆的接口
+分类 简单形式 角色：
+客户角色 抽象原型角色 具体原型角色 登记形式 角色：
+客户角色 抽象原型角色 具体原型角色 原型管理角色 两种形式的比较 简单形式和登记形式的原型模式各有其长处和短处。
+如果需要创建的原型对象数目较少而且比较固定的话，可以采取第一种形式。在这种情况下，原型对象的引用可以由客户端自己保存。
+如果要创建的原型对象数目不固定的话，可以采取第二种形式。在这种情况下，客户端不保存对原型对象的引用，这个任务被交给管理员对象。在复制一个原型对象之前，客户端可以查看管理员对象是否已经有一个满足要求的原型对象。如果有，可以直接从管理员类取得这个对象引用；如果没有，客户端就需要自行复制此原型对象。
+Java中的克隆方法 Java的所有类都是从java.lang.Object类继承而来的，而Object类提供protected Object clone()方法对对象进行复制，子类当然也可以把这个方法置换掉，提供满足自己需要的复制方法。对象的复制有一个基本问题，就是对象通常都有对其他的对象的引用。当使用Object类的clone()方法来复制一个对象时，此对象对其他对象的引用也同时会被复制一份
+Java语言提供的Cloneable接口只起一个作用，就是在运行时期通知Java虚拟机可以安全地在这个类上使用clone()方法。通过调用这个clone()方法可以得到一个对象的复制。由于Object类本身并不实现Cloneable接口，因此如果所考虑的类没有实现Cloneable接口时，调用clone()方法会抛出CloneNotSupportedException异常。
+原型模式的优点 原型模式允许在运行时动态改变具体的实现类型。原型模式可以在运行期间，由客户来注册符合原型接口的实现类型，也可以动态地改变具体的实现类型，看起来接口没有任何变化，但其实运行的已经是另外一个类实例了。因为克隆一个原型就类似于实例化一个类。
+原型模式的缺点 原型模式最主要的缺点是每一个类都必须配备一个克隆方法。配备克隆方法需要对类的功能进行通盘考虑，这对于全新的类来说不是很难，而对于已经有的类不一定很容易，特别是当一个类引用不支持序列化的间接对象，或者引用含有循环结构的时候。
+示例代码</p>
+  </div>
+  <footer class="entry-footer">创建:&nbsp;<span title='2023-02-09 08:54:46 +0800 CST'>2023年-02月-09日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-02月-09日&nbsp;|&nbsp;字数:&nbsp;28字&nbsp;|&nbsp;时长:&nbsp;1分钟&nbsp;|&nbsp;AlfredNing
+
+
+</footer>
+  <a class="entry-link" aria-label="post link to 原型模式" href="https://AlfredNing.github.io/note/program/design_pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>命令模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>命令模式属于对象的行为模式，又成交易模式或行动模式。　命令模式把一个请求或者操作封装到一个对象中。命令模式允许系统使用不同的请求把客户端参数化，对请求排队或者记录请求日志，可以提供命令的撤销和恢复功能
+角色 命令角色 具体命令角色 请求者角色 接收者角色 客户端角色 优点 更松散的耦合 更动态的控制 很自然的复合命令 更好的扩展性 代码示例</p>
+  </div>
+  <footer class="entry-footer">创建:&nbsp;<span title='2023-02-09 08:23:19 +0800 CST'>2023年-02月-09日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-02月-09日&nbsp;|&nbsp;字数:&nbsp;14字&nbsp;|&nbsp;时长:&nbsp;1分钟&nbsp;|&nbsp;AlfredNing
+
+
+</footer>
+  <a class="entry-link" aria-label="post link to 命令模式" href="https://AlfredNing.github.io/note/program/design_pattern/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>桥接模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>将抽象部分与实现部分相分离，使他们都可以独立的变化。结构式模式
+角色 实现接口 抽象接口 具体实现 具体抽象实现 应用 具体到实际应用上，需要将抽象与实现分离开来，对客户端无感知的一种行为。
+示例代码</p>
+  </div>
+  <footer class="entry-footer">创建:&nbsp;<span title='2023-02-08 22:36:18 +0800 CST'>2023年-02月-08日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-02月-08日&nbsp;|&nbsp;字数:&nbsp;9字&nbsp;|&nbsp;时长:&nbsp;1分钟&nbsp;|&nbsp;AlfredNing
+
+
+</footer>
+  <a class="entry-link" aria-label="post link to 桥接模式" href="https://AlfredNing.github.io/note/program/design_pattern/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>适配器模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>把一个类的接口变成客户端所期待的另一种接口，从而使原本因接口不匹配而无法完成一起工作的两个类可以一起工作
+结构 类的适配器模式 对象的适配器模式 类的适配器模式 把适配类的API转换成目标API
+角色：
+●　目标(Target)角色：这就是所期待得到的接口。注意：由于这里讨论的是类适配器模式，因此目标不可以是类。
+●　源(Adapee)角色：现在需要适配的接口。
+●　适配器(Adaper)角色：适配器类是本模式的核心。适配器把源接口转换成目标接口。显然，这一角色不可以是接口，而必须是具体类。
+对象的适配器模式 类的适配器模式一样，对象的适配器模式把被适配的类的API转换成为目标类的API，与类的适配器模式不同的是，对象的适配器模式不是使用继承关系连接到Adaptee类，而是使用委派关系连接到Adaptee类
+类适配器和对象适配器的权衡 ●　类适配器使用对象继承的方式，是静态的定义方式；而对象适配器使用对象组合的方式，是动态组合的方式。
+●　对于类适配器，由于适配器直接继承了Adaptee，使得适配器不能和Adaptee的子类一起工作，因为继承是静态的关系，当适配器继承了Adaptee后，就不可能再去处理 Adaptee的子类了。
+对于对象适配器，一个适配器可以把多种不同的源适配到同一个目标。换言之，同一个适配器可以把源类和它的子类都适配到目标接口。因为对象适配器采用的是对象组合的关系，只要对象类型正确，是不是子类都无所谓。
+●　对于类适配器，适配器可以重定义Adaptee的部分行为，相当于子类覆盖父类的部分实现方法。
+对于对象适配器，要重定义Adaptee的行为比较困难，这种情况下，需要定义Adaptee的子类来实现重定义，然后让适配器组合子类。虽然重定义Adaptee的行为比较困难，但是想要增加一些新的行为则方便的很，而且新增加的行为可同时适用于所有的源。
+●　对于类适配器，仅仅引入了一个对象，并不需要额外的引用来间接得到Adaptee。
+对于对象适配器，需要额外的引用来间接得到Adaptee。
+建议尽量使用对象适配器的实现方式，多用合成/聚合、少用继承。当然，具体问题具体分析，根据需要来选用实现方式，最适合的才是最好的
+优点 复用性 扩展性 缺点 过多的使用适配器，会让系统非常零乱，不易整体进行把握。比如，明明看到调用的是A接口，其实内部被适配成了B接口的实现，一个系统如果太多出现这种情况，无异于一场灾难。因此如果不是很有必要，可以不使用适配器，而是直接对系统进行重构
+代码示例
+缺省适配器模式 抽象类中实现顶层接口的默认实现</p>
+  </div>
+  <footer class="entry-footer">创建:&nbsp;<span title='2023-02-08 08:11:47 +0800 CST'>2023年-02月-08日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-02月-08日&nbsp;|&nbsp;字数:&nbsp;37字&nbsp;|&nbsp;时长:&nbsp;1分钟&nbsp;|&nbsp;AlfredNing
+
+
+</footer>
+  <a class="entry-link" aria-label="post link to 适配器模式" href="https://AlfredNing.github.io/note/program/design_pattern/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>构建者模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>分离对象的的属性与创建过程，用户创建重的对象。
+写法分类：
+在Builder里面直接new对象的方式，MyBatis的SqlSessionFactoryBuilder就是这种写法，适用于属性之间关联不多且大量属性都有默认值的场景。 间接new的方式：例如Guava的Cache都是这种写法，适用于属性之间有一定关联性的场景。 建造者模式的优点及适用场景
+建造者模式这种设计模式，优缺点比较明显。从优点来说：
+客户端不比知道产品内部细节，将产品本身与产品创建过程解耦，使得相同的创建过程可以创建不同的产品对象 可以更加精细地控制产品的创建过程，将复杂对象分门别类抽出不同的类别来，使得开发者可以更加方便地得到想要的产品 想了想，说缺点，建造者模式说不上缺点，只能说这种设计模式的使用比较受限：
+产品属性之间差异很大且属性没有默认值可以指定，这种情况是没法使用建造者模式的，我们可以试想，一个对象20个属性，彼此之间毫无关联且每个都需要手动指定，那么很显然，即使使用了建造者模式也是毫无作用 代码示例</p>
+  </div>
+  <footer class="entry-footer">创建:&nbsp;<span title='2023-02-07 22:47:44 +0800 CST'>2023年-02月-07日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-02月-07日&nbsp;|&nbsp;字数:&nbsp;11字&nbsp;|&nbsp;时长:&nbsp;1分钟&nbsp;|&nbsp;AlfredNing
+
+
+</footer>
+  <a class="entry-link" aria-label="post link to 构建者模式" href="https://AlfredNing.github.io/note/program/design_pattern/%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://AlfredNing.github.io/note/program/design_pattern/">
+      «&nbsp;上一页&nbsp;
+    </a>
+    <a class="next" href="https://AlfredNing.github.io/note/program/design_pattern/page/3/">下一页&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script></body>
+
+</html>

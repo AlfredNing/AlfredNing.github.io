@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>设计模式 on AlfredNing</title>
+    <link>https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <description>Recent content in 设计模式 on AlfredNing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 09 Feb 2023 23:36:46 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>设计原则</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</link>
+      <pubDate>Thu, 09 Feb 2023 23:36:46 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</guid>
+      <description>指导思想 可维护性：修改功能少，需要改动的地方越少，可维护性越好 可复用性：代码被以后重复使用，写出自己总结的类库 可扩展性：添加功能无需修改原来的代码 灵活性：代码接口可以灵活调用 原则 单一职责原则 SRP 一个类别太大，别太累。负责单一的职责 高内聚，低耦合 开闭原则 OCP 对扩展开放，对修改关闭：尽量不修改原来的代码进行扩展 抽象化，多态是开闭原则的关键 里氏替换原则 LSP 所有使用父类的方法，必须能够透明的使用子类对象 依赖倒置原则 DIP 依赖抽象，而不是依赖具体 面向抽象/接口编程 接口隔离原则 ISP 每一个接口应该承担独立的角色，不干自己不该干的事情 避免子类不需要实现的方法 需要对客户提供接口的时候，只需要暴露最小的接口 迪米特法则 LOD 尽量不要和陌生人说话 在迪米特法则中，对于一个对象，非陌生人包含以下几类 当前对象本身this 以参数形式传入到当前对象方法中的对象 当前对象的成员对象 如果当前对象的成员对象是一个集合，那么集合中的元素也都是朋友 当前对象所创建的对象 和其它类的耦合度变低 工具类例外 </description>
+    </item>
+    
+    <item>
+      <title>解释器模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 09 Feb 2023 23:18:43 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <description>解释器模式是类的行为模式。给定一个语言之后，解释器模式可以定义出其文法的一种表示，并同时提供一个解释器。客户端可以使用这个解释器来解释这个语言中的句子
+角色 抽象表达式(Expression)角色：声明一个所有的具体表达式角色都需要实现的抽象接口。这个接口主要是一个interpret()方法，称做解释操作 终结符表达式(Terminal Expression)角色：实现了抽象表达式角色所要求的接口 非终结符表达式(Nonterminal Expression)角色：文法中的每一条规则都需要一个具体的非终结符表达式 环境(Context)角色：这个角色的任务一般是用来存放文法中各个终结符所对应的具体值 示例代码</description>
+    </item>
+    
+    <item>
+      <title>状态模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 09 Feb 2023 22:12:21 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</guid>
+      <description>状态模式，状态对象行为模式。允许对一个对象在其内部状态改变的时候改变其行为。这个对象看上去就像是改变了它的类一样
+状态模式把所研究的对象的行为包装在不同的状态对象里，每一个状态对象都属于一个抽象状态类的一个子类。状态模式的意图是让一个对象在其内部状态改变的时候，其行为也随之改变
+角色 环境角色:定义客户端所感兴趣的接口，并且保留一个具体状态类的实例。这个具体状态类的实例给出此环境对象的现有状态 抽象状态(State)角色：定义一个接口，用以封装环境（Context）对象的一个特定的状态所对应的行为 具体状态(ConcreteState)角色：每一个具体状态类都实现了环境（Context）的一个状态所对应的行为 认识状态模式 状态和行为
+所谓对象的状态，通常指的就是对象实例的属性的值；而行为指的就是对象的功能，再具体点说，行为大多可以对应到方法上。
+状态模式的功能就是分离状态的行为，通过维护状态的变化，来调用不同状态对应的不同功能。也就是说，状态和行为是相关联的，它们的关系可以描述为：状态决定行为。
+由于状态是在运行期被改变的，因此行为也会在运行期根据状态的改变而改变。
+行为的平行性
+注意平行线而不是平等性。所谓平行性指的是各个状态的行为所处的层次是一样的，相互独立的、没有关联的，是根据不同的状态来决定到底走平行线的哪一条。行为是不同的，当然对应的实现也是不同的，相互之间是不可替换的。
+策略模式的比较
+状态模式的结构和策略模式的结构完全一样，但是，它们的目的、实现、本质却是完全不一样的。还有行为之间的特性也是状态模式和策略模式一个很重要的区别，状态模式的行为是平行性的，不可相互替换的；而策略模式的行为是平等性的，是可以相互替换的。
+环境和状态处理对象
+在状态模式中，环境(Context)是持有状态的对象，但是环境(Context)自身并不处理跟状态相关的行为，而是把处理状态的功能委托给了状态对应的状态处理类来处理。
+在具体的状态处理类中经常需要获取环境(Context)自身的数据，甚至在必要的时候会回调环境(Context)的方法，因此，通常将环境(Context)自身当作一个参数传递给具体的状态处理类。
+客户端一般只和环境(Context)交互。客户端可以用状态对象来配置一个环境(Context)，一旦配置完毕，就不再需要和状态对象打交道了。客户端通常不负责运行期间状态的维护，也不负责决定后续到底使用哪一个具体的状态处理对象
+示例代码</description>
+    </item>
+    
+    <item>
+      <title>模板方法模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 09 Feb 2023 21:50:27 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</guid>
+      <description>类的行为模式。使用示例：Servlet的应用
+抽象类：将部分逻辑以具体的方法以及具体的构造函数的形式实现。然后声明一些抽象方法来迫使子类实现剩余的逻辑。不同的子类可以以不同的实现方式实现这些抽象方法，从而对剩余逻辑有不同的实现。
+模板方法所代表的行为称为顶级行为，其逻辑称为顶级逻辑
+角色 抽象模板：顶层逻辑骨架 具体模板：具体实现顶层逻辑 子类可以置换掉父类的可变部分，但是子类却不可以改变模板方法所代表的顶级逻辑
+方法 模板方法：一个抽象类可以有任意多个模板方法，而不限于一个。每一个模板方法都可以调用任意多个具体方法 基本方法： 抽象方法：一个抽象方法由抽象类声明，由具体子类实现 具体方法：一个具体方法由抽象类声明并实现，而子类并不实现或置换 钩子方法：一个钩子方法由抽象类声明并实现，而子类会加以扩展。通常抽象类给出的实现是一个空实现，作为方法的默认实现 示例代码</description>
+    </item>
+    
+    <item>
+      <title>备忘录模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 09 Feb 2023 21:37:39 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/</guid>
+      <description>对象的行为模式。又称为快照模式，对象的行为模式。一个用来存储另外一个对象内部状态的快照对象。
+指在不破坏封装的条件下，将一个对象的状态捕捉住，并且外部化，进行存储，从而可以在将来合适的时候把这个对象还原存储起来的状态。备忘录模式常常与命令模式和迭代子模式一同使用
+角色 备忘录角色 备忘录角色又如下责任：
+（1）将发起人（Originator）对象的内战状态存储起来。备忘录可以根据发起人对象的判断来决定存储多少发起人（Originator）对象的内部状态。
+（2）备忘录可以保护其内容不被发起人（Originator）对象之外的任何对象所读取。
+备忘录有两个等效的接口：
+●　**窄接口：**负责人（Caretaker）对象（和其他除发起人对象之外的任何对象）看到的是备忘录的窄接口(narrow interface)，这个窄接口只允许它把备忘录对象传给其他的对象。
+●　**宽接口：**与负责人对象看到的窄接口相反的是，发起人对象可以看到一个宽接口(wide interface)，这个宽接口允许它读取所有的数据，以便根据这些数据恢复这个发起人对象的内部状态。
+发起人角色 发起人角色有如下责任：
+（1）创建一个含有当前的内部状态的备忘录对象。
+（2）使用备忘录对象存储其内部状态。
+负责人角色 负责人角色有如下责任：
+（1）负责保存备忘录对象。
+（2）不检查备忘录对象的内容。
+示例代码</description>
+    </item>
+    
+    <item>
+      <title>原型模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 09 Feb 2023 08:54:46 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description>对象的创建模式。通过一个原型对象来指明所有创建的对象的类型，然后复用这个原型对象的方法来创建出更多同类型的对象。
+实现一个自身可以克隆的接口
+分类 简单形式 角色：
+客户角色 抽象原型角色 具体原型角色 登记形式 角色：
+客户角色 抽象原型角色 具体原型角色 原型管理角色 两种形式的比较 简单形式和登记形式的原型模式各有其长处和短处。
+如果需要创建的原型对象数目较少而且比较固定的话，可以采取第一种形式。在这种情况下，原型对象的引用可以由客户端自己保存。
+如果要创建的原型对象数目不固定的话，可以采取第二种形式。在这种情况下，客户端不保存对原型对象的引用，这个任务被交给管理员对象。在复制一个原型对象之前，客户端可以查看管理员对象是否已经有一个满足要求的原型对象。如果有，可以直接从管理员类取得这个对象引用；如果没有，客户端就需要自行复制此原型对象。
+Java中的克隆方法 Java的所有类都是从java.lang.Object类继承而来的，而Object类提供protected Object clone()方法对对象进行复制，子类当然也可以把这个方法置换掉，提供满足自己需要的复制方法。对象的复制有一个基本问题，就是对象通常都有对其他的对象的引用。当使用Object类的clone()方法来复制一个对象时，此对象对其他对象的引用也同时会被复制一份
+Java语言提供的Cloneable接口只起一个作用，就是在运行时期通知Java虚拟机可以安全地在这个类上使用clone()方法。通过调用这个clone()方法可以得到一个对象的复制。由于Object类本身并不实现Cloneable接口，因此如果所考虑的类没有实现Cloneable接口时，调用clone()方法会抛出CloneNotSupportedException异常。
+原型模式的优点 原型模式允许在运行时动态改变具体的实现类型。原型模式可以在运行期间，由客户来注册符合原型接口的实现类型，也可以动态地改变具体的实现类型，看起来接口没有任何变化，但其实运行的已经是另外一个类实例了。因为克隆一个原型就类似于实例化一个类。
+原型模式的缺点 原型模式最主要的缺点是每一个类都必须配备一个克隆方法。配备克隆方法需要对类的功能进行通盘考虑，这对于全新的类来说不是很难，而对于已经有的类不一定很容易，特别是当一个类引用不支持序列化的间接对象，或者引用含有循环结构的时候。
+示例代码</description>
+    </item>
+    
+    <item>
+      <title>命令模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 09 Feb 2023 08:23:19 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</guid>
+      <description>命令模式属于对象的行为模式，又成交易模式或行动模式。　命令模式把一个请求或者操作封装到一个对象中。命令模式允许系统使用不同的请求把客户端参数化，对请求排队或者记录请求日志，可以提供命令的撤销和恢复功能
+角色 命令角色 具体命令角色 请求者角色 接收者角色 客户端角色 优点 更松散的耦合 更动态的控制 很自然的复合命令 更好的扩展性 代码示例</description>
+    </item>
+    
+    <item>
+      <title>桥接模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Wed, 08 Feb 2023 22:36:18 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <description>将抽象部分与实现部分相分离，使他们都可以独立的变化。结构式模式
+角色 实现接口 抽象接口 具体实现 具体抽象实现 应用 具体到实际应用上，需要将抽象与实现分离开来，对客户端无感知的一种行为。
+示例代码</description>
+    </item>
+    
+    <item>
+      <title>适配器模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Wed, 08 Feb 2023 08:11:47 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <description>把一个类的接口变成客户端所期待的另一种接口，从而使原本因接口不匹配而无法完成一起工作的两个类可以一起工作
+结构 类的适配器模式 对象的适配器模式 类的适配器模式 把适配类的API转换成目标API
+角色：
+●　目标(Target)角色：这就是所期待得到的接口。注意：由于这里讨论的是类适配器模式，因此目标不可以是类。
+●　源(Adapee)角色：现在需要适配的接口。
+●　适配器(Adaper)角色：适配器类是本模式的核心。适配器把源接口转换成目标接口。显然，这一角色不可以是接口，而必须是具体类。
+对象的适配器模式 类的适配器模式一样，对象的适配器模式把被适配的类的API转换成为目标类的API，与类的适配器模式不同的是，对象的适配器模式不是使用继承关系连接到Adaptee类，而是使用委派关系连接到Adaptee类
+类适配器和对象适配器的权衡 ●　类适配器使用对象继承的方式，是静态的定义方式；而对象适配器使用对象组合的方式，是动态组合的方式。
+●　对于类适配器，由于适配器直接继承了Adaptee，使得适配器不能和Adaptee的子类一起工作，因为继承是静态的关系，当适配器继承了Adaptee后，就不可能再去处理 Adaptee的子类了。
+对于对象适配器，一个适配器可以把多种不同的源适配到同一个目标。换言之，同一个适配器可以把源类和它的子类都适配到目标接口。因为对象适配器采用的是对象组合的关系，只要对象类型正确，是不是子类都无所谓。
+●　对于类适配器，适配器可以重定义Adaptee的部分行为，相当于子类覆盖父类的部分实现方法。
+对于对象适配器，要重定义Adaptee的行为比较困难，这种情况下，需要定义Adaptee的子类来实现重定义，然后让适配器组合子类。虽然重定义Adaptee的行为比较困难，但是想要增加一些新的行为则方便的很，而且新增加的行为可同时适用于所有的源。
+●　对于类适配器，仅仅引入了一个对象，并不需要额外的引用来间接得到Adaptee。
+对于对象适配器，需要额外的引用来间接得到Adaptee。
+建议尽量使用对象适配器的实现方式，多用合成/聚合、少用继承。当然，具体问题具体分析，根据需要来选用实现方式，最适合的才是最好的
+优点 复用性 扩展性 缺点 过多的使用适配器，会让系统非常零乱，不易整体进行把握。比如，明明看到调用的是A接口，其实内部被适配成了B接口的实现，一个系统如果太多出现这种情况，无异于一场灾难。因此如果不是很有必要，可以不使用适配器，而是直接对系统进行重构
+代码示例
+缺省适配器模式 抽象类中实现顶层接口的默认实现</description>
+    </item>
+    
+    <item>
+      <title>构建者模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 07 Feb 2023 22:47:44 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>分离对象的的属性与创建过程，用户创建重的对象。
+写法分类：
+在Builder里面直接new对象的方式，MyBatis的SqlSessionFactoryBuilder就是这种写法，适用于属性之间关联不多且大量属性都有默认值的场景。 间接new的方式：例如Guava的Cache都是这种写法，适用于属性之间有一定关联性的场景。 建造者模式的优点及适用场景
+建造者模式这种设计模式，优缺点比较明显。从优点来说：
+客户端不比知道产品内部细节，将产品本身与产品创建过程解耦，使得相同的创建过程可以创建不同的产品对象 可以更加精细地控制产品的创建过程，将复杂对象分门别类抽出不同的类别来，使得开发者可以更加方便地得到想要的产品 想了想，说缺点，建造者模式说不上缺点，只能说这种设计模式的使用比较受限：
+产品属性之间差异很大且属性没有默认值可以指定，这种情况是没法使用建造者模式的，我们可以试想，一个对象20个属性，彼此之间毫无关联且每个都需要手动指定，那么很显然，即使使用了建造者模式也是毫无作用 代码示例</description>
+    </item>
+    
+    <item>
+      <title>访问者模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 07 Feb 2023 21:17:34 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>对象的行为模式。在不修改已有程序的前提下，通过添加额外的访问者来完成对已有代码功能的提升。
+将数据结构与操作分离
+角色：
+抽象访问者: 声明了一个或者多个方法操作，形成所有的具体访问者角色必须实现的接口 具体访问者: 实现抽象访问者所声明的接口，也就是抽象访问者所声明的各个访问操作 抽象节点: 声明一个接受操作，接受一个访问者对象作为一个参数 具体节点: 实现了抽象节点所规定的接受操作 结构对象: 遍历结构的元素 访问者模式优点：
+扩展性好，可以在不修改对象结构中的元素的情况下，为对象结构中的元素添加新的功能； 符合单一职责原则，通过访问者将无关的行为分离，使职责单一；
+访问者模式缺点：
+违反了迪米特原则，因为具体元素对访问者公布细节； 违反了依赖倒置原则，依赖了具体类，没有依赖抽象； 对象结构变化困难，若对象结构发生了改变，访问者的接口和访问者的实现也都要发生相应的改变；
+使用场景：
+对象结构中对象对应的类很少改变，但经常需要在此对象结构上定义新的操作； 需要对一个对象结构中的对象进行很多不同的并且不相关的操作，而需要避免让这些操作&amp;quot;污染&amp;quot;这些对象的类，也不希望在增加新操作时修改这些类。
+访问者模式示例</description>
+    </item>
+    
+    <item>
+      <title>代理模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 07 Feb 2023 20:48:23 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</guid>
+      <description>代理模式是一种使用代理对象来执行目标对象的方法并在代理对象中增强目标对象方法的一种设计模式
+静态代理 动态代理 静态代理的特点如下：
+使用静态代理时，通常客户类不需要感知RealSubject。 静态代理的缺点：代理对象需要与目标对象实现一样的接口，因此接口较多时需要定义和维护大量的代理类代码。 与适配器的差异：适配器通常考虑改变接口形态，而代理则不会也不能改变接口形态。 与装饰器的差异：被代理对象由代理对象创建，客户端甚至不需要知道被代理类的存在；被装饰对象则由客户端创建并传给装饰对象，可以层层嵌套，层层装饰。代理模式常用于控制被代理对象的访问，而装饰模式是增加被装饰者的功能。
+JDK动态代理的特点如下：
+通过实现InvocationHandler接口完成代理逻辑。 通过反射代理方法，比较消耗系统性能，但可以减少代理类的数量，使用更灵活。 代理类必须实现接口。 代理模式</description>
+    </item>
+    
+    <item>
+      <title>享元模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 07 Feb 2023 20:29:05 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 对象的结构模式，以共享的方式高效的支持大量的细粒度对象
+java中String类型就是享元模式 享元模式采用一个共享来避免大量拥有相同内容对象的开销
+分类 单纯享元模式 所有的享元对象都是可以共享的
+角色：
+抽象享元(Flyweight)角色：抽象接口 具体享元(ConcreteFlyweight)角色：实现抽象享元角色所规定出的接口 享元工厂(FlyweightFactory)角色：本角色负责创建和管理享元角色 复合享元模式 抽象享元(Flyweight)角色：抽象接口 具体享元(ConcreteFlyweight)角色：实现抽象享元角色所规定出的接口 复合享元角色：复合享元角色所代表的对象是不可以共享的，但是一个复合享元对象可以分解成为多个本身是单纯享元对象的组合。复合享元角色又称作不可共享的享元对象 享元工厂(FlyweightFactory)角色：本角色负责创建和管理享元角色 </description>
+    </item>
+    
+    <item>
+      <title>组合模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 07 Feb 2023 20:13:12 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</guid>
+      <description>描述部分与整体的关系，组装树形结构
+角色 抽象构件角色 树叶构件角色 树枝构件角色 分类 透明式：在该方式中，由于抽象构件声明了所有子类中的全部方法，所以客户端无须区别树叶对象和树枝对象，对客户端来说是透明的 安全式：在该方式中，将管理子构件的方法移到树枝构件中，抽象构件和树叶构件没有对子对象的管理方法，这样就避免了上一种方式的安全性问题，但由于叶子和分支有不同的接口，客户端在调用时要知道树叶对象和树枝对象的存在，所以失去了透明性 组合模式代码</description>
+    </item>
+    
+    <item>
+      <title>观察者模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 07 Feb 2023 19:50:02 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>观察者模式-对象行为模式。发布/订阅模式，模型-视图模式、源-监听器模式，从属者模式。
+定义一对多的依赖关系，让多个观察者同时监听某一个主题对象。这个对象在状态上发生变化时，会通知所有观察者对象，是它们能够主动更新自己的状态。
+角色：
+抽象主题角色：提供一个接口，可以增加和减少观察者对象，抽象主题角色又叫做抽象被观察者角色。 具体主题角色：将有关状态存入具体观察者对象 抽象观察者角色：为所有的观察者提供一个接口，在得到主题的通知时更新自己。 具体观察者角色：存储与主题状态自恰的状态。 模式分类：
+推模式
+主题对象向观察者推送主题的详细信息，不管观察者是否需要，推送的信息通常是主题对象的全部或部分数据。
+拉模式 主题对象在通知观察者的时候，只传递少量信息。如果观察者需要更具体的信息，由观察者主动到主题对象中获取，相当于是观察者从主题对象中拉数据。一般这种模型的实现中，会把主题对象自身通过update()方法传递给观察者，这样在观察者需要获取数据的时候，就可以通过这个引用来获取了。
+java对观察者模式的支持
+Observer接口： 观察者 Observable类： 被观察者 示例代码</description>
+    </item>
+    
+    <item>
+      <title>责任链模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Mon, 06 Feb 2023 08:09:32 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</guid>
+      <description>对象的行为模式，允许你将请求沿着处理链进行发送。收到请求后，每个处理者可对请求进行处理，或将其传递给链上的下个处理者
+角色：
+抽象处理者：定义处理请求的接口。 具体处理者：具体处理者接到请求，可以将请求处理，或者将请求传给下家。 示例代码</description>
+    </item>
+    
+    <item>
+      <title>装饰者模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 05 Feb 2023 23:28:12 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>动态的将责任添加到对象上，动态添加功能。
+分类：
+父组件，供子组件使用 装饰者：组合其他组件，一部分功能是自己的，调用被装饰者，等同于保留被装饰者的功能 具体组件：实现具体方法 饮料添加各种配料，返回最终的价格。
+代码示例</description>
+    </item>
+    
+    <item>
+      <title>调停者模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%B0%83%E5%81%9C%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 05 Feb 2023 16:05:46 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%B0%83%E5%81%9C%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>门面模式对外，调停者模式对内
+对象的行为模式，调停者模式包装了一系列对象相互作用的方式，使得这些对象不必相互明显引用。从而使它们可以较松散地耦合。当这些对象中的某些对象之间的相互作用发生改变时，不会立即影响到其他的一些对象之间的相互作用。从而保证这些相互作用可以彼此独立地变化
+角色：
+抽象调停者角色 具体调停者角色 抽象同事类角色 具体公式类角色 示例代码</description>
+    </item>
+    
+    <item>
+      <title>门面模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 05 Feb 2023 15:50:55 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</guid>
+      <description>提供高层次的接口，统一门面对象进行，使得子系统易于使用。
+选择性的暴露方法
+角色分类：
+门面角色: 客户端可以调用这个角色的方法 子系统角色：可以同时有一个或者多个子系统 门面模式示例代码</description>
+    </item>
+    
+    <item>
+      <title>工厂模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 04 Feb 2023 10:18:28 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+      <description>任何可以产生对象的方法和类，都可以被称为工厂。
+创建型设计模式，父类提供创建对象的方法，允许子类决定实例化对象的类型
+分类 根据产品是具体产品还是具体工厂：
+简单工厂模式 工厂方法模式 根据工厂的抽象程度
+工厂方法模式 抽象工厂模式 简单工厂模式 只对不同类对象的创建进行了一层薄薄的封装，通过向工厂传递类型来指定要创建的对象。
+工厂方法模式 工厂方法模式将生产具体产品的任务分发给具体的产品工厂
+抽象工厂模式 针对不同产品的创建。在工厂方法模式下，在抽象工厂里面增加创建产品的接口，并在具体子工厂中实现产品的创建
+工厂模式代码示例合</description>
+    </item>
+    
+    <item>
+      <title>策略模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Fri, 03 Feb 2023 07:38:26 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <description>对于做同一件事有多种方法，Comparator接口。
+Context：环境类 Strategy: 抽象策略类 ConcreteStrategy: 具体策略类 使用场景 如果在一个系统里面有许多类，它们之间的区别仅在于它们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为。
+策略模式示例代码</description>
+    </item>
+    
+    <item>
+      <title>单例模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Mon, 16 Jan 2023 08:36:37 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description>保持内存中只有一个对象
+分类：
+是否加载实例
+饿汉式 饱汉式 是否线程安全
+安全 不安全 特殊实现方式：
+静态内部类 枚举 单例模式代码</description>
+    </item>
+    
+  </channel>
+</rss>
