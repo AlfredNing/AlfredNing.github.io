@@ -5,7 +5,17 @@
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 25 Mar 2023 08:37:28 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Mar 2023 19:04:24 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43;基础3</title>
+      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%803/</link>
+      <pubDate>Sun, 26 Mar 2023 19:04:24 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%803/</guid>
+      <description>指针 表示内存的地址。指针是一个变量，值为另一个变量的内存地址。内存位置的直接地址
+必须先声明，后使用 所有指针的值的实际数据类型，不管是整型、浮点型、字符型，还是其他的数据类型，都是一样的，都是一个代表存地址的长的十六进制数 不同数据类型的指针之间唯一的不同是，指针所指向的变量或常量的数据类型不同 概念 描述 C++ Null 指针 C++ 支持空指针。NULL 指针是一个定义在标准库中的值为零的常量。 C++ 指针的算术运算 可以对指针进行四种算术运算：++、&amp;ndash;、+、- C++ 指针 vs 数组 指针和数组之间有着密切的关系。 C++ 指针数组 可以定义用来存储指针的数组。 C++ 指向指针的指针 C++ 允许指向指针的指针。 C++ 传递指针给函数 通过引用或地址传递参数，使传递的参数在调用函数中被改变。 C++ 从函数返回指针 C++ 允许函数返回指针到局部变量、静态变量和动态内存分配。 #include &amp;lt;iostream&amp;gt; using namespace std; int main() { int var = 20; // 指针变量声明 int* ip; double* dp; ip = &amp;amp;var; // 使用: 变量存储的地址 cout &amp;lt;&amp;lt; &amp;#34;ip: &amp;#34; &amp;lt;&amp;lt; ip &amp;lt;&amp;lt; endl; // 访问地址 cout &amp;lt;&amp;lt; *ip &amp;lt;&amp;lt; endl; return 0; } 引用 引用变量是一个别名，他是一件存在的变量的另一个名字。一旦把引用初始化为某个变量，就可以使用该引用名称或变量名称来指向变量。</description>
+    </item>
+    
     <item>
       <title>并查集</title>
       <link>https://AlfredNing.github.io/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
@@ -31,10 +41,10 @@
     
     <item>
       <title>C&#43;&#43;初始</title>
-      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%88%9D%E5%A7%8B/</link>
+      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%801/</link>
       <pubDate>Wed, 22 Mar 2023 07:31:48 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%88%9D%E5%A7%8B/</guid>
+      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%801/</guid>
       <description>简介 C++一种静态类型、编译式、通用的、大小写敏感的、不规则的编程语言，支持过程化编程、面向对象编程和泛型编程。
 c++是一门中级语言，综合高级语言和低级语言的特点。
 C++ 是 C 的一个超集，事实上，任何合法的 C 程序都是合法的 C++ 程序。
