@@ -5,7 +5,37 @@
     <link>https://AlfredNing.github.io/tags/c&#43;&#43;/</link>
     <description>Recent content in c&#43;&#43; on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 22 Mar 2023 22:40:59 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Mar 2023 20:10:47 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43;基础4</title>
+      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%804/</link>
+      <pubDate>Mon, 27 Mar 2023 20:10:47 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%804/</guid>
+      <description>数据封装 面向对象编程中把数据和操作数据的函数绑定在一起的一个概念。同等概念既数据隐藏
+默认情况下，在类中定义的所有项目都是私有的。
+把一个类定义为另一个类的友元类，会暴露实现细节，从而降低了封装性。理想的做法是尽可能地对外隐藏每个类的实现细节
+设计策略 通常情况下，我们都会设置类成员状态为私有（private），除非我们真的需要将其暴露，这样才能保证良好的封装性。
+这通常应用于数据成员，但它同样适用于所有成员，包括虚函数
+接口（抽象类） 接口描述类的行为和功能，而不需要完成特定类的实现。
+c++中的接口是用抽象类来实现，抽象类与数据抽象互不混淆，数据抽象是一个把实现细节与数据分离开的概念
+抽象类: 类中至少有一个函数被声明为纯虚函数，纯虚函数是通过在声明中使用 &amp;ldquo;= 0&amp;rdquo; 来指定的
+设计抽象类（通常称为 ABC）的目的，是为了给其他类提供一个可以继承的适当的基类。抽象类不能被用于实例化对象，它只能作为接口使用。如果试图实例化一个抽象类的对象，会导致编译错误。
+因此，如果一个 ABC 的子类需要被实例化，则必须实现每个虚函数，这也意味着 C++ 支持使用 ABC 声明接口。如果没有在派生类中重载纯虚函数，就尝试实例化该类的对象，会导致编译错误。
+可用于实例化对象的类被称为具体类。
+#include &amp;lt;iostream&amp;gt; using namespace std; // 基类 class Shape {public: // 提供接口框架的纯虚函数 virtual int getArea() = 0; void setWidth(int w) { width = w; } void setHeight(int h) { height = h; }protected: int width; int height;}; // 派生类 class Rectangle: public Shape{public: int getArea() { return (width * height); }}; class Triangle : public Shape { public: int getArea() { return (width * height) / 2; } }; int main(void) { Rectangle Rect; Triangle Tri; Rect.</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;基础3</title>
+      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%803/</link>
+      <pubDate>Sun, 26 Mar 2023 19:04:24 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%803/</guid>
+      <description>指针 表示内存的地址。指针是一个变量，值为另一个变量的内存地址。内存位置的直接地址
+必须先声明，后使用 所有指针的值的实际数据类型，不管是整型、浮点型、字符型，还是其他的数据类型，都是一样的，都是一个代表存地址的长的十六进制数 不同数据类型的指针之间唯一的不同是，指针所指向的变量或常量的数据类型不同 概念 描述 C++ Null 指针 C++ 支持空指针。NULL 指针是一个定义在标准库中的值为零的常量。 C++ 指针的算术运算 可以对指针进行四种算术运算：++、&amp;ndash;、+、- C++ 指针 vs 数组 指针和数组之间有着密切的关系。 C++ 指针数组 可以定义用来存储指针的数组。 C++ 指向指针的指针 C++ 允许指向指针的指针。 C++ 传递指针给函数 通过引用或地址传递参数，使传递的参数在调用函数中被改变。 C++ 从函数返回指针 C++ 允许函数返回指针到局部变量、静态变量和动态内存分配。 #include &amp;lt;iostream&amp;gt; using namespace std; int main() { int var = 20; // 指针变量声明 int* ip; double* dp; ip = &amp;amp;var; // 使用: 变量存储的地址 cout &amp;lt;&amp;lt; &amp;#34;ip: &amp;#34; &amp;lt;&amp;lt; ip &amp;lt;&amp;lt; endl; // 访问地址 cout &amp;lt;&amp;lt; *ip &amp;lt;&amp;lt; endl; return 0; } 引用 引用变量是一个别名，他是一件存在的变量的另一个名字。一旦把引用初始化为某个变量，就可以使用该引用名称或变量名称来指向变量。</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43;基础2</title>
       <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%802/</link>
