@@ -7,6 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/program/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>C&#43;&#43;基础5</title>
+      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%805/</link>
+      <pubDate>Tue, 28 Mar 2023 22:10:36 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%805/</guid>
+      <description>信号处理 号是由操作系统传给进程的中断，会提早终止一个程序。在 UNIX、LINUX、Mac OS X 或 Windows 系统上，可以通过按 Ctrl+C 产生中断
+可以在程序捕获的信号
+信号 描述 SIGABRT 程序的异常终止，如调用 abort。 SIGFPE 错误的算术运算，比如除以零或导致溢出的操作。 SIGILL 检测非法指令。 SIGINT 接收到交互注意信号。 SIGSEGV 非法访问内存。 SIGTERM 发送到程序的终止请求。 signal函数： 捕获突发事件 raise函数：生成信号 c++多线程 基于进程 ： 程序的并发执行
+基于线程：同一程序的片段并发执行
+多线程程序包含可以同时运行的两个或多个部分。这样的程序中的每个部分称为一个线程，每个线程定义了一个单独的执行路径
+使用 POSIX 编写多线程 C++ 程序。POSIX Threads 或 Pthreads 提供的 API 可在多种类 Unix POSIX 系统上可用，比如 FreeBSD、NetBSD、GNU/Linux、Mac OS X 和 Solaris
+创建线程 #include &amp;lt;pthread.h&amp;gt;pthread_create (thread, attr, start_routine, arg) 在这里，pthread_create 创建一个新的线程，并让它可执行。下面是关于参数的说明：
+参数 描述 thread 指向线程标识符指针。 attr 一个不透明的属性对象，可以被用来设置线程属性。您可以指定线程属性对象，也可以使用默认值 NULL。 start_routine 线程运行函数起始地址，一旦线程被创建就会执行。 arg 运行函数的参数。它必须通过把引用作为指针强制转换为 void 类型进行传递。如果没有传递参数，则使用 NULL。 创建线程成功时，函数返回 0，若返回值不为 0 则说明创建线程失败</description>
+    </item>
+    
+    <item>
       <title>C&#43;&#43;基础4</title>
       <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%804/</link>
       <pubDate>Mon, 27 Mar 2023 20:10:47 +0800</pubDate>
