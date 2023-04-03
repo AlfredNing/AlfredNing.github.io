@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://github.com/AlfredNing/sitemap.xml
+Sitemap: https://AlfredNing.github.io/sitemap.xml

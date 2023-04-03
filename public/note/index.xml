@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>笔记 on AlfredNing</title>
-    <link>https://github.com/AlfredNing/note/</link>
+    <link>https://AlfredNing.github.io/note/</link>
     <description>Recent content in 笔记 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://github.com/AlfredNing/note/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTTP权威指南</title>
-      <link>https://github.com/AlfredNing/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</link>
+      <link>https://AlfredNing.github.io/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</link>
       <pubDate>Wed, 15 Feb 2023 12:22:58 +0800</pubDate>
       
-      <guid>https://github.com/AlfredNing/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</guid>
+      <guid>https://AlfredNing.github.io/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</guid>
       <description>Web的基础 HTTP概述 http使用的是可靠的数据传输协议 组成 web客户端 类似浏览器
 web服务器： 通常web服务器使用http协议，通常成为http服务器
 资源 Web服务器是Web资源（Web resource）的宿主。Web资源是Web内容的源头。资源并不一定非的是静态文件，根据需要生成的软件程序

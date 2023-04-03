@@ -10,18 +10,18 @@
 <meta name="description" content="解释器模式是类的行为模式。给定一个语言之后，解释器模式可以定义出其文法的一种表示，并同时提供一个解释器。客户端可以使用这个解释器来解释这个语言中的句子
 角色 抽象表达式(Expression)角色：声明一个所有的具体表达式角色都需要实现的抽象接口。这个接口主要是一个interpret()方法，称做解释操作 终结符表达式(Terminal Expression)角色：实现了抽象表达式角色所要求的接口 非终结符表达式(Nonterminal Expression)角色：文法中的每一条规则都需要一个具体的非终结符表达式 环境(Context)角色：这个角色的任务一般是用来存放文法中各个终结符所对应的具体值 示例代码">
 <meta name="author" content="AlfredNing">
-<link rel="canonical" href="https://github.com/AlfredNing/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/">
+<link rel="canonical" href="https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/">
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/AlfredNing/assets/css/stylesheet.04a2bdb2f4eabd29dd97f76a3c76512da23fc76565cdcbfcfb0efd278404737a.css" integrity="sha256-BKK9svTqvSndl/dqPHZRLaI/x2Vlzcv8&#43;w79J4QEc3o=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/AlfredNing/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+<link crossorigin="anonymous" href="/assets/css/stylesheet.04a2bdb2f4eabd29dd97f76a3c76512da23fc76565cdcbfcfb0efd278404737a.css" integrity="sha256-BKK9svTqvSndl/dqPHZRLaI/x2Vlzcv8&#43;w79J4QEc3o=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="16x16" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="32x32" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
-<link rel="apple-touch-icon" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
-<link rel="mask-icon" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="16x16" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="apple-touch-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="mask-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -76,7 +76,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="解释器模式是类的行为模式。给定一个语言之后，解释器模式可以定义出其文法的一种表示，并同时提供一个解释器。客户端可以使用这个解释器来解释这个语言中的句子
 角色 抽象表达式(Expression)角色：声明一个所有的具体表达式角色都需要实现的抽象接口。这个接口主要是一个interpret()方法，称做解释操作 终结符表达式(Terminal Expression)角色：实现了抽象表达式角色所要求的接口 非终结符表达式(Nonterminal Expression)角色：文法中的每一条规则都需要一个具体的非终结符表达式 环境(Context)角色：这个角色的任务一般是用来存放文法中各个终结符所对应的具体值 示例代码" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://github.com/AlfredNing/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/" /><meta property="article:section" content="note" />
+<meta property="og:url" content="https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/" /><meta property="article:section" content="note" />
 <meta property="article:published_time" content="2023-02-09T23:18:43+08:00" />
 <meta property="article:modified_time" content="2023-02-09T23:18:43+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
 
@@ -95,25 +95,25 @@ if (!doNotTrack) {
       "@type": "ListItem",
       "position":  2 ,
       "name": "笔记",
-      "item": "https://github.com/AlfredNing/note/"
+      "item": "https://AlfredNing.github.io/note/"
     }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "编程",
-      "item": "https://github.com/AlfredNing/note/program/"
+      "item": "https://AlfredNing.github.io/note/program/"
     }, 
     {
       "@type": "ListItem",
       "position":  4 ,
       "name": "设计模式",
-      "item": "https://github.com/AlfredNing/note/program/design_pattern/"
+      "item": "https://AlfredNing.github.io/note/program/design_pattern/"
     }, 
     {
       "@type": "ListItem",
       "position":  5 ,
       "name": "解释器模式",
-      "item": "https://github.com/AlfredNing/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/"
+      "item": "https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/"
     }
   ]
 }
@@ -139,14 +139,14 @@ if (!doNotTrack) {
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://github.com/AlfredNing/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/"
+    "@id": "https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "AlfredNing",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E"
+      "url": "https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E"
     }
   }
 }
@@ -168,7 +168,7 @@ if (!doNotTrack) {
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://github.com/AlfredNing" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
+            <a href="https://AlfredNing.github.io" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -194,32 +194,32 @@ if (!doNotTrack) {
         </div>
         <ul id="menu">
             <li>
-                <a href="https://github.com/AlfredNing/note/" title="📓笔记">
+                <a href="https://AlfredNing.github.io/note/" title="📓笔记">
                     <span>📓笔记</span>
                 </a>
             </li>
             <li>
-                <a href="https://github.com/AlfredNing/thinking/" title="🤔想法">
+                <a href="https://AlfredNing.github.io/thinking/" title="🤔想法">
                     <span>🤔想法</span>
                 </a>
             </li>
             <li>
-                <a href="https://github.com/AlfredNing/search/" title="🔎搜索 (Alt &#43; /)" accesskey=/>
+                <a href="https://AlfredNing.github.io/search/" title="🔎搜索 (Alt &#43; /)" accesskey=/>
                     <span>🔎搜索</span>
                 </a>
             </li>
             <li>
-                <a href="https://github.com/AlfredNing/tags/" title="🏷️标签">
+                <a href="https://AlfredNing.github.io/tags/" title="🏷️标签">
                     <span>🏷️标签</span>
                 </a>
             </li>
             <li>
-                <a href="https://github.com/AlfredNing/archives" title="🗄️归档">
+                <a href="https://AlfredNing.github.io/archives" title="🗄️归档">
                     <span>🗄️归档</span>
                 </a>
             </li>
             <li>
-                <a href="https://github.com/AlfredNing/about" title="🤙关于">
+                <a href="https://AlfredNing.github.io/about" title="🤙关于">
                     <span>🤙关于</span>
                 </a>
             </li>
@@ -230,7 +230,7 @@ if (!doNotTrack) {
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://github.com/AlfredNing">主页</a>&nbsp;»&nbsp;<a href="https://github.com/AlfredNing/note/">笔记</a>&nbsp;»&nbsp;<a href="https://github.com/AlfredNing/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://github.com/AlfredNing/note/program/design_pattern/">设计模式</a></div>
+    <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/design_pattern/">设计模式</a></div>
     <h1 class="post-title">
       解释器模式
     </h1>
@@ -334,15 +334,15 @@ if (!doNotTrack) {
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://github.com/AlfredNing/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li>
+      <li><a href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://github.com/AlfredNing/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
+  <a class="prev" href="https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
     <span class="title">« 上一页</span>
     <br>
     <span>设计原则</span>
   </a>
-  <a class="next" href="https://github.com/AlfredNing/note/program/design_pattern/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/">
+  <a class="next" href="https://AlfredNing.github.io/note/program/design_pattern/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/">
     <span class="title">下一页 »</span>
     <br>
     <span>状态模式</span>
@@ -369,7 +369,7 @@ if (!doNotTrack) {
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://github.com/AlfredNing">AlfredNing</a></span>
+    <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

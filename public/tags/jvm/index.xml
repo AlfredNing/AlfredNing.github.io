@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>jvm on AlfredNing</title>
-    <link>https://github.com/AlfredNing/tags/jvm/</link>
+    <link>https://AlfredNing.github.io/tags/jvm/</link>
     <description>Recent content in jvm on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 27 Feb 2023 21:33:26 +0800</lastBuildDate><atom:link href="https://github.com/AlfredNing/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Feb 2023 21:33:26 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>运行时内存</title>
-      <link>https://github.com/AlfredNing/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/</link>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/</link>
       <pubDate>Mon, 27 Feb 2023 21:33:26 +0800</pubDate>
       
-      <guid>https://github.com/AlfredNing/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/</guid>
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/</guid>
       <description>jvm内存结构图
 哪些内存结构与线程意义对应，其实问的是线程共有和私有 共有： 堆和方法区 私有： 本地方法栈、虚拟机栈、程序计数器
 程序计数器 保证程序在程序系统中能够执行下去，CPU必须具有某些手段来确定下一条指令的地址。而程序计数器正是起到这种作用，所以通常又称为指令计数器 一条指令的地址。而程序计数器正是起到这种作用，所以通常又称为指令计数器。 在程序开始执行前，必须将它的起始地址，即程序的一条指令所在的内存单元地址送入PC，因此程序计数器（PC）的内容即是从内存提取的第一条指令的地址。当执行指令时，CPU将自动修改PC的内容，即每执行一条指令PC增加一个量，这个量等于指令所含的字节数，以便使其保持的总是将要执行的下一条指令的地址 由于大多数指令都是按顺序来执行的，所以修改的过程通常只是简单的对PC加1 当程序转移时，转移指令执行的最终结果就是要改变PC的值，此PC值就是转去的地址，以此实现转移。有些机器中也称PC为指令指针IP（Instruction Pointer） 特征 JVM中的程序计数寄存器（Program Counter Register）中， Register 的命名源于CPU的寄存器，寄存器存储指令相关的现场信息。 CPU只有把数据装载到寄存器才能够运行。
@@ -31,10 +31,10 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
     
     <item>
       <title>类的加载</title>
-      <link>https://github.com/AlfredNing/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/</link>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/</link>
       <pubDate>Thu, 23 Feb 2023 20:16:54 +0800</pubDate>
       
-      <guid>https://github.com/AlfredNing/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/</guid>
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/</guid>
       <description>类的加载过程 Java数据类型分为数据基本数据类型和引用数据类型
 基本类型由虚拟机预先定义，引用类型需要进行类的加载
 类的加载大过程分为三步, 总过程七步
@@ -69,10 +69,10 @@ Java程序的主动使用
     
     <item>
       <title>字节码文件</title>
-      <link>https://github.com/AlfredNing/note/program/jvm/%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6/</link>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6/</link>
       <pubDate>Fri, 17 Feb 2023 08:01:55 +0800</pubDate>
       
-      <guid>https://github.com/AlfredNing/note/program/jvm/%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6/</guid>
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6/</guid>
       <description>字节码文件 字节码文件 字节码文件跨平台 JVM实现遵守JVM虚拟机规范，所有JVM的环境都是一样的，所以字节码文件可以在各种虚拟机上执行
 通过Class文件，更多的计算机语言支持Java虚拟机平台。Class文件不仅仅是Java虚拟机的执行入口，更是Java生态圈的核心
 字节码文件内容 源代码经过编译器生成一个字节码文件，字节码文件是一种二进制的文件，内容是JVM的指令，而C/C++由编译器直接生成机器码。随着Java平台的不断发展，在将来，Class文件的内容也一定会做进一步的扩充，但是其基本的格式和结构不会做重大调整
@@ -94,10 +94,10 @@ import org.testng.annotations.Test; /** * @author Alfred.</description>
     
     <item>
       <title>Jvm初识</title>
-      <link>https://github.com/AlfredNing/note/program/jvm/jvm%E5%88%9D%E8%AF%86/</link>
+      <link>https://AlfredNing.github.io/note/program/jvm/jvm%E5%88%9D%E8%AF%86/</link>
       <pubDate>Tue, 14 Feb 2023 07:58:50 +0800</pubDate>
       
-      <guid>https://github.com/AlfredNing/note/program/jvm/jvm%E5%88%9D%E8%AF%86/</guid>
+      <guid>https://AlfredNing.github.io/note/program/jvm/jvm%E5%88%9D%E8%AF%86/</guid>
       <description>JDK关系 Oracle JDK 与 Open JDK 关系
 Oracle JDK是由oracle 公司开发的，Open JDK 是由IBM，Apple，SAP AG，Redhat等顶级公司合作开发 Oracle JDK大多数的功能是开源的，一些功能是开源。Open JDK完全开源 Oracle JDK以前的1.0版以前的版本是由Sun开发的，后来被Oracle收购并为其他版本维护，而OpenJDK最初只基于Java SDK或JDK版本7 Oracle JDK不会为即将发布的版本提供长期支持，用户每次都必须通过更新到最新版本获得支持来获取最新版本 Oracle JDK将从其10.0.X版本将收费，用户必须付费或必须依赖OpenJDK才能使用其免费版本 Oracle JDK在运行JDK时不会产生任何问题，而OpenJDK在为某些用户运行JDK时会产生一些问题 在响应性和JVM性能方面，Oracle JDK与OpenJDK相比提供了更好的性能 Oracle JDK具有良好的GC选项和更好的渲染器，而OpenJDK具有更少的GC选项，并且由于其包含自己的渲染器的分布，因此具有较慢的图形渲染器选项 Oracle JDK的构建过程基于OpenJDK，因此OpenJDK与Oracle JDK之间没有技术差异 Oracle JDK将更多地关注稳定性，它重视更多的企业级用户，而OpenJDK经常发布以支持其他性能，这可能会导致不稳定 JDK与JVM的关系 JDK: Java Development ToolKit(java开发工具包)。JDK是整个java的核心，包括了运行环境，java工具和java的基础类库。
 jvm:Java Virtual Machine(java虚拟机)。通过在实际的计算机上模拟仿真各种计算机功能来实现。
