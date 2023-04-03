@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>设计模式 on AlfredNing</title>
-    <link>https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <link>https://github.com/AlfredNing/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
     <description>Recent content in 设计模式 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 09 Feb 2023 23:36:46 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Feb 2023 23:36:46 +0800</lastBuildDate><atom:link href="https://github.com/AlfredNing/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>设计原则</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</link>
       <pubDate>Thu, 09 Feb 2023 23:36:46 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</guid>
       <description>指导思想 可维护性：修改功能少，需要改动的地方越少，可维护性越好 可复用性：代码被以后重复使用，写出自己总结的类库 可扩展性：添加功能无需修改原来的代码 灵活性：代码接口可以灵活调用 原则 单一职责原则 SRP 一个类别太大，别太累。负责单一的职责 高内聚，低耦合 开闭原则 OCP 对扩展开放，对修改关闭：尽量不修改原来的代码进行扩展 抽象化，多态是开闭原则的关键 里氏替换原则 LSP 所有使用父类的方法，必须能够透明的使用子类对象 依赖倒置原则 DIP 依赖抽象，而不是依赖具体 面向抽象/接口编程 接口隔离原则 ISP 每一个接口应该承担独立的角色，不干自己不该干的事情 避免子类不需要实现的方法 需要对客户提供接口的时候，只需要暴露最小的接口 迪米特法则 LOD 尽量不要和陌生人说话 在迪米特法则中，对于一个对象，非陌生人包含以下几类 当前对象本身this 以参数形式传入到当前对象方法中的对象 当前对象的成员对象 如果当前对象的成员对象是一个集合，那么集合中的元素也都是朋友 当前对象所创建的对象 和其它类的耦合度变低 工具类例外 </description>
     </item>
     
     <item>
       <title>解释器模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 09 Feb 2023 23:18:43 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
       <description>解释器模式是类的行为模式。给定一个语言之后，解释器模式可以定义出其文法的一种表示，并同时提供一个解释器。客户端可以使用这个解释器来解释这个语言中的句子
 角色 抽象表达式(Expression)角色：声明一个所有的具体表达式角色都需要实现的抽象接口。这个接口主要是一个interpret()方法，称做解释操作 终结符表达式(Terminal Expression)角色：实现了抽象表达式角色所要求的接口 非终结符表达式(Nonterminal Expression)角色：文法中的每一条规则都需要一个具体的非终结符表达式 环境(Context)角色：这个角色的任务一般是用来存放文法中各个终结符所对应的具体值 示例代码</description>
     </item>
     
     <item>
       <title>状态模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 09 Feb 2023 22:12:21 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</guid>
       <description>状态模式，状态对象行为模式。允许对一个对象在其内部状态改变的时候改变其行为。这个对象看上去就像是改变了它的类一样
 状态模式把所研究的对象的行为包装在不同的状态对象里，每一个状态对象都属于一个抽象状态类的一个子类。状态模式的意图是让一个对象在其内部状态改变的时候，其行为也随之改变
 角色 环境角色:定义客户端所感兴趣的接口，并且保留一个具体状态类的实例。这个具体状态类的实例给出此环境对象的现有状态 抽象状态(State)角色：定义一个接口，用以封装环境（Context）对象的一个特定的状态所对应的行为 具体状态(ConcreteState)角色：每一个具体状态类都实现了环境（Context）的一个状态所对应的行为 认识状态模式 状态和行为
@@ -50,10 +50,10 @@
     
     <item>
       <title>模板方法模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 09 Feb 2023 21:50:27 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</guid>
       <description>类的行为模式。使用示例：Servlet的应用
 抽象类：将部分逻辑以具体的方法以及具体的构造函数的形式实现。然后声明一些抽象方法来迫使子类实现剩余的逻辑。不同的子类可以以不同的实现方式实现这些抽象方法，从而对剩余逻辑有不同的实现。
 模板方法所代表的行为称为顶级行为，其逻辑称为顶级逻辑
@@ -63,10 +63,10 @@
     
     <item>
       <title>备忘录模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 09 Feb 2023 21:37:39 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/</guid>
       <description>对象的行为模式。又称为快照模式，对象的行为模式。一个用来存储另外一个对象内部状态的快照对象。
 指在不破坏封装的条件下，将一个对象的状态捕捉住，并且外部化，进行存储，从而可以在将来合适的时候把这个对象还原存储起来的状态。备忘录模式常常与命令模式和迭代子模式一同使用
 角色 备忘录角色 备忘录角色又如下责任：
@@ -86,10 +86,10 @@
     
     <item>
       <title>原型模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 09 Feb 2023 08:54:46 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</guid>
       <description>对象的创建模式。通过一个原型对象来指明所有创建的对象的类型，然后复用这个原型对象的方法来创建出更多同类型的对象。
 实现一个自身可以克隆的接口
 分类 简单形式 角色：
@@ -106,20 +106,20 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
     
     <item>
       <title>命令模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 09 Feb 2023 08:23:19 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</guid>
       <description>命令模式属于对象的行为模式，又成交易模式或行动模式。　命令模式把一个请求或者操作封装到一个对象中。命令模式允许系统使用不同的请求把客户端参数化，对请求排队或者记录请求日志，可以提供命令的撤销和恢复功能
 角色 命令角色 具体命令角色 请求者角色 接收者角色 客户端角色 优点 更松散的耦合 更动态的控制 很自然的复合命令 更好的扩展性 代码示例</description>
     </item>
     
     <item>
       <title>桥接模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Wed, 08 Feb 2023 22:36:18 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</guid>
       <description>将抽象部分与实现部分相分离，使他们都可以独立的变化。结构式模式
 角色 实现接口 抽象接口 具体实现 具体抽象实现 应用 具体到实际应用上，需要将抽象与实现分离开来，对客户端无感知的一种行为。
 示例代码</description>
@@ -127,10 +127,10 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
     
     <item>
       <title>适配器模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Wed, 08 Feb 2023 08:11:47 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
       <description>把一个类的接口变成客户端所期待的另一种接口，从而使原本因接口不匹配而无法完成一起工作的两个类可以一起工作
 结构 类的适配器模式 对象的适配器模式 类的适配器模式 把适配类的API转换成目标API
 角色：
@@ -153,10 +153,10 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
     
     <item>
       <title>构建者模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 22:47:44 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
       <description>分离对象的的属性与创建过程，用户创建重的对象。
 写法分类：
 在Builder里面直接new对象的方式，MyBatis的SqlSessionFactoryBuilder就是这种写法，适用于属性之间关联不多且大量属性都有默认值的场景。 间接new的方式：例如Guava的Cache都是这种写法，适用于属性之间有一定关联性的场景。 建造者模式的优点及适用场景
@@ -167,10 +167,10 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
     
     <item>
       <title>访问者模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 21:17:34 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
       <description>对象的行为模式。在不修改已有程序的前提下，通过添加额外的访问者来完成对已有代码功能的提升。
 将数据结构与操作分离
 角色：
@@ -185,10 +185,10 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
     
     <item>
       <title>代理模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 20:48:23 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</guid>
       <description>代理模式是一种使用代理对象来执行目标对象的方法并在代理对象中增强目标对象方法的一种设计模式
 静态代理 动态代理 静态代理的特点如下：
 使用静态代理时，通常客户类不需要感知RealSubject。 静态代理的缺点：代理对象需要与目标对象实现一样的接口，因此接口较多时需要定义和维护大量的代理类代码。 与适配器的差异：适配器通常考虑改变接口形态，而代理则不会也不能改变接口形态。 与装饰器的差异：被代理对象由代理对象创建，客户端甚至不需要知道被代理类的存在；被装饰对象则由客户端创建并传给装饰对象，可以层层嵌套，层层装饰。代理模式常用于控制被代理对象的访问，而装饰模式是增加被装饰者的功能。
@@ -198,10 +198,10 @@ JDK动态代理的特点如下：
     
     <item>
       <title>享元模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 20:29:05 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</guid>
       <description> 对象的结构模式，以共享的方式高效的支持大量的细粒度对象
 java中String类型就是享元模式 享元模式采用一个共享来避免大量拥有相同内容对象的开销
 分类 单纯享元模式 所有的享元对象都是可以共享的
@@ -211,20 +211,20 @@ java中String类型就是享元模式 享元模式采用一个共享来避免大
     
     <item>
       <title>组合模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 20:13:12 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</guid>
       <description>描述部分与整体的关系，组装树形结构
 角色 抽象构件角色 树叶构件角色 树枝构件角色 分类 透明式：在该方式中，由于抽象构件声明了所有子类中的全部方法，所以客户端无须区别树叶对象和树枝对象，对客户端来说是透明的 安全式：在该方式中，将管理子构件的方法移到树枝构件中，抽象构件和树叶构件没有对子对象的管理方法，这样就避免了上一种方式的安全性问题，但由于叶子和分支有不同的接口，客户端在调用时要知道树叶对象和树枝对象的存在，所以失去了透明性 组合模式代码</description>
     </item>
     
     <item>
       <title>观察者模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 19:50:02 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
       <description>观察者模式-对象行为模式。发布/订阅模式，模型-视图模式、源-监听器模式，从属者模式。
 定义一对多的依赖关系，让多个观察者同时监听某一个主题对象。这个对象在状态上发生变化时，会通知所有观察者对象，是它们能够主动更新自己的状态。
 角色：
@@ -238,10 +238,10 @@ Observer接口： 观察者 Observable类： 被观察者 示例代码</descript
     
     <item>
       <title>责任链模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Mon, 06 Feb 2023 08:09:32 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</guid>
       <description>对象的行为模式，允许你将请求沿着处理链进行发送。收到请求后，每个处理者可对请求进行处理，或将其传递给链上的下个处理者
 角色：
 抽象处理者：定义处理请求的接口。 具体处理者：具体处理者接到请求，可以将请求处理，或者将请求传给下家。 示例代码</description>
@@ -249,10 +249,10 @@ Observer接口： 观察者 Observable类： 被观察者 示例代码</descript
     
     <item>
       <title>装饰者模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sun, 05 Feb 2023 23:28:12 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
       <description>动态的将责任添加到对象上，动态添加功能。
 分类：
 父组件，供子组件使用 装饰者：组合其他组件，一部分功能是自己的，调用被装饰者，等同于保留被装饰者的功能 具体组件：实现具体方法 饮料添加各种配料，返回最终的价格。
@@ -261,10 +261,10 @@ Observer接口： 观察者 Observable类： 被观察者 示例代码</descript
     
     <item>
       <title>调停者模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%B0%83%E5%81%9C%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%B0%83%E5%81%9C%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sun, 05 Feb 2023 16:05:46 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%B0%83%E5%81%9C%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%B0%83%E5%81%9C%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
       <description>门面模式对外，调停者模式对内
 对象的行为模式，调停者模式包装了一系列对象相互作用的方式，使得这些对象不必相互明显引用。从而使它们可以较松散地耦合。当这些对象中的某些对象之间的相互作用发生改变时，不会立即影响到其他的一些对象之间的相互作用。从而保证这些相互作用可以彼此独立地变化
 角色：
@@ -273,10 +273,10 @@ Observer接口： 观察者 Observable类： 被观察者 示例代码</descript
     
     <item>
       <title>门面模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sun, 05 Feb 2023 15:50:55 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</guid>
       <description>提供高层次的接口，统一门面对象进行，使得子系统易于使用。
 选择性的暴露方法
 角色分类：
@@ -285,10 +285,10 @@ Observer接口： 观察者 Observable类： 被观察者 示例代码</descript
     
     <item>
       <title>工厂模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 04 Feb 2023 10:18:28 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
       <description>任何可以产生对象的方法和类，都可以被称为工厂。
 创建型设计模式，父类提供创建对象的方法，允许子类决定实例化对象的类型
 分类 根据产品是具体产品还是具体工厂：
@@ -301,10 +301,10 @@ Observer接口： 观察者 Observable类： 被观察者 示例代码</descript
     
     <item>
       <title>策略模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Fri, 03 Feb 2023 07:38:26 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
       <description>对于做同一件事有多种方法，Comparator接口。
 Context：环境类 Strategy: 抽象策略类 ConcreteStrategy: 具体策略类 使用场景 如果在一个系统里面有许多类，它们之间的区别仅在于它们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为。
 策略模式示例代码</description>
@@ -312,10 +312,10 @@ Context：环境类 Strategy: 抽象策略类 ConcreteStrategy: 具体策略类 
     
     <item>
       <title>单例模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Mon, 16 Jan 2023 08:36:37 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
       <description>保持内存中只有一个对象
 分类：
 是否加载实例

@@ -13,18 +13,18 @@
 `isSameSet(V x, V y)： 查询两个样本x和有是否在同一个集合里面 union(V x, V y) : 把x和y各自所有集合的样本合并成一个集合 两个算法的时间复杂度越小越好
 算法流程 算法实现 import java.util.HashMap; import java.util.List; import java.util.Stack; /** * 并查集实现 * * @author Alfred.Ning * @since 2023年03月25日 09:23:00 */ public class UnionFindImpl { public static class Node&lt;V&gt; { V value; public Node(V v) { value = v; } } public static class UnionFind&lt;V&gt; { private HashMap&lt;V, Node&lt;V&gt;&gt; nodes; private HashMap&lt;Node&lt;V&gt;, Node&lt;V&gt;&gt; parents; private HashMap&lt;Node&lt;V&gt;, Integer&gt; sizeMap; public UnionFind(List&lt;V&gt; values) { nodes = new HashMap&lt;&gt;(); parents = new HashMap&lt;&gt;(); sizeMap = new HashMap&lt;&gt;(); for (V v : values) { Node&lt;V&gt; node = new Node&lt;&gt;(v); nodes.">
 <meta name="author" content="AlfredNing">
-<link rel="canonical" href="https://AlfredNing.github.io/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/">
+<link rel="canonical" href="https://github.com/AlfredNing/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/">
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.04a2bdb2f4eabd29dd97f76a3c76512da23fc76565cdcbfcfb0efd278404737a.css" integrity="sha256-BKK9svTqvSndl/dqPHZRLaI/x2Vlzcv8&#43;w79J4QEc3o=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+<link crossorigin="anonymous" href="/AlfredNing/assets/css/stylesheet.04a2bdb2f4eabd29dd97f76a3c76512da23fc76565cdcbfcfb0efd278404737a.css" integrity="sha256-BKK9svTqvSndl/dqPHZRLaI/x2Vlzcv8&#43;w79J4QEc3o=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/AlfredNing/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="16x16" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="32x32" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
-<link rel="apple-touch-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
-<link rel="mask-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="16x16" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
+<link rel="apple-touch-icon" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
+<link rel="mask-icon" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -82,7 +82,7 @@ if (!doNotTrack) {
 `isSameSet(V x, V y)： 查询两个样本x和有是否在同一个集合里面 union(V x, V y) : 把x和y各自所有集合的样本合并成一个集合 两个算法的时间复杂度越小越好
 算法流程 算法实现 import java.util.HashMap; import java.util.List; import java.util.Stack; /** * 并查集实现 * * @author Alfred.Ning * @since 2023年03月25日 09:23:00 */ public class UnionFindImpl { public static class Node&lt;V&gt; { V value; public Node(V v) { value = v; } } public static class UnionFind&lt;V&gt; { private HashMap&lt;V, Node&lt;V&gt;&gt; nodes; private HashMap&lt;Node&lt;V&gt;, Node&lt;V&gt;&gt; parents; private HashMap&lt;Node&lt;V&gt;, Integer&gt; sizeMap; public UnionFind(List&lt;V&gt; values) { nodes = new HashMap&lt;&gt;(); parents = new HashMap&lt;&gt;(); sizeMap = new HashMap&lt;&gt;(); for (V v : values) { Node&lt;V&gt; node = new Node&lt;&gt;(v); nodes." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://AlfredNing.github.io/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/" /><meta property="article:section" content="note" />
+<meta property="og:url" content="https://github.com/AlfredNing/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/" /><meta property="article:section" content="note" />
 <meta property="article:published_time" content="2023-03-25T08:37:28+08:00" />
 <meta property="article:modified_time" content="2023-03-25T08:37:28+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
 
@@ -104,25 +104,25 @@ if (!doNotTrack) {
       "@type": "ListItem",
       "position":  2 ,
       "name": "笔记",
-      "item": "https://AlfredNing.github.io/note/"
+      "item": "https://github.com/AlfredNing/note/"
     }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "编程",
-      "item": "https://AlfredNing.github.io/note/program/"
+      "item": "https://github.com/AlfredNing/note/program/"
     }, 
     {
       "@type": "ListItem",
       "position":  4 ,
       "name": "算法",
-      "item": "https://AlfredNing.github.io/note/program/algorithm/"
+      "item": "https://github.com/AlfredNing/note/program/algorithm/"
     }, 
     {
       "@type": "ListItem",
       "position":  5 ,
       "name": "并查集",
-      "item": "https://AlfredNing.github.io/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/"
+      "item": "https://github.com/AlfredNing/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/"
     }
   ]
 }
@@ -148,14 +148,14 @@ if (!doNotTrack) {
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://AlfredNing.github.io/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/"
+    "@id": "https://github.com/AlfredNing/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "AlfredNing",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E"
+      "url": "https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E"
     }
   }
 }
@@ -177,7 +177,7 @@ if (!doNotTrack) {
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://AlfredNing.github.io" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
+            <a href="https://github.com/AlfredNing" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -203,32 +203,32 @@ if (!doNotTrack) {
         </div>
         <ul id="menu">
             <li>
-                <a href="https://AlfredNing.github.io/note/" title="📓笔记">
+                <a href="https://github.com/AlfredNing/note/" title="📓笔记">
                     <span>📓笔记</span>
                 </a>
             </li>
             <li>
-                <a href="https://AlfredNing.github.io/thinking/" title="🤔想法">
+                <a href="https://github.com/AlfredNing/thinking/" title="🤔想法">
                     <span>🤔想法</span>
                 </a>
             </li>
             <li>
-                <a href="https://AlfredNing.github.io/search/" title="🔎搜索 (Alt &#43; /)" accesskey=/>
+                <a href="https://github.com/AlfredNing/search/" title="🔎搜索 (Alt &#43; /)" accesskey=/>
                     <span>🔎搜索</span>
                 </a>
             </li>
             <li>
-                <a href="https://AlfredNing.github.io/tags/" title="🏷️标签">
+                <a href="https://github.com/AlfredNing/tags/" title="🏷️标签">
                     <span>🏷️标签</span>
                 </a>
             </li>
             <li>
-                <a href="https://AlfredNing.github.io/archives" title="🗄️归档">
+                <a href="https://github.com/AlfredNing/archives" title="🗄️归档">
                     <span>🗄️归档</span>
                 </a>
             </li>
             <li>
-                <a href="https://AlfredNing.github.io/about" title="🤙关于">
+                <a href="https://github.com/AlfredNing/about" title="🤙关于">
                     <span>🤙关于</span>
                 </a>
             </li>
@@ -239,7 +239,7 @@ if (!doNotTrack) {
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/algorithm/">算法</a></div>
+    <div class="breadcrumbs"><a href="https://github.com/AlfredNing">主页</a>&nbsp;»&nbsp;<a href="https://github.com/AlfredNing/note/">笔记</a>&nbsp;»&nbsp;<a href="https://github.com/AlfredNing/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://github.com/AlfredNing/note/program/algorithm/">算法</a></div>
     <h1 class="post-title">
       并查集
     </h1>
@@ -447,10 +447,15 @@ if (!doNotTrack) {
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://AlfredNing.github.io/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
+      <li><a href="https://github.com/AlfredNing/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
     </ul>
 <nav class="paginav">
-  <a class="next" href="https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%802/">
+  <a class="prev" href="https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%803/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>C&#43;&#43;基础3</span>
+  </a>
+  <a class="next" href="https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%802/">
     <span class="title">下一页 »</span>
     <br>
     <span>C&#43;&#43;基础2</span>
@@ -477,7 +482,7 @@ if (!doNotTrack) {
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
+    <span>&copy; 2023 <a href="https://github.com/AlfredNing">AlfredNing</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

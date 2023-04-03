@@ -9,18 +9,18 @@
 <meta name="keywords" content="">
 <meta name="description" content="指导思想 可维护性：修改功能少，需要改动的地方越少，可维护性越好 可复用性：代码被以后重复使用，写出自己总结的类库 可扩展性：添加功能无需修改原来的代码 灵活性：代码接口可以灵活调用 原则 单一职责原则 SRP 一个类别太大，别太累。负责单一的职责 高内聚，低耦合 开闭原则 OCP 对扩展开放，对修改关闭：尽量不修改原来的代码进行扩展 抽象化，多态是开闭原则的关键 里氏替换原则 LSP 所有使用父类的方法，必须能够透明的使用子类对象 依赖倒置原则 DIP 依赖抽象，而不是依赖具体 面向抽象/接口编程 接口隔离原则 ISP 每一个接口应该承担独立的角色，不干自己不该干的事情 避免子类不需要实现的方法 需要对客户提供接口的时候，只需要暴露最小的接口 迪米特法则 LOD 尽量不要和陌生人说话 在迪米特法则中，对于一个对象，非陌生人包含以下几类 当前对象本身this 以参数形式传入到当前对象方法中的对象 当前对象的成员对象 如果当前对象的成员对象是一个集合，那么集合中的元素也都是朋友 当前对象所创建的对象 和其它类的耦合度变低 工具类例外 ">
 <meta name="author" content="AlfredNing">
-<link rel="canonical" href="https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
+<link rel="canonical" href="https://github.com/AlfredNing/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.04a2bdb2f4eabd29dd97f76a3c76512da23fc76565cdcbfcfb0efd278404737a.css" integrity="sha256-BKK9svTqvSndl/dqPHZRLaI/x2Vlzcv8&#43;w79J4QEc3o=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+<link crossorigin="anonymous" href="/AlfredNing/assets/css/stylesheet.04a2bdb2f4eabd29dd97f76a3c76512da23fc76565cdcbfcfb0efd278404737a.css" integrity="sha256-BKK9svTqvSndl/dqPHZRLaI/x2Vlzcv8&#43;w79J4QEc3o=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/AlfredNing/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="16x16" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="32x32" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
-<link rel="apple-touch-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
-<link rel="mask-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="16x16" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
+<link rel="apple-touch-icon" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
+<link rel="mask-icon" href="https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -74,7 +74,7 @@ if (!doNotTrack) {
 </script><meta property="og:title" content="设计原则" />
 <meta property="og:description" content="指导思想 可维护性：修改功能少，需要改动的地方越少，可维护性越好 可复用性：代码被以后重复使用，写出自己总结的类库 可扩展性：添加功能无需修改原来的代码 灵活性：代码接口可以灵活调用 原则 单一职责原则 SRP 一个类别太大，别太累。负责单一的职责 高内聚，低耦合 开闭原则 OCP 对扩展开放，对修改关闭：尽量不修改原来的代码进行扩展 抽象化，多态是开闭原则的关键 里氏替换原则 LSP 所有使用父类的方法，必须能够透明的使用子类对象 依赖倒置原则 DIP 依赖抽象，而不是依赖具体 面向抽象/接口编程 接口隔离原则 ISP 每一个接口应该承担独立的角色，不干自己不该干的事情 避免子类不需要实现的方法 需要对客户提供接口的时候，只需要暴露最小的接口 迪米特法则 LOD 尽量不要和陌生人说话 在迪米特法则中，对于一个对象，非陌生人包含以下几类 当前对象本身this 以参数形式传入到当前对象方法中的对象 当前对象的成员对象 如果当前对象的成员对象是一个集合，那么集合中的元素也都是朋友 当前对象所创建的对象 和其它类的耦合度变低 工具类例外 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" /><meta property="article:section" content="note" />
+<meta property="og:url" content="https://github.com/AlfredNing/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" /><meta property="article:section" content="note" />
 <meta property="article:published_time" content="2023-02-09T23:36:46+08:00" />
 <meta property="article:modified_time" content="2023-02-09T23:36:46+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
 
@@ -92,25 +92,25 @@ if (!doNotTrack) {
       "@type": "ListItem",
       "position":  2 ,
       "name": "笔记",
-      "item": "https://AlfredNing.github.io/note/"
+      "item": "https://github.com/AlfredNing/note/"
     }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "编程",
-      "item": "https://AlfredNing.github.io/note/program/"
+      "item": "https://github.com/AlfredNing/note/program/"
     }, 
     {
       "@type": "ListItem",
       "position":  4 ,
       "name": "设计模式",
-      "item": "https://AlfredNing.github.io/note/program/design_pattern/"
+      "item": "https://github.com/AlfredNing/note/program/design_pattern/"
     }, 
     {
       "@type": "ListItem",
       "position":  5 ,
       "name": "设计原则",
-      "item": "https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"
+      "item": "https://github.com/AlfredNing/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"
     }
   ]
 }
@@ -136,14 +136,14 @@ if (!doNotTrack) {
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"
+    "@id": "https://github.com/AlfredNing/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "AlfredNing",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E"
+      "url": "https://github.com/AlfredNing/%3Clink%20/%20abs%20url%3E"
     }
   }
 }
@@ -165,7 +165,7 @@ if (!doNotTrack) {
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://AlfredNing.github.io" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
+            <a href="https://github.com/AlfredNing" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -191,32 +191,32 @@ if (!doNotTrack) {
         </div>
         <ul id="menu">
             <li>
-                <a href="https://AlfredNing.github.io/note/" title="📓笔记">
+                <a href="https://github.com/AlfredNing/note/" title="📓笔记">
                     <span>📓笔记</span>
                 </a>
             </li>
             <li>
-                <a href="https://AlfredNing.github.io/thinking/" title="🤔想法">
+                <a href="https://github.com/AlfredNing/thinking/" title="🤔想法">
                     <span>🤔想法</span>
                 </a>
             </li>
             <li>
-                <a href="https://AlfredNing.github.io/search/" title="🔎搜索 (Alt &#43; /)" accesskey=/>
+                <a href="https://github.com/AlfredNing/search/" title="🔎搜索 (Alt &#43; /)" accesskey=/>
                     <span>🔎搜索</span>
                 </a>
             </li>
             <li>
-                <a href="https://AlfredNing.github.io/tags/" title="🏷️标签">
+                <a href="https://github.com/AlfredNing/tags/" title="🏷️标签">
                     <span>🏷️标签</span>
                 </a>
             </li>
             <li>
-                <a href="https://AlfredNing.github.io/archives" title="🗄️归档">
+                <a href="https://github.com/AlfredNing/archives" title="🗄️归档">
                     <span>🗄️归档</span>
                 </a>
             </li>
             <li>
-                <a href="https://AlfredNing.github.io/about" title="🤙关于">
+                <a href="https://github.com/AlfredNing/about" title="🤙关于">
                     <span>🤙关于</span>
                 </a>
             </li>
@@ -227,7 +227,7 @@ if (!doNotTrack) {
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/design_pattern/">设计模式</a></div>
+    <div class="breadcrumbs"><a href="https://github.com/AlfredNing">主页</a>&nbsp;»&nbsp;<a href="https://github.com/AlfredNing/note/">笔记</a>&nbsp;»&nbsp;<a href="https://github.com/AlfredNing/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://github.com/AlfredNing/note/program/design_pattern/">设计模式</a></div>
     <h1 class="post-title">
       设计原则
     </h1>
@@ -383,15 +383,15 @@ if (!doNotTrack) {
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li>
+      <li><a href="https://github.com/AlfredNing/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://AlfredNing.github.io/note/program/jvm/jvm%E5%88%9D%E8%AF%86/">
+  <a class="prev" href="https://github.com/AlfredNing/note/program/jvm/jvm%E5%88%9D%E8%AF%86/">
     <span class="title">« 上一页</span>
     <br>
     <span>Jvm初识</span>
   </a>
-  <a class="next" href="https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/">
+  <a class="next" href="https://github.com/AlfredNing/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/">
     <span class="title">下一页 »</span>
     <br>
     <span>解释器模式</span>
@@ -418,7 +418,7 @@ if (!doNotTrack) {
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
+    <span>&copy; 2023 <a href="https://github.com/AlfredNing">AlfredNing</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
