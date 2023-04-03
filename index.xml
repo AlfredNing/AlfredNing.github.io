@@ -2,16 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>AlfredNing</title>
-    <link>https://AlfredNing.github.io/</link>
+    <link>https://github.com/AlfredNing/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 28 Mar 2023 22:10:36 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Apr 2023 12:04:42 +0800</lastBuildDate><atom:link href="https://github.com/AlfredNing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>虚幻引擎安装</title>
+      <link>https://github.com/AlfredNing/note/program/game/ue4/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Sat, 01 Apr 2023 12:04:42 +0800</pubDate>
+      
+      <guid>https://github.com/AlfredNing/note/program/game/ue4/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E%E5%AE%89%E8%A3%85/</guid>
+      <description>安装虚幻引擎 官网注册登录
+下载EpicGames启动器
+安装虚幻引擎 修改缓存
+缓存默认是在：
+修改缓存优点:
+减少c盘容量 项目分析减少着色器编译的时间 安装目录\unreal_engine\UE_4.24\Engine\Config\BaseEngine.ini
+找到InstalledDerivedDataBackendGraph标签
+修改path: %GAMEDIR%DerivedDataCache</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43;基础5</title>
-      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%805/</link>
+      <link>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%805/</link>
       <pubDate>Tue, 28 Mar 2023 22:10:36 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%805/</guid>
+      <guid>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%805/</guid>
       <description>信号处理 号是由操作系统传给进程的中断，会提早终止一个程序。在 UNIX、LINUX、Mac OS X 或 Windows 系统上，可以通过按 Ctrl+C 产生中断
 可以在程序捕获的信号
 信号 描述 SIGABRT 程序的异常终止，如调用 abort。 SIGFPE 错误的算术运算，比如除以零或导致溢出的操作。 SIGILL 检测非法指令。 SIGINT 接收到交互注意信号。 SIGSEGV 非法访问内存。 SIGTERM 发送到程序的终止请求。 signal函数： 捕获突发事件 raise函数：生成信号 c++多线程 基于进程 ： 程序的并发执行
@@ -24,10 +40,10 @@
     
     <item>
       <title>C&#43;&#43;基础4</title>
-      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%804/</link>
+      <link>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%804/</link>
       <pubDate>Mon, 27 Mar 2023 20:10:47 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%804/</guid>
+      <guid>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%804/</guid>
       <description>数据封装 面向对象编程中把数据和操作数据的函数绑定在一起的一个概念。同等概念既数据隐藏
 默认情况下，在类中定义的所有项目都是私有的。
 把一个类定义为另一个类的友元类，会暴露实现细节，从而降低了封装性。理想的做法是尽可能地对外隐藏每个类的实现细节
@@ -44,20 +60,20 @@ c++中的接口是用抽象类来实现，抽象类与数据抽象互不混淆�
     
     <item>
       <title>C&#43;&#43;基础3</title>
-      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%803/</link>
+      <link>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%803/</link>
       <pubDate>Sun, 26 Mar 2023 19:04:24 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%803/</guid>
+      <guid>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%803/</guid>
       <description>指针 表示内存的地址。指针是一个变量，值为另一个变量的内存地址。内存位置的直接地址
 必须先声明，后使用 所有指针的值的实际数据类型，不管是整型、浮点型、字符型，还是其他的数据类型，都是一样的，都是一个代表存地址的长的十六进制数 不同数据类型的指针之间唯一的不同是，指针所指向的变量或常量的数据类型不同 概念 描述 C++ Null 指针 C++ 支持空指针。NULL 指针是一个定义在标准库中的值为零的常量。 C++ 指针的算术运算 可以对指针进行四种算术运算：++、&amp;ndash;、+、- C++ 指针 vs 数组 指针和数组之间有着密切的关系。 C++ 指针数组 可以定义用来存储指针的数组。 C++ 指向指针的指针 C++ 允许指向指针的指针。 C++ 传递指针给函数 通过引用或地址传递参数，使传递的参数在调用函数中被改变。 C++ 从函数返回指针 C++ 允许函数返回指针到局部变量、静态变量和动态内存分配。 #include &amp;lt;iostream&amp;gt; using namespace std; int main() { int var = 20; // 指针变量声明 int* ip; double* dp; ip = &amp;amp;var; // 使用: 变量存储的地址 cout &amp;lt;&amp;lt; &amp;#34;ip: &amp;#34; &amp;lt;&amp;lt; ip &amp;lt;&amp;lt; endl; // 访问地址 cout &amp;lt;&amp;lt; *ip &amp;lt;&amp;lt; endl; return 0; } 引用 引用变量是一个别名，他是一件存在的变量的另一个名字。一旦把引用初始化为某个变量，就可以使用该引用名称或变量名称来指向变量。</description>
     </item>
     
     <item>
       <title>并查集</title>
-      <link>https://AlfredNing.github.io/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <link>https://github.com/AlfredNing/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
       <pubDate>Sat, 25 Mar 2023 08:37:28 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <guid>https://github.com/AlfredNing/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
       <description>算法定义 有若干个样本a、c、d、e&amp;hellip; 类型假设是V
 在并查集一开始认为每个样本都在单独的集合里
 设计两个方法
@@ -67,20 +83,20 @@ c++中的接口是用抽象类来实现，抽象类与数据抽象互不混淆�
     
     <item>
       <title>C&#43;&#43;基础2</title>
-      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%802/</link>
+      <link>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%802/</link>
       <pubDate>Wed, 22 Mar 2023 22:40:59 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%802/</guid>
+      <guid>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%802/</guid>
       <description>c++运算符 算术运算符 关系运算符 逻辑运算符 位运算符 赋值运算符 杂项运算符 算术运算符 假设变量 A 的值为 10，变量 B 的值为 20，则：
 运算符 描述 实例 + 把两个操作数相加 A + B 将得到 30 - 从第一个操作数中减去第二个操作数 A - B 将得到 -10 * 把两个操作数相乘 A * B 将得到 200 / 分子除以分母 B / A 将得到 2 % 取模运算符，整除后的余数 B % A 将得到 0 ++ 自增运算符，整数值增加 1 A++ 将得到 11 &amp;ndash; 自减运算符，整数值减少 1 A&amp;ndash; 将得到 9 关系运算符 假设变量 A 的值为 10，变量 B 的值为 20，则：</description>
     </item>
     
     <item>
       <title>C&#43;&#43;初始</title>
-      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%801/</link>
+      <link>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%801/</link>
       <pubDate>Wed, 22 Mar 2023 07:31:48 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%801/</guid>
+      <guid>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%801/</guid>
       <description>简介 C++一种静态类型、编译式、通用的、大小写敏感的、不规则的编程语言，支持过程化编程、面向对象编程和泛型编程。
 c++是一门中级语言，综合高级语言和低级语言的特点。
 C++ 是 C 的一个超集，事实上，任何合法的 C 程序都是合法的 C++ 程序。
@@ -92,10 +108,10 @@ C++ 是 C 的一个超集，事实上，任何合法的 C 程序都是合法的 
     
     <item>
       <title>运行时内存</title>
-      <link>https://AlfredNing.github.io/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/</link>
+      <link>https://github.com/AlfredNing/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/</link>
       <pubDate>Mon, 27 Feb 2023 21:33:26 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/</guid>
+      <guid>https://github.com/AlfredNing/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/</guid>
       <description>jvm内存结构图
 哪些内存结构与线程意义对应，其实问的是线程共有和私有 共有： 堆和方法区 私有： 本地方法栈、虚拟机栈、程序计数器
 程序计数器 保证程序在程序系统中能够执行下去，CPU必须具有某些手段来确定下一条指令的地址。而程序计数器正是起到这种作用，所以通常又称为指令计数器 一条指令的地址。而程序计数器正是起到这种作用，所以通常又称为指令计数器。 在程序开始执行前，必须将它的起始地址，即程序的一条指令所在的内存单元地址送入PC，因此程序计数器（PC）的内容即是从内存提取的第一条指令的地址。当执行指令时，CPU将自动修改PC的内容，即每执行一条指令PC增加一个量，这个量等于指令所含的字节数，以便使其保持的总是将要执行的下一条指令的地址 由于大多数指令都是按顺序来执行的，所以修改的过程通常只是简单的对PC加1 当程序转移时，转移指令执行的最终结果就是要改变PC的值，此PC值就是转去的地址，以此实现转移。有些机器中也称PC为指令指针IP（Instruction Pointer） 特征 JVM中的程序计数寄存器（Program Counter Register）中， Register 的命名源于CPU的寄存器，寄存器存储指令相关的现场信息。 CPU只有把数据装载到寄存器才能够运行。
@@ -115,10 +131,10 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
     
     <item>
       <title>类的加载</title>
-      <link>https://AlfredNing.github.io/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/</link>
+      <link>https://github.com/AlfredNing/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/</link>
       <pubDate>Thu, 23 Feb 2023 20:16:54 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/</guid>
+      <guid>https://github.com/AlfredNing/note/program/jvm/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD/</guid>
       <description>类的加载过程 Java数据类型分为数据基本数据类型和引用数据类型
 基本类型由虚拟机预先定义，引用类型需要进行类的加载
 类的加载大过程分为三步, 总过程七步
@@ -153,10 +169,10 @@ Java程序的主动使用
     
     <item>
       <title>Java8</title>
-      <link>https://AlfredNing.github.io/note/program/java8/java8/</link>
+      <link>https://github.com/AlfredNing/note/program/java8/java8/</link>
       <pubDate>Sat, 18 Feb 2023 12:47:59 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/java8/java8/</guid>
+      <guid>https://github.com/AlfredNing/note/program/java8/java8/</guid>
       <description>新特性 lambda表达式 方法引用 函数接口 流式处理 新日期时间API Optional类 新工具、JavaScript执行引擎 javaFx 函数编程 lambda表达式 想要在代码块以后某个时间点执行 可以转换为函数式接口 闭包作用域中有效访问final变量 任何一个lambda表达式都可以转换为所使用API中对应的函数式接口，注意：lambda表达式转换为函数式接口时候，注意检查期异常 不允许声明一个与局部变量同名的参数或者局部变量 lambda使用this,创建该lambda表达式方法的参数 组成 可选的类型声明 可选的参数小括号 可选的大括号 可选的返回值【只有一句表达式可以省略】 功能 内联功能的实现
 注意 变量引用不可变，实际内容可变
 函数接口 只包含一个抽象方法的接口，可以通过lambda表达式创建该接口的对象
@@ -179,10 +195,10 @@ Files.lines(path) : 记得使用try-with-resources语句</description>
     
     <item>
       <title>字节码文件</title>
-      <link>https://AlfredNing.github.io/note/program/jvm/%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6/</link>
+      <link>https://github.com/AlfredNing/note/program/jvm/%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6/</link>
       <pubDate>Fri, 17 Feb 2023 08:01:55 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/jvm/%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6/</guid>
+      <guid>https://github.com/AlfredNing/note/program/jvm/%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6/</guid>
       <description>字节码文件 字节码文件 字节码文件跨平台 JVM实现遵守JVM虚拟机规范，所有JVM的环境都是一样的，所以字节码文件可以在各种虚拟机上执行
 通过Class文件，更多的计算机语言支持Java虚拟机平台。Class文件不仅仅是Java虚拟机的执行入口，更是Java生态圈的核心
 字节码文件内容 源代码经过编译器生成一个字节码文件，字节码文件是一种二进制的文件，内容是JVM的指令，而C/C++由编译器直接生成机器码。随着Java平台的不断发展，在将来，Class文件的内容也一定会做进一步的扩充，但是其基本的格式和结构不会做重大调整
@@ -204,10 +220,10 @@ import org.testng.annotations.Test; /** * @author Alfred.</description>
     
     <item>
       <title>HTTP权威指南</title>
-      <link>https://AlfredNing.github.io/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</link>
+      <link>https://github.com/AlfredNing/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</link>
       <pubDate>Wed, 15 Feb 2023 12:22:58 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</guid>
+      <guid>https://github.com/AlfredNing/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</guid>
       <description>Web的基础 HTTP概述 http使用的是可靠的数据传输协议 组成 web客户端 类似浏览器
 web服务器： 通常web服务器使用http协议，通常成为http服务器
 资源 Web服务器是Web资源（Web resource）的宿主。Web资源是Web内容的源头。资源并不一定非的是静态文件，根据需要生成的软件程序
@@ -220,10 +236,10 @@ URN： 统一资源名 URN是作为特定内容的唯一名称使用的，与目
     
     <item>
       <title>Jvm初识</title>
-      <link>https://AlfredNing.github.io/note/program/jvm/jvm%E5%88%9D%E8%AF%86/</link>
+      <link>https://github.com/AlfredNing/note/program/jvm/jvm%E5%88%9D%E8%AF%86/</link>
       <pubDate>Tue, 14 Feb 2023 07:58:50 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/jvm/jvm%E5%88%9D%E8%AF%86/</guid>
+      <guid>https://github.com/AlfredNing/note/program/jvm/jvm%E5%88%9D%E8%AF%86/</guid>
       <description>JDK关系 Oracle JDK 与 Open JDK 关系
 Oracle JDK是由oracle 公司开发的，Open JDK 是由IBM，Apple，SAP AG，Redhat等顶级公司合作开发 Oracle JDK大多数的功能是开源的，一些功能是开源。Open JDK完全开源 Oracle JDK以前的1.0版以前的版本是由Sun开发的，后来被Oracle收购并为其他版本维护，而OpenJDK最初只基于Java SDK或JDK版本7 Oracle JDK不会为即将发布的版本提供长期支持，用户每次都必须通过更新到最新版本获得支持来获取最新版本 Oracle JDK将从其10.0.X版本将收费，用户必须付费或必须依赖OpenJDK才能使用其免费版本 Oracle JDK在运行JDK时不会产生任何问题，而OpenJDK在为某些用户运行JDK时会产生一些问题 在响应性和JVM性能方面，Oracle JDK与OpenJDK相比提供了更好的性能 Oracle JDK具有良好的GC选项和更好的渲染器，而OpenJDK具有更少的GC选项，并且由于其包含自己的渲染器的分布，因此具有较慢的图形渲染器选项 Oracle JDK的构建过程基于OpenJDK，因此OpenJDK与Oracle JDK之间没有技术差异 Oracle JDK将更多地关注稳定性，它重视更多的企业级用户，而OpenJDK经常发布以支持其他性能，这可能会导致不稳定 JDK与JVM的关系 JDK: Java Development ToolKit(java开发工具包)。JDK是整个java的核心，包括了运行环境，java工具和java的基础类库。
 jvm:Java Virtual Machine(java虚拟机)。通过在实际的计算机上模拟仿真各种计算机功能来实现。
@@ -240,29 +256,29 @@ KVM和CDC/CLDC Hotspot</description>
     
     <item>
       <title>设计原则</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</link>
       <pubDate>Thu, 09 Feb 2023 23:36:46 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</guid>
       <description>指导思想 可维护性：修改功能少，需要改动的地方越少，可维护性越好 可复用性：代码被以后重复使用，写出自己总结的类库 可扩展性：添加功能无需修改原来的代码 灵活性：代码接口可以灵活调用 原则 单一职责原则 SRP 一个类别太大，别太累。负责单一的职责 高内聚，低耦合 开闭原则 OCP 对扩展开放，对修改关闭：尽量不修改原来的代码进行扩展 抽象化，多态是开闭原则的关键 里氏替换原则 LSP 所有使用父类的方法，必须能够透明的使用子类对象 依赖倒置原则 DIP 依赖抽象，而不是依赖具体 面向抽象/接口编程 接口隔离原则 ISP 每一个接口应该承担独立的角色，不干自己不该干的事情 避免子类不需要实现的方法 需要对客户提供接口的时候，只需要暴露最小的接口 迪米特法则 LOD 尽量不要和陌生人说话 在迪米特法则中，对于一个对象，非陌生人包含以下几类 当前对象本身this 以参数形式传入到当前对象方法中的对象 当前对象的成员对象 如果当前对象的成员对象是一个集合，那么集合中的元素也都是朋友 当前对象所创建的对象 和其它类的耦合度变低 工具类例外 </description>
     </item>
     
     <item>
       <title>解释器模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 09 Feb 2023 23:18:43 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
       <description>解释器模式是类的行为模式。给定一个语言之后，解释器模式可以定义出其文法的一种表示，并同时提供一个解释器。客户端可以使用这个解释器来解释这个语言中的句子
 角色 抽象表达式(Expression)角色：声明一个所有的具体表达式角色都需要实现的抽象接口。这个接口主要是一个interpret()方法，称做解释操作 终结符表达式(Terminal Expression)角色：实现了抽象表达式角色所要求的接口 非终结符表达式(Nonterminal Expression)角色：文法中的每一条规则都需要一个具体的非终结符表达式 环境(Context)角色：这个角色的任务一般是用来存放文法中各个终结符所对应的具体值 示例代码</description>
     </item>
     
     <item>
       <title>状态模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 09 Feb 2023 22:12:21 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</guid>
       <description>状态模式，状态对象行为模式。允许对一个对象在其内部状态改变的时候改变其行为。这个对象看上去就像是改变了它的类一样
 状态模式把所研究的对象的行为包装在不同的状态对象里，每一个状态对象都属于一个抽象状态类的一个子类。状态模式的意图是让一个对象在其内部状态改变的时候，其行为也随之改变
 角色 环境角色:定义客户端所感兴趣的接口，并且保留一个具体状态类的实例。这个具体状态类的实例给出此环境对象的现有状态 抽象状态(State)角色：定义一个接口，用以封装环境（Context）对象的一个特定的状态所对应的行为 具体状态(ConcreteState)角色：每一个具体状态类都实现了环境（Context）的一个状态所对应的行为 认识状态模式 状态和行为
@@ -282,10 +298,10 @@ KVM和CDC/CLDC Hotspot</description>
     
     <item>
       <title>模板方法模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 09 Feb 2023 21:50:27 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</guid>
       <description>类的行为模式。使用示例：Servlet的应用
 抽象类：将部分逻辑以具体的方法以及具体的构造函数的形式实现。然后声明一些抽象方法来迫使子类实现剩余的逻辑。不同的子类可以以不同的实现方式实现这些抽象方法，从而对剩余逻辑有不同的实现。
 模板方法所代表的行为称为顶级行为，其逻辑称为顶级逻辑
@@ -295,10 +311,10 @@ KVM和CDC/CLDC Hotspot</description>
     
     <item>
       <title>备忘录模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 09 Feb 2023 21:37:39 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/</guid>
       <description>对象的行为模式。又称为快照模式，对象的行为模式。一个用来存储另外一个对象内部状态的快照对象。
 指在不破坏封装的条件下，将一个对象的状态捕捉住，并且外部化，进行存储，从而可以在将来合适的时候把这个对象还原存储起来的状态。备忘录模式常常与命令模式和迭代子模式一同使用
 角色 备忘录角色 备忘录角色又如下责任：
@@ -318,10 +334,10 @@ KVM和CDC/CLDC Hotspot</description>
     
     <item>
       <title>原型模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 09 Feb 2023 08:54:46 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</guid>
       <description>对象的创建模式。通过一个原型对象来指明所有创建的对象的类型，然后复用这个原型对象的方法来创建出更多同类型的对象。
 实现一个自身可以克隆的接口
 分类 简单形式 角色：
@@ -338,20 +354,20 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
     
     <item>
       <title>命令模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 09 Feb 2023 08:23:19 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</guid>
       <description>命令模式属于对象的行为模式，又成交易模式或行动模式。　命令模式把一个请求或者操作封装到一个对象中。命令模式允许系统使用不同的请求把客户端参数化，对请求排队或者记录请求日志，可以提供命令的撤销和恢复功能
 角色 命令角色 具体命令角色 请求者角色 接收者角色 客户端角色 优点 更松散的耦合 更动态的控制 很自然的复合命令 更好的扩展性 代码示例</description>
     </item>
     
     <item>
       <title>桥接模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Wed, 08 Feb 2023 22:36:18 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</guid>
       <description>将抽象部分与实现部分相分离，使他们都可以独立的变化。结构式模式
 角色 实现接口 抽象接口 具体实现 具体抽象实现 应用 具体到实际应用上，需要将抽象与实现分离开来，对客户端无感知的一种行为。
 示例代码</description>
@@ -359,10 +375,10 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
     
     <item>
       <title>适配器模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Wed, 08 Feb 2023 08:11:47 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
       <description>把一个类的接口变成客户端所期待的另一种接口，从而使原本因接口不匹配而无法完成一起工作的两个类可以一起工作
 结构 类的适配器模式 对象的适配器模式 类的适配器模式 把适配类的API转换成目标API
 角色：
@@ -385,10 +401,10 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
     
     <item>
       <title>构建者模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 22:47:44 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
       <description>分离对象的的属性与创建过程，用户创建重的对象。
 写法分类：
 在Builder里面直接new对象的方式，MyBatis的SqlSessionFactoryBuilder就是这种写法，适用于属性之间关联不多且大量属性都有默认值的场景。 间接new的方式：例如Guava的Cache都是这种写法，适用于属性之间有一定关联性的场景。 建造者模式的优点及适用场景
@@ -399,10 +415,10 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
     
     <item>
       <title>访问者模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 21:17:34 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
       <description>对象的行为模式。在不修改已有程序的前提下，通过添加额外的访问者来完成对已有代码功能的提升。
 将数据结构与操作分离
 角色：
@@ -417,10 +433,10 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
     
     <item>
       <title>迭代器模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 20:57:19 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
       <description> 迭代器模式又叫做游标模式，作用：提供一种方法访问一个容器元素中的各个对象，而又不暴露该对象的内部细节
 角色：
 迭代器角色 具体迭代器角色 容器角色 具体容器角色 </description>
@@ -428,10 +444,10 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
     
     <item>
       <title>代理模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 20:48:23 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</guid>
       <description>代理模式是一种使用代理对象来执行目标对象的方法并在代理对象中增强目标对象方法的一种设计模式
 静态代理 动态代理 静态代理的特点如下：
 使用静态代理时，通常客户类不需要感知RealSubject。 静态代理的缺点：代理对象需要与目标对象实现一样的接口，因此接口较多时需要定义和维护大量的代理类代码。 与适配器的差异：适配器通常考虑改变接口形态，而代理则不会也不能改变接口形态。 与装饰器的差异：被代理对象由代理对象创建，客户端甚至不需要知道被代理类的存在；被装饰对象则由客户端创建并传给装饰对象，可以层层嵌套，层层装饰。代理模式常用于控制被代理对象的访问，而装饰模式是增加被装饰者的功能。
@@ -441,10 +457,10 @@ JDK动态代理的特点如下：
     
     <item>
       <title>享元模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 20:29:05 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</guid>
       <description> 对象的结构模式，以共享的方式高效的支持大量的细粒度对象
 java中String类型就是享元模式 享元模式采用一个共享来避免大量拥有相同内容对象的开销
 分类 单纯享元模式 所有的享元对象都是可以共享的
@@ -454,20 +470,20 @@ java中String类型就是享元模式 享元模式采用一个共享来避免大
     
     <item>
       <title>组合模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 20:13:12 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</guid>
       <description>描述部分与整体的关系，组装树形结构
 角色 抽象构件角色 树叶构件角色 树枝构件角色 分类 透明式：在该方式中，由于抽象构件声明了所有子类中的全部方法，所以客户端无须区别树叶对象和树枝对象，对客户端来说是透明的 安全式：在该方式中，将管理子构件的方法移到树枝构件中，抽象构件和树叶构件没有对子对象的管理方法，这样就避免了上一种方式的安全性问题，但由于叶子和分支有不同的接口，客户端在调用时要知道树叶对象和树枝对象的存在，所以失去了透明性 组合模式代码</description>
     </item>
     
     <item>
       <title>观察者模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 07 Feb 2023 19:50:02 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
       <description>观察者模式-对象行为模式。发布/订阅模式，模型-视图模式、源-监听器模式，从属者模式。
 定义一对多的依赖关系，让多个观察者同时监听某一个主题对象。这个对象在状态上发生变化时，会通知所有观察者对象，是它们能够主动更新自己的状态。
 角色：
@@ -481,10 +497,10 @@ Observer接口： 观察者 Observable类： 被观察者 示例代码</descript
     
     <item>
       <title>责任链模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Mon, 06 Feb 2023 08:09:32 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</guid>
       <description>对象的行为模式，允许你将请求沿着处理链进行发送。收到请求后，每个处理者可对请求进行处理，或将其传递给链上的下个处理者
 角色：
 抽象处理者：定义处理请求的接口。 具体处理者：具体处理者接到请求，可以将请求处理，或者将请求传给下家。 示例代码</description>
@@ -492,10 +508,10 @@ Observer接口： 观察者 Observable类： 被观察者 示例代码</descript
     
     <item>
       <title>装饰者模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sun, 05 Feb 2023 23:28:12 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
       <description>动态的将责任添加到对象上，动态添加功能。
 分类：
 父组件，供子组件使用 装饰者：组合其他组件，一部分功能是自己的，调用被装饰者，等同于保留被装饰者的功能 具体组件：实现具体方法 饮料添加各种配料，返回最终的价格。
@@ -504,10 +520,10 @@ Observer接口： 观察者 Observable类： 被观察者 示例代码</descript
     
     <item>
       <title>调停者模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%B0%83%E5%81%9C%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E8%B0%83%E5%81%9C%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sun, 05 Feb 2023 16:05:46 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%B0%83%E5%81%9C%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E8%B0%83%E5%81%9C%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
       <description>门面模式对外，调停者模式对内
 对象的行为模式，调停者模式包装了一系列对象相互作用的方式，使得这些对象不必相互明显引用。从而使它们可以较松散地耦合。当这些对象中的某些对象之间的相互作用发生改变时，不会立即影响到其他的一些对象之间的相互作用。从而保证这些相互作用可以彼此独立地变化
 角色：
@@ -516,10 +532,10 @@ Observer接口： 观察者 Observable类： 被观察者 示例代码</descript
     
     <item>
       <title>门面模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sun, 05 Feb 2023 15:50:55 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</guid>
       <description>提供高层次的接口，统一门面对象进行，使得子系统易于使用。
 选择性的暴露方法
 角色分类：
@@ -528,10 +544,10 @@ Observer接口： 观察者 Observable类： 被观察者 示例代码</descript
     
     <item>
       <title>工厂模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 04 Feb 2023 10:18:28 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
       <description>任何可以产生对象的方法和类，都可以被称为工厂。
 创建型设计模式，父类提供创建对象的方法，允许子类决定实例化对象的类型
 分类 根据产品是具体产品还是具体工厂：
@@ -544,10 +560,10 @@ Observer接口： 观察者 Observable类： 被观察者 示例代码</descript
     
     <item>
       <title>策略模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Fri, 03 Feb 2023 07:38:26 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
       <description>对于做同一件事有多种方法，Comparator接口。
 Context：环境类 Strategy: 抽象策略类 ConcreteStrategy: 具体策略类 使用场景 如果在一个系统里面有许多类，它们之间的区别仅在于它们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为。
 策略模式示例代码</description>
@@ -555,10 +571,10 @@ Context：环境类 Strategy: 抽象策略类 ConcreteStrategy: 具体策略类 
     
     <item>
       <title>单例模式</title>
-      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://github.com/AlfredNing/note/program/design_pattern/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Mon, 16 Jan 2023 08:36:37 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://github.com/AlfredNing/note/program/design_pattern/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
       <description>保持内存中只有一个对象
 分类：
 是否加载实例
@@ -569,10 +585,10 @@ Context：环境类 Strategy: 抽象策略类 ConcreteStrategy: 具体策略类 
     
     <item>
       <title>Kmp</title>
-      <link>https://AlfredNing.github.io/note/program/algorithm/kmp/</link>
+      <link>https://github.com/AlfredNing/note/program/algorithm/kmp/</link>
       <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/algorithm/kmp/</guid>
+      <guid>https://github.com/AlfredNing/note/program/algorithm/kmp/</guid>
       <description>使用场景 多用于子串匹配问题
 流程 在暴力解的过程当中有加速
 定义： 在该位置之前的前缀与后缀的长度，但不能取到字符串的整体长度，定义为指标信息

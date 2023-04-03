@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>算法 on AlfredNing</title>
-    <link>https://AlfredNing.github.io/tags/%E7%AE%97%E6%B3%95/</link>
+    <link>https://github.com/AlfredNing/tags/%E7%AE%97%E6%B3%95/</link>
     <description>Recent content in 算法 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 25 Mar 2023 08:37:28 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Mar 2023 08:37:28 +0800</lastBuildDate><atom:link href="https://github.com/AlfredNing/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>并查集</title>
-      <link>https://AlfredNing.github.io/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <link>https://github.com/AlfredNing/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
       <pubDate>Sat, 25 Mar 2023 08:37:28 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <guid>https://github.com/AlfredNing/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
       <description>算法定义 有若干个样本a、c、d、e&amp;hellip; 类型假设是V
 在并查集一开始认为每个样本都在单独的集合里
 设计两个方法
@@ -21,10 +21,10 @@
     
     <item>
       <title>Kmp</title>
-      <link>https://AlfredNing.github.io/note/program/algorithm/kmp/</link>
+      <link>https://github.com/AlfredNing/note/program/algorithm/kmp/</link>
       <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/algorithm/kmp/</guid>
+      <guid>https://github.com/AlfredNing/note/program/algorithm/kmp/</guid>
       <description>使用场景 多用于子串匹配问题
 流程 在暴力解的过程当中有加速
 定义： 在该位置之前的前缀与后缀的长度，但不能取到字符串的整体长度，定义为指标信息
