@@ -34,7 +34,7 @@ params:
   disableScrollToTop: false
   hidemeta: false
   hideSummary: false
-  # showtoc: true
+  showtoc: true
   tocopen: false
   hideFooter: false # 隐藏页脚
   ShowWordCounts: true
@@ -155,3 +155,4 @@ markup:
     # lineNos: true
     # style: monokai
     
+# copyright: © 2023 <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a>

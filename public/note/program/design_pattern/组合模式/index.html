@@ -243,18 +243,18 @@ if (!doNotTrack) {
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">目录</span>
-        </summary>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e8%a7%92%e8%89%b2" aria-label="角色">角色</a></li>
-                <li>
-                    <a href="#%e5%88%86%e7%b1%bb" aria-label="分类">分类</a>
-                </li>
-            </ul>
-        </div>
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e8%a7%92%e8%89%b2" aria-label="角色">角色</a></li>
+                    <li>
+                        <a href="#%e5%88%86%e7%b1%bb" aria-label="分类">分类</a>
+                    </li>
+                </ul>
+            </div>
         </details>
     </div>
 </aside>
@@ -265,11 +265,11 @@ if (!doNotTrack) {
         checkTocPosition();
 
         elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-        
-        activeElement = elements[0];
-        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-    }, false);
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
 
     window.addEventListener('resize', function(event) {
         checkTocPosition();
@@ -278,21 +278,21 @@ if (!doNotTrack) {
     window.addEventListener('scroll', () => {
         
         activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
                 (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
                 return element;
             }
         }) || activeElement
 
         elements.forEach(element => {
-            const id = encodeURI(element.getAttribute('id')).toLowerCase();
-            if (element === activeElement){
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-            } else {
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-            }
-        })
-    }, false);
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
 
     const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
     const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
@@ -314,7 +314,7 @@ if (!doNotTrack) {
         }
         let rect = element.getBoundingClientRect();
         let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;
+        return rect.top + win.pageYOffset;   
     }
 </script>
   <div class="post-content"><blockquote>

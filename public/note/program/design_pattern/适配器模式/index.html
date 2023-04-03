@@ -291,28 +291,28 @@ if (!doNotTrack) {
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">目录</span>
-        </summary>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e7%bb%93%e6%9e%84" aria-label="结构">结构</a></li>
-                <li>
-                    <a href="#%e7%b1%bb%e7%9a%84%e9%80%82%e9%85%8d%e5%99%a8%e6%a8%a1%e5%bc%8f" aria-label="类的适配器模式">类的适配器模式</a></li>
-                <li>
-                    <a href="#%e5%af%b9%e8%b1%a1%e7%9a%84%e9%80%82%e9%85%8d%e5%99%a8%e6%a8%a1%e5%bc%8f" aria-label="对象的适配器模式">对象的适配器模式</a></li>
-                <li>
-                    <a href="#%e7%b1%bb%e9%80%82%e9%85%8d%e5%99%a8%e5%92%8c%e5%af%b9%e8%b1%a1%e9%80%82%e9%85%8d%e5%99%a8%e7%9a%84%e6%9d%83%e8%a1%a1" aria-label="类适配器和对象适配器的权衡">类适配器和对象适配器的权衡</a></li>
-                <li>
-                    <a href="#%e4%bc%98%e7%82%b9" aria-label="优点">优点</a></li>
-                <li>
-                    <a href="#%e7%bc%ba%e7%82%b9" aria-label="缺点">缺点</a></li>
-                <li>
-                    <a href="#%e7%bc%ba%e7%9c%81%e9%80%82%e9%85%8d%e5%99%a8%e6%a8%a1%e5%bc%8f" aria-label="缺省适配器模式">缺省适配器模式</a>
-                </li>
-            </ul>
-        </div>
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e7%bb%93%e6%9e%84" aria-label="结构">结构</a></li>
+                    <li>
+                        <a href="#%e7%b1%bb%e7%9a%84%e9%80%82%e9%85%8d%e5%99%a8%e6%a8%a1%e5%bc%8f" aria-label="类的适配器模式">类的适配器模式</a></li>
+                    <li>
+                        <a href="#%e5%af%b9%e8%b1%a1%e7%9a%84%e9%80%82%e9%85%8d%e5%99%a8%e6%a8%a1%e5%bc%8f" aria-label="对象的适配器模式">对象的适配器模式</a></li>
+                    <li>
+                        <a href="#%e7%b1%bb%e9%80%82%e9%85%8d%e5%99%a8%e5%92%8c%e5%af%b9%e8%b1%a1%e9%80%82%e9%85%8d%e5%99%a8%e7%9a%84%e6%9d%83%e8%a1%a1" aria-label="类适配器和对象适配器的权衡">类适配器和对象适配器的权衡</a></li>
+                    <li>
+                        <a href="#%e4%bc%98%e7%82%b9" aria-label="优点">优点</a></li>
+                    <li>
+                        <a href="#%e7%bc%ba%e7%82%b9" aria-label="缺点">缺点</a></li>
+                    <li>
+                        <a href="#%e7%bc%ba%e7%9c%81%e9%80%82%e9%85%8d%e5%99%a8%e6%a8%a1%e5%bc%8f" aria-label="缺省适配器模式">缺省适配器模式</a>
+                    </li>
+                </ul>
+            </div>
         </details>
     </div>
 </aside>
@@ -323,11 +323,11 @@ if (!doNotTrack) {
         checkTocPosition();
 
         elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-        
-        activeElement = elements[0];
-        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-    }, false);
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
 
     window.addEventListener('resize', function(event) {
         checkTocPosition();
@@ -336,21 +336,21 @@ if (!doNotTrack) {
     window.addEventListener('scroll', () => {
         
         activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
                 (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
                 return element;
             }
         }) || activeElement
 
         elements.forEach(element => {
-            const id = encodeURI(element.getAttribute('id')).toLowerCase();
-            if (element === activeElement){
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-            } else {
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-            }
-        })
-    }, false);
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
 
     const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
     const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
@@ -372,7 +372,7 @@ if (!doNotTrack) {
         }
         let rect = element.getBoundingClientRect();
         let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;
+        return rect.top + win.pageYOffset;   
     }
 </script>
   <div class="post-content"><blockquote>

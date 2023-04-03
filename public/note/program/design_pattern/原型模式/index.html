@@ -273,31 +273,31 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">目录</span>
-        </summary>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
 
-        <div class="inner"><ul><ul>
-                <li>
-                    <a href="#%e5%88%86%e7%b1%bb" aria-label="分类">分类</a><ul>
+            <div class="inner"><ul><ul>
+                    <li>
+                        <a href="#%e5%88%86%e7%b1%bb" aria-label="分类">分类</a><ul>
+                            
+                    <li>
+                        <a href="#%e7%ae%80%e5%8d%95%e5%bd%a2%e5%bc%8f" aria-label="简单形式">简单形式</a></li>
+                    <li>
+                        <a href="#%e7%99%bb%e8%ae%b0%e5%bd%a2%e5%bc%8f" aria-label="登记形式">登记形式</a></li>
+                    <li>
+                        <a href="#%e4%b8%a4%e7%a7%8d%e5%bd%a2%e5%bc%8f%e7%9a%84%e6%af%94%e8%be%83" aria-label="两种形式的比较">两种形式的比较</a></li></ul>
+                    </li></ul>
                         
-                <li>
-                    <a href="#%e7%ae%80%e5%8d%95%e5%bd%a2%e5%bc%8f" aria-label="简单形式">简单形式</a></li>
-                <li>
-                    <a href="#%e7%99%bb%e8%ae%b0%e5%bd%a2%e5%bc%8f" aria-label="登记形式">登记形式</a></li>
-                <li>
-                    <a href="#%e4%b8%a4%e7%a7%8d%e5%bd%a2%e5%bc%8f%e7%9a%84%e6%af%94%e8%be%83" aria-label="两种形式的比较">两种形式的比较</a></li></ul>
-                </li></ul>
-                    
-                <li>
-                    <a href="#java%e4%b8%ad%e7%9a%84%e5%85%8b%e9%9a%86%e6%96%b9%e6%b3%95" aria-label="Java中的克隆方法">Java中的克隆方法</a></li>
-                <li>
-                    <a href="#%e5%8e%9f%e5%9e%8b%e6%a8%a1%e5%bc%8f%e7%9a%84%e4%bc%98%e7%82%b9" aria-label="原型模式的优点">原型模式的优点</a></li>
-                <li>
-                    <a href="#%e5%8e%9f%e5%9e%8b%e6%a8%a1%e5%bc%8f%e7%9a%84%e7%bc%ba%e7%82%b9" aria-label="原型模式的缺点">原型模式的缺点</a>
-                </li>
-            </ul>
-        </div>
+                    <li>
+                        <a href="#java%e4%b8%ad%e7%9a%84%e5%85%8b%e9%9a%86%e6%96%b9%e6%b3%95" aria-label="Java中的克隆方法">Java中的克隆方法</a></li>
+                    <li>
+                        <a href="#%e5%8e%9f%e5%9e%8b%e6%a8%a1%e5%bc%8f%e7%9a%84%e4%bc%98%e7%82%b9" aria-label="原型模式的优点">原型模式的优点</a></li>
+                    <li>
+                        <a href="#%e5%8e%9f%e5%9e%8b%e6%a8%a1%e5%bc%8f%e7%9a%84%e7%bc%ba%e7%82%b9" aria-label="原型模式的缺点">原型模式的缺点</a>
+                    </li>
+                </ul>
+            </div>
         </details>
     </div>
 </aside>
@@ -308,11 +308,11 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
         checkTocPosition();
 
         elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-        
-        activeElement = elements[0];
-        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-    }, false);
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
 
     window.addEventListener('resize', function(event) {
         checkTocPosition();
@@ -321,21 +321,21 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
     window.addEventListener('scroll', () => {
         
         activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
                 (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
                 return element;
             }
         }) || activeElement
 
         elements.forEach(element => {
-            const id = encodeURI(element.getAttribute('id')).toLowerCase();
-            if (element === activeElement){
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-            } else {
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-            }
-        })
-    }, false);
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
 
     const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
     const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
@@ -357,7 +357,7 @@ Java语言提供的Cloneable接口只起一个作用，就是在运行时期通�
         }
         let rect = element.getBoundingClientRect();
         let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;
+        return rect.top + win.pageYOffset;   
     }
 </script>
   <div class="post-content"><blockquote>

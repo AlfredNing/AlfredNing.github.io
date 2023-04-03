@@ -282,51 +282,51 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">目录</span>
-        </summary>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e7%a8%8b%e5%ba%8f%e8%ae%a1%e6%95%b0%e5%99%a8" aria-label="程序计数器">程序计数器</a><ul>
-                        
-                <li>
-                    <a href="#%e7%89%b9%e5%be%81" aria-label="特征">特征</a></li>
-                <li>
-                    <a href="#%e9%97%ae%e9%a2%98" aria-label="问题">问题</a></li></ul>
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e7%a8%8b%e5%ba%8f%e8%ae%a1%e6%95%b0%e5%99%a8" aria-label="程序计数器">程序计数器</a><ul>
+                            
+                    <li>
+                        <a href="#%e7%89%b9%e5%be%81" aria-label="特征">特征</a></li>
+                    <li>
+                        <a href="#%e9%97%ae%e9%a2%98" aria-label="问题">问题</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e8%99%9a%e6%8b%9f%e6%9c%ba%e6%a0%88" aria-label="虚拟机栈">虚拟机栈</a><ul>
+                            
+                    <li>
+                        <a href="#%e8%ae%be%e7%bd%ae%e6%a0%88%e5%a4%a7%e5%b0%8f" aria-label="设置栈大小">设置栈大小</a></li>
+                    <li>
+                        <a href="#%e6%a0%88%e5%b8%a7" aria-label="栈帧">栈帧</a><ul>
+                            
+                    <li>
+                        <a href="#%e6%96%b9%e6%b3%95%e4%b8%8e%e6%a0%88%e5%b8%a7%e7%9a%84%e5%85%b3%e7%b3%bb" aria-label="方法与栈帧的关系">方法与栈帧的关系</a></li>
+                    <li>
+                        <a href="#%e6%a0%88%e7%9a%84%e5%86%85%e9%83%a8%e7%bb%93%e6%9e%84" aria-label="栈的内部结构">栈的内部结构</a><ul>
+                            
+                    <li>
+                        <a href="#%e5%b1%80%e9%83%a8%e5%8f%98%e9%87%8f%e8%a1%a8---local-varibales" aria-label="局部变量表 - Local Varibales">局部变量表 - Local Varibales</a><ul>
+                            
+                    <li>
+                        <a href="#%e9%9d%99%e6%80%81%e5%8f%98%e9%87%8f%e4%b8%8e%e5%b1%80%e9%83%a8%e5%8f%98%e9%87%8f%e5%8c%ba%e5%88%ab" aria-label="静态变量与局部变量区别">静态变量与局部变量区别</a></li>
+                    <li>
+                        <a href="#%e4%b8%8egc-roots%e7%9a%84%e5%85%b3%e7%b3%bb" aria-label="与GC ROOTS的关系">与GC ROOTS的关系</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e6%93%8d%e4%bd%9c%e6%95%b0%e6%a0%88-operand-stack" aria-label="操作数栈 Operand Stack">操作数栈 Operand Stack</a>
+                    </li>
+                </ul>
                 </li>
-                <li>
-                    <a href="#%e8%99%9a%e6%8b%9f%e6%9c%ba%e6%a0%88" aria-label="虚拟机栈">虚拟机栈</a><ul>
-                        
-                <li>
-                    <a href="#%e8%ae%be%e7%bd%ae%e6%a0%88%e5%a4%a7%e5%b0%8f" aria-label="设置栈大小">设置栈大小</a></li>
-                <li>
-                    <a href="#%e6%a0%88%e5%b8%a7" aria-label="栈帧">栈帧</a><ul>
-                        
-                <li>
-                    <a href="#%e6%96%b9%e6%b3%95%e4%b8%8e%e6%a0%88%e5%b8%a7%e7%9a%84%e5%85%b3%e7%b3%bb" aria-label="方法与栈帧的关系">方法与栈帧的关系</a></li>
-                <li>
-                    <a href="#%e6%a0%88%e7%9a%84%e5%86%85%e9%83%a8%e7%bb%93%e6%9e%84" aria-label="栈的内部结构">栈的内部结构</a><ul>
-                        
-                <li>
-                    <a href="#%e5%b1%80%e9%83%a8%e5%8f%98%e9%87%8f%e8%a1%a8---local-varibales" aria-label="局部变量表 - Local Varibales">局部变量表 - Local Varibales</a><ul>
-                        
-                <li>
-                    <a href="#%e9%9d%99%e6%80%81%e5%8f%98%e9%87%8f%e4%b8%8e%e5%b1%80%e9%83%a8%e5%8f%98%e9%87%8f%e5%8c%ba%e5%88%ab" aria-label="静态变量与局部变量区别">静态变量与局部变量区别</a></li>
-                <li>
-                    <a href="#%e4%b8%8egc-roots%e7%9a%84%e5%85%b3%e7%b3%bb" aria-label="与GC ROOTS的关系">与GC ROOTS的关系</a></li></ul>
+                </ul>
                 </li>
-                <li>
-                    <a href="#%e6%93%8d%e4%bd%9c%e6%95%b0%e6%a0%88-operand-stack" aria-label="操作数栈 Operand Stack">操作数栈 Operand Stack</a>
+                </ul>
                 </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-        </div>
+                </ul>
+            </div>
         </details>
     </div>
 </aside>
@@ -337,11 +337,11 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
         checkTocPosition();
 
         elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-        
-        activeElement = elements[0];
-        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-    }, false);
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
 
     window.addEventListener('resize', function(event) {
         checkTocPosition();
@@ -350,21 +350,21 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
     window.addEventListener('scroll', () => {
         
         activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
                 (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
                 return element;
             }
         }) || activeElement
 
         elements.forEach(element => {
-            const id = encodeURI(element.getAttribute('id')).toLowerCase();
-            if (element === activeElement){
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-            } else {
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-            }
-        })
-    }, false);
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
 
     const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
     const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
@@ -386,7 +386,7 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
         }
         let rect = element.getBoundingClientRect();
         let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;
+        return rect.top + win.pageYOffset;   
     }
 </script>
   <div class="post-content"><p>jvm内存结构图</p>
