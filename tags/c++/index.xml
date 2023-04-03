@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>c&#43;&#43; on AlfredNing</title>
-    <link>https://github.com/AlfredNing/tags/c&#43;&#43;/</link>
+    <link>https://AlfredNing.github.io/tags/c&#43;&#43;/</link>
     <description>Recent content in c&#43;&#43; on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 28 Mar 2023 22:10:36 +0800</lastBuildDate><atom:link href="https://github.com/AlfredNing/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Mar 2023 22:10:36 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43;基础5</title>
-      <link>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%805/</link>
+      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%805/</link>
       <pubDate>Tue, 28 Mar 2023 22:10:36 +0800</pubDate>
       
-      <guid>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%805/</guid>
+      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%805/</guid>
       <description>信号处理 号是由操作系统传给进程的中断，会提早终止一个程序。在 UNIX、LINUX、Mac OS X 或 Windows 系统上，可以通过按 Ctrl+C 产生中断
 可以在程序捕获的信号
 信号 描述 SIGABRT 程序的异常终止，如调用 abort。 SIGFPE 错误的算术运算，比如除以零或导致溢出的操作。 SIGILL 检测非法指令。 SIGINT 接收到交互注意信号。 SIGSEGV 非法访问内存。 SIGTERM 发送到程序的终止请求。 signal函数： 捕获突发事件 raise函数：生成信号 c++多线程 基于进程 ： 程序的并发执行
@@ -24,10 +24,10 @@
     
     <item>
       <title>C&#43;&#43;基础4</title>
-      <link>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%804/</link>
+      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%804/</link>
       <pubDate>Mon, 27 Mar 2023 20:10:47 +0800</pubDate>
       
-      <guid>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%804/</guid>
+      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%804/</guid>
       <description>数据封装 面向对象编程中把数据和操作数据的函数绑定在一起的一个概念。同等概念既数据隐藏
 默认情况下，在类中定义的所有项目都是私有的。
 把一个类定义为另一个类的友元类，会暴露实现细节，从而降低了封装性。理想的做法是尽可能地对外隐藏每个类的实现细节
@@ -44,30 +44,30 @@ c++中的接口是用抽象类来实现，抽象类与数据抽象互不混淆�
     
     <item>
       <title>C&#43;&#43;基础3</title>
-      <link>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%803/</link>
+      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%803/</link>
       <pubDate>Sun, 26 Mar 2023 19:04:24 +0800</pubDate>
       
-      <guid>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%803/</guid>
+      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%803/</guid>
       <description>指针 表示内存的地址。指针是一个变量，值为另一个变量的内存地址。内存位置的直接地址
 必须先声明，后使用 所有指针的值的实际数据类型，不管是整型、浮点型、字符型，还是其他的数据类型，都是一样的，都是一个代表存地址的长的十六进制数 不同数据类型的指针之间唯一的不同是，指针所指向的变量或常量的数据类型不同 概念 描述 C++ Null 指针 C++ 支持空指针。NULL 指针是一个定义在标准库中的值为零的常量。 C++ 指针的算术运算 可以对指针进行四种算术运算：++、&amp;ndash;、+、- C++ 指针 vs 数组 指针和数组之间有着密切的关系。 C++ 指针数组 可以定义用来存储指针的数组。 C++ 指向指针的指针 C++ 允许指向指针的指针。 C++ 传递指针给函数 通过引用或地址传递参数，使传递的参数在调用函数中被改变。 C++ 从函数返回指针 C++ 允许函数返回指针到局部变量、静态变量和动态内存分配。 #include &amp;lt;iostream&amp;gt; using namespace std; int main() { int var = 20; // 指针变量声明 int* ip; double* dp; ip = &amp;amp;var; // 使用: 变量存储的地址 cout &amp;lt;&amp;lt; &amp;#34;ip: &amp;#34; &amp;lt;&amp;lt; ip &amp;lt;&amp;lt; endl; // 访问地址 cout &amp;lt;&amp;lt; *ip &amp;lt;&amp;lt; endl; return 0; } 引用 引用变量是一个别名，他是一件存在的变量的另一个名字。一旦把引用初始化为某个变量，就可以使用该引用名称或变量名称来指向变量。</description>
     </item>
     
     <item>
       <title>C&#43;&#43;基础2</title>
-      <link>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%802/</link>
+      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%802/</link>
       <pubDate>Wed, 22 Mar 2023 22:40:59 +0800</pubDate>
       
-      <guid>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%802/</guid>
+      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%802/</guid>
       <description>c++运算符 算术运算符 关系运算符 逻辑运算符 位运算符 赋值运算符 杂项运算符 算术运算符 假设变量 A 的值为 10，变量 B 的值为 20，则：
 运算符 描述 实例 + 把两个操作数相加 A + B 将得到 30 - 从第一个操作数中减去第二个操作数 A - B 将得到 -10 * 把两个操作数相乘 A * B 将得到 200 / 分子除以分母 B / A 将得到 2 % 取模运算符，整除后的余数 B % A 将得到 0 ++ 自增运算符，整数值增加 1 A++ 将得到 11 &amp;ndash; 自减运算符，整数值减少 1 A&amp;ndash; 将得到 9 关系运算符 假设变量 A 的值为 10，变量 B 的值为 20，则：</description>
     </item>
     
     <item>
       <title>C&#43;&#43;初始</title>
-      <link>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%801/</link>
+      <link>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%801/</link>
       <pubDate>Wed, 22 Mar 2023 07:31:48 +0800</pubDate>
       
-      <guid>https://github.com/AlfredNing/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%801/</guid>
+      <guid>https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%801/</guid>
       <description>简介 C++一种静态类型、编译式、通用的、大小写敏感的、不规则的编程语言，支持过程化编程、面向对象编程和泛型编程。
 c++是一门中级语言，综合高级语言和低级语言的特点。
 C++ 是 C 的一个超集，事实上，任何合法的 C 程序都是合法的 C++ 程序。

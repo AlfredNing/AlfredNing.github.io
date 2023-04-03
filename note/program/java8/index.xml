@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>java8 on AlfredNing</title>
-    <link>https://github.com/AlfredNing/note/program/java8/</link>
+    <link>https://AlfredNing.github.io/note/program/java8/</link>
     <description>Recent content in java8 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 27 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://github.com/AlfredNing/note/program/java8/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/program/java8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java8</title>
-      <link>https://github.com/AlfredNing/note/program/java8/java8/</link>
+      <link>https://AlfredNing.github.io/note/program/java8/java8/</link>
       <pubDate>Sat, 18 Feb 2023 12:47:59 +0800</pubDate>
       
-      <guid>https://github.com/AlfredNing/note/program/java8/java8/</guid>
+      <guid>https://AlfredNing.github.io/note/program/java8/java8/</guid>
       <description>新特性 lambda表达式 方法引用 函数接口 流式处理 新日期时间API Optional类 新工具、JavaScript执行引擎 javaFx 函数编程 lambda表达式 想要在代码块以后某个时间点执行 可以转换为函数式接口 闭包作用域中有效访问final变量 任何一个lambda表达式都可以转换为所使用API中对应的函数式接口，注意：lambda表达式转换为函数式接口时候，注意检查期异常 不允许声明一个与局部变量同名的参数或者局部变量 lambda使用this,创建该lambda表达式方法的参数 组成 可选的类型声明 可选的参数小括号 可选的大括号 可选的返回值【只有一句表达式可以省略】 功能 内联功能的实现
 注意 变量引用不可变，实际内容可变
 函数接口 只包含一个抽象方法的接口，可以通过lambda表达式创建该接口的对象
