@@ -19,7 +19,7 @@ C&#43;&#43; 是 C 的一个超集，事实上，任何合法的 C 程序都是�
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.04a2bdb2f4eabd29dd97f76a3c76512da23fc76565cdcbfcfb0efd278404737a.css" integrity="sha256-BKK9svTqvSndl/dqPHZRLaI/x2Vlzcv8&#43;w79J4QEc3o=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9be6ddb79a6924e1911c34aa980d78be62779c06486b7b7f4c011c13d668a00f.css" integrity="sha256-m&#43;bdt5ppJOGRHDSqmA14vmJ3nAZIa3t/TAEcE9ZooA8=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
@@ -121,6 +121,18 @@ C&#43;&#43; 是 C 的一个超集，事实上，任何合法的 C 程序都是�
     {
       "@type": "ListItem",
       "position":  4 ,
+      "name": "游戏",
+      "item": "https://AlfredNing.github.io/note/program/game/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "c++",
+      "item": "https://AlfredNing.github.io/note/program/game/c++/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  6 ,
       "name": "C++初始",
       "item": "https://AlfredNing.github.io/note/program/game/c++/c++%E5%9F%BA%E7%A1%801/"
     }
@@ -235,111 +247,121 @@ C&#43;&#43; 是 C 的一个超集，事实上，任何合法的 C 程序都是�
         </ul>
     </nav>
 </header>
-<main class="main">
-
+<main class="main page">
 <article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a></div>
-    <h1 class="post-title">
-      C&#43;&#43;初始
-    </h1>
-    <div class="post-meta">创建:&nbsp;<span title='2023-03-22 07:31:48 +0800 CST'>2023年-03月-22日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-03月-22日&nbsp;|&nbsp;字数:&nbsp;1118字&nbsp;|&nbsp;时长:&nbsp;6分钟&nbsp;|&nbsp;AlfredNing
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/game/">游戏</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/game/c&#43;&#43;/">c&#43;&#43;</a></div>
+            <h1 class="post-title">
+                C&#43;&#43;初始
+            </h1>
+            <div class="post-meta">创建:&nbsp;<span title='2023-03-22 07:31:48 +0800 CST'>2023年-03月-22日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-03月-22日&nbsp;|&nbsp;字数:&nbsp;1118字&nbsp;|&nbsp;时长:&nbsp;6分钟&nbsp;|&nbsp;AlfredNing
 
 
 
+                &nbsp;|&nbsp;标签: &nbsp;
+                <ul class="post-tags-meta">
+                    <a href="https://AlfredNing.github.io/tags/c&#43;&#43;/">c&#43;&#43;</a>
+                </ul>
+
+                
+                <span id="busuanzi_container_page_pv">
+                &nbsp;| 访问: <span id="busuanzi_value_page_pv"></span>
+            </span>
 
 </div>
-  </header> <aside id="toc-container" class="toc-container wide">
+        </header> 
+        <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
-            <summary accesskey="c" title="(Alt + C)">
-                <span class="details">目录</span>
-            </summary>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
 
-            <div class="inner"><ul>
-                    <li>
-                        <a href="#%e7%ae%80%e4%bb%8b" aria-label="简介">简介</a></li>
-                    <li>
-                        <a href="#%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e5%9b%9b%e5%a4%a7%e7%89%b9%e7%82%b9" aria-label="面向对象四大特点">面向对象四大特点</a></li>
-                    <li>
-                        <a href="#%e7%a8%8b%e5%ba%8f%e7%bb%93%e6%9e%84" aria-label="程序结构">程序结构</a><ul>
-                            
-                    <li>
-                        <a href="#%e6%a0%87%e8%af%86%e7%ac%a6" aria-label="标识符">标识符</a></li>
-                    <li>
-                        <a href="#%e5%85%b3%e9%94%ae%e5%ad%97" aria-label="关键字">关键字</a></li>
-                    <li>
-                        <a href="#%e4%b8%89%e5%ad%97%e7%ac%a6%e7%bb%84" aria-label="三字符组">三字符组</a></li>
-                    <li>
-                        <a href="#%e7%a9%ba%e6%a0%bc" aria-label="空格">空格</a></li>
-                    <li>
-                        <a href="#%e6%b3%a8%e9%87%8a" aria-label="注释">注释</a></li>
-                    <li>
-                        <a href="#%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" aria-label="数据类型">数据类型</a><ul>
-                            
-                    <li>
-                        <a href="#%e4%b8%83%e7%a7%8d%e5%9f%ba%e6%9c%ac%e7%9a%84-c-%e5%9f%ba%e6%9c%ac%e5%86%85%e7%bd%ae%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" aria-label="七种基本的 C&#43;&#43; 基本内置数据类型">七种基本的 C++ 基本内置数据类型</a></li>
-                    <li>
-                        <a href="#typedef-of-%e5%a3%b0%e6%98%8e" aria-label="typedef of 声明">typedef of 声明</a></li>
-                    <li>
-                        <a href="#%e6%9e%9a%e4%b8%be%e7%b1%bb%e5%9e%8b" aria-label="枚举类型">枚举类型</a></li>
-                    <li>
-                        <a href="#%e5%8f%98%e9%87%8f%e7%b1%bb%e5%9e%8b" aria-label="变量类型">变量类型</a></li>
-                    <li>
-                        <a href="#%e5%8f%98%e9%87%8f%e5%a3%b0%e6%98%8e" aria-label="变量声明">变量声明</a></li>
-                    <li>
-                        <a href="#%e5%b7%a6%e5%80%bc%e5%92%8c%e5%8f%b3%e5%80%bc" aria-label="左值和右值">左值和右值</a></li>
-                    <li>
-                        <a href="#%e5%8f%98%e9%87%8f%e4%bd%9c%e7%94%a8%e5%9f%9f" aria-label="变量作用域">变量作用域</a></li>
-                    <li>
-                        <a href="#%e5%b8%b8%e9%87%8f" aria-label="常量">常量</a><ul>
-                            
-                    <li>
-                        <a href="#%e6%95%b4%e6%95%b0%e5%b8%b8%e9%87%8f" aria-label="整数常量">整数常量</a></li>
-                    <li>
-                        <a href="#%e6%b5%ae%e7%82%b9%e5%b8%b8%e9%87%8f" aria-label="浮点常量">浮点常量</a></li>
-                    <li>
-                        <a href="#%e5%b8%83%e5%b0%94%e5%b8%b8%e9%87%8f" aria-label="布尔常量">布尔常量</a></li>
-                    <li>
-                        <a href="#%e5%ad%97%e7%ac%a6%e5%b8%b8%e9%87%8f" aria-label="字符常量">字符常量</a></li>
-                    <li>
-                        <a href="#%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%b8%b8%e9%87%8f" aria-label="字符串常量">字符串常量</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e5%ae%9a%e4%b9%89%e5%b8%b8%e9%87%8f" aria-label="定义常量">定义常量</a><ul>
-                            
-                    <li>
-                        <a href="#define-%e9%a2%84%e5%a4%84%e7%90%86%e5%99%a8" aria-label="#define 预处理器">#define 预处理器</a></li>
-                    <li>
-                        <a href="#const-%e5%85%b3%e9%94%ae%e5%ad%97" aria-label="const 关键字">const 关键字</a></li></ul>
-                    </li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e4%bf%ae%e9%a5%b0%e7%ac%a6%e7%b1%bb%e5%9e%8b" aria-label="修饰符类型">修饰符类型</a></li>
-                    <li>
-                        <a href="#%e7%b1%bb%e5%9e%8b%e9%99%90%e5%ae%9a%e7%ac%a6" aria-label="类型限定符">类型限定符</a></li>
-                    <li>
-                        <a href="#%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="存储类">存储类</a><ul>
-                            
-                    <li>
-                        <a href="#auto%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="auto存储类">auto存储类</a></li>
-                    <li>
-                        <a href="#register-%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="register 存储类">register 存储类</a></li>
-                    <li>
-                        <a href="#static%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="static存储类">static存储类</a></li>
-                    <li>
-                        <a href="#extern%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="extern存储类">extern存储类</a></li>
-                    <li>
-                        <a href="#mutable%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="mutable存储类">mutable存储类</a></li>
-                    <li>
-                        <a href="#thread_local-%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="thread_local 存储类">thread_local 存储类</a>
-                    </li>
-                </ul>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e7%ae%80%e4%bb%8b" aria-label="简介">简介</a></li>
+                <li>
+                    <a href="#%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e5%9b%9b%e5%a4%a7%e7%89%b9%e7%82%b9" aria-label="面向对象四大特点">面向对象四大特点</a></li>
+                <li>
+                    <a href="#%e7%a8%8b%e5%ba%8f%e7%bb%93%e6%9e%84" aria-label="程序结构">程序结构</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a0%87%e8%af%86%e7%ac%a6" aria-label="标识符">标识符</a></li>
+                <li>
+                    <a href="#%e5%85%b3%e9%94%ae%e5%ad%97" aria-label="关键字">关键字</a></li>
+                <li>
+                    <a href="#%e4%b8%89%e5%ad%97%e7%ac%a6%e7%bb%84" aria-label="三字符组">三字符组</a></li>
+                <li>
+                    <a href="#%e7%a9%ba%e6%a0%bc" aria-label="空格">空格</a></li>
+                <li>
+                    <a href="#%e6%b3%a8%e9%87%8a" aria-label="注释">注释</a></li>
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" aria-label="数据类型">数据类型</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%83%e7%a7%8d%e5%9f%ba%e6%9c%ac%e7%9a%84-c-%e5%9f%ba%e6%9c%ac%e5%86%85%e7%bd%ae%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" aria-label="七种基本的 C&#43;&#43; 基本内置数据类型">七种基本的 C++ 基本内置数据类型</a></li>
+                <li>
+                    <a href="#typedef-of-%e5%a3%b0%e6%98%8e" aria-label="typedef of 声明">typedef of 声明</a></li>
+                <li>
+                    <a href="#%e6%9e%9a%e4%b8%be%e7%b1%bb%e5%9e%8b" aria-label="枚举类型">枚举类型</a></li>
+                <li>
+                    <a href="#%e5%8f%98%e9%87%8f%e7%b1%bb%e5%9e%8b" aria-label="变量类型">变量类型</a></li>
+                <li>
+                    <a href="#%e5%8f%98%e9%87%8f%e5%a3%b0%e6%98%8e" aria-label="变量声明">变量声明</a></li>
+                <li>
+                    <a href="#%e5%b7%a6%e5%80%bc%e5%92%8c%e5%8f%b3%e5%80%bc" aria-label="左值和右值">左值和右值</a></li>
+                <li>
+                    <a href="#%e5%8f%98%e9%87%8f%e4%bd%9c%e7%94%a8%e5%9f%9f" aria-label="变量作用域">变量作用域</a></li>
+                <li>
+                    <a href="#%e5%b8%b8%e9%87%8f" aria-label="常量">常量</a><ul>
+                        
+                <li>
+                    <a href="#%e6%95%b4%e6%95%b0%e5%b8%b8%e9%87%8f" aria-label="整数常量">整数常量</a></li>
+                <li>
+                    <a href="#%e6%b5%ae%e7%82%b9%e5%b8%b8%e9%87%8f" aria-label="浮点常量">浮点常量</a></li>
+                <li>
+                    <a href="#%e5%b8%83%e5%b0%94%e5%b8%b8%e9%87%8f" aria-label="布尔常量">布尔常量</a></li>
+                <li>
+                    <a href="#%e5%ad%97%e7%ac%a6%e5%b8%b8%e9%87%8f" aria-label="字符常量">字符常量</a></li>
+                <li>
+                    <a href="#%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%b8%b8%e9%87%8f" aria-label="字符串常量">字符串常量</a></li></ul>
                 </li>
-                </ul>
+                <li>
+                    <a href="#%e5%ae%9a%e4%b9%89%e5%b8%b8%e9%87%8f" aria-label="定义常量">定义常量</a><ul>
+                        
+                <li>
+                    <a href="#define-%e9%a2%84%e5%a4%84%e7%90%86%e5%99%a8" aria-label="#define 预处理器">#define 预处理器</a></li>
+                <li>
+                    <a href="#const-%e5%85%b3%e9%94%ae%e5%ad%97" aria-label="const 关键字">const 关键字</a></li></ul>
+                </li></ul>
                 </li>
-                </ul>
-            </div>
+                <li>
+                    <a href="#%e4%bf%ae%e9%a5%b0%e7%ac%a6%e7%b1%bb%e5%9e%8b" aria-label="修饰符类型">修饰符类型</a></li>
+                <li>
+                    <a href="#%e7%b1%bb%e5%9e%8b%e9%99%90%e5%ae%9a%e7%ac%a6" aria-label="类型限定符">类型限定符</a></li>
+                <li>
+                    <a href="#%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="存储类">存储类</a><ul>
+                        
+                <li>
+                    <a href="#auto%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="auto存储类">auto存储类</a></li>
+                <li>
+                    <a href="#register-%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="register 存储类">register 存储类</a></li>
+                <li>
+                    <a href="#static%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="static存储类">static存储类</a></li>
+                <li>
+                    <a href="#extern%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="extern存储类">extern存储类</a></li>
+                <li>
+                    <a href="#mutable%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="mutable存储类">mutable存储类</a></li>
+                <li>
+                    <a href="#thread_local-%e5%ad%98%e5%82%a8%e7%b1%bb" aria-label="thread_local 存储类">thread_local 存储类</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
         </details>
     </div>
 </aside>
@@ -350,11 +372,11 @@ C&#43;&#43; 是 C 的一个超集，事实上，任何合法的 C 程序都是�
         checkTocPosition();
 
         elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-         
-         activeElement = elements[0];
-         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-     }, false);
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
 
     window.addEventListener('resize', function(event) {
         checkTocPosition();
@@ -363,21 +385,21 @@ C&#43;&#43; 是 C 的一个超集，事实上，任何合法的 C 程序都是�
     window.addEventListener('scroll', () => {
         
         activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
                 (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
                 return element;
             }
         }) || activeElement
 
         elements.forEach(element => {
-             const id = encodeURI(element.getAttribute('id')).toLowerCase();
-             if (element === activeElement){
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-             } else {
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-             }
-         })
-     }, false);
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
 
     const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
     const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
@@ -399,10 +421,11 @@ C&#43;&#43; 是 C 的一个超集，事实上，任何合法的 C 程序都是�
         }
         let rect = element.getBoundingClientRect();
         let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;   
+        return rect.top + win.pageYOffset;
     }
 </script>
-  <div class="post-content"><h1 id="简介">简介<a hidden class="anchor" aria-hidden="true" href="#简介">#</a></h1>
+        
+        <div class="post-content"><h1 id="简介">简介<a hidden class="anchor" aria-hidden="true" href="#简介">#</a></h1>
 <p>C++一种静态类型、编译式、通用的、大小写敏感的、不规则的编程语言，支持过程化编程、面向对象编程和泛型编程。</p>
 <p>c++是一门中级语言，综合高级语言和低级语言的特点。</p>
 <p>C++ 是 C 的一个超集，事实上，任何合法的 C 程序都是合法的 C++ 程序。</p>
@@ -1185,12 +1208,37 @@ C&#43;&#43; 是 C 的一个超集，事实上，任何合法的 C 程序都是�
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="p">}</span>
 </span></span></code></pre></div>
 
-  </div>
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://AlfredNing.github.io" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://AlfredNing.github.io" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
 
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://AlfredNing.github.io/tags/c&#43;&#43;/">c&#43;&#43;</a></li>
-    </ul>
+        <footer class="post-footer">
+            
 <nav class="paginav">
   <a class="prev" href="https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%802/">
     <span class="title">« 上一页</span>
@@ -1204,7 +1252,8 @@ C&#43;&#43; 是 C 的一个超集，事实上，任何合法的 C 程序都是�
   </a>
 </nav>
 
-  </footer><div>
+        </footer>
+    </div><div>
     <div class="pagination__title">
         <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
         <hr />
@@ -1221,8 +1270,8 @@ C&#43;&#43; 是 C 的一个超集，事实上，任何合法的 C 程序都是�
 </script>
 </div>
 </article>
-    </main>
-    
+</main>
+
 <footer class="footer">
     <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
     <span>

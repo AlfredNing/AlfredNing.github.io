@@ -13,7 +13,7 @@
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.04a2bdb2f4eabd29dd97f76a3c76512da23fc76565cdcbfcfb0efd278404737a.css" integrity="sha256-BKK9svTqvSndl/dqPHZRLaI/x2Vlzcv8&#43;w79J4QEc3o=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9be6ddb79a6924e1911c34aa980d78be62779c06486b7b7f4c011c13d668a00f.css" integrity="sha256-m&#43;bdt5ppJOGRHDSqmA14vmJ3nAZIa3t/TAEcE9ZooA8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
 <link rel="icon" type="image/png" sizes="16x16" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
 <link rel="icon" type="image/png" sizes="32x32" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
@@ -156,61 +156,52 @@ if (!doNotTrack) {
 </header>
 <main class="main"> 
 <header class="page-header"><div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/tags/">🏷️标签</a></div>
-  <h1>
-    算法
-  </h1>
+  <h1>算法</h1>
 </header>
 
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>并查集
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>算法定义 有若干个样本a、c、d、e… 类型假设是V
-在并查集一开始认为每个样本都在单独的集合里
-设计两个方法
-`isSameSet(V x, V y)： 查询两个样本x和有是否在同一个集合里面 union(V x, V y) : 把x和y各自所有集合的样本合并成一个集合 两个算法的时间复杂度越小越好
-算法流程 算法实现 import java.util.HashMap; import java.util.List; import java.util.Stack; /** * 并查集实现 * * @author Alfred.Ning * @since 2023年03月25日 09:23:00 */ public class UnionFindImpl { public static class Node&lt;V&gt; { V value; public Node(V v) { value = v; } } public static class UnionFind&lt;V&gt; { private HashMap&lt;V, Node&lt;V&gt;&gt; nodes; private HashMap&lt;Node&lt;V&gt;, Node&lt;V&gt;&gt; parents; private HashMap&lt;Node&lt;V&gt;, Integer&gt; sizeMap; public UnionFind(List&lt;V&gt; values) { nodes = new HashMap&lt;&gt;(); parents = new HashMap&lt;&gt;(); sizeMap = new HashMap&lt;&gt;(); for (V v : values) { Node&lt;V&gt; node = new Node&lt;&gt;(v); nodes....</p>
-  </div>
-  <footer class="entry-footer">创建:&nbsp;<span title='2023-03-25 08:37:28 +0800 CST'>2023年-03月-25日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-03月-25日&nbsp;|&nbsp;字数:&nbsp;241字&nbsp;|&nbsp;时长:&nbsp;2分钟&nbsp;|&nbsp;AlfredNing
+
+<article class="post-entry">
+  <div class="post-info">
+    <header class="entry-header">
+      <h2>并查集
+      </h2>
+    </header>
+    <section class="entry-content">
+      <p>
+        
+        ...
+      </p>
+    </section>
+    <footer class="entry-footer">创建:&nbsp;<span title='2023-03-25 08:37:28 +0800 CST'>2023年-03月-25日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-03月-25日&nbsp;|&nbsp;字数:&nbsp;241字&nbsp;|&nbsp;时长:&nbsp;2分钟&nbsp;|&nbsp;AlfredNing
 
 
 </footer>
+  </div> 
   <a class="entry-link" aria-label="post link to 并查集" href="https://AlfredNing.github.io/note/program/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/"></a>
 </article>
 
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Kmp
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>使用场景 多用于子串匹配问题
-流程 在暴力解的过程当中有加速
-定义： 在该位置之前的前缀与后缀的长度，但不能取到字符串的整体长度，定义为指标信息
-解释：
-对匹配串建立上述指标信息 匹配过程 求解证明 x-r 与 y-r’是相同，从i位置匹配match串等同于从match的q位置进行匹配
-i位置到r位置一定不能匹配match
-验证：假设i位置到r位置，有个k位置能够匹配match串，那就说明从k位置到x位置是相同的，也就是match串y位置之前字符串的一个后缀，此时，与next的数组定义违反，出现了一个更长的。假设不成立。
-next数组生成 match长度为M,时间复杂度为O(M)
-next[0] = -1;
-next[1] = 0;
-next[2] = 0位置和1位置决定;
-求i位置的next[i]时候，前面所有位置都已经准备好
-next证明 来到i位置next[i]最大为next[i&#43;1]&#43;1
-假设next[i]&gt;next[i-1] &#43; 1,
-那么说明next[i-1]求解错误，矛盾，不成立
-代码实现 public class Kmp { public static int getIndexOf(String s, String match) { if (s == null || match == null || match.length() &lt; 1 || s.length() &lt; match.length()) { return -1; } char[] strs = s.toCharArray(); char[] matchs = match....</p>
-  </div>
-  <footer class="entry-footer">创建:&nbsp;<span title='2023-01-09 00:00:00 +0000 UTC'>2023年-01月-09日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-01月-09日&nbsp;|&nbsp;字数:&nbsp;232字&nbsp;|&nbsp;时长:&nbsp;2分钟&nbsp;|&nbsp;Alfred.Ning
+
+<article class="post-entry">
+  <div class="post-info">
+    <header class="entry-header">
+      <h2>Kmp
+      </h2>
+    </header>
+    <section class="entry-content">
+      <p>
+        
+        ...
+      </p>
+    </section>
+    <footer class="entry-footer">创建:&nbsp;<span title='2023-01-09 00:00:00 +0000 UTC'>2023年-01月-09日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-01月-09日&nbsp;|&nbsp;字数:&nbsp;232字&nbsp;|&nbsp;时长:&nbsp;2分钟&nbsp;|&nbsp;Alfred.Ning
 
 
 </footer>
+  </div> 
   <a class="entry-link" aria-label="post link to Kmp" href="https://AlfredNing.github.io/note/program/algorithm/kmp/"></a>
 </article>
-    </main>
-    
+</main>
+
 <footer class="footer">
     <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
     <span>

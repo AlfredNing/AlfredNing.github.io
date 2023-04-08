@@ -29,7 +29,7 @@ import org.testng.annotations.Test; /** * @author Alfred.">
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.04a2bdb2f4eabd29dd97f76a3c76512da23fc76565cdcbfcfb0efd278404737a.css" integrity="sha256-BKK9svTqvSndl/dqPHZRLaI/x2Vlzcv8&#43;w79J4QEc3o=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9be6ddb79a6924e1911c34aa980d78be62779c06486b7b7f4c011c13d668a00f.css" integrity="sha256-m&#43;bdt5ppJOGRHDSqmA14vmJ3nAZIa3t/TAEcE9ZooA8=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
@@ -271,141 +271,151 @@ import org.testng.annotations.Test; /** * @author Alfred."/>
         </ul>
     </nav>
 </header>
-<main class="main">
-
+<main class="main page">
 <article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/jvm/">jvm</a></div>
-    <h1 class="post-title">
-      字节码文件
-    </h1>
-    <div class="post-meta">创建:&nbsp;<span title='2023-02-17 08:01:55 +0800 CST'>2023年-02月-17日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-02月-17日&nbsp;|&nbsp;字数:&nbsp;765字&nbsp;|&nbsp;时长:&nbsp;4分钟&nbsp;|&nbsp;AlfredNing
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/jvm/">jvm</a></div>
+            <h1 class="post-title">
+                字节码文件
+            </h1>
+            <div class="post-meta">创建:&nbsp;<span title='2023-02-17 08:01:55 +0800 CST'>2023年-02月-17日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-02月-17日&nbsp;|&nbsp;字数:&nbsp;765字&nbsp;|&nbsp;时长:&nbsp;4分钟&nbsp;|&nbsp;AlfredNing
 
 
 
+                &nbsp;|&nbsp;标签: &nbsp;
+                <ul class="post-tags-meta">
+                    <a href="https://AlfredNing.github.io/tags/jvm/">jvm</a>
+                </ul>
+
+                
+                <span id="busuanzi_container_page_pv">
+                &nbsp;| 访问: <span id="busuanzi_value_page_pv"></span>
+            </span>
 
 </div>
-  </header> <aside id="toc-container" class="toc-container wide">
+        </header> 
+        <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
-            <summary accesskey="c" title="(Alt + C)">
-                <span class="details">目录</span>
-            </summary>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
 
-            <div class="inner"><ul>
-                    <li>
-                        <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%96%87%e4%bb%b6" aria-label="字节码文件">字节码文件</a><ul>
-                            
-                    <li>
-                        <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%96%87%e4%bb%b6-1" aria-label="字节码文件">字节码文件</a><ul>
-                            
-                    <li>
-                        <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%96%87%e4%bb%b6%e8%b7%a8%e5%b9%b3%e5%8f%b0" aria-label="字节码文件跨平台">字节码文件跨平台</a></li>
-                    <li>
-                        <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%96%87%e4%bb%b6%e5%86%85%e5%ae%b9" aria-label="字节码文件内容">字节码文件内容</a></li>
-                    <li>
-                        <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%96%87%e4%bb%b6%e7%bc%96%e8%af%91%e5%99%a8" aria-label="字节码文件编译器">字节码文件编译器</a><ul>
-                            
-                    <li>
-                        <a href="#%e4%bd%9c%e7%94%a8%e8%8c%83%e5%9b%b4" aria-label="作用范围">作用范围</a></li>
-                    <li>
-                        <a href="#%e7%bc%96%e8%af%91%e5%99%a8%e7%a7%8d%e7%b1%bb" aria-label="编译器种类">编译器种类</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e7%b1%bb%e7%9a%84class%e5%af%b9%e8%b1%a1" aria-label="类的class对象">类的class对象</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%8c%87%e4%bb%a4" aria-label="字节码指令">字节码指令</a></li>
-                    <li>
-                        <a href="#class%e6%96%87%e4%bb%b6%e8%a7%a3%e8%af%bb" aria-label="class文件解读">class文件解读</a><ul>
-                            
-                    <li>
-                        <a href="#%e8%a7%a3%e8%af%bb%e5%b7%a5%e5%85%b7" aria-label="解读工具">解读工具</a></li>
-                    <li>
-                        <a href="#class%e6%96%87%e4%bb%b6%e7%bb%93%e6%9e%84" aria-label="class文件结构">class文件结构</a><ul>
-                            
-                    <li>
-                        <a href="#%e9%ad%94%e6%95%b0" aria-label="魔数">魔数</a></li>
-                    <li>
-                        <a href="#jvm%e7%89%88%e6%9c%ac%e5%90%91%e4%b8%8b%e5%85%bc%e5%ae%b9" aria-label="jvm版本向下兼容">jvm版本向下兼容</a></li>
-                    <li>
-                        <a href="#%e6%96%87%e4%bb%b6%e7%89%88%e6%9c%ac%e5%8f%b7" aria-label="文件版本号">文件版本号</a></li>
-                    <li>
-                        <a href="#%e5%b8%b8%e9%87%8f%e6%b1%a0" aria-label="常量池">常量池</a><ul>
-                            
-                    <li>
-                        <a href="#%e5%b8%b8%e9%87%8f%e6%b1%a0%e8%ae%a1%e6%95%b0%e5%99%a8" aria-label="常量池计数器">常量池计数器</a></li>
-                    <li>
-                        <a href="#%e5%b8%b8%e9%87%8f%e6%b1%a0%e8%a1%a8" aria-label="常量池表">常量池表</a><ul>
-                            
-                    <li>
-                        <a href="#%e5%ad%97%e9%9d%a2%e9%87%8f%e5%92%8c%e7%ac%a6%e5%8f%b7%e5%bc%95%e7%94%a8" aria-label="字面量和符号引用">字面量和符号引用</a></li>
-                    <li>
-                        <a href="#%e5%b8%b8%e9%87%8f%e7%b1%bb%e5%9e%8b%e5%92%8c%e7%bb%93%e6%9e%84" aria-label="常量类型和结构">常量类型和结构</a></li></ul>
-                    </li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e8%ae%bf%e9%97%ae%e6%a0%87%e8%af%86access_flag%e8%ae%bf%e9%97%ae%e6%a0%87%e5%bf%97%e8%ae%bf%e9%97%ae%e6%a0%87%e8%ae%b0" aria-label="访问标识(access_flag、访问标志、访问标记)">访问标识(access_flag、访问标志、访问标记)</a></li>
-                    <li>
-                        <a href="#%e7%b1%bb%e7%b4%a2%e5%bc%95%e7%88%b6%e7%b1%bb%e7%b4%a2%e5%bc%95%e6%8e%a5%e5%8f%a3%e7%b4%a2%e5%bc%95" aria-label="类索引、父类索引、接口索引">类索引、父类索引、接口索引</a></li>
-                    <li>
-                        <a href="#%e5%ad%97%e6%ae%b5%e8%a1%a8%e9%9b%86%e5%90%88" aria-label="字段表集合">字段表集合</a><ul>
-                            
-                    <li>
-                        <a href="#%e5%ad%97%e6%ae%b5%e8%ae%a1%e6%95%b0%e5%99%a8" aria-label="字段计数器">字段计数器</a></li>
-                    <li>
-                        <a href="#%e5%ad%97%e6%ae%b5%e8%a1%a8-fields-%e5%ad%97%e6%ae%b5%e8%a1%a8" aria-label="字段表 fields []（字段表）">字段表 fields []（字段表）</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e6%96%b9%e6%b3%95%e8%a1%a8%e9%9b%86%e5%90%88" aria-label="方法表集合">方法表集合</a><ul>
-                            
-                    <li>
-                        <a href="#%e6%96%b9%e6%b3%95%e8%ae%a1%e6%95%b0%e5%99%a8-methods_count" aria-label="方法计数器 methods_count">方法计数器 methods_count</a></li>
-                    <li>
-                        <a href="#%e6%96%b9%e6%b3%95%e8%a1%a8-methods-%e6%96%b9%e6%b3%95%e8%a1%a8" aria-label="方法表 methods []（方法表）">方法表 methods []（方法表）</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e5%b1%9e%e6%80%a7%e8%a1%a8%e9%9b%86%e5%90%88" aria-label="属性表集合">属性表集合</a><ul>
-                            
-                    <li>
-                        <a href="#%e5%b1%9e%e6%80%a7%e8%ae%a1%e6%95%b0%e5%99%a8-attributes_count" aria-label="属性计数器 attributes_count">属性计数器 attributes_count</a></li>
-                    <li>
-                        <a href="#%e5%b1%9e%e6%80%a7%e8%a1%a8" aria-label="属性表">属性表</a><ul>
-                            
-                    <li>
-                        <a href="#constantvalue-%e5%b1%9e%e6%80%a7" aria-label="ConstantValue 属性">ConstantValue 属性</a></li>
-                    <li>
-                        <a href="#deprecated-%e5%b1%9e%e6%80%a7" aria-label="Deprecated 属性">Deprecated 属性</a></li>
-                    <li>
-                        <a href="#code%e5%b1%9e%e6%80%a7" aria-label="Code属性">Code属性</a></li>
-                    <li>
-                        <a href="#innerclasses-%e5%b1%9e%e6%80%a7" aria-label="InnerClasses 属性">InnerClasses 属性</a></li>
-                    <li>
-                        <a href="#linenumbertable-%e5%b1%9e%e6%80%a7" aria-label="LineNumberTable 属性">LineNumberTable 属性</a></li>
-                    <li>
-                        <a href="#localvariabletable-%e5%b1%9e%e6%80%a7" aria-label="LocalVariableTable 属性">LocalVariableTable 属性</a></li>
-                    <li>
-                        <a href="#signature-%e5%b1%9e%e6%80%a7" aria-label="Signature 属性">Signature 属性</a></li>
-                    <li>
-                        <a href="#sourcefile%e5%b1%9e%e6%80%a7" aria-label="SourceFile属性">SourceFile属性</a></li>
-                    <li>
-                        <a href="#%e5%85%b6%e4%bb%96%e5%b1%9e%e6%80%a7" aria-label="其他属性">其他属性</a></li></ul>
-                    </li></ul>
-                    </li></ul>
-                    </li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%8c%87%e4%bb%a4%e9%9b%86" aria-label="字节码指令集">字节码指令集</a><ul>
-                            
-                    <li>
-                        <a href="#%e6%8c%87%e4%bb%a4%e5%88%86%e7%b1%bb" aria-label="指令分类">指令分类</a>
-                    </li>
-                </ul>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%96%87%e4%bb%b6" aria-label="字节码文件">字节码文件</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%96%87%e4%bb%b6-1" aria-label="字节码文件">字节码文件</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%96%87%e4%bb%b6%e8%b7%a8%e5%b9%b3%e5%8f%b0" aria-label="字节码文件跨平台">字节码文件跨平台</a></li>
+                <li>
+                    <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%96%87%e4%bb%b6%e5%86%85%e5%ae%b9" aria-label="字节码文件内容">字节码文件内容</a></li>
+                <li>
+                    <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%96%87%e4%bb%b6%e7%bc%96%e8%af%91%e5%99%a8" aria-label="字节码文件编译器">字节码文件编译器</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bd%9c%e7%94%a8%e8%8c%83%e5%9b%b4" aria-label="作用范围">作用范围</a></li>
+                <li>
+                    <a href="#%e7%bc%96%e8%af%91%e5%99%a8%e7%a7%8d%e7%b1%bb" aria-label="编译器种类">编译器种类</a></li></ul>
                 </li>
-                </ul>
+                <li>
+                    <a href="#%e7%b1%bb%e7%9a%84class%e5%af%b9%e8%b1%a1" aria-label="类的class对象">类的class对象</a></li></ul>
                 </li>
-                </ul>
-            </div>
+                <li>
+                    <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%8c%87%e4%bb%a4" aria-label="字节码指令">字节码指令</a></li>
+                <li>
+                    <a href="#class%e6%96%87%e4%bb%b6%e8%a7%a3%e8%af%bb" aria-label="class文件解读">class文件解读</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e8%af%bb%e5%b7%a5%e5%85%b7" aria-label="解读工具">解读工具</a></li>
+                <li>
+                    <a href="#class%e6%96%87%e4%bb%b6%e7%bb%93%e6%9e%84" aria-label="class文件结构">class文件结构</a><ul>
+                        
+                <li>
+                    <a href="#%e9%ad%94%e6%95%b0" aria-label="魔数">魔数</a></li>
+                <li>
+                    <a href="#jvm%e7%89%88%e6%9c%ac%e5%90%91%e4%b8%8b%e5%85%bc%e5%ae%b9" aria-label="jvm版本向下兼容">jvm版本向下兼容</a></li>
+                <li>
+                    <a href="#%e6%96%87%e4%bb%b6%e7%89%88%e6%9c%ac%e5%8f%b7" aria-label="文件版本号">文件版本号</a></li>
+                <li>
+                    <a href="#%e5%b8%b8%e9%87%8f%e6%b1%a0" aria-label="常量池">常量池</a><ul>
+                        
+                <li>
+                    <a href="#%e5%b8%b8%e9%87%8f%e6%b1%a0%e8%ae%a1%e6%95%b0%e5%99%a8" aria-label="常量池计数器">常量池计数器</a></li>
+                <li>
+                    <a href="#%e5%b8%b8%e9%87%8f%e6%b1%a0%e8%a1%a8" aria-label="常量池表">常量池表</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ad%97%e9%9d%a2%e9%87%8f%e5%92%8c%e7%ac%a6%e5%8f%b7%e5%bc%95%e7%94%a8" aria-label="字面量和符号引用">字面量和符号引用</a></li>
+                <li>
+                    <a href="#%e5%b8%b8%e9%87%8f%e7%b1%bb%e5%9e%8b%e5%92%8c%e7%bb%93%e6%9e%84" aria-label="常量类型和结构">常量类型和结构</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%ae%bf%e9%97%ae%e6%a0%87%e8%af%86access_flag%e8%ae%bf%e9%97%ae%e6%a0%87%e5%bf%97%e8%ae%bf%e9%97%ae%e6%a0%87%e8%ae%b0" aria-label="访问标识(access_flag、访问标志、访问标记)">访问标识(access_flag、访问标志、访问标记)</a></li>
+                <li>
+                    <a href="#%e7%b1%bb%e7%b4%a2%e5%bc%95%e7%88%b6%e7%b1%bb%e7%b4%a2%e5%bc%95%e6%8e%a5%e5%8f%a3%e7%b4%a2%e5%bc%95" aria-label="类索引、父类索引、接口索引">类索引、父类索引、接口索引</a></li>
+                <li>
+                    <a href="#%e5%ad%97%e6%ae%b5%e8%a1%a8%e9%9b%86%e5%90%88" aria-label="字段表集合">字段表集合</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ad%97%e6%ae%b5%e8%ae%a1%e6%95%b0%e5%99%a8" aria-label="字段计数器">字段计数器</a></li>
+                <li>
+                    <a href="#%e5%ad%97%e6%ae%b5%e8%a1%a8-fields-%e5%ad%97%e6%ae%b5%e8%a1%a8" aria-label="字段表 fields []（字段表）">字段表 fields []（字段表）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%96%b9%e6%b3%95%e8%a1%a8%e9%9b%86%e5%90%88" aria-label="方法表集合">方法表集合</a><ul>
+                        
+                <li>
+                    <a href="#%e6%96%b9%e6%b3%95%e8%ae%a1%e6%95%b0%e5%99%a8-methods_count" aria-label="方法计数器 methods_count">方法计数器 methods_count</a></li>
+                <li>
+                    <a href="#%e6%96%b9%e6%b3%95%e8%a1%a8-methods-%e6%96%b9%e6%b3%95%e8%a1%a8" aria-label="方法表 methods []（方法表）">方法表 methods []（方法表）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%b1%9e%e6%80%a7%e8%a1%a8%e9%9b%86%e5%90%88" aria-label="属性表集合">属性表集合</a><ul>
+                        
+                <li>
+                    <a href="#%e5%b1%9e%e6%80%a7%e8%ae%a1%e6%95%b0%e5%99%a8-attributes_count" aria-label="属性计数器 attributes_count">属性计数器 attributes_count</a></li>
+                <li>
+                    <a href="#%e5%b1%9e%e6%80%a7%e8%a1%a8" aria-label="属性表">属性表</a><ul>
+                        
+                <li>
+                    <a href="#constantvalue-%e5%b1%9e%e6%80%a7" aria-label="ConstantValue 属性">ConstantValue 属性</a></li>
+                <li>
+                    <a href="#deprecated-%e5%b1%9e%e6%80%a7" aria-label="Deprecated 属性">Deprecated 属性</a></li>
+                <li>
+                    <a href="#code%e5%b1%9e%e6%80%a7" aria-label="Code属性">Code属性</a></li>
+                <li>
+                    <a href="#innerclasses-%e5%b1%9e%e6%80%a7" aria-label="InnerClasses 属性">InnerClasses 属性</a></li>
+                <li>
+                    <a href="#linenumbertable-%e5%b1%9e%e6%80%a7" aria-label="LineNumberTable 属性">LineNumberTable 属性</a></li>
+                <li>
+                    <a href="#localvariabletable-%e5%b1%9e%e6%80%a7" aria-label="LocalVariableTable 属性">LocalVariableTable 属性</a></li>
+                <li>
+                    <a href="#signature-%e5%b1%9e%e6%80%a7" aria-label="Signature 属性">Signature 属性</a></li>
+                <li>
+                    <a href="#sourcefile%e5%b1%9e%e6%80%a7" aria-label="SourceFile属性">SourceFile属性</a></li>
+                <li>
+                    <a href="#%e5%85%b6%e4%bb%96%e5%b1%9e%e6%80%a7" aria-label="其他属性">其他属性</a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ad%97%e8%8a%82%e7%a0%81%e6%8c%87%e4%bb%a4%e9%9b%86" aria-label="字节码指令集">字节码指令集</a><ul>
+                        
+                <li>
+                    <a href="#%e6%8c%87%e4%bb%a4%e5%88%86%e7%b1%bb" aria-label="指令分类">指令分类</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
         </details>
     </div>
 </aside>
@@ -416,11 +426,11 @@ import org.testng.annotations.Test; /** * @author Alfred."/>
         checkTocPosition();
 
         elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-         
-         activeElement = elements[0];
-         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-     }, false);
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
 
     window.addEventListener('resize', function(event) {
         checkTocPosition();
@@ -429,21 +439,21 @@ import org.testng.annotations.Test; /** * @author Alfred."/>
     window.addEventListener('scroll', () => {
         
         activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
                 (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
                 return element;
             }
         }) || activeElement
 
         elements.forEach(element => {
-             const id = encodeURI(element.getAttribute('id')).toLowerCase();
-             if (element === activeElement){
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-             } else {
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-             }
-         })
-     }, false);
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
 
     const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
     const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
@@ -465,10 +475,11 @@ import org.testng.annotations.Test; /** * @author Alfred."/>
         }
         let rect = element.getBoundingClientRect();
         let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;   
+        return rect.top + win.pageYOffset;
     }
 </script>
-  <div class="post-content"><h1 id="字节码文件">字节码文件<a hidden class="anchor" aria-hidden="true" href="#字节码文件">#</a></h1>
+        
+        <div class="post-content"><h1 id="字节码文件">字节码文件<a hidden class="anchor" aria-hidden="true" href="#字节码文件">#</a></h1>
 <h2 id="字节码文件-1">字节码文件<a hidden class="anchor" aria-hidden="true" href="#字节码文件-1">#</a></h2>
 <h3 id="字节码文件跨平台">字节码文件跨平台<a hidden class="anchor" aria-hidden="true" href="#字节码文件跨平台">#</a></h3>
 <blockquote>
@@ -1058,12 +1069,37 @@ boolean使用int替代操作，boolean数组使用byte数组进行访问</p>
 </blockquote>
 
 
-  </div>
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://AlfredNing.github.io" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://AlfredNing.github.io" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
 
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://AlfredNing.github.io/tags/jvm/">jvm</a></li>
-    </ul>
+        <footer class="post-footer">
+            
 <nav class="paginav">
   <a class="prev" href="https://AlfredNing.github.io/note/program/java8/java8/">
     <span class="title">« 上一页</span>
@@ -1077,7 +1113,8 @@ boolean使用int替代操作，boolean数组使用byte数组进行访问</p>
   </a>
 </nav>
 
-  </footer><div>
+        </footer>
+    </div><div>
     <div class="pagination__title">
         <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
         <hr />
@@ -1094,8 +1131,8 @@ boolean使用int替代操作，boolean数组使用byte数组进行访问</p>
 </script>
 </div>
 </article>
-    </main>
-    
+</main>
+
 <footer class="footer">
     <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
     <span>

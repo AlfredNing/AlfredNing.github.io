@@ -14,7 +14,7 @@
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.04a2bdb2f4eabd29dd97f76a3c76512da23fc76565cdcbfcfb0efd278404737a.css" integrity="sha256-BKK9svTqvSndl/dqPHZRLaI/x2Vlzcv8&#43;w79J4QEc3o=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9be6ddb79a6924e1911c34aa980d78be62779c06486b7b7f4c011c13d668a00f.css" integrity="sha256-m&#43;bdt5ppJOGRHDSqmA14vmJ3nAZIa3t/TAEcE9ZooA8=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
@@ -106,6 +106,18 @@ if (!doNotTrack) {
     {
       "@type": "ListItem",
       "position":  4 ,
+      "name": "游戏",
+      "item": "https://AlfredNing.github.io/note/program/game/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "c++",
+      "item": "https://AlfredNing.github.io/note/program/game/c++/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  6 ,
       "name": "C++基础3",
       "item": "https://AlfredNing.github.io/note/program/game/c++/c++%E5%9F%BA%E7%A1%803/"
     }
@@ -220,118 +232,128 @@ if (!doNotTrack) {
         </ul>
     </nav>
 </header>
-<main class="main">
-
+<main class="main page">
 <article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a></div>
-    <h1 class="post-title">
-      C&#43;&#43;基础3
-    </h1>
-    <div class="post-meta">创建:&nbsp;<span title='2023-03-26 19:04:24 +0800 CST'>2023年-03月-26日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-03月-26日&nbsp;|&nbsp;字数:&nbsp;1839字&nbsp;|&nbsp;时长:&nbsp;9分钟&nbsp;|&nbsp;AlfredNing
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/game/">游戏</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/game/c&#43;&#43;/">c&#43;&#43;</a></div>
+            <h1 class="post-title">
+                C&#43;&#43;基础3
+            </h1>
+            <div class="post-meta">创建:&nbsp;<span title='2023-03-26 19:04:24 +0800 CST'>2023年-03月-26日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-03月-26日&nbsp;|&nbsp;字数:&nbsp;1839字&nbsp;|&nbsp;时长:&nbsp;9分钟&nbsp;|&nbsp;AlfredNing
 
 
 
+                &nbsp;|&nbsp;标签: &nbsp;
+                <ul class="post-tags-meta">
+                    <a href="https://AlfredNing.github.io/tags/c&#43;&#43;/">c&#43;&#43;</a>
+                </ul>
+
+                
+                <span id="busuanzi_container_page_pv">
+                &nbsp;| 访问: <span id="busuanzi_value_page_pv"></span>
+            </span>
 
 </div>
-  </header> <aside id="toc-container" class="toc-container wide">
+        </header> 
+        <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
-            <summary accesskey="c" title="(Alt + C)">
-                <span class="details">目录</span>
-            </summary>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
 
-            <div class="inner"><ul>
-                    <li>
-                        <a href="#%e6%8c%87%e9%92%88" aria-label="指针">指针</a></li>
-                    <li>
-                        <a href="#%e5%bc%95%e7%94%a8" aria-label="引用">引用</a><ul>
-                            
-                    <li>
-                        <a href="#%e4%b8%8e%e6%8c%87%e9%92%88%e6%af%94%e8%be%83" aria-label="与指针比较">与指针比较</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e6%97%b6%e6%9c%9f%e5%92%8c%e6%97%b6%e9%97%b4" aria-label="时期和时间">时期和时间</a></li>
-                    <li>
-                        <a href="#%e8%be%93%e5%85%a5%e5%92%8c%e8%be%93%e5%87%ba" aria-label="输入和输出">输入和输出</a><ul>
-                            
-                    <li>
-                        <a href="#io-%e5%ba%93%e5%a4%b4%e6%96%87%e4%bb%b6" aria-label="IO 库头文件">IO 库头文件</a></li>
-                    <li>
-                        <a href="#%e6%a0%87%e5%87%86%e8%be%93%e5%87%ba%e6%b5%81---cout" aria-label="标准输出流 - cout">标准输出流 - cout</a></li>
-                    <li>
-                        <a href="#%e6%a0%87%e5%87%86%e8%be%93%e5%85%a5%e6%b5%81--cin" aria-label="标准输入流 -cin">标准输入流 -cin</a></li>
-                    <li>
-                        <a href="#%e6%a0%87%e5%87%86%e9%94%99%e8%af%af%e6%b5%81---cerr" aria-label="标准错误流 - cerr">标准错误流 - cerr</a></li>
-                    <li>
-                        <a href="#%e6%a0%87%e5%87%86%e6%97%a5%e5%bf%97%e6%b5%81---clog" aria-label="标准日志流 - clog">标准日志流 - clog</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e7%bb%93%e6%9e%84%e4%bd%93" aria-label="结构体">结构体</a><ul>
-                            
-                    <li>
-                        <a href="#%e7%bb%93%e6%9e%84%e4%bd%9c%e4%b8%ba%e5%87%bd%e6%95%b0%e5%8f%82%e6%95%b0" aria-label="结构作为函数参数">结构作为函数参数</a></li>
-                    <li>
-                        <a href="#%e6%8c%87%e5%90%91%e7%bb%93%e6%9e%84%e7%9a%84%e6%8c%87%e9%92%88" aria-label="指向结构的指针">指向结构的指针</a></li>
-                    <li>
-                        <a href="#typedof" aria-label="typedof">typedof</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e7%b1%bb%e5%92%8c%e5%af%b9%e8%b1%a1" aria-label="类和对象">类和对象</a><ul>
-                            
-                    <li>
-                        <a href="#%e7%b1%bb" aria-label="类">类</a></li>
-                    <li>
-                        <a href="#%e5%af%b9%e8%b1%a1" aria-label="对象">对象</a></li>
-                    <li>
-                        <a href="#%e7%bb%a7%e6%89%bf" aria-label="继承">继承</a></li>
-                    <li>
-                        <a href="#%e5%9f%ba%e7%b1%bb--%e6%b4%be%e7%94%9f%e7%b1%bb" aria-label="基类 &amp;amp; 派生类">基类 &amp; 派生类</a></li>
-                    <li>
-                        <a href="#%e8%ae%bf%e9%97%ae%e6%8e%a7%e5%88%b6" aria-label="访问控制">访问控制</a></li>
-                    <li>
-                        <a href="#%e7%bb%a7%e6%89%bf%e7%b1%bb%e5%9e%8b" aria-label="继承类型">继承类型</a></li>
-                    <li>
-                        <a href="#%e5%a4%9a%e7%bb%a7%e6%89%bf" aria-label="多继承">多继承</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e9%87%8d%e8%bd%bd%e8%bf%90%e7%ae%97%e7%ac%a6%e5%92%8c%e9%87%8d%e8%bd%bd%e5%87%bd%e6%95%b0" aria-label="重载运算符和重载函数">重载运算符和重载函数</a><ul>
-                            
-                    <li>
-                        <a href="#%e5%87%bd%e6%95%b0%e9%87%8d%e8%bd%bd" aria-label="函数重载">函数重载</a></li>
-                    <li>
-                        <a href="#%e8%bf%90%e7%ae%97%e7%ac%a6%e9%87%8d%e8%bd%bd" aria-label="运算符重载">运算符重载</a><ul>
-                            
-                    <li>
-                        <a href="#%e5%8f%af%e9%87%8d%e8%bd%bd%e8%bf%90%e7%ae%97%e7%ac%a6" aria-label="可重载运算符">可重载运算符</a></li>
-                    <li>
-                        <a href="#%e4%b8%8d%e5%8f%af%e9%87%8d%e8%bd%bd%e8%bf%90%e7%ae%97%e7%ac%a6" aria-label="不可重载运算符">不可重载运算符</a></li></ul>
-                    </li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e5%a4%9a%e6%80%81" aria-label="多态">多态</a><ul>
-                            
-                    <li>
-                        <a href="#%e8%99%9a%e5%87%bd%e6%95%b0" aria-label="虚函数">虚函数</a></li>
-                    <li>
-                        <a href="#%e7%ba%af%e8%99%9a%e5%87%bd%e6%95%b0" aria-label="纯虚函数">纯虚函数</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e6%95%b0%e6%8d%ae%e6%8a%bd%e8%b1%a1" aria-label="数据抽象">数据抽象</a><ul>
-                            
-                    <li>
-                        <a href="#%e8%ae%bf%e9%97%ae%e6%a0%87%e7%ad%be%e5%bc%ba%e5%88%b6%e6%8a%bd%e8%b1%a1" aria-label="访问标签强制抽象">访问标签强制抽象</a><ul>
-                            
-                    <li>
-                        <a href="#%e5%a5%bd%e5%a4%84" aria-label="好处">好处</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#%e8%ae%be%e8%ae%a1%e7%ad%96%e7%95%a5" aria-label="设计策略">设计策略</a>
-                    </li>
-                </ul>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e6%8c%87%e9%92%88" aria-label="指针">指针</a></li>
+                <li>
+                    <a href="#%e5%bc%95%e7%94%a8" aria-label="引用">引用</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%8e%e6%8c%87%e9%92%88%e6%af%94%e8%be%83" aria-label="与指针比较">与指针比较</a></li></ul>
                 </li>
-                </ul>
-            </div>
+                <li>
+                    <a href="#%e6%97%b6%e6%9c%9f%e5%92%8c%e6%97%b6%e9%97%b4" aria-label="时期和时间">时期和时间</a></li>
+                <li>
+                    <a href="#%e8%be%93%e5%85%a5%e5%92%8c%e8%be%93%e5%87%ba" aria-label="输入和输出">输入和输出</a><ul>
+                        
+                <li>
+                    <a href="#io-%e5%ba%93%e5%a4%b4%e6%96%87%e4%bb%b6" aria-label="IO 库头文件">IO 库头文件</a></li>
+                <li>
+                    <a href="#%e6%a0%87%e5%87%86%e8%be%93%e5%87%ba%e6%b5%81---cout" aria-label="标准输出流 - cout">标准输出流 - cout</a></li>
+                <li>
+                    <a href="#%e6%a0%87%e5%87%86%e8%be%93%e5%85%a5%e6%b5%81--cin" aria-label="标准输入流 -cin">标准输入流 -cin</a></li>
+                <li>
+                    <a href="#%e6%a0%87%e5%87%86%e9%94%99%e8%af%af%e6%b5%81---cerr" aria-label="标准错误流 - cerr">标准错误流 - cerr</a></li>
+                <li>
+                    <a href="#%e6%a0%87%e5%87%86%e6%97%a5%e5%bf%97%e6%b5%81---clog" aria-label="标准日志流 - clog">标准日志流 - clog</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%bb%93%e6%9e%84%e4%bd%93" aria-label="结构体">结构体</a><ul>
+                        
+                <li>
+                    <a href="#%e7%bb%93%e6%9e%84%e4%bd%9c%e4%b8%ba%e5%87%bd%e6%95%b0%e5%8f%82%e6%95%b0" aria-label="结构作为函数参数">结构作为函数参数</a></li>
+                <li>
+                    <a href="#%e6%8c%87%e5%90%91%e7%bb%93%e6%9e%84%e7%9a%84%e6%8c%87%e9%92%88" aria-label="指向结构的指针">指向结构的指针</a></li>
+                <li>
+                    <a href="#typedof" aria-label="typedof">typedof</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%b1%bb%e5%92%8c%e5%af%b9%e8%b1%a1" aria-label="类和对象">类和对象</a><ul>
+                        
+                <li>
+                    <a href="#%e7%b1%bb" aria-label="类">类</a></li>
+                <li>
+                    <a href="#%e5%af%b9%e8%b1%a1" aria-label="对象">对象</a></li>
+                <li>
+                    <a href="#%e7%bb%a7%e6%89%bf" aria-label="继承">继承</a></li>
+                <li>
+                    <a href="#%e5%9f%ba%e7%b1%bb--%e6%b4%be%e7%94%9f%e7%b1%bb" aria-label="基类 &amp;amp; 派生类">基类 &amp; 派生类</a></li>
+                <li>
+                    <a href="#%e8%ae%bf%e9%97%ae%e6%8e%a7%e5%88%b6" aria-label="访问控制">访问控制</a></li>
+                <li>
+                    <a href="#%e7%bb%a7%e6%89%bf%e7%b1%bb%e5%9e%8b" aria-label="继承类型">继承类型</a></li>
+                <li>
+                    <a href="#%e5%a4%9a%e7%bb%a7%e6%89%bf" aria-label="多继承">多继承</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%87%8d%e8%bd%bd%e8%bf%90%e7%ae%97%e7%ac%a6%e5%92%8c%e9%87%8d%e8%bd%bd%e5%87%bd%e6%95%b0" aria-label="重载运算符和重载函数">重载运算符和重载函数</a><ul>
+                        
+                <li>
+                    <a href="#%e5%87%bd%e6%95%b0%e9%87%8d%e8%bd%bd" aria-label="函数重载">函数重载</a></li>
+                <li>
+                    <a href="#%e8%bf%90%e7%ae%97%e7%ac%a6%e9%87%8d%e8%bd%bd" aria-label="运算符重载">运算符重载</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8f%af%e9%87%8d%e8%bd%bd%e8%bf%90%e7%ae%97%e7%ac%a6" aria-label="可重载运算符">可重载运算符</a></li>
+                <li>
+                    <a href="#%e4%b8%8d%e5%8f%af%e9%87%8d%e8%bd%bd%e8%bf%90%e7%ae%97%e7%ac%a6" aria-label="不可重载运算符">不可重载运算符</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%a4%9a%e6%80%81" aria-label="多态">多态</a><ul>
+                        
+                <li>
+                    <a href="#%e8%99%9a%e5%87%bd%e6%95%b0" aria-label="虚函数">虚函数</a></li>
+                <li>
+                    <a href="#%e7%ba%af%e8%99%9a%e5%87%bd%e6%95%b0" aria-label="纯虚函数">纯虚函数</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e6%8a%bd%e8%b1%a1" aria-label="数据抽象">数据抽象</a><ul>
+                        
+                <li>
+                    <a href="#%e8%ae%bf%e9%97%ae%e6%a0%87%e7%ad%be%e5%bc%ba%e5%88%b6%e6%8a%bd%e8%b1%a1" aria-label="访问标签强制抽象">访问标签强制抽象</a><ul>
+                        
+                <li>
+                    <a href="#%e5%a5%bd%e5%a4%84" aria-label="好处">好处</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%ae%be%e8%ae%a1%e7%ad%96%e7%95%a5" aria-label="设计策略">设计策略</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
         </details>
     </div>
 </aside>
@@ -342,11 +364,11 @@ if (!doNotTrack) {
         checkTocPosition();
 
         elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-         
-         activeElement = elements[0];
-         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-     }, false);
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
 
     window.addEventListener('resize', function(event) {
         checkTocPosition();
@@ -355,21 +377,21 @@ if (!doNotTrack) {
     window.addEventListener('scroll', () => {
         
         activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
                 (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
                 return element;
             }
         }) || activeElement
 
         elements.forEach(element => {
-             const id = encodeURI(element.getAttribute('id')).toLowerCase();
-             if (element === activeElement){
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-             } else {
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-             }
-         })
-     }, false);
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
 
     const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
     const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
@@ -391,10 +413,11 @@ if (!doNotTrack) {
         }
         let rect = element.getBoundingClientRect();
         let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;   
+        return rect.top + win.pageYOffset;
     }
 </script>
-  <div class="post-content"><h1 id="指针">指针<a hidden class="anchor" aria-hidden="true" href="#指针">#</a></h1>
+        
+        <div class="post-content"><h1 id="指针">指针<a hidden class="anchor" aria-hidden="true" href="#指针">#</a></h1>
 <p>表示内存的地址。<strong>指针是一个变量</strong>，值为另一个变量的内存地址。内存位置的直接地址</p>
 <ul>
 <li>必须先声明，后使用</li>
@@ -1277,12 +1300,37 @@ if (!doNotTrack) {
 <p>在这种情况下，不管任何程序使用接口，接口都不会受到影响，只需要将最新的实现重新编译即可</p>
 
 
-  </div>
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://AlfredNing.github.io" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://AlfredNing.github.io" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
 
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://AlfredNing.github.io/tags/c&#43;&#43;/">c&#43;&#43;</a></li>
-    </ul>
+        <footer class="post-footer">
+            
 <nav class="paginav">
   <a class="prev" href="https://AlfredNing.github.io/note/program/game/c&#43;&#43;/c&#43;&#43;%E5%9F%BA%E7%A1%804/">
     <span class="title">« 上一页</span>
@@ -1296,7 +1344,8 @@ if (!doNotTrack) {
   </a>
 </nav>
 
-  </footer><div>
+        </footer>
+    </div><div>
     <div class="pagination__title">
         <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
         <hr />
@@ -1313,8 +1362,8 @@ if (!doNotTrack) {
 </script>
 </div>
 </article>
-    </main>
-    
+</main>
+
 <footer class="footer">
     <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
     <span>
