@@ -5,7 +5,16 @@
     <link>https://AlfredNing.github.io/tags/jvm/</link>
     <description>Recent content in jvm on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 27 Feb 2023 21:33:26 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Apr 2023 22:46:33 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>对象内存布局</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E5%AF%B9%E8%B1%A1%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Thu, 13 Apr 2023 22:46:33 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E5%AF%B9%E8%B1%A1%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>运行时内存</title>
       <link>https://AlfredNing.github.io/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/</link>
