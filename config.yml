@@ -60,7 +60,7 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: 个人博客
-    subtitle: "菜而不自知，thinging for everything"
+    subtitle: "菜而不自知，thinking for everything"
     imageUrl: "https://pbs.twimg.com/media/Fl7-NppakAIg2WK?format=jpg&name=900x900"
     imageTitle: "😄😄"
     # imageWidth: 120
