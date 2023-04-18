@@ -5,21 +5,27 @@
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 01 Apr 2023 12:04:42 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Apr 2023 22:46:33 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>虚幻引擎安装</title>
-      <link>https://AlfredNing.github.io/note/program/game/ue4/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E%E5%AE%89%E8%A3%85/</link>
-      <pubDate>Sat, 01 Apr 2023 12:04:42 +0800</pubDate>
+      <title>对象内存布局</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E5%AF%B9%E8%B1%A1%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Thu, 13 Apr 2023 22:46:33 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/game/ue4/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E%E5%AE%89%E8%A3%85/</guid>
-      <description>安装虚幻引擎 官网注册登录
-下载EpicGames启动器
-安装虚幻引擎修改缓存
-缓存默认是在：
-修改缓存优点:
-减少c盘容量 项目分析减少着色器编译的时间 安装目录\unreal_engine\UE_4.24\Engine\Config\BaseEngine.ini
-找到InstalledDerivedDataBackendGraph标签
-修改path:%GAMEDIR%DerivedDataCache</description>
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E5%AF%B9%E8%B1%A1%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/</guid>
+      <description>对象的实例化 创建对象的方式 new 关键字 Class的newInstance()：反射的方式，只能调用空参的构造器，权限必须是public Constructor的newInstance(X)：反射的方式，可以调用空参、带参的构造器，权限没有要求，实用性更广 使用clone: 不调用任何构造器，当前类只需要实现Clonable接口，默认是浅拷贝 使用反序列化：从文件、数据库当中、网络中获取一个对象的二进制流，反序列化为内存的对象 利用asm字节码技术，动态生成Constructor对象，第三方库Objensis 创建对象的步骤 字节码角度 new 后面来说一般都会跟着dup，因为在需要调用init方法，操作栈上要进行出栈
+NEW ：如果找不到Class对象，则进行类加载。加载成功后，则在堆中分配内存，从Object 开始到本类路径上的所有属性值都要分配内存。分配完毕之后，进行零值初始化。在分配过程中，注意引用是占据存储空间的，它是一个变量，占用4个字节。这个指令完毕后，将指向实例对象的引用变量压入虚拟机栈顶。 DUP ：在栈顶复制该引用变量，这时的栈顶有两个指向堆内实例对象的引用变量。如果 方法有参数，还需要把参数压人操作栈中。两个引用变量的目的不同，其中压至底下的引用用于赋值，或者保存到局部变量表，另一个栈顶的引用变量作为句柄调用相关方法。 INVOKESPECIAL ：调用对象实例方法，通过栈顶的引用变量调用＜init&amp;gt; 方法。
+执行步骤角度 - 面试回答 判断对象的类是否加载、链接、初始化 虚拟机遇到一条new指令，首选会去检查指令的参数能否在Metaspace的常量池中定位到一个类的符号引用，并且检查这个符号所代表的类是否被加载、解析和初始化。（判断类元信息是否存在） 如果没有，在双亲委派模型下，使用当前类加载器以ClassLoader+包名+类名为key进行查找对应的.class文件 如果没有找到文件，抛出ClassNotFoundException异常 如果找到，则进行类加载，并生成对应的class类对象 为对象分配内存 首先计算对象占用空间的大小，接着在堆中划分一块内存给对象。如果实例成员变量是引用变量，仅分配引用变量空间即可，即4个字节大小 说明：选择哪种分配方式由Java堆是否规整决定，而Java堆是否规整又由所采用的垃圾收集器是否带有压缩整理功能决定。 指针碰撞 如果内存规整，使用指针碰撞 如果内存是规整的，那么虚拟机将采用的是指针碰撞法（Bump The Pointer）来为对象分配内存。意思是所有用过的内存在一边，空闲的内存在另外一边，中间放着一个指针作为分界点的指示器，分配内存就仅仅是把指针向空闲那边挪动一段与对象大小相等的距离罢了。 如果垃圾收集器选择的是Serial、ParNew这种基于压缩算法的，虚拟机采用这种分配方式。 一般使用带有compact（整理）过程的收集器时，使用指针碰撞。 空闲列表 如果内存不规整，虚拟机需要维护一个列表，使用空闲列表分配 如果内存不是规整的，已使用的内存和未使用的内存相互交错，那么虚拟机将采用的是空闲列表法来为对象分配内存。意思是虚拟机维护了一个列表，记录上哪些内存块是可用的，再分配的时候从列表中找到一块足够大的空间划分给对象实例，并更新列表上的内容。这种分配方式称为“空闲列表（Free List）”。处理并发安全问题 分配内存空间问题，创建对象是很频繁的操作，虚拟机确保new对象的时候的线程安全，需要解决并发问题。虚拟机采用两种方式来解决并发问题 CAS 失败重试、区域加锁：保证指针更新操作的原子性 TLAB 把内存分配的动作按照不同的线程划分在不同的空间之中进行，即保证每个线程在Java堆中预先分配一小块内存，称为本地线程分配缓冲区。（Thread Local Allocation Buffer)。虚拟机是否使用TLAB, 可以通过-XX:+/-UseTLAB参数决定 初始化分配到的内存空间 内存分配结束，虚拟机将分配到的内存空间都初始化为零值(不包括对象头)。这一步保证了对象的实例字段在Java代码中不用初始化就可以直接使用，程序能访问到这些字段的数据类型所对应的零值 设置对象的对象头 将对象的所属类（即类的元数据信息）、对象的hashCode和对象的GC信息、锁信息等数据存储在对象的对象头中。这个过程的具体设置方式取决于JVM实现 执行init方法的初始化 在Java程序的视角来看，初始化在正式开始。初始化成员变量，执行实例化代码块，调用类的构造方法，并把堆内对象的首地址赋值给引用变量 因此一般来说（由字节码中是否跟随有invokespecial指令所决定），new指令之后会接着就是执行方法，把对象按照程序员的意愿进行初始化，这样一个真正可用的对象才算完全创建出来。 对象的内存布局 对象头 对象自身运行的运行时元数据 哈希值：对象在堆空间中都有一个首地址值，栈空间的引用根据这个地址指向堆中的对象，这就是哈希值起的作用 GC分代年龄：对象是在Eden区创建，经过多次GC后，如果还没有进行回收，就会在survivor中来回移动，其对应的年龄计数器会发生变化，达到阈值后会进入养老区。 锁状态标志：在同步中判断该对象是否是锁 线程持有的锁 线程偏向ID 偏向时间戳 另一个是类型指针，执行元数据区的类元数据InstancClass,确定该对象所数据的类型 如果对象是数组，对象头中还必须要有一块用于记录数组的长度的数据 因为正常对象元数据就知道对象的确切大小。数组必须得知道长度 实例数据 对象真正存储的有效数据，包括代码中定义的各种类型的字段（包括从父类继承下来【包括父类私有】的和本身拥有的字段）</description>
+    </item>
+    
+    <item>
+      <title>随想1</title>
+      <link>https://AlfredNing.github.io/thinking/%E9%9A%8F%E8%AE%B0/</link>
+      <pubDate>Tue, 11 Apr 2023 08:06:02 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/thinking/%E9%9A%8F%E8%AE%B0/</guid>
+      <description>黑格尔的一句话: 凡是现实的都是合理的，凡是合理的都是现实的。All that is real is rational; and all that is rational is real
+意思是说: 现实存在的现象，当初产生它的时候必然有它产生的原因和理由。如果这个理由将来不存在了，终究有一天它也会消亡。
+巴菲特：成功的关键不在于做对了多少件事，而在于少犯多少错误</description>
     </item>
     
     <item>
@@ -216,22 +222,6 @@ Java 9 引入了实验性 AOT 编译工具jaotc。它借助了 Graal 编译器�
 字节码相关面试
 idea插件：jclasslib
 import org.testng.annotations.Test; /** * @author Alfred.</description>
-    </item>
-    
-    <item>
-      <title>HTTP权威指南</title>
-      <link>https://AlfredNing.github.io/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</link>
-      <pubDate>Wed, 15 Feb 2023 12:22:58 +0800</pubDate>
-      
-      <guid>https://AlfredNing.github.io/note/book/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</guid>
-      <description>Web的基础 HTTP概述 http使用的是可靠的数据传输协议 组成 web客户端 类似浏览器
-web服务器： 通常web服务器使用http协议，通常成为http服务器
-资源 Web服务器是Web资源（Web resource）的宿主。Web资源是Web内容的源头。资源并不一定非的是静态文件，根据需要生成的软件程序
-html文件 word文件 其它任何格式 媒体类型 MIME类型(MIME TYPE) ： 数据格式标签，最初是用于解决在不同的电子邮件系统中之间搬移报文时候存在的问题，http借鉴了。weu服务器会为所有的http对象数据附近一个MIME类型（Content-Type,Content-Length)
-URI 每一个web服务服务器资源名都有一个名字，被称为统一资源标识符(Uniform Resouce Identifier)，具有两种形式URL、URN
-URL: 统一资源定位符 HTTP 协议 + 地址 + 某个资源
-URN： 统一资源名 URN是作为特定内容的唯一名称使用的，与目前的资源所在地无关
-事务 </description>
     </item>
     
     <item>
