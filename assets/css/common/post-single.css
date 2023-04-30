@@ -32,9 +32,17 @@
     font-size: 16px;
 }
 
-.post-content {
-    color: var(--content);
+.post-content pre code {
+    display: block;
+    margin: auto 0;
+    padding: 10px;
+    /* 主要代码颜色 */
+    color: #abb2bf;
+    font-weight: 200;
+    overflow-x: auto;
+    word-break: break-all;
 }
+
 
 .post-content h3,
 .post-content h4,
@@ -171,8 +179,10 @@
 }
 
 .post-content .highlight pre {
+    background-color: var(--theme) !important;
     margin: 0;
 }
+
 
 .post-content .highlighttable {
     table-layout: fixed;

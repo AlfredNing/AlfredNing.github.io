@@ -84,3 +84,8 @@
 .toc li a:hover {
     color: var(--secondary);
 }
+
+.post-content pre, code {
+    font-family: 'Code New Roman', sans-serif;
+    max-height: 40rem;
+}
