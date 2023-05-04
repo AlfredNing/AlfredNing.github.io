@@ -116,7 +116,7 @@ menu:
       url: note/
       weight: 10  
     - identifier: thinking
-      name: 🤔想法
+      name: 🤔黑洞
       url: thinking/
       weight: 20     
     - identifier: search
