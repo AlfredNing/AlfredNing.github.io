@@ -5,7 +5,24 @@
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 02 May 2023 12:10:15 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 May 2023 22:36:26 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GC日志分析</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/gc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</link>
+      <pubDate>Thu, 04 May 2023 22:36:26 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/gc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</guid>
+      <description>GC日志参数 -verbose:gc 输出gc日志信息，默认输出到标准输出
+-XX:+PrintGC 输出GC日志。类似：-verbose:gc
+-XX:+PrintGCDetails 在发生垃圾回收时打印内存回收详细的日志，
+并在进程退出时输出当前内存各区域分配情况
+-XX:+PrintGCTimeStamps 输出GC发生时的时间戳
+-XX:+PrintGCDateStamps 输出GC发生时的时间戳（以日期的形式，如 2013-05-04T21:53:59.234+0800）
+-XX:+PrintHeapAtGC 每一次GC前和GC后，都打印堆信息
+-Xloggc: 表示把GC日志写入到一个文件中去，而不是打印到标准输出中
+测试代码 import java.util.ArrayList; /** * -Xms60m -Xmx60m -XX:SurvivorRatio=8 -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:./logs/gc.log * * @author Alfred.Ning * @since 2023年05月04日 22:54:00 */ public class GLogTest { public static void main(String[] args) { ArrayList&amp;lt;byte[]&amp;gt; bytes = new ArrayList&amp;lt;&amp;gt;(); for (int i = 0; i &amp;lt; 500; i++) { byte[] arr = new byte[1024 * 1024]; bytes.add(arr); try { Thread.</description>
+    </item>
+    
     <item>
       <title>垃圾回收</title>
       <link>https://AlfredNing.github.io/note/program/jvm/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
