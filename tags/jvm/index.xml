@@ -5,7 +5,29 @@
     <link>https://AlfredNing.github.io/tags/jvm/</link>
     <description>Recent content in jvm on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 04 May 2023 22:36:26 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 May 2023 20:30:30 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>调优案例</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/</link>
+      <pubDate>Mon, 08 May 2023 20:30:30 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/</guid>
+      <description>调优工具 jConsole Visual VM eclipse MAT JProfiler Arthas Java Mission Control Flame Graphs（火焰图） Tprofiler Btrace YourKit JProbe Spring Insight OOM 案例 堆溢出 报错信息 java.lang.OutOfMemoryError: Java heap space
+参数配置 -XX:+PrintGCDetails -XX:MetaspaceSize=64m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=heap/heapdump.hprof -XX:+PrintGCDateStamps -Xms200M -Xmx200M -Xloggc:log/gc-oomHeap.log 原因及解决 原因
+1、代码中可能存在大对象分配
+2、可能存在内存泄漏，导致在多次GC之后，还是无法找到一块足够大的内存容纳当前对象。
+解决方法
+1、检查是否存在大对象的分配，最有可能的是大数组分配
+2、通过jmap命令，把堆内存dump下来，使用MAT等工具分析一下，检查是否存在内存泄漏的问题
+3、如果没有找到明显的内存泄漏，使用 -Xmx 加大堆内存
+4、还有一点容易被忽略，检查是否有大量的自定义的 Finalizable 对象，也有可能是框架内部提供的，考虑其存在的必要性
+分析GC日志
+元空间溢出 方法区（Method Area）与 Java 堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息、常量、即时编译器编译后的代码等数据。虽然Java 虚拟机规范把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫做 Non-Heap（非堆），目的应该是与 Java 堆区分开来。
+Java 虚拟机规范对方法区的限制非常宽松，除了和 Java 堆一样不需要连续的内存和可以选择固定大小或者可扩展外，还可以选择不实现垃圾收集。垃圾收集行为在这个区域是比较少出现的，其内存回收目标主要是针对常量池的回收和对类型的卸载。当方法区无法满足内存分配需求时，将抛出 OutOfMemoryError 异常。
+报错信息 java.lang.OutOfMemoryError: Metaspace
+参数配置 -XX:+PrintGCDetails -XX:MetaspaceSize=60m -XX:MaxMetaspaceSize=60m -Xss512K -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=heap/heapdumpMeta.</description>
+    </item>
+    
     <item>
       <title>GC日志分析</title>
       <link>https://AlfredNing.github.io/note/program/jvm/gc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</link>

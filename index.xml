@@ -5,7 +5,50 @@
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 04 May 2023 22:36:26 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 May 2023 22:36:49 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>分布式数据库理论</title>
+      <link>https://AlfredNing.github.io/note/program/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</link>
+      <pubDate>Mon, 08 May 2023 22:36:49 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</guid>
+      <description>分布式数据库 分布式数据库的介绍 数据库产品特点
+抽象程度高，用户仅从使用层面解除 商业氛围一直很浓厚 基本概念 分布式数据库的核心： 数据分片、数据同步
+数据分片 讲数据分散到多个节点，以更高效、更灵活的方式来处理数据 分类：
+水平分片：按行进行数据分割，数据被切割成一个个数据组，分散到不同节点 垂直分片：按列进行数据分割，一个数据表的模式（Schema）被切割为多个小的模式 数据同步 数据一致性的保证，分布式数据库的底线
+早期的关系型商业数据库的分布式能力可以满足大部分用户的场景，因此产生了如 Oracle 等几种巨无霸数据库产品；
+OLAP 领域首先寻求突破，演化出了大数据技术与 MPP 类型数据库，提供功能更强的数据分析能力；
+去IOE 引入数据库中间件，并结合应用平台与开源单机数据库形成新一代解决方案，让商业关系型数据库走下神坛，NoSQL 数据库更进一步&amp;gt;打破了关系型数据库唯我独尊的江湖地位；
+新一代分布式 OLTP 数据库正式完成了分布式领域对数据库核心特性的完整支持，它代表了分布式数据库从此走向了成熟，也表明了 OLAP 与 OLTP 分布式场景下，分别在各自领域内取得了胜利；
+HTAP 和多模式数据处理的引入，再一次将 OLAP 与 OLTP 融合，从而将分布式数据库推向如传统商业关系型数据库数十年前那般的盛况，而其产生的影响要比后者更为深远
+SQL的发展史 最初的数据管理“关系模型”是指由 IBM 研究人员 E.F. Codd 在 20 世纪 70 年代初设计的，并在 System R 及后续许多数据库系统中得到了普及。 由于 Schema（模式）的预定义，数据库获得存储相对紧凑，从而导致其性能较为优异；之后就是经典的 ACID 给业务带来了可控性，而基于标准化 SQL 的数据访问模式给企业级应用带来了更多的红利，因为“标准即是生产力”
+缺点：
+对前期设计要求高，因为后期修改 Schema 往往需要停机，没有考虑分布式场景，在扩展性和可用性层面缺乏支持；而分布式是 21 世纪应用必备的技能。
+NoSQL数据库和SQL数据库的区别 NoSQL的缺点 由于缺乏ACID, 应用时需要非常小心处理数据一致性问题；同时其数据模型只针对特定的应用场景，一般不能使用一种 NoSQL 数据库来完成整个应用的构建，导致设计层面的复杂和维护的困难。</description>
+    </item>
+    
+    <item>
+      <title>调优案例</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/</link>
+      <pubDate>Mon, 08 May 2023 20:30:30 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/</guid>
+      <description>调优工具 jConsole Visual VM eclipse MAT JProfiler Arthas Java Mission Control Flame Graphs（火焰图） Tprofiler Btrace YourKit JProbe Spring Insight OOM 案例 堆溢出 报错信息 java.lang.OutOfMemoryError: Java heap space
+参数配置 -XX:+PrintGCDetails -XX:MetaspaceSize=64m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=heap/heapdump.hprof -XX:+PrintGCDateStamps -Xms200M -Xmx200M -Xloggc:log/gc-oomHeap.log 原因及解决 原因
+1、代码中可能存在大对象分配
+2、可能存在内存泄漏，导致在多次GC之后，还是无法找到一块足够大的内存容纳当前对象。
+解决方法
+1、检查是否存在大对象的分配，最有可能的是大数组分配
+2、通过jmap命令，把堆内存dump下来，使用MAT等工具分析一下，检查是否存在内存泄漏的问题
+3、如果没有找到明显的内存泄漏，使用 -Xmx 加大堆内存
+4、还有一点容易被忽略，检查是否有大量的自定义的 Finalizable 对象，也有可能是框架内部提供的，考虑其存在的必要性
+分析GC日志
+元空间溢出 方法区（Method Area）与 Java 堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息、常量、即时编译器编译后的代码等数据。虽然Java 虚拟机规范把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫做 Non-Heap（非堆），目的应该是与 Java 堆区分开来。
+Java 虚拟机规范对方法区的限制非常宽松，除了和 Java 堆一样不需要连续的内存和可以选择固定大小或者可扩展外，还可以选择不实现垃圾收集。垃圾收集行为在这个区域是比较少出现的，其内存回收目标主要是针对常量池的回收和对类型的卸载。当方法区无法满足内存分配需求时，将抛出 OutOfMemoryError 异常。
+报错信息 java.lang.OutOfMemoryError: Metaspace
+参数配置 -XX:+PrintGCDetails -XX:MetaspaceSize=60m -XX:MaxMetaspaceSize=60m -Xss512K -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=heap/heapdumpMeta.</description>
+    </item>
+    
     <item>
       <title>GC日志分析</title>
       <link>https://AlfredNing.github.io/note/program/jvm/gc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</link>
