@@ -665,7 +665,7 @@ MyISAM引擎使用`B+Tree`作为索引结构，叶子节点的data域存放的�
 
 ![image-20230527195158208](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230527195158208.png)
 
-###  MyISAM** **与** InnoDB对比
+###  MyISAM与 InnoDB对比
 
 1. 在InnoDB存储引擎中，我们只需要根据主键值对`聚簇索引`进行一次查找就能找到对应的记录，而在`MyISAM`中却需要进行一次`回表`操作，意味着MyISAM中建立的索引相当于全部都是`二级索引`。 
 
