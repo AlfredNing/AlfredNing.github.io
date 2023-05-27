@@ -5,13 +5,30 @@
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 08 May 2023 22:36:49 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh</language>
+    <lastBuildDate>Tue, 23 May 2023 19:40:55 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySql高级</title>
+      <link>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7/</link>
+      <pubDate>Tue, 23 May 2023 19:40:55 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7/</guid>
+      <description>系统配置 字符集的设置 show variables like &amp;#39;character%&amp;#39;; character_set_server：服务器级别的字符集 character_set_database：当前数据库的字符集 character_set_client：服务器解码请求时使用的字符集 character_set_connection：服务器处理请求时会把请求字符串从character_set_client转为character_set_connection character_set_results：服务器向客户端返回数据时使用的字符集 小结
+如果创建或修改列时没有显式的指定字符集和比较规则，则该列默认用表的字符集和比较规则 如果创建表时没有显式的指定字符集和比较规则，则该表默认用数据库的字符集和比较规则 如果创建数据库时没有显式的指定字符集和比较规则，则该数据库默认用服务器的字符集和比较规则 请求到响应过程中字符集的变化 graph TB A(客户端) --&amp;gt; |&amp;#34;使用操作系统的字符集编码请求字符串&amp;#34;| B(从character_set_client转换为character_set_connection) B --&amp;gt; C(从character_set_connection转换为具体的列使用的字符集) C --&amp;gt; D(将查询结果从具体的列上使用的字符集转换为character_set_results) D --&amp;gt; |&amp;#34;使用操作系统的字符集解码响应的字符串&amp;#34;| A SQL大小写的设置 show variables like &amp;#39;%lower_case_table_names%&amp;#39; 该参数只适用于5.7版本 默认为0 大小写敏感 设置为1，大小写不敏感，创建的表都是以小写方式存放在磁盘上，对于sql语句都是转换为小写对表和数据库查找 设置为2，创建的表和数据库依据语句上存放，凡是查找都是转换为小写进行 SQL编写建议 关键字和函数名称全部大写 数据库名、表名、表别名、字段名、字段别名等全部小写 SQL语句必须以分号结尾 SQL_MODE的设置 宽松模式 严格模式 MySQL的sql_mode合理设置
+sql_mode是个很容易被忽视的变量,默认值是空值,在这种设置下是可以允许一些非法操作的,比如允许一些非法数据的插入。在生产环境必须将这个值设置为严格模式,所以开发、测试环境的数据库也必须要设置,这样在开发测试阶段就可以发现问题.
+sql model 常用来解决下面几类问题
+通过设置sql mode, 可以完成不同严格程度的数据校验，有效地保障数据准备性。
+通过设置sql model 为宽松模式，来保证大多数sql符合标准的sql语法，这样应用在不同数据库之间进行迁移时，则不需要对业务sql 进行较大的修改。
+3. 在不同数据库之间进行数据迁移之前，通过设置SQL Mode 可以使MySQL 上的数据更方便地迁移到目标数据库中。
+# 临时设置 set global sql_mode = &amp;#39;&amp;#39;; -- 全局生效 set session sql_mode = &amp;#39;&amp;#39;; -- 会话生效 # my.</description>
+    </item>
+    
     <item>
       <title>分布式数据库理论</title>
-      <link>https://AlfredNing.github.io/note/program/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</link>
+      <link>https://AlfredNing.github.io/note/program/sql/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</link>
       <pubDate>Mon, 08 May 2023 22:36:49 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</guid>
+      <guid>https://AlfredNing.github.io/note/program/sql/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</guid>
       <description>分布式数据库 分布式数据库的介绍 数据库产品特点
 抽象程度高，用户仅从使用层面解除 商业氛围一直很浓厚 基本概念 分布式数据库的核心： 数据分片、数据同步
 数据分片 讲数据分散到多个节点，以更高效、更灵活的方式来处理数据 分类：

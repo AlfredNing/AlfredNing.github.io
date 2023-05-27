@@ -5,13 +5,14 @@
     <link>https://AlfredNing.github.io/tags/distributed-database/</link>
     <description>Recent content in Distributed Database on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
     <lastBuildDate>Mon, 08 May 2023 22:36:49 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/distributed-database/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>分布式数据库理论</title>
-      <link>https://AlfredNing.github.io/note/program/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</link>
+      <link>https://AlfredNing.github.io/note/program/sql/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</link>
       <pubDate>Mon, 08 May 2023 22:36:49 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</guid>
+      <guid>https://AlfredNing.github.io/note/program/sql/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</guid>
       <description>分布式数据库 分布式数据库的介绍 数据库产品特点
 抽象程度高，用户仅从使用层面解除 商业氛围一直很浓厚 基本概念 分布式数据库的核心： 数据分片、数据同步
 数据分片 讲数据分散到多个节点，以更高效、更灵活的方式来处理数据 分类：
