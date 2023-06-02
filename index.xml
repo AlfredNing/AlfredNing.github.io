@@ -6,7 +6,17 @@
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 27 May 2023 23:18:05 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jun 2023 00:55:03 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue</title>
+      <link>https://AlfredNing.github.io/note/program/front_end/vue/</link>
+      <pubDate>Thu, 01 Jun 2023 00:55:03 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/front_end/vue/</guid>
+      <description>前介 构建用户界面的渐进式的框架
+渐进式：可以在项目中一点点使用</description>
+    </item>
+    
     <item>
       <title>DDD</title>
       <link>https://AlfredNing.github.io/note/program/architecture/ddd/</link>
@@ -27,7 +37,27 @@
 两顶帽子的实现思路 困难的是第一步，如何调整程序设计以适应新功能
 多次变更，难以理清思路，设计开始迷失方向
 最终解决 领域驱动的思想： 将真实世界与软件世界进行对应。每次需求变更，将变更还原到真实世界，看看真实世界，在根据真实世界进行变更设计，保持领域驱动。
-领域驱动核心要求：领域模型 每次变更，先回到领域模型，基于业务进行领域模型的变更，然后在根据领域模型的变更指导程序变更</description>
+领域驱动核心要求：领域模型 每次变更，先回到领域模型，基于业务进行领域模型的变更，然后在根据领域模型的变更指导程序变更
+电商功能演练DDD 首要需求 采用领域分析 先进行需求分析，设计领域模型
+领域模型图
+1. 需求变更 分析付款与折扣的关系？
+单一职责原则：软件系统中的每个元素都只负责自己职责范围内的事情，而将其他的事情交给别人去做，我只是去调用。
+职责如何定义？ 错误理解：做某件事，和这件事相关的一切所有的事都是它的职责
+正确理解：一个职责就是软件变化的原因
+什么是高质量的代码？
+用户提出需求变更，为了实现这个变更而修改软件的成本越低，软件的设计质量就越高。
+这就要求每次需求变更的时候只修改一个模块的代码来实现新需求。
+需要平时不断的整理代码，将因同一个原因而变更的代码放在一起，将因不同原因的代码而放在不同的模块中、不同类中。
+单一职责原则要求在维护软件的过程中需要不断的进行整理，将软件变化的同一个原因的代码放在一起，将软件变化的不同原因分开放。
+如何分析不同原因？
+答案是否定，说明是不同原因。
+2. 需求变更 答案是否定的
+3. 需求变更 支付方式变更
+DDD落地到数据库设计 早期系统设计 缺陷：
+先进行数据库设计，但数据库设计只能描述数据结构，而不能描述系统对这些数据结构的处理
+面向对象的软件设计系统设计 领域模型对象持久化 插入记录就是新增一个领域对象 修改就是根据key值去修改对应的领域对象 删除就是催毁这个领域对象 领域模型对象持久化存储的思想：将暂时不用的领域对象持久化存储到磁盘，再次使用这个领域对象，从数据库恢复成领域对象。
+数据库设计发生剧烈的变化，但唯一不变的是领域对象。数据操作底层发生变更，上层业务代码不修改
+DDD数据库设计的核心 以领域模型为核心，如何将领域模型转换成数据库的设计的过程。将类转换为表的过程</description>
     </item>
     
     <item>

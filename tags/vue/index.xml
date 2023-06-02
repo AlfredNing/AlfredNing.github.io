@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Vue on AlfredNing</title>
+    <link>https://AlfredNing.github.io/tags/vue/</link>
+    <description>Recent content in Vue on AlfredNing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 01 Jun 2023 00:55:03 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue</title>
+      <link>https://AlfredNing.github.io/note/program/front_end/vue/</link>
+      <pubDate>Thu, 01 Jun 2023 00:55:03 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/front_end/vue/</guid>
+      <description>前介 构建用户界面的渐进式的框架
+渐进式：可以在项目中一点点使用</description>
+    </item>
+    
+  </channel>
+</rss>
