@@ -90,3 +90,231 @@ cover:
 
 每次变更，先回到领域模型，基于业务进行领域模型的变更，然后在根据领域模型的变更指导程序变更
 
+# 电商功能演练DDD
+
+## 首要需求
+
+![image-20230528201107373](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528201107373.png)
+
+## 采用领域分析
+
+**先进行需求分析，设计领域模型**
+
+![image-20230528201156497](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528201156497.png)
+
+领域模型图
+
+![image-20230528201215018](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528201215018.png)
+
+## 1. 需求变更
+
+![image-20230528201243420](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528201243420.png)
+
+**分析付款与折扣的关系？**
+
+**单一职责原则**：软件系统中的每个元素都只负责自己职责范围内的事情，而将其他的事情交给别人去做，我只是去调用。
+
+### 职责如何定义？
+
+错误理解：做某件事，和这件事相关的一切所有的事都是它的职责
+
+正确理解：**一个职责就是软件变化的原因**
+
+**什么是高质量的代码？**
+
+用户提出需求变更，为了实现这个变更而修改软件的成本越低，软件的设计质量就越高。
+
+这就要求每次需求变更的时候只修改一个模块的代码来实现新需求。
+
+需要平时不断的整理代码，将因同一个原因而变更的代码放在一起，将因不同原因的代码而放在不同的模块中、不同类中。
+
+单一职责原则要求在维护软件的过程中需要不断的进行整理，将软件变化的同一个原因的代码放在一起，将软件变化的不同原因分开放。
+
+如何分析不同原因？
+
+![image-20230528201853289](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528201853289.png)
+
+答案是否定，说明是不同原因。
+
+![image-20230528201945086](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528201945086.png)
+
+## 2. 需求变更
+
+![image-20230528202003638](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528202003638.png)
+
+![image-20230528202013937](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528202013937.png)
+
+
+
+![image-20230528202044981](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528202044981.png)
+
+答案是否定的
+
+![image-20230528202058730](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528202058730.png)
+
+## 3. 需求变更
+
+支付方式变更
+
+![image-20230528202126042](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528202126042.png)
+
+# DDD落地到数据库设计
+
+## 早期系统设计
+
+![image-20230528202230863](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528202230863.png)
+
+**缺陷：**
+
+先进行数据库设计，但数据库设计只能描述数据结构，而不能描述系统对这些数据结构的处理
+
+## 面向对象的软件设计系统设计
+
+![image-20230528202422892](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528202422892.png)
+
+### 领域模型对象持久化
+
+- 插入记录就是新增一个领域对象
+- 修改就是根据key值去修改对应的领域对象
+- 删除就是催毁这个领域对象
+
+ **领域模型对象持久化存储的思想：将暂时不用的领域对象持久化存储到磁盘，再次使用这个领域对象，从数据库恢复成领域对象。**
+
+数据库设计发生剧烈的变化，但唯一不变的是**领域对象**。数据操作底层发生变更，上层业务代码不修改
+
+### DDD数据库设计的核心
+
+以领域模型为核心，如何将领域模型转换成数据库的设计的过程。**将类转换为表的过程**
+
+![image-20230528203110168](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528203110168.png)
+
+### 关系转换
+
+- 一对一
+- 一对多
+- 多对一
+- 多对多
+- 继承关系（上面四种属于传统关系）
+
+#### 一对一
+
+![image-20230528203347815](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528203347815.png)
+
+#### 多对一
+
+![image-20230528203517927](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528203517927.png)
+
+#### 一对多
+
+![image-20230528203622952](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528203622952.png)
+
+#### 多对多关系
+
+![image-20230528203720680](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528203720680.png)
+
+- 领域模型总，无论功能还是属性，在命名都是采用中文
+- 数据库设计，细化为英文命名，或者汉语拼音首字母，同时要确定字段类型是否为空等其他属性
+
+#### 继承关系
+
+##### 第一种方案
+
+冗余设计
+
+![image-20230528203946679](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528203946679.png)
+
+**表稀疏： 大量字段为空**，浪费存储空间，影响查询速度
+
+##### 第二种方案
+
+采用主键生成器，公用同一个主键
+
+![image-20230528204126537](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528204126537.png)
+
+![image-20230528204134316](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528204134316.png)
+
+优缺点：
+
+单独查询一张表比较快，如果查询所有表就比较慢。
+
+##### 第三种方案
+
+![image-20230528204246014](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528204246014.png)
+
+## NoSQL数据库的设计
+
+需要join的查询，直接写到单表中进行分布式存储，这张表成为“宽表”
+
+# DDD落地到程序设计
+
+**领域模型的最终落地是三种类型的对象：服务、实体、值对象**
+
+**设计思路：贫血模型与充血模式**
+
+## 服务
+
+标识在领域对象之外的操作行为，接收用户的请求和执行某些操作。
+
+当用户在界面发送请求，服务接收处理，最终将以实体或者值对象的数据持久化到数据库中
+
+## 实体
+
+通过一个唯一标识字段来区分真实世界中每一个个体的领域对象。**属性随着时间不断变化。**
+
+## 值对象
+
+代表的是真实世界中那些一成不变的、本质性的事物，这样的领域对象叫做“值对象”。如：行业、地理位置、币种、职位
+
+## 实体和值对象的区分
+
+**可变性是实体的特点，不变性是值对象的本质**
+
+注意实体和值对象在不同业务设计下是不同的，例如菜单可以设计成实体，认为每个菜单都是不一样的。设计成值对象，认为所有的菜单都是一样的，进行应用
+
+## 将业务领域模型转换为程序设计
+
+### 贫血模型
+
+在软件设计中，有很多的pojo对象除了有一堆的get/set方法，几乎没有任何业务逻辑。
+
+变更成本提高
+
+![image-20230528205902866](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528205902866.png)
+
+### 充血模型
+
+![image-20230528205933848](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528205933848.png)
+
+**直接执行会员的打折方法**，维护成本降低
+
+保持了领域模型的原貌，直接映射了程序的变更，保持了对象的封装性。
+
+### 两种模型对比
+
+1. 贫血模型比充血模型简单易行
+2. ![image-20230528210307088](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528210307088.png)
+
+3. ![image-20230528210317117](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230528210317117.png)
+
+4. 充血模型需要更强的OOA/D能力，分析业务、业务建模与设计能力
+5. 充血模型需要有交强的团队协作能力
+6. 贫血模型更容易应对复杂的业务处理场景，**划分独立步骤，分给多个service串联进行执行**
+
+## 工程实践选择
+
+没有唯一的标准，适合才是最好的。
+
+1. **将需要封装的业务逻辑放到领域对象，进行充血模型设计**
+2. **除此之外的其他业务逻辑放到service中，按照贫血模型设计**
+
+需要封装的业务逻辑进行充血模型设计：
+
+1. 领域模型中出现继承，多态的情况
+2. 在软件设计过程中，出现类型或者编码转换
+3. 表现领域对象之间的关系
+4. “聚合”，在真实世界中那些代表整体与部分的事物
+
+**不必过多纠结于是实体还是值对象，更多的精力放在业务理解上，结合充血模型与贫血模式双重设计**
+
+# 核心概念
+
