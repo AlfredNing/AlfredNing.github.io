@@ -300,3 +300,150 @@ select count(distinct left(列名, 25))/count(*) as sub25 from table_name;
 - 索引会影响`INSERT、DELETE、UPDATE等语句的性能`，因为表中的数据更改的同时，索引也会进行调整和更新，会造成负担。
 - 优化器在选择如何优化查询时，会根据统一信息，对每一个可以用到的`索引来进行评估`，以生成出一个最好的执行计划，如果同时有很多个索引都可以用于查询，会增加MySQL优化器生成执行计划时间，**降低查询性能**。
 
+### 不适合创建索引的情况
+
+#### 1. 在where,groupby orderby 使用不到的字段不需要创建
+
+#### 2. 数据量小的表不要使用索引
+
+#### 3. 有大量重复数据的列上不要创建索引
+
+> 当数据重复度 大于10%，不需要创建索引
+
+#### 4. 避免对经常更新的表创建过多的索引
+
+1. 频繁更新的字段不一定要创建索引
+2. 对经常更新的表避免创建过多的索引
+
+#### 5. 不建议用无序的值作为索引
+
+身份证，uuid(索引比较时候转换为ASCII, 并且插入时可能造成页分裂，md5, hash，无序列长字符串)
+
+#### 6. 删除不再使用或者使用很少的索引
+
+#### 7. 不要定义冗余或者重复的索引
+
+冗余索引：联合索引含有的字段，有定义了单列索引
+
+重复索引
+
+# 性能分析工具
+
+## 数据库优化步骤
+
+![2](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/2.jpg)
+
+## 查看系统参数
+
+```sql
+show [global | session] status like '参数名'
+
+```
+
+![image-20230605204006975](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230605204006975.png)
+
+### 统计SQL的查询成本
+
+```sql
+SHOW STATUS LIKE 'last_query_cost';
+```
+
+使用场景：它对于比较开销是非常有用的，特别是我们有好几种查询方式可选的时候。
+
+> SQL 查询是一个动态的过程，从页加载的角度来看，我们可以得到以下两点结论：
+>
+> 1. `位置决定效率`。如果页就在数据库`缓冲池`中，那么效率是最高的，否则还需要从`内存`或者`磁盘`中进行读取，当然针对单个页的读取来说，如果页存在于内存中，会比在磁盘中读取效率高很多。
+> 2. `批量决定效率`。如果我们从磁盘中对单一页进行随机读，那么效率是很低的（差不多10ms），而采用顺序读取的方式，批量对页进行读取，平均一页的读取效率就会提升很多，甚至要快于单个页面在内存中的随机读取。
+>
+> 所以说，遇到I/O并不用担心，方法找对了，效率还是很高的。我们首先要考虑数据存放的位置，如果是经常使用的数据就要尽量放到`缓冲池`中，其次我们可以充分利用磁盘的吞吐能力，一次性批量读取数据，这样单个页的读取效率也就得到了提升。
+
+## 定位慢SQL
+
+### 1. 开启慢查询日志参数
+
+```sql
+set global slow_query_log='ON';
+# 查看 慢日志文件位置
+show variables like `%slow_query_log%`;
+```
+
+### 2. 修改long_query_time阈值
+
+```sql
+# 该参数设置之后，仅对新连接的会话有效
+set global long_query_time = 1; 
+show global variables like '%long_query_time%'; 
+# 对当前会话生效
+set long_query_time=1; 
+show variables like '%long_query_time%';
+# 如果一直生效的话
+该配置文件，重启
+```
+
+### 3. 查看慢查询数目
+
+```sql
+SHOW GLOBAL STATUS LIKE '%Slow_queries%';
+```
+
+### 4. 慢查询日志分析工具  mysqldumpslow
+
+```sql
+#得到返回记录集最多的10个SQL 
+mysqldumpslow -s r -t 10 /var/lib/mysql/mysql-log.log 
+#得到访问次数最多的10个SQL 
+mysqldumpslow -s c -t 10 /var/lib/mysql/mysql-log.log
+#得到按照时间排序的前10条里面含有左连接的查询语句 
+mysqldumpslow -s t -t 10 -g "left join" /var/lib/mysql/mysql-log.log 
+#另外建议在使用这些命令时结合 | 和more 使用 ，否则有可能出现爆屏情况 
+mysqldumpslow -s r -t 10 /var/lib/mysql/mysql-log | more
+
+```
+
+### 5. 关闭慢查询日志
+
+开发当中，如果不涉及调优尽量关闭
+
+1. 永久关闭
+
+   ```sql
+   [mysqld] 
+   slow_query_log=OFF
+   #或
+   [mysqld] 
+   #slow_query_log =OFF
+   重启服务器
+   ```
+
+2. 临时关闭
+
+   ```sql
+   SET GLOBAL slow_query_log=off;
+   ```
+
+## 查看SQL执行成本  - profiling
+
+```sql
+show variables like 'profiling';
+#开启
+set profiling = 'ON';
+#查看
+show profiles;
+show profile cpu,block io for query 2;
+```
+
+**profiling 常用参数**
+
+![image-20230605214559754](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230605214559754.png)
+
+**日常开发注意点：**
+
+1. convert heap to MyISAM: 查询结果太大，内存不够，落盘
+2. Creating tmp table: 创建临时表。先拷贝数据到临时表，用完后在删除临时表
+3. Coping to tmp table on disk: 把内存中临时表复制到磁盘上
+4. locked
+
+**如果在show profile诊断结果中出现了以上4条结果中的任何一条，则sql语句需要优化**
+
+*注意：show profile 命令将弃用，可以从information_schema中的profiling数据表进行查看*
+
