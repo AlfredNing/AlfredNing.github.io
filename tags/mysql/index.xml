@@ -28,7 +28,7 @@
 中止的（aborted） 如果事务执行了一部分而变为失败的状态，那么就需要把已经修改的事务中的操作还原到事务执行前的状态。换句话说，就是要撤销失败事务对当前数据库造成的影响。我们把这个撤销的过程称之为回滚。当回滚操作执行完毕时，也就是数据库恢复到了执行事务之前的状态，我们就说该事务处在了中止的状态。
 提交的（committed） 当一个处在部分提交的状态的事务将修改过的数据都同步到磁盘上之后，我们就可以说该事务处在了提交的状态。
 ACID是事务的四大特性，原子性是基础，隔离性是手段，一致性是约束条件，持久性是目的。
-如何使用事务 显式事务 隐式事务 显示事务 -- 显式事务 -- 步骤1：开启事务 -- START TRANSACTION 可以限制事务操作 -- 当前事务是只读事务，不能增删改，只是不允许修改那些其他事务也能访问到的表的数据，对于临时表(CREATE TEMPORARY TABLE)来说，是可以进行增删改的 START TRANSACTION READ ONLY; -- 读写，默认 START TRANSACTION READ WRITE; -- 开启一致性读 START TRANSACTION READ CONSISTENT SNAPSHOT; -- 或者 BEGIN; -- 步骤2：一系列的DML操作 -- 步骤3：提交或者中止状态 -- 提交事务 COMMIT; -- 回滚事务 ROLLBACK; 隐式事务 -- 隐式事务 -- 通过 autocommit 设置 ,默认 on，代表每一条DML都是一个独立的操作，执行之后，默认会自动提交。 SHOW VARIABLES LIKE &amp;#39;%autocommit%&amp;#39;; -- 关闭自动提，只针对DML，对DDL是无效的 SET autocommit=FALSE; -- 执行操作，构成一个独立的事务 -- 提交 COMMIT; -- 当 autocommit 为 true，START TRANSACTION或者BEGIN之后，都不会将DML操作作为单个事务，而是作为整体一个事务。 保存点 -- 保存点 SAVEPOINT ： 事务操作中设置的一个状态，在事务结束之前，可以回到保存点继续操作失误。 -- 设置保存点 SAVEPOINT save1; -- 回滚到保存点 ROLLBACK TO save1; -- 删除保存点 RELEASE SAVEPOINT save1; </description>
+如何使用事务 显式事务 隐式事务 显示事务 -- 显式事务 -- 步骤1：开启事务 -- START TRANSACTION 可以限制事务操作 -- 当前事务是只读事务，不能增删改，只是不允许修改那些其他事务也能访问到的表的数据，对于临时表(CREATE TEMPORARY TABLE)来说，是可以进行增删改的 START TRANSACTION READ ONLY; -- 读写，默认 START TRANSACTION READ WRITE; -- 开启一致性读 START TRANSACTION READ CONSISTENT SNAPSHOT; -- 或者 BEGIN; -- 步骤2：一系列的DML操作 -- 步骤3：提交或者中止状态 -- 提交事务 COMMIT; -- 回滚事务 ROLLBACK; 隐式事务 -- 隐式事务 -- 通过 autocommit 设置 ,默认 on，代表每一条DML都是一个独立的操作，执行之后，默认会自动提交。 SHOW VARIABLES LIKE &amp;#39;%autocommit%&amp;#39;; -- 关闭自动提，只针对DML，对DDL是无效的 SET autocommit=FALSE; -- 执行操作，构成一个独立的事务 -- 提交 COMMIT; -- 当 autocommit 为 true，START TRANSACTION或者BEGIN之后，都不会将DML操作作为单个事务，而是作为整体一个事务。 保存点：</description>
     </item>
     
     <item>
