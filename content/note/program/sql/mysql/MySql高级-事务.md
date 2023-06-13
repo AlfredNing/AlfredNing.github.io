@@ -131,7 +131,7 @@ COMMIT;
 
 ```
 
-## 保存点
+保存点：
 
 ```sql
 -- 保存点 SAVEPOINT ： 事务操作中设置的一个状态，在事务结束之前，可以回到保存点继续操作失误。
@@ -144,3 +144,205 @@ RELEASE SAVEPOINT save1;
 
 ```
 
+## 隐式提交数据的情况
+
+- 数据定义语言 `DDL` ：例如操作数据库、表、视图、存储过程等结构，`CREATE`、`ALTER`、`DROP`等语句
+- 隐式使用或修改MySQL数据库中的表：使用 `ALTER USER`、`CREATE USER`、`DROP USER`、`GRANT`、`RENAME USER`、`REVOKE`、`SET PASSWORD`等语句也会隐式提交前面语句所属于的事务
+- 事务控制或关于锁定的语句：在一个事务中没有提交或者回滚，又使用`START TRANSACTION`或者`BEGIN`开启一个新的事物，会隐式的提交上一个事务
+- 将 `autocommit` 设置为`true`，也会隐式提交前边语句所属的事务
+- 使用 `LOCK TABLES`、`UNLOCK TABLES`等关于锁定的语句也会隐式的提交前边语句所属的事务。
+- 加载数据的语句：LOAD DATA语句来批量往数据库中导入数据时，也会隐式的提交前面语句所属的事务。
+- 关于MySQL复制的一些语句：`START SLAVE`、`STOP SLAVE`、`RESET SLAVE`、`CHANGE MASTER TO`等语句，也会隐式的提交前面语句所属的事务。
+- 其他的一些语句：使用 `ANALYZE TABLE`，`CACHE INDEX`、`CHECK TABLE`、`FLUSH`、`LOAD INDEX INTO CACHE`、`OPTIMIZE TABLE`、`REPAIR TABLE`、`RESET`等语句也会隐式的提交前面语句所属的事务。
+
+## 事务操作
+
+```sql
+-- 使用事务 
+CREATE TABLE user3(name VARCHAR(10) PRIMARY KEY);
+SELECT * FROM user3;
+-- 开启事务 
+BEGIN;
+-- 插入数据
+INSERT INTO user3 VALUES('a');
+-- 获取数据，可以获取到 
+SELECT * FROM user3;
+-- 提交 
+COMMIT;
+-- 获取数据，也可以获取到 
+SELECT * FROM user3;
+
+-- 开启事务 
+BEGIN;
+INSERT INTO user3 VALUES('c');
+-- 收到主键影响，会插入失败  
+INSERT INTO user3 VALUES('c');
+ROLLBACK;
+
+-- DDL 操作会自动提交数据，不受 autocommit 变量的影响 
+TRUNCATE TABLE user3;
+-- autocommit为默认状态   
+SHOW VARIABLES LIKE '%autocommit%';
+-- 默认一条DML为一个事务，可以提交成功
+INSERT INTO user3 VALUES('a'); 
+-- 由于主键原因，操作失败，处于 failed 状态 
+INSERT INTO user3 VALUES('a');
+-- 回滚，回滚到失败状态之间
+ROLLBACK;
+-- 只插入了1条记录  
+SELECT * FROM user3;
+
+-- completion_type的使用  
+SELECT @@completion_type;
+SET @@completion_type = 1;
+-- autocommit为默认状态   
+SHOW VARIABLES LIKE '%autocommit%';
+-- 默认一条DML为一个事务，可以提交成功
+INSERT INTO user3 VALUES('b'); 
+-- 由于主键原因，操作失败，处于 failed 状态 
+INSERT INTO user3 VALUES('b');
+-- 回滚
+ROLLBACK;
+-- 还是只有a这1条记录，这就是由于   @@completion_type 的影响 
+SELECT * FROM user3;
+
+```
+
+`completion_type`的使用
+
+1. `completion_type=0`，默认情况，当执行`COMMIT`的时候会提交事务，执行下一个事务时，还需要用`START TRANSACTION`或者`BEGIN`来开启。
+2. `completion_type=1`，提交事务之后，相当于执行了 `COMMIT AND CHAIN`，也就是开启一个链式事物，即提交事务之后会开启一个相同隔离级别的事务。
+3. `completion_type=2`，这种情况下 `COMMIT=COMMIT AND RELEASE`，也就是当事务提交时，会自动与服务器断开连接。
+
+### InnoDB和MyISAM在事务下的区别
+
+MyISAM不支持事务
+
+```sql
+-- 创建表  
+CREATE TABLE test1(i INT) ENGINE = INNODB;
+CREATE TABLE test2(i INT) ENGINE = MYISAM;
+-- 针对 InnoDB 
+BEGIN; 
+INSERT INTO test1 VALUES (1);
+ROLLBACK;
+-- 回滚之后，没有数据 
+SELECT * FROM test1;
+
+-- 针对 MyISAM 
+BEGIN;
+INSERT INTO test2 VALUES (1);
+ROLLBACK;
+-- 回滚之后，数据还在，事务对MyISAM无效 
+SELECT * FROM test2;
+
+```
+
+### 保存点 SAVEPOINT
+
+```sql
+-- 创建表 
+CREATE TABLE user4(NAME VARCHAR(10),balance DECIMAL(10,2));
+-- 操作事务 
+BEGIN;
+INSERT INTO user4(NAME,balance) VALUES('a',1000);
+COMMIT;
+SELECT * FROM user4;
+
+-- 再次操作事务  
+BEGIN;
+UPDATE user4 SET balance=balance-100 WHERE NAME = 'a';
+UPDATE user4 SET balance=balance-100 WHERE NAME = 'a';
+-- 设置保存点 
+SAVEPOINT s1;
+UPDATE user4 SET balance=balance+1 WHERE NAME = 'a';
+-- 单独回滚 +1 的操作，回滚到保存点 s1  
+ROLLBACK TO s1;
+SELECT * FROM user4;
+-- 此时事务没有完成  
+ROLLBACK;
+-- 或者  
+COMMIT;
+
+```
+
+# 事务的隔离级别
+
+## 数据并发问题
+
+### 脏写
+
+对于两个事务`Session A`、`Session B`，如果事务`Session A`修改了另一个未提交事务`Session B`修改过的数据，那就意味着发生了脏写
+
+![image-20230613221237339](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230613221237339.png)
+
+### 脏读
+
+对于两个事务`Session A`、`Session B`，`Session A`读取了**已经被`Session B`更新但还没有被提交**的字段。之后若`Session B`回滚，`Session A`读取的内容就是临时且无效的。
+
+![image-20230613221255997](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230613221255997.png)
+
+### 不可重复读
+
+对于两个事务`Session A`、`Session B`，**`Session A`读取了一个字段，然后`Session B`更新了该字段。之后`Session A`再次读取同一个字段，值就不同**，就意味着发生了不可重复读。
+
+![image-20230613221321837](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230613221321837.png)
+
+### 幻读
+
+对于两个事务`Session A`、`Session B`，`Session A`从一个表中读取了一个字段，然后`Session B`在该表中插入了一些新的行。之后，如果`Session A`再次读取同一个表，就会多出几行。那就意味着发生了幻读。
+
+![image-20230613221349414](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230613221349414.png)
+
+注意1：如果`Session B`删除了一些记录，导致`Session A`读取的记录变少了，这个现象不属于幻读，幻读强调的是一个事务按照某个相同条件多次读取记录时，后读取时读到了之前没有读到的记录。
+
+注意2：对于先前已经读到的记录，之后又读取不到，这相当于每一条记录都发生了不可重复读的现象。
+
+## SQL的隔离级别
+
+问题严重性
+脏写  > 脏读 > 不可重复读 > 幻读
+
+可以舍弃一部分隔离性来换取一部分性能在这里就体现在：设立一些隔离级别，隔离级别越低，并发问题发生的就越多。SQL标准设立了4个隔离级别：
+
+- `READ UNCOMMIT`：读未提交，在该隔离级别，所有事务都可以看到其他未提交事务的执行结果（没有提交，但是可以看到结果，也就意味着发生了脏读，因为如果另外一个事务回滚，则出现前后不一致。）。不能避免脏读、不可重复读、幻读。
+- `READ COMMIT`：读已提交，满足了隔离的简单定义：一个事务只能看见已经提交事务所做的改变（没有提交，则读取不到，提交，则读取到），这是大多数数据库系统的默认隔离级别（Oracle默认隔离级别）。可以避免脏读，但不可重复读、幻读问题仍然存在。
+- `REPEATABLE READ`：可重复读，事务A在读到一条数据之后，此时事务B对该数据进行了修改并提交，那么事务A再读该数据，读到的还是原来的内容（先读一条数据，后续无论其他事务是否提交，都按照这条已经读到的数据处理）（这里与脏读的差别是脏读提交之后可读取到，提交之前读取不到；可重复读是读取的都是第一次读取的数据。）。可以避免脏读、不可重复读，但幻读问题仍然存在。**这是MySQL的默认隔离级别**。
+- `SERIALIZABLE`：可串行化，确保事务可以从一个表中读取相同的行。这个事务持续期间，禁止其他事务对该表执行插入、更新和删除操作。所有的并发问题都可以避免，但是性能很低。能避免脏读、不可重复读和幻读。
+
+SQL标准中规定，针对不同的隔离级别，并发事务可以发生不同严重程度的问题，具体情况如下：
+
+![image-20230613221457170](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230613221457170.png)
+
+脏读是最为严重的，因此这四种隔离级别，都解决了脏读的问题。
+
+不同隔离级别有不同的锁和并发机制，隔离级别与并发性能关系如下：
+
+![image-20230613221507841](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230613221507841.png)
+
+## MySQL支持的四种隔离级别
+
+```sql
+-- 查看隔离级别
+SELECT @@transaction_isolation;
+-- 设置隔离级别  
+-- 当前会话  
+SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+-- 全局 
+SET GLOBAL TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+-- 或者  
+SET SESSION TRANSACTION_ISOLATION = 'READ-UNCOMMITTED';
+SET SESSION TRANSACTION_ISOLATION = 'READ-COMMITTED';
+SET SESSION TRANSACTION_ISOLATION = 'REPEATABLE-READ';
+SET SESSION TRANSACTION_ISOLATION = 'SERIALIZABLE';
+
+```
+
+`GLOBAL`：当前已经存在的会话无效，只对执行完该语句之后产生的会话起作用；
+
+`SESSION`：对当前会话的所有后续事务有效，如果在事务之间执行，对后续的事务有效，该语句可以在当前事务中间执行，但不会影响当前正在执行的事务
+
+重启之后，都会恢复成默认隔离级别。
