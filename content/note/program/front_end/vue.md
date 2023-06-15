@@ -34,3 +34,91 @@ cover:
 
 渐进式：可以在项目中一点点使用
 
+## Vue3初识
+
+### 命令式编程vs声明式编程
+
+命令式编程：how to do
+
+声明式编程：what to do . 由框架完成how 的部分
+
+### MVVM模型
+
+Model - View - ViewMode ： 软件架构模式
+
+![image-20230615000635613](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230615000635613.png)
+
+### Vue Demo
+
+```vue
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <!-- 这里的template 是html提供的，也可以换成div等，但是template是不显示 -->
+    <template id="t1">
+        <div>
+            <h2>{{counter}}</h2>
+            <button @click='increment'>+1</button>
+            <button @click='decrement'>-1</button>
+            <h3>{{message}}</h3>
+        </div>
+    </template>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            // 这里使用模板字符串
+            template: '#t1',
+            // vue3 data 函数
+            data: function () {
+                return {
+                    message: "hello",
+                    counter: 100
+                }
+            },
+            methods: {
+                increment() {
+                    this.counter++;
+                },
+                decrement() {
+                    this.counter--;
+                },
+            },
+        }).mount('#app');
+    </script>
+</body>
+
+</html>
+```
+
+#### template属性
+
+1. 利用script写法
+2. 利用template写法
+3. 直接放置
+
+#### data属性
+
+- vue3: 传入一个函数，返回一个对象
+- data返回对象会被vue响应系统劫持，之后对象的修改和访问都会被系统劫持
+
+#### methods属性
+
+一个对象，定义我们通用的方法。
+
+**methods中定义函数，不建议用箭头函数。**
+
+#### 其他属性
+
+非常多
