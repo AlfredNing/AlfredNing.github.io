@@ -52,7 +52,11 @@ Archive: 不支持 B-Tree, FullText,Hash索引
       
       <guid>https://AlfredNing.github.io/note/program/front_end/vue/</guid>
       <description>前介 构建用户界面的渐进式的框架
-渐进式：可以在项目中一点点使用</description>
+渐进式：可以在项目中一点点使用
+Vue3初识 命令式编程vs声明式编程 命令式编程：how to do
+声明式编程：what to do . 由框架完成how 的部分
+MVVM模型 Model - View - ViewMode ： 软件架构模式
+Vue Demo &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;!-- 这里的template 是html提供的，也可以换成div等，但是template是不显示 --&amp;gt; &amp;lt;template id=&amp;#34;t1&amp;#34;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h2&amp;gt;{{counter}}&amp;lt;/h2&amp;gt; &amp;lt;button @click=&amp;#39;increment&amp;#39;&amp;gt;+1&amp;lt;/button&amp;gt; &amp;lt;button @click=&amp;#39;decrement&amp;#39;&amp;gt;-1&amp;lt;/button&amp;gt; &amp;lt;h3&amp;gt;{{message}}&amp;lt;/h3&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script src=&amp;#34;https://unpkg.com/vue@3/dist/vue.global.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; Vue.createApp({ // 这里使用模板字符串 template: &amp;#39;#t1&amp;#39;, // vue3 data 函数 data: function () { return { message: &amp;#34;hello&amp;#34;, counter: 100 } }, methods: { increment() { this.</description>
     </item>
     
     <item>
