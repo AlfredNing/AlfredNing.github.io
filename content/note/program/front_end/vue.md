@@ -177,6 +177,8 @@ Model - View - ViewMode ： 软件架构模式
 - 可以绑定对象
 - 传递参数
 
+![image-20230617184827223](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230617184827223.png)
+
 
 
 
