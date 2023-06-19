@@ -179,7 +179,29 @@ Model - View - ViewMode ： 软件架构模式
 
 ![image-20230617184827223](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230617184827223.png)
 
+## 条件渲染
 
+- v-if: 惰性
+- v-else-if
+- v-else
 
+## v- show
 
+- v-show 不支持template
 
+- v-show 不可以和v-else连用
+
+v-show 是设置display: none属性 进行切换
+
+v-if 不会渲染到dom上面
+
+1. 开发频繁切换 v-show
+2. 不会使用 v-if
+
+## 列表渲染
+
+v-for
+
+更新检测下面方法做检测
+
+![image-20230618212258864](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230618212258864.png)
