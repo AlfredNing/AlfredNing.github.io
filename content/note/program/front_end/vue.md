@@ -202,6 +202,24 @@ v-if 不会渲染到dom上面
 
 v-for
 
-更新检测下面方法做检测
+![image-20230618212612904](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230618212612904.png)
 
-![image-20230618212258864](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230618212258864.png)
+key的作用：作用于diff元素
+
+## computed 计算属性
+
+包含响应式的复杂逻辑
+
+methods调用也可以显示
+
+计算属性是有缓存的，多次使用，只会执行一次。依赖数据会进行重新计算
+
+## 计算属性的getter和setter
+
+## 监听器Watch
+
+代码逻辑中监听某个数据的变化
+
+- 深度侦听
+- 立即执行
+- 监听对象的属性
