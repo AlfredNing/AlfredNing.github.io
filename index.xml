@@ -6,16 +6,28 @@
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 13 Jun 2023 12:22:16 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Jun 2023 19:56:37 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>面试经历</title>
-      <link>https://AlfredNing.github.io/thinking/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/</link>
-      <pubDate>Tue, 13 Jun 2023 12:22:16 +0800</pubDate>
+      <title>1.JUC初识</title>
+      <link>https://AlfredNing.github.io/note/program/juc/chapter01.juc%E5%88%9D%E8%AF%86/</link>
+      <pubDate>Mon, 19 Jun 2023 19:56:37 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/thinking/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/</guid>
-      <description>2023年6月12日 😇 百度面 别想太多，不是正式员工面，外包面试。面试官人非常不错，面试过程中有个小插曲，就是到了时间点，外面有两个女同事，推开了门，面试官这边说等三分钟，对面好像有点不耐烦，关键的点是你推开了门，里面还在开会不应该把门给关上吗。是不是对外包的人看不起还是怎么回事。其实我没想那么多，面试他们，我就是为了工资而已，我需要现金流，但我看不惯有的人把自己摆在很高的位置上面。其实今天的面试官非常不错，我之前面试其它公司的时候，有的面试官恨不得把自己挂在天上。有什么好优越的，就因为你是在这家公司，你来面试其他人你就变得优越了。人都是会受外界而改变的, 人人平等的社会终究还是理想的。
-下午回来吃了饺子，好久都没有吃下午饭了，今天算是破例了。为什么老想着给别人打工-因为我要形成我初期的资金积累。
-底层人民没有生活。我讨厌高高在上的人</description>
+      <guid>https://AlfredNing.github.io/note/program/juc/chapter01.juc%E5%88%9D%E8%AF%86/</guid>
+      <description>前置知识 1. 为什么多线程如何重要 硬件方面：摩尔定律失效，主频不在提高，核数在不断增加的情况下，让程序运行更快就需要用到并行或者并发编程
+软件方面：高并发系统： 异步 + 回调等生产需求
+2. 进程 是程序的一次执行，是系统进行资源分配和调度的独立单位，每个进程都有它自己的内存空间和系统资源
+3. 线程 在同一进程有1个或多个线程，执行多个任务，每个任务可以看做线程，共享内存空间和资源
+操作系统
+多进程形式，允许多个任务同时进行 多线程形式，允许单个任务进行拆分不同的部分允许 提供协调机制：一方面进程和线程之间产生冲突，一方面进程和线程之间共享资源 4. 管程 操作系统层面：监视器(Monitor), 同步机制，是保证（同一时间）只有一个线程可以访问被保护的数据和代码。JVM中同步是基于进入和退出监视器对象(Monitor,管程对象)来实现的，每个对象实例都会有一个Monitor对象，底层是由C++实现。
+5. 用户线程和守护线程 Java线程分为用户线程和守护线程
+线程的daemon属性默认为false:用户线程
+守护线程：特殊线程，后台执行任务，比如垃圾回收线程
+用户线程：系统的工作线程，完成程序所执行的业务操作
+当程序的所有用户线程执行完毕，不管是否守护线程执行完毕，系统自动退出 设置守护线程，需要在start()方法之前 6. 异步编排 Future 与 Callable Future 定义了操作异步执行任务的一些方法，如：获取异步执行的结果，取消任务执行，判断任务是否取消，判断任务执行是否完毕等。子线程去执行任务，比较耗时，主线程继续执行 Callable定义了具有返回值的任务 FutureTask **get阻塞：**一旦调用get方法，无论执行完成都会阻塞，生成禁****用
+解决措施：轮询替代阻塞
+高并发中，不要阻塞，尽可能少加锁，使用CAS
+isDone轮询：
+轮询方式也是会耗费cpu资源，不能立即获得计算结果 如果想要异步获取结果,通常都会以轮询的方式去获取结果尽量不要阻塞 import java.util.concurrent.ExecutionException; import java.util.concurrent.FutureTask; import java.util.concurrent.TimeUnit; import java.util.concurrent.TimeoutException; /** * @author Alfred.Ning * @since 2023年06月20日 20:59:00 */ public class FutureTaskDemo { public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException { FutureTask&amp;lt;String&amp;gt; futureTask = new FutureTask&amp;lt;&amp;gt;(() -&amp;gt; { System.</description>
     </item>
     
     <item>
