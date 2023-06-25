@@ -569,3 +569,62 @@ public class CompletableFutureApiDemo {
 - 作用于静态方法，当前类加锁，进去同步代码前要获得当前类对象的锁，锁的是类的Class；
 
 > 能用对象锁就用对象锁，后考虑类锁
+
+### synchronized实现探究
+
+####  反编译 - java原生指令
+
+- javap -c XX.class
+- javap -V XX.class  -v:verbose更加详情信息
+
+#### synchronized同步代码块
+
+![image-20230625213241506](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230625213241506.png)
+
+1. 为什么会有两个`monitorexit`
+
+   因为方法退出有
+
+   - 正常退出
+   - 异常退出
+
+   JVM需要保证正常/异常都能够释放
+
+2. 一定是两个`monitorexit`吗
+   **不是**
+   ![](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230625213615751.png)
+
+异常非正常结束，底层需要抛出异常**athrow**
+
+#### synchronized同步方法
+
+调用指令会检查方法的ACC_SYNCHRONIZED是否被设置。如果设置了，先获取monitor再执行方法，最后在完成结束【正常/异常】释放monitor
+
+#### synchronized静态同步方法
+
+ACC_STATIC, ACC_SYNCHRONIZED访问标志区分该方法是否静态同步方法
+
+> Java的这些信息存储在Object类，对应ObjectMonitor.cpp
+> 每个对象天生都带着一个对象监视器
+
+## 公平锁和非公平锁
+
+程序中的公平性是符合请求锁的绝对时间的，类似FIFO，否则视为不公平
+
+```java
+private Lock lock = new ReentrantLock(); // 默认非公平
+```
+
+### ？为什么会有公平锁和非公平锁的设计, 为什么默认非公平
+
+1. 恢复挂起的线程到真正获取锁的时间是有时间差的，从开发人员看该时间微乎其微。但是从cpu角度，时间差还是比较明显的。非公平锁能够充分利用CPU时间片，尽量减少CPU空闲状态时间
+2. 多线程的考量点是线程的切换。采**用非公平，当一个线程请求锁获取同步状态，然后释放同步状态。因为不需要考虑是否有前驱节点。所以刚释放锁的线程在此刻再次获取同步状态的概率就变得非常大，所以就减少了线程的开销。**
+
+### ？使用公平锁会有什么问题
+
+公平锁保持排队的公平性，所以就导致有的锁在长时间排队，造成"锁饥饿"
+
+### ？什么时候用公平，什么时候使用非公平
+
+如果为了更高的吞吐量，使用非公平锁是合理的，因为减少线程切换的时间，吞吐量自然就上去了。否认使用公平锁，公平使用
+
