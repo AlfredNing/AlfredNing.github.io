@@ -252,5 +252,37 @@ v-model
 - 多个单词，短横线分割，使用时候一样
 - 驼峰。使用可以驼峰[**开发不推荐**]或者中划线
 
-# Webpack
+# Webpack5
+
+## 安装
+
+```css
+# 全局安装
+npm install webpack webpack-cli -g
+# 局部安装
+npm install webpack webpack-cli -D
+webpack --version
+
+npm init
+# 默认yes
+npm init -y
+# 安装依赖开发环境
+npm install webpack webpack-cli  -D
+# 使用项目本地依赖打包
+npx webpack
+
+# 引入配置文件
+webpack.config.js
+
+# css
+css-loader style-loader
+# less
+less less-loader css-loader style-loader
+
+# 工具css PostCss 进行转换
+
+
+```
+
+**webpack打包原理：是存在依赖图，凡是存在依赖都会把打包进去**
 
