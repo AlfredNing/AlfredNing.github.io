@@ -64,7 +64,8 @@
     overflow-y: auto;
 }
 
-.toc .inner::-webkit-scrollbar-thumb {  /*滚动条*/
+.toc .inner::-webkit-scrollbar-thumb {
+    /*滚动条*/
     background: var(--border);
     border: 7px solid var(--theme);
     border-radius: var(--radius);
@@ -85,10 +86,22 @@
     color: var(--secondary);
 }
 
-.post-content pre, code {
+.post-content pre,
+code {
     font-family: 'Code New Roman', sans-serif;
     max-height: 40rem;
 }
+
 .post-content {
-    font-family: 'FangZhengKaiTiJianTi-Regular';
+    /* 中文简楷体 */
+    /* font-family: 'FangZhengKaiTiJianTi-Regular'; */
+    /* 宋体 */
+    font-family: 'SimSun';
+}
+
+
+/*  鼠标选中样式 */
+::selection {
+    background: #232222;
+    color: hsla(140, 100%, 38%, 0.733)
 }
