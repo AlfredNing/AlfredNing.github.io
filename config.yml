@@ -2,7 +2,6 @@ baseURL: "https://AlfredNing.github.io"
 title: AlfredNing
 paginate: 5
 theme: PaperMod
-
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
@@ -17,7 +16,6 @@ defaultContentLanguage: zh
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Alfred.Ning
-  description: "Alfred.Ning Blog"
   keywords: [Blog, Portfolio, PaperMod]
   author: Alfred.Ning
   DateFormat: "2006年-01月-02日"
@@ -60,10 +58,12 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: AlfredNing's Blog
+    description: |
+      This is your 
+        my blog
     imageUrl: https://pbs.twimg.com/media/Fl7-NppakAIg2WK?format=jpg&name=900x900
     imageTitle: "😄😄"
-  homeInfoParams:
-    Content: "This "
+    
     # imageWidth: 120
     # imageHeight: 120
     # imageTitle: my image
@@ -74,6 +74,8 @@ params:
     #     url: tags
 
   socialIcons:
+    - name: github
+      url: "https://github.com/AlfredNing"  
     - name: email
       url: "mailto:cning_q@foxmail.com"
     - name: qq
