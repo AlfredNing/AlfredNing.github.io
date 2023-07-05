@@ -11,8 +11,8 @@
 .post-description {
     margin-top: 10px;
     margin-bottom: 5px;
+    
 }
-
 .post-meta,
 .breadcrumbs {
     color: var(--secondary);
