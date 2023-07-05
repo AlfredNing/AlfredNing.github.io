@@ -13,6 +13,10 @@ minify:
   # minifyOutput: true
 defaultContentLanguage: zh
 frontmatter:
+  date:
+  - date
+  - publishDate
+  - lastmod
   lastmod:
   - :git
   - lastmod
