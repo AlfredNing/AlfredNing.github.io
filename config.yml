@@ -72,9 +72,11 @@ params:
     #   - name: Tags
     #     url: tags
 
-  # socialIcons:
-  #   - name: github
-  #     url: "https://github.com/"
+  socialIcons:
+    - name: email
+      url: "ning_q@foxmail.com"
+    - name: qq
+      url: "https://pbs.twimg.com/media/F0QaG-eaEAARbw9?format=jpg&name=large"      
 
   analytics:
     google:
