@@ -7,15 +7,20 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 googleAnalytics: UA-123-45
-
+enableGitInfo: true
 minify:
   disableXML: true
   # minifyOutput: true
 defaultContentLanguage: zh
-lastmodDateFormat: "2006-01-02"
-lastmodTimeFormat: "15:04:05"
-lastmodDateTimeFormat: "2006-01-02 15:04:05"
-lastmodVariable: "lastmod"
+frontmatter:
+  lastmod:
+  - :git
+  - lastmod
+  - date
+  - publishDate
+  publishDate:
+  - publishDate
+  - date
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Alfred.Ning
@@ -44,8 +49,6 @@ params:
   ShowToc: true # 显示目录
   TocOpen: true # 自动展开目录
   comments: true
-  enableGitInfo: true
-  enablePageViews: true
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
