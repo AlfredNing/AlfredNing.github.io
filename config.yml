@@ -13,18 +13,11 @@ minify:
   # minifyOutput: true
 defaultContentLanguage: zh
 frontmatter:
-  date:
-  - date
-  - publishDate
-  - lastmod
   lastmod:
-  - :git
   - lastmod
+  - :git
   - date
   - publishDate
-  publishDate:
-  - publishDate
-  - date
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Alfred.Ning

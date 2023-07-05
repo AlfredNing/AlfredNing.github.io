@@ -81,7 +81,7 @@ show variables like '%lower_case_table_names%'
 
 ## SQL_MODE的设置
 
-- 宽松模式
+- 宽松模式 
 - 严格模式
 
 **MySQL的sql_mode合理设置**
