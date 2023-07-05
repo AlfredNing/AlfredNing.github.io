@@ -59,10 +59,11 @@ params:
   # profile-mode
   profileMode:
     enabled: true # needs to be explicitly set
-    title: 个人博客
-    subtitle: "菜而不自知, thinking for everything, Free Thinker"
+    title: AlfredNing's Blog
     imageUrl: "https://pbs.twimg.com/media/Fl7-NppakAIg2WK?format=jpg&name=900x900"
     imageTitle: "😄😄"
+    description: |
+      Hello I
     # imageWidth: 120
     # imageHeight: 120
     # imageTitle: my image
@@ -74,9 +75,10 @@ params:
 
   socialIcons:
     - name: email
-      url: "ning_q@foxmail.com"
+      url: "mailto:cning_q@foxmail.com"
     - name: qq
-      url: "https://pbs.twimg.com/media/F0QaG-eaEAARbw9?format=jpg&name=large"      
+      url: "https://pbs.twimg.com/media/F0QaG-eaEAARbw9?format=jpg&name=large"     
+
 
   analytics:
     google:
