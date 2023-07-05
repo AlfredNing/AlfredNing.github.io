@@ -279,10 +279,14 @@ css-loader style-loader
 # less
 less less-loader css-loader style-loader
 
-# 工具css PostCss 进行转换
+# 工具css PostCss 进行转换或者postcss-preset-env
+npm install postcss postcss-cli -D 
 
-
+# 图片 打包 file-loader
+npm install file-loader -D 
 ```
 
 **webpack打包原理：是存在依赖图，凡是存在依赖都会把打包进去**
+
+## 相关使用
 
