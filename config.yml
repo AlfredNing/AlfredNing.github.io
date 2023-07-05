@@ -82,6 +82,8 @@ params:
     #     url: tags
 
   socialIcons:
+    - name: twitter
+      url: "https://twitter.com/AlfredNing"  
     - name: github
       url: "https://github.com/AlfredNing"  
     - name: email
