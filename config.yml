@@ -89,7 +89,7 @@ params:
     - name: email
       url: "mailto:cning_q@foxmail.com"
     - name: qq
-      url: "https://pbs.twimg.com/media/F0QaG-eaEAARbw9?format=jpg&name=large"     
+      url: "https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/qq_link.png"     
 
 
   analytics:
