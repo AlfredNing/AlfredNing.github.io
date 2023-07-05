@@ -8,6 +8,14 @@ buildFuture: false
 buildExpired: false
 googleAnalytics: UA-123-45
 enableGitInfo: true
+frontmatter:
+    lastmod:
+    - :git
+    - :fileModTime
+    - lastmod
+    - date
+    - publishDate
+
 minify:
   disableXML: true
   # minifyOutput: true
