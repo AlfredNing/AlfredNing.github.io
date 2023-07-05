@@ -60,10 +60,10 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: AlfredNing's Blog
-    imageUrl: "https://pbs.twimg.com/media/Fl7-NppakAIg2WK?format=jpg&name=900x900"
+    imageUrl: https://pbs.twimg.com/media/Fl7-NppakAIg2WK?format=jpg&name=900x900
     imageTitle: "😄😄"
-    description: |
-      Hello I
+  homeInfoParams:
+    Content: "This "
     # imageWidth: 120
     # imageHeight: 120
     # imageTitle: my image

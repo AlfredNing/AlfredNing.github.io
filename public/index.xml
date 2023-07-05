@@ -5,7 +5,273 @@
     <link>https://AlfredNing.github.io/</link>
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 13 Apr 2023 22:46:33 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Jun 2023 19:56:37 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1.JUC初识</title>
+      <link>https://AlfredNing.github.io/note/program/juc/chapter01.juc%E5%88%9D%E8%AF%86/</link>
+      <pubDate>Mon, 19 Jun 2023 19:56:37 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/juc/chapter01.juc%E5%88%9D%E8%AF%86/</guid>
+      <description>前置知识 1. 为什么多线程如何重要 硬件方面：摩尔定律失效，主频不在提高，核数在不断增加的情况下，让程序运行更快就需要用到并行或者并发编程
+软件方面：高并发系统： 异步 + 回调等生产需求
+2. 进程 是程序的一次执行，是系统进行资源分配和调度的独立单位，每个进程都有它自己的内存空间和系统资源
+3. 线程 在同一进程有1个或多个线程，执行多个任务，每个任务可以看做线程，共享内存空间和资源
+操作系统
+多进程形式，允许多个任务同时进行 多线程形式，允许单个任务进行拆分不同的部分允许 提供协调机制：一方面进程和线程之间产生冲突，一方面进程和线程之间共享资源 4. 管程 操作系统层面：监视器(Monitor), 同步机制，是保证（同一时间）只有一个线程可以访问被保护的数据和代码。JVM中同步是基于进入和退出监视器对象(Monitor,管程对象)来实现的，每个对象实例都会有一个Monitor对象，底层是由C++实现。
+5. 用户线程和守护线程 Java线程分为用户线程和守护线程
+线程的daemon属性默认为false:用户线程
+守护线程：特殊线程，后台执行任务，比如垃圾回收线程
+用户线程：系统的工作线程，完成程序所执行的业务操作
+当程序的所有用户线程执行完毕，不管是否守护线程执行完毕，系统自动退出 设置守护线程，需要在start()方法之前 6. 异步编排 Future 与 Callable Future 定义了操作异步执行任务的一些方法，如：获取异步执行的结果，取消任务执行，判断任务是否取消，判断任务执行是否完毕等。子线程去执行任务，比较耗时，主线程继续执行 Callable定义了具有返回值的任务 FutureTask **get阻塞：**一旦调用get方法，无论执行完成都会阻塞，生成禁****用
+解决措施：轮询替代阻塞
+高并发中，不要阻塞，尽可能少加锁，使用CAS
+isDone轮询：
+轮询方式也是会耗费cpu资源，不能立即获得计算结果 如果想要异步获取结果,通常都会以轮询的方式去获取结果尽量不要阻塞 import java.util.concurrent.ExecutionException; import java.util.concurrent.FutureTask; import java.util.concurrent.TimeUnit; import java.util.concurrent.TimeoutException; /** * @author Alfred.Ning * @since 2023年06月20日 20:59:00 */ public class FutureTaskDemo { public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException { FutureTask&amp;lt;String&amp;gt; futureTask = new FutureTask&amp;lt;&amp;gt;(() -&amp;gt; { System.</description>
+    </item>
+    
+    <item>
+      <title>MySql高级 事务</title>
+      <link>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E4%BA%8B%E5%8A%A1/</link>
+      <pubDate>Sun, 11 Jun 2023 13:57:55 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E4%BA%8B%E5%8A%A1/</guid>
+      <description>数据库事务概述 引擎支持情况 SHOW ENGINES 命令来查看当前 MySQL 支持的存储引擎都有哪些，以及这些存储引擎是否支持事务
+基本概念 事务：一组逻辑单元，是数据从一种合法状态切换到另一种合法状态。
+合法状态：符合现实逻辑
+**事务处理的原则：**保证所有事务都作为一个工作单元来执行，即使出现了故障，都不能改变这种执行方式。当在一个事务中执行多个操作时，要么所有的事务都被提交(commit)，那么这些修改就永久地保存下来；要么数据库管理系统将放弃所作的所有修改，整个事务回滚(rollback)到最初状态。
+事务的ACID特性 原子性（atomicity）： 原子性是指事务是一个不可分割的工作单位，要么全部提交，要么全部失败回滚。
+一致性（consistency）： 一致性是指事务执行前后，数据从一个合法性状态变换到另外一个合法性状态。这种状态是语义上的而不是语法上的，跟具体的业务有关。
+隔离型（isolation）： 事务的隔离性是指一个事务的执行不能被其他事务干扰，即一个事务内部的操作及使用的数据对并发的其他事务是隔离的，并发执行的各个事务之间不能互相干扰。
+持久性（durability）： 持久性是指一个事务一旦被提交，它对数据库中数据的改变就是永久性的，接下来的其他操作和数据库故障不应该对其有任何影响。
+持久性是通过事务日志来保证的。日志包括了重做日志和回滚日志。当我们通过事务对数据进行修改的时候，首先会将数据库的变化信息记录到重做日志中，然后再对数据库中对应的行进行修改。这样做的好处是，即使数据库系统崩溃，数据库重启后也能找到没有更新到数据库系统中的重做日志，重新执行，从而使事务具有持久性。
+事务的状态 活动的（active） 事务对应的数据库操作正在执行过程中时，我们就说该事务处在活动的状态。
+部分提交的（partially committed） 当事务中的最后一个操作执行完成，但由于操作都在内存中执行，所造成的影响并没有刷新到磁盘时，我们就说该事务处在部分提交的状态。
+失败的（failed） 当事务处在活动的或者部分提交的状态时，可能遇到了某些错误（数据库自身的错误、操作系统错误或者直接断电等）而无法继续执行，或者人为的停止当前事务的执行，我们就说该事务处在失败的状态。
+中止的（aborted） 如果事务执行了一部分而变为失败的状态，那么就需要把已经修改的事务中的操作还原到事务执行前的状态。换句话说，就是要撤销失败事务对当前数据库造成的影响。我们把这个撤销的过程称之为回滚。当回滚操作执行完毕时，也就是数据库恢复到了执行事务之前的状态，我们就说该事务处在了中止的状态。
+提交的（committed） 当一个处在部分提交的状态的事务将修改过的数据都同步到磁盘上之后，我们就可以说该事务处在了提交的状态。
+ACID是事务的四大特性，原子性是基础，隔离性是手段，一致性是约束条件，持久性是目的。
+如何使用事务 显式事务 隐式事务 显示事务 -- 显式事务 -- 步骤1：开启事务 -- START TRANSACTION 可以限制事务操作 -- 当前事务是只读事务，不能增删改，只是不允许修改那些其他事务也能访问到的表的数据，对于临时表(CREATE TEMPORARY TABLE)来说，是可以进行增删改的 START TRANSACTION READ ONLY; -- 读写，默认 START TRANSACTION READ WRITE; -- 开启一致性读 START TRANSACTION READ CONSISTENT SNAPSHOT; -- 或者 BEGIN; -- 步骤2：一系列的DML操作 -- 步骤3：提交或者中止状态 -- 提交事务 COMMIT; -- 回滚事务 ROLLBACK; 隐式事务 -- 隐式事务 -- 通过 autocommit 设置 ,默认 on，代表每一条DML都是一个独立的操作，执行之后，默认会自动提交。 SHOW VARIABLES LIKE &amp;#39;%autocommit%&amp;#39;; -- 关闭自动提，只针对DML，对DDL是无效的 SET autocommit=FALSE; -- 执行操作，构成一个独立的事务 -- 提交 COMMIT; -- 当 autocommit 为 true，START TRANSACTION或者BEGIN之后，都不会将DML操作作为单个事务，而是作为整体一个事务。 保存点：</description>
+    </item>
+    
+    <item>
+      <title>浪潮之巔所感</title>
+      <link>https://AlfredNing.github.io/thinking/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%94%E6%89%80%E6%84%9F/</link>
+      <pubDate>Sun, 04 Jun 2023 21:08:54 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/thinking/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%94%E6%89%80%E6%84%9F/</guid>
+      <description>2023年上，看了浪潮之巅。
+20世纪不联网信息产业密度不断扩大，新型了各大历史上著名的公司，有的至今还在，有的早已灭亡。科学技术的不断发展，有的公司靠自己影响力，有的公司靠自己的垄断，有的公司在技术上的发展却无法商业变现。历史上著名的太阳公司，雅虎公司。好的公司里面必要有优秀的人才。
+每一个叫的名字的公司，之前都经历过一段痛苦时间，每一个站在行业顶端的互联网公司，都占据着市场上诸多的利润。不要看到大公司的今天，回头看看，他们的一路。任何事情也都是如此。
+下面的记录的一些定律：未来的一天这些定律也可能不复存在
+计算机行业的发展规律 摩尔定律 每18个月，计算机等IT产品的性能翻一番；或者是说相同性能的计算机等IT产品，每18个月价钱会降一半。【小范围适用于你买电子产品】
+安迪-比尔定律 安迪：英特尔公司传奇CEO
+比尔: 微软公司创始人比尔盖茨
+软件压榨着硬件的性能
+以微软为首的软件开发公司吃掉硬件提升带来的全部好处，迫使用户更新机器，让硬件厂商受益。硬件厂商继而研发，根据摩尔定律，提升硬件性能，为微软下一步更新软件做准备，形成完整生态链。
+反摩尔定律 一个IT公司如果今天和18个月前卖掉同样多的、同样的产品，它的营业额就会降一半。
+反摩尔定律逼着所有硬件公司都必须追赶上摩尔定律规定的更新速度。
+信息产业的规律性 70-20-10 行业老大吃掉市场的70%，老二吃掉20%，剩下的瓜分10%
+诺威格定律 一家公司的市场占有率超过50%，就无法在翻一番了。公司进行“横向扩展” 、业务转型
+基因决定定律 一家公司的基因决定了这家公司的发展</description>
+    </item>
+    
+    <item>
+      <title>MySql高级 索引_集群</title>
+      <link>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%88%86%E6%9E%90_%E7%B4%A2%E5%BC%95/</link>
+      <pubDate>Sun, 04 Jun 2023 11:20:59 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%88%86%E6%9E%90_%E7%B4%A2%E5%BC%95/</guid>
+      <description>索引 索引的分类 从功能逻辑划分 普通索引 唯一索引 主键索引 全文索引 从物理实现方法划分 聚簇索引 非聚簇索引 从作用字段划分 单列索引 联合索引 InnoDB: 支持B-Tree，FullText索引，不支持Hash索引
+MyISAM: 支持B-Tree，FullText索引，不支持Hash索引
+Memory: 支持B-Tree，Hash索引，不支持FullText索引
+NDB: 支持Hash索引，不支持 B-Tree, FullText索引
+Archive: 不支持 B-Tree, FullText,Hash索引
+创建索引 方式1- 创建表时候指定 普通索引 CREATE TABLE book( book_id INT , book_name VARCHAR(100), authors VARCHAR(100), info VARCHAR(100) , comment VARCHAR(100), year_publication YEAR, INDEX(year_publication) ); 创建唯一索引 CREATE TABLE test1( id INT NOT NULL, name varchar(30) NOT NULL, UNIQUE INDEX uk_idx_id(id) ); 主键索引 CREATE TABLE student ( id INT(10) UNSIGNED AUTO_INCREMENT, student_no VARCHAR(200), student_name VARCHAR(200), PRIMARY KEY(id) ); # 删除主键索引 ALTER TABLE student drop PRIMARY KEY ; 创建单列索引 CREATE TABLE test2( id INT NOT NULL, name CHAR(50) NULL, INDEX single_idx_name(name(20)) ); 创建组合索引 CREATE TABLE test3( id INT(11) NOT NULL, name CHAR(30) NOT NULL, age INT(11) NOT NULL, info VARCHAR(255), INDEX multi_idx(id,name,age) ); 全文索引 CREATE TABLE `papers` ( id` int(10) unsigned NOT NULL AUTO_INCREMENT, `title` varchar(200) DEFAULT NULL, `content` text, PRIMARY KEY (`id`), FULLTEXT KEY `title` (`title`,`content`) ) ENGINE=MyISAM DEFAULT CHARSET=utf8; SELECT * FROM papers WHERE MATCH(title,content) AGAINST (‘查询字符串’); 空间索引 CREATE TABLE test5( geo GEOMETRY NOT NULL, SPATIAL INDEX spa_idx_geo(geo) ) ENGINE=MyISAM; 方式2-已经创建表上的添加 alter 形式 ALTER TABLE table_name ADD [UNIQUE | FULLTEXT | SPATIAL] [INDEX | KEY] [index_name] (col_name[length],.</description>
+    </item>
+    
+    <item>
+      <title>Vue</title>
+      <link>https://AlfredNing.github.io/note/program/front_end/vue/</link>
+      <pubDate>Thu, 01 Jun 2023 00:55:03 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/front_end/vue/</guid>
+      <description>前介 构建用户界面的渐进式的框架
+渐进式：可以在项目中一点点使用
+Vue3初识 命令式编程vs声明式编程 命令式编程：how to do
+声明式编程：what to do . 由框架完成how 的部分
+MVVM模型 Model - View - ViewMode ： 软件架构模式
+Vue Demo &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;!-- 这里的template 是html提供的，也可以换成div等，但是template是不显示 --&amp;gt; &amp;lt;template id=&amp;#34;t1&amp;#34;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h2&amp;gt;{{counter}}&amp;lt;/h2&amp;gt; &amp;lt;button @click=&amp;#39;increment&amp;#39;&amp;gt;+1&amp;lt;/button&amp;gt; &amp;lt;button @click=&amp;#39;decrement&amp;#39;&amp;gt;-1&amp;lt;/button&amp;gt; &amp;lt;h3&amp;gt;{{message}}&amp;lt;/h3&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script src=&amp;#34;https://unpkg.com/vue@3/dist/vue.global.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; Vue.createApp({ // 这里使用模板字符串 template: &amp;#39;#t1&amp;#39;, // vue3 data 函数 data: function () { return { message: &amp;#34;hello&amp;#34;, counter: 100 } }, methods: { increment() { this.</description>
+    </item>
+    
+    <item>
+      <title>DDD</title>
+      <link>https://AlfredNing.github.io/note/program/architecture/ddd/</link>
+      <pubDate>Sat, 27 May 2023 23:18:05 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/architecture/ddd/</guid>
+      <description>DDD是软件核心复杂性的应对之道
+调整程序的结构，该解耦的解耦，该拆分的拆分，在实现新的功能，才能保证设计质量
+运用DDD，当系统业务变得复杂，将对业务的理解绘制出领域模型正确知道软件开发
+微服务： 小而专
+软件开发方式 DL驱动开发 数据驱动设计 DDD驱动设计 DL驱动开发 DeadLine驱动开发，给定截至日期。我挂你他喵的写成什么样，完成就好。
+数据驱动设计 **良好的设计数据库表，**通过数据流串联对应的业务流程。适合小型系统，基本可以应付大多数的应用场景。
+确定对应的数据实体 完成库表设计 DDD领域驱动设计 应对软件架构复杂设计方法论
+整洁架构 软件退化 软件的本质是对真实世界的模拟 软件中业务逻辑正确与否的唯一标准就是是否与真实世界一致 软件要做成什么样，不由我们决定，也不用用户决定，而是由真实世界决定 产品为什么提出变更需求，因为他们对真实世界的理解也不是完全正确，跳过需要，建立在对真实世界理解的基础上进行开发。但认识真实世界是一件非常难的事情，最初只能认识真实世界中那些简单、清晰、易于理解的业务逻辑，完成该部分的软件 根源 第一版软件是完美的，但随后随着业务需求变动，软件的业务逻辑越来越接近真实世界，使得我们的软件越来越专业，同时业务逻辑也越来越复杂，软件规模也越来越大。简单软件有简单软件的设计，复杂软件有复杂软件的设计
+每次软件变更，逐步调整软件的程序结构，由简单程序转变为复杂程序结构，而不是一味的塞代码，赛代码才是最终根源。
+杜绝软件退化的两顶帽子 软件的发展规律是逐步从简单软件转换为复杂软件
+发生在每次新需求变更的时候，采用一下设计方法
+在不添加新功能的前提下，重构代码，调整原有程序结构，以适应新功能实现新的功能 实现新功能 过渡设计 每一种初始所谓的“灵活设计”只能应对一种需求变更，不能真正解决未来变更的问题，被称为“过度设计”
+活在今天的格子里，做今天的事。为当前的需求进行设计，使其刚刚满足当前的需求 解决思路：
+每次需求变更额设计，只有保证每次需求变更时候做出正确的设计，才能使得软件以良性循环维护下午
+两顶帽子的实现思路 困难的是第一步，如何调整程序设计以适应新功能
+多次变更，难以理清思路，设计开始迷失方向
+最终解决 领域驱动的思想： 将真实世界与软件世界进行对应。每次需求变更，将变更还原到真实世界，看看真实世界，在根据真实世界进行变更设计，保持领域驱动。
+领域驱动核心要求：领域模型 每次变更，先回到领域模型，基于业务进行领域模型的变更，然后在根据领域模型的变更指导程序变更
+电商功能演练DDD 首要需求 采用领域分析 先进行需求分析，设计领域模型
+领域模型图
+1. 需求变更 分析付款与折扣的关系？
+单一职责原则：软件系统中的每个元素都只负责自己职责范围内的事情，而将其他的事情交给别人去做，我只是去调用。
+职责如何定义？ 错误理解：做某件事，和这件事相关的一切所有的事都是它的职责
+正确理解：一个职责就是软件变化的原因
+什么是高质量的代码？
+用户提出需求变更，为了实现这个变更而修改软件的成本越低，软件的设计质量就越高。
+这就要求每次需求变更的时候只修改一个模块的代码来实现新需求。
+需要平时不断的整理代码，将因同一个原因而变更的代码放在一起，将因不同原因的代码而放在不同的模块中、不同类中。
+单一职责原则要求在维护软件的过程中需要不断的进行整理，将软件变化的同一个原因的代码放在一起，将软件变化的不同原因分开放。
+如何分析不同原因？
+答案是否定，说明是不同原因。
+2. 需求变更 答案是否定的
+3. 需求变更 支付方式变更</description>
+    </item>
+    
+    <item>
+      <title>MySQL高级-引擎_底层文件</title>
+      <link>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%BC%95%E6%93%8E_%E5%BA%95%E5%B1%82%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Tue, 23 May 2023 19:40:55 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%BC%95%E6%93%8E_%E5%BA%95%E5%B1%82%E6%96%87%E4%BB%B6/</guid>
+      <description>系统配置 字符集的设置 show variables like &amp;#39;character%&amp;#39;; character_set_server：服务器级别的字符集 character_set_database：当前数据库的字符集 character_set_client：服务器解码请求时使用的字符集 character_set_connection：服务器处理请求时会把请求字符串从character_set_client转为character_set_connection character_set_results：服务器向客户端返回数据时使用的字符集 小结
+如果创建或修改列时没有显式的指定字符集和比较规则，则该列默认用表的字符集和比较规则 如果创建表时没有显式的指定字符集和比较规则，则该表默认用数据库的字符集和比较规则 如果创建数据库时没有显式的指定字符集和比较规则，则该数据库默认用服务器的字符集和比较规则 请求到响应过程中字符集的变化 graph TBA(客户端) --&amp;gt; |&amp;#34;使用操作系统的字符集编码请求字符串&amp;#34;| B(从character_set_client转换为character_set_connection)B --&amp;gt; C(从character_set_connection转换为具体的列使用的字符集)C --&amp;gt; D(将查询结果从具体的列上使用的字符集转换为character_set_results)D --&amp;gt; |&amp;#34;使用操作系统的字符集解码响应的字符串&amp;#34;| A SQL大小写的设置 show variables like &amp;#39;%lower_case_table_names%&amp;#39; 该参数只适用于5.7版本 默认为0 大小写敏感 设置为1，大小写不敏感，创建的表都是以小写方式存放在磁盘上，对于sql语句都是转换为小写对表和数据库查找 设置为2，创建的表和数据库依据语句上存放，凡是查找都是转换为小写进行 SQL编写建议 关键字和函数名称全部大写 数据库名、表名、表别名、字段名、字段别名等全部小写 SQL语句必须以分号结尾 SQL_MODE的设置 宽松模式 严格模式 MySQL的sql_mode合理设置
+sql_mode是个很容易被忽视的变量,默认值是空值,在这种设置下是可以允许一些非法操作的,比如允许一些非法数据的插入。在生产环境必须将这个值设置为严格模式,所以开发、测试环境的数据库也必须要设置,这样在开发测试阶段就可以发现问题.
+sql model 常用来解决下面几类问题
+通过设置sql mode, 可以完成不同严格程度的数据校验，有效地保障数据准备性。
+通过设置sql model 为宽松模式，来保证大多数sql符合标准的sql语法，这样应用在不同数据库之间进行迁移时，则不需要对业务sql 进行较大的修改。
+3. 在不同数据库之间进行数据迁移之前，通过设置SQL Mode 可以使MySQL 上的数据更方便地迁移到目标数据库中。
+# 临时设置 set global sql_mode = &amp;#39;&amp;#39;; -- 全局生效 set session sql_mode = &amp;#39;&amp;#39;; -- 会话生效 # my.</description>
+    </item>
+    
+    <item>
+      <title>分布式数据库理论</title>
+      <link>https://AlfredNing.github.io/note/program/sql/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</link>
+      <pubDate>Mon, 08 May 2023 22:36:49 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/sql/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</guid>
+      <description>分布式数据库 分布式数据库的介绍 数据库产品特点
+抽象程度高，用户仅从使用层面解除 商业氛围一直很浓厚 基本概念 分布式数据库的核心： 数据分片、数据同步
+数据分片 讲数据分散到多个节点，以更高效、更灵活的方式来处理数据 分类：
+水平分片：按行进行数据分割，数据被切割成一个个数据组，分散到不同节点 垂直分片：按列进行数据分割，一个数据表的模式（Schema）被切割为多个小的模式 数据同步 数据一致性的保证，分布式数据库的底线
+早期的关系型商业数据库的分布式能力可以满足大部分用户的场景，因此产生了如 Oracle 等几种巨无霸数据库产品；
+OLAP 领域首先寻求突破，演化出了大数据技术与 MPP 类型数据库，提供功能更强的数据分析能力；
+去IOE 引入数据库中间件，并结合应用平台与开源单机数据库形成新一代解决方案，让商业关系型数据库走下神坛，NoSQL 数据库更进一步&amp;gt;打破了关系型数据库唯我独尊的江湖地位；
+新一代分布式 OLTP 数据库正式完成了分布式领域对数据库核心特性的完整支持，它代表了分布式数据库从此走向了成熟，也表明了 OLAP 与 OLTP 分布式场景下，分别在各自领域内取得了胜利；
+HTAP 和多模式数据处理的引入，再一次将 OLAP 与 OLTP 融合，从而将分布式数据库推向如传统商业关系型数据库数十年前那般的盛况，而其产生的影响要比后者更为深远
+SQL的发展史 最初的数据管理“关系模型”是指由 IBM 研究人员 E.F. Codd 在 20 世纪 70 年代初设计的，并在 System R 及后续许多数据库系统中得到了普及。 由于 Schema（模式）的预定义，数据库获得存储相对紧凑，从而导致其性能较为优异；之后就是经典的 ACID 给业务带来了可控性，而基于标准化 SQL 的数据访问模式给企业级应用带来了更多的红利，因为“标准即是生产力”
+缺点：
+对前期设计要求高，因为后期修改 Schema 往往需要停机，没有考虑分布式场景，在扩展性和可用性层面缺乏支持；而分布式是 21 世纪应用必备的技能。
+NoSQL数据库和SQL数据库的区别 NoSQL的缺点 由于缺乏ACID, 应用时需要非常小心处理数据一致性问题；同时其数据模型只针对特定的应用场景，一般不能使用一种 NoSQL 数据库来完成整个应用的构建，导致设计层面的复杂和维护的困难。</description>
+    </item>
+    
+    <item>
+      <title>调优案例</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/</link>
+      <pubDate>Mon, 08 May 2023 20:30:30 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/</guid>
+      <description>调优工具 jConsole Visual VM eclipse MAT JProfiler Arthas Java Mission Control Flame Graphs（火焰图） Tprofiler Btrace YourKit JProbe Spring Insight OOM 案例 堆溢出 报错信息 java.lang.OutOfMemoryError: Java heap space
+参数配置 -XX:+PrintGCDetails -XX:MetaspaceSize=64m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=heap/heapdump.hprof -XX:+PrintGCDateStamps -Xms200M -Xmx200M -Xloggc:log/gc-oomHeap.log 原因及解决 原因
+1、代码中可能存在大对象分配
+2、可能存在内存泄漏，导致在多次GC之后，还是无法找到一块足够大的内存容纳当前对象。
+解决方法
+1、检查是否存在大对象的分配，最有可能的是大数组分配
+2、通过jmap命令，把堆内存dump下来，使用MAT等工具分析一下，检查是否存在内存泄漏的问题
+3、如果没有找到明显的内存泄漏，使用 -Xmx 加大堆内存
+4、还有一点容易被忽略，检查是否有大量的自定义的 Finalizable 对象，也有可能是框架内部提供的，考虑其存在的必要性
+分析GC日志
+元空间溢出 方法区（Method Area）与 Java 堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息、常量、即时编译器编译后的代码等数据。虽然Java 虚拟机规范把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫做 Non-Heap（非堆），目的应该是与 Java 堆区分开来。
+Java 虚拟机规范对方法区的限制非常宽松，除了和 Java 堆一样不需要连续的内存和可以选择固定大小或者可扩展外，还可以选择不实现垃圾收集。垃圾收集行为在这个区域是比较少出现的，其内存回收目标主要是针对常量池的回收和对类型的卸载。当方法区无法满足内存分配需求时，将抛出 OutOfMemoryError 异常。
+报错信息 java.lang.OutOfMemoryError: Metaspace
+参数配置 -XX:+PrintGCDetails -XX:MetaspaceSize=60m -XX:MaxMetaspaceSize=60m -Xss512K -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=heap/heapdumpMeta.</description>
+    </item>
+    
+    <item>
+      <title>GC日志分析</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/gc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</link>
+      <pubDate>Thu, 04 May 2023 22:36:26 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/gc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</guid>
+      <description>GC日志参数 -verbose:gc 输出gc日志信息，默认输出到标准输出
+-XX:+PrintGC 输出GC日志。类似：-verbose:gc
+-XX:+PrintGCDetails 在发生垃圾回收时打印内存回收详细的日志，
+并在进程退出时输出当前内存各区域分配情况
+-XX:+PrintGCTimeStamps 输出GC发生时的时间戳
+-XX:+PrintGCDateStamps 输出GC发生时的时间戳（以日期的形式，如 2013-05-04T21:53:59.234+0800）
+-XX:+PrintHeapAtGC 每一次GC前和GC后，都打印堆信息
+-Xloggc: 表示把GC日志写入到一个文件中去，而不是打印到标准输出中
+测试代码 import java.util.ArrayList; /** * -Xms60m -Xmx60m -XX:SurvivorRatio=8 -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:./logs/gc.log * * @author Alfred.Ning * @since 2023年05月04日 22:54:00 */ public class GLogTest { public static void main(String[] args) { ArrayList&amp;lt;byte[]&amp;gt; bytes = new ArrayList&amp;lt;&amp;gt;(); for (int i = 0; i &amp;lt; 500; i++) { byte[] arr = new byte[1024 * 1024]; bytes.add(arr); try { Thread.</description>
+    </item>
+    
+    <item>
+      <title>垃圾回收</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <pubDate>Tue, 02 May 2023 12:10:15 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <description>概述 什么是垃圾 运行程序中没有任何指针指向的对象。如果垃圾对象一直保留在内存空间，严重情况下，导致内存溢出
+为什么需要GC 垃圾回收器: garbage collector 垃圾回收行为：gargage collection 如果不进行垃圾回收，内存迟早被消耗完 释放没用的对象，清楚内存的记录碎片。JVM将整理出来的内存分配给新的对象 随着应用程序所交付的业务越来越复杂。没有GC就不能保证应用程序的正常进行。经常造成STW的GC跟不上实际的需求，所以才会尝试不断的对GC进行优化 对于Java开发人员而言，自动内存管理就像是一个黑匣子，如果过度依赖于“自动”，那么这将会是一场灾难，最严重的就会弱化Java开发人员在程序出现内存溢出时定位问题和解决问题的能力。 此时，了解JVM的自动内存分配和内存回收原理就显得非常重要，只有在真正了解JVM是如何管理内存后，我们才能够在遇见OutOfMemoryError时，快速地根据错误异常日志定位问题和解决问题。 当需要排查各种内存溢出、内存泄漏问题时，当垃圾收集成为系统达到更高并发量的瓶颈时，我们就必须对这些“自动化”的技术实施必要的监控和调节。 java垃圾回收区域中重点区域是 垃圾回收器可以对年轻代回收，也可以对老年代回收，甚至是全堆和方法区的回收。其中，Java堆是垃圾收集器的工作重点。 从次数上讲：
+频繁收集Young区 较少收集Old区 基本不动Perm区（或元空间） 早期的GC 这种方式可以灵活控制内存释放的时间，但是会给开发人员带来频繁申请和释放内存的管理负担。倘若有一处内存区间由于程序员编码的问题忘记被回收，那么就会产生内存泄漏，垃圾对象永远无法被清除，随着系统运行时间的不断增长，垃圾对象所耗内存可能持续上升，直到出现内存溢出并造成应用程序崩溃。 在有了垃圾回收机制后，上述代码块极有可能变成这样：
+现在，除了Java以外，C#、Python、Ruby等语言都使用了自动垃圾回收的思想，也是未来发展趋势。可以说，这种自动化的内存分配和垃圾回收的方式己经成为现代开发语言必备的标准。
+垃圾回收算法 垃圾判别阶段算法 JVM中究竟是如何标记一个死亡对象呢
+简单来说，当一个对象已经不再被任何的存活对象继续引用时，就可以宣判为已经死亡。
+引用计数算法 引用计数算法(Reference Counting)比较简单，对每个对象保存一个整型的引用计数器属性。用于记录对象被引用的情况。
+原理及其基本思路 对于一个对象A来说，只要有任何一个对象引用了A,则A的应用计数器就加1，当引用失效时，引用计数器就减1。只要对象A的引用计数器值为0，则表示对象A不可能再被使用，可进行回收。
+优点 实现简单，垃圾对象便于辨识；判定效率高，回收没有延迟性。
+缺点 需要单独的字段存储计数器，这样的做法增加了存储空间的开销。 每次赋值都需要更新计数器，伴随着加法和减法操作，这增加了时间开销。 引用计数器有一个严重的问题，即无法处理循环引用的情况。这是一条致命缺陷，导致在Java 的垃圾回收器中没有使用这类算法。 如果使用该算法，如何解决循环引用 引用计数算法，是很多语言的资源回收选择，例如因人工智能而更加火热的Python，它更是同时支持引用计数和垃圾收集机制。
+具体哪种最优是要看场景的，业界有大规模实践中仅保留引用计数机制，以提高吞吐量的尝试。
+Java并没有选择引用计数，是因为其存在一个基本的难题，也就是很难处理循环引用关系。
+Python如何解决循环引用？
+手动解除：很好理解，就是在合适的时机，解除引用关系。
+使用弱引用weakref， weakref是Python提供的标准库，旨在解决循环引用。
+可达性分析算法 - [目前常用算法] 原理及其基本思路 原理 将对象和对象的引用关系看做是一个图，选定活动的对象作为GC ROOTS，然后跟踪引用链条，如果一个对象和一个GC ROOTS之间不可达，也就是不存在引用链条，那么认为是可回收的对象。
+基本思路 可达性分析算法是以根对象集合(GC Roots)为起始点，按照从上至下的方式搜索被根对象集合所连接的目标对象是否可达。 使用可达性分析算法后，内存中的存活对象都会被根对象集合直接或间接连接着，搜索所走过的路径称为引用链(Reference Chain) 如果目标对象没有任何引用链相连，则是不可达的，就意味着该对象己经死亡，可以标记为垃圾对象。 在可达性分析算法中，只有能够被根对象集合直接或者间接连接的对象才是存活对象。 优点 实现简单，执行高效 ，有效的解决循环引用的问题，防止内存泄漏。
+GC ROOTS 在Java 语言中， GC Roots 包括以下几类元素：</description>
+    </item>
+    
+    <item>
+      <title>执行引擎</title>
+      <link>https://AlfredNing.github.io/note/program/jvm/%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/</link>
+      <pubDate>Mon, 01 May 2023 21:28:28 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/jvm/%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/</guid>
+      <description>执行引擎的定义 将字节码指令解释/编译为对应平台上的本地机器指令。将高级语言翻译成低级语言
+执行引擎的工作流程 从外观上来看，所有的Java虚拟机的执行引擎输入、输出都是一致的：输入的是字节码二进制流，处理过程是字节码解析执行的等效过程，输出的是执行结果。
+执行引擎在执行的过程中究竟需要执行什么样的字节码指令完全依赖于PC寄存器。 每当执行完一项指令操作后，PC寄存器就会更新下一条需要被执行的指令地址。 当然方法在执行的过程中，执行引擎有可能会通过存储在局部变量表中的对象引用准确定位到存储在Java堆区中的对象实例信息，以及通过对象头中的元数据指针定位到目标对象的类型信息。 代码执行和编译的过程 过程1: javac.exe的执行 Java代码编译是由Java源码编译器来完成，流程图如下所示
+java.exe的执行： Java字节码的执行是由JVM执行引擎来完成，流程图如下所示 概念 前端编译器 .java文件转换为.class文件的过程
+后端运行期编译器 JIT 编译器，Just In Time Compiler: 把字节码转变成机器码的过程。
+静态提前编译器 AOT 编译器，Ahead Of Time Compiler: 直接把.java文件编译成本地机器代码的过程。
+HotSpot VM是目前市面上高性能虚拟机的代表作之一。它采用解释器与即时编译器并存的架构。
+解释器 当Java虚拟机启动时会根据预定义的规范对字节码采用逐行解释的方式执行，将每条字节码文件中的内容“翻译”为对应平台的本地机器指令执行。
+工作机制 解释器真正意义上所承担的角色就是一个运行时“翻译者”，将字节码文件中的内容“翻译”为对应平台的本地机器指令执行。从这个角度说，java是解释语言。 当一条字节码指令被解释执行完成后，接着再根据PC寄存器中记录的下一条需要被执行的字节码指令执行解释操作。 解释器的分类 在Java的发展历史里，一共有两套解释执行器，即古老的字节码解释器、现在普遍使用的模板解释器。
+字节码解释器在执行时通过纯软件代码模拟字节码的执行，效率非常低下。 而模板解释器将每一条字节码和一个模板函数相关联，模板函数中直接产生这条字节码执行时的机器码，从而很大程度上提高了解释器的性能。 在HotSpot VM中，解释器主要由Interpreter模块和Code模块构成。 Interpreter模块：实现了解释器的核心功能 Code模块：用于管理HotSpot VM在运行时生成的本地机器指令 只用解释器的问题 由于解释器在设计和实现上非常简单，因此除了Java语言之外，还有许多高级语言同样也是基于解释器执行的，比如Python、Perl、Ruby等。但是在今天，基于解释器执行已经沦落为低效的代名词，并且时常被一些C/C++程序员所调侃。 为了解决这个问题，JVM平台支持一种叫作即时编译的技术。即时编译的目的是避免函数被解释执行，而是将整个函数体编译成为机器码，每次函数执行时，只执行编译后的机器码即可，这种方式可以使执行效率大幅度提升。 不过无论如何，基于解释器的执行模式仍然为中间语言的发展做出了不可磨灭的贡献。 为什么说Java是半解释半编译的语言 JDK1.0时代，将Java语言定位为“解释执行”还是比较准确的。再后来，Java也发展出可以直接生成本地代码的编译器。 现在JVM在执行Java代码的时候，通常都会将解释执行与编译执行二者结合起来进行。 JIT编译器 JIT（Just In Time Compiler)编译器：就是虚拟机将源代码直接编译成和本地机器平台相关的机器语言。
+为什么还保留解释器的问题 有些开发人员会感觉到诧异，既然HotSpot VM中已经内置JIT编译器了，那么为什么还需要再使用解释器来“拖累”程序的执行性能呢？比如JRockit VM内部就不包含解释器，字节码全部都依靠即时编译器编译后执行。
+首先明确：
+当程序启动后，解释器可以马上发挥作用，省去编译的时间，立即执行。
+编译器要想发挥作用，把代码编译成本地代码，需要一定的执行时间。但编译为本地代码后，执行效率高。
+所以：
+尽管JRockit VM中程序的执行性能会非常高效，但程序在启动时必然需要花费更长的时间来进行编译。对于服务端应用来说，启动时间并非是关注重点，但对于那些看中启动时间的应用场景而言，或许就需要采用解释器与即时编译器并存的架构来换取一个平衡点。在此模式下，当Java虚拟器启动时，解释器可以首先发挥作用，而不必等待即时编译器全部编译完成后再执行，这样可以省去许多不必要的编译时间。随着时间的推移，编译器发挥作用，把越来越多的代码编译成本地代码，获得更高的执行效率。
+同时，解释执行在编译器进行激进优化不成立的时候，作为编译器的“逃生门”。
+HotSpot执行方式 当虚拟机启动的时候，解释器可以首先发挥作用，而不必等待即时编译器全部编译完成再执行，这样可以省去许多不必要的编译时间。并且随着程序运行时间的推移，即时编译器逐渐发挥作用，根据热点探测功能，将有价值的字节码编译为本地机器指令，以换取更高的程序执行效率。</description>
+    </item>
+    
     <item>
       <title>对象内存布局</title>
       <link>https://AlfredNing.github.io/note/program/jvm/%E5%AF%B9%E8%B1%A1%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/</link>
@@ -153,7 +419,7 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
 链接 验证阶段 保证加载的字节码是合法、合理并符合jvm规范
 格式验证回合装载阶段一起执行。验证通过之后，类加载器才会把验证成功的二级制数据信息加载到方法区中 格式验证之外的验证操作都在方法区中进行 准备阶段 为类的静态变量分配内存，并将其初始化为默认值。
 Java并不支持boolean类型，对于boolean类型，内部实现是int,由于int的默认值是0,故对应的，boolean的默认值就是false
-解析阶段 将类、接口、自动和方法的符号引用转换为直接应用
+解析阶段 将类、接口、自动和方法的符号引用转换为直接引用
 符号引用就是一些字面量的引用，和虚拟机的内部数据结构和和内存布局无关。比较容易理解的就是在Class类文件中，通过常量池进行了大量的符号引用。通过解析操作，符号引用就可以转化为目标方法在类中方法表的位置，从而使得方法被成功调用。
 解析就是将符号引用转换为直接引用。换言之，直接引用存在，一定存在符号引用，反之不然
 Java虚拟机规范并没有要求解析操作一定要按照顺序执行

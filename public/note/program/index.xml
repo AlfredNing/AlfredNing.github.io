@@ -6,5 +6,135 @@
     <description>Recent content in 编程 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/program/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySql高级 事务</title>
+      <link>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E4%BA%8B%E5%8A%A1/</link>
+      <pubDate>Sun, 11 Jun 2023 13:57:55 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E4%BA%8B%E5%8A%A1/</guid>
+      <description>数据库事务概述 引擎支持情况 SHOW ENGINES 命令来查看当前 MySQL 支持的存储引擎都有哪些，以及这些存储引擎是否支持事务
+基本概念 事务：一组逻辑单元，是数据从一种合法状态切换到另一种合法状态。
+合法状态：符合现实逻辑
+**事务处理的原则：**保证所有事务都作为一个工作单元来执行，即使出现了故障，都不能改变这种执行方式。当在一个事务中执行多个操作时，要么所有的事务都被提交(commit)，那么这些修改就永久地保存下来；要么数据库管理系统将放弃所作的所有修改，整个事务回滚(rollback)到最初状态。
+事务的ACID特性 原子性（atomicity）： 原子性是指事务是一个不可分割的工作单位，要么全部提交，要么全部失败回滚。
+一致性（consistency）： 一致性是指事务执行前后，数据从一个合法性状态变换到另外一个合法性状态。这种状态是语义上的而不是语法上的，跟具体的业务有关。
+隔离型（isolation）： 事务的隔离性是指一个事务的执行不能被其他事务干扰，即一个事务内部的操作及使用的数据对并发的其他事务是隔离的，并发执行的各个事务之间不能互相干扰。
+持久性（durability）： 持久性是指一个事务一旦被提交，它对数据库中数据的改变就是永久性的，接下来的其他操作和数据库故障不应该对其有任何影响。
+持久性是通过事务日志来保证的。日志包括了重做日志和回滚日志。当我们通过事务对数据进行修改的时候，首先会将数据库的变化信息记录到重做日志中，然后再对数据库中对应的行进行修改。这样做的好处是，即使数据库系统崩溃，数据库重启后也能找到没有更新到数据库系统中的重做日志，重新执行，从而使事务具有持久性。
+事务的状态 活动的（active） 事务对应的数据库操作正在执行过程中时，我们就说该事务处在活动的状态。
+部分提交的（partially committed） 当事务中的最后一个操作执行完成，但由于操作都在内存中执行，所造成的影响并没有刷新到磁盘时，我们就说该事务处在部分提交的状态。
+失败的（failed） 当事务处在活动的或者部分提交的状态时，可能遇到了某些错误（数据库自身的错误、操作系统错误或者直接断电等）而无法继续执行，或者人为的停止当前事务的执行，我们就说该事务处在失败的状态。
+中止的（aborted） 如果事务执行了一部分而变为失败的状态，那么就需要把已经修改的事务中的操作还原到事务执行前的状态。换句话说，就是要撤销失败事务对当前数据库造成的影响。我们把这个撤销的过程称之为回滚。当回滚操作执行完毕时，也就是数据库恢复到了执行事务之前的状态，我们就说该事务处在了中止的状态。
+提交的（committed） 当一个处在部分提交的状态的事务将修改过的数据都同步到磁盘上之后，我们就可以说该事务处在了提交的状态。
+ACID是事务的四大特性，原子性是基础，隔离性是手段，一致性是约束条件，持久性是目的。
+如何使用事务 显式事务 隐式事务 显示事务 -- 显式事务 -- 步骤1：开启事务 -- START TRANSACTION 可以限制事务操作 -- 当前事务是只读事务，不能增删改，只是不允许修改那些其他事务也能访问到的表的数据，对于临时表(CREATE TEMPORARY TABLE)来说，是可以进行增删改的 START TRANSACTION READ ONLY; -- 读写，默认 START TRANSACTION READ WRITE; -- 开启一致性读 START TRANSACTION READ CONSISTENT SNAPSHOT; -- 或者 BEGIN; -- 步骤2：一系列的DML操作 -- 步骤3：提交或者中止状态 -- 提交事务 COMMIT; -- 回滚事务 ROLLBACK; 隐式事务 -- 隐式事务 -- 通过 autocommit 设置 ,默认 on，代表每一条DML都是一个独立的操作，执行之后，默认会自动提交。 SHOW VARIABLES LIKE &amp;#39;%autocommit%&amp;#39;; -- 关闭自动提，只针对DML，对DDL是无效的 SET autocommit=FALSE; -- 执行操作，构成一个独立的事务 -- 提交 COMMIT; -- 当 autocommit 为 true，START TRANSACTION或者BEGIN之后，都不会将DML操作作为单个事务，而是作为整体一个事务。 保存点：</description>
+    </item>
+    
+    <item>
+      <title>MySql高级 索引_集群</title>
+      <link>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%88%86%E6%9E%90_%E7%B4%A2%E5%BC%95/</link>
+      <pubDate>Sun, 04 Jun 2023 11:20:59 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%88%86%E6%9E%90_%E7%B4%A2%E5%BC%95/</guid>
+      <description>索引 索引的分类 从功能逻辑划分 普通索引 唯一索引 主键索引 全文索引 从物理实现方法划分 聚簇索引 非聚簇索引 从作用字段划分 单列索引 联合索引 InnoDB: 支持B-Tree，FullText索引，不支持Hash索引
+MyISAM: 支持B-Tree，FullText索引，不支持Hash索引
+Memory: 支持B-Tree，Hash索引，不支持FullText索引
+NDB: 支持Hash索引，不支持 B-Tree, FullText索引
+Archive: 不支持 B-Tree, FullText,Hash索引
+创建索引 方式1- 创建表时候指定 普通索引 CREATE TABLE book( book_id INT , book_name VARCHAR(100), authors VARCHAR(100), info VARCHAR(100) , comment VARCHAR(100), year_publication YEAR, INDEX(year_publication) ); 创建唯一索引 CREATE TABLE test1( id INT NOT NULL, name varchar(30) NOT NULL, UNIQUE INDEX uk_idx_id(id) ); 主键索引 CREATE TABLE student ( id INT(10) UNSIGNED AUTO_INCREMENT, student_no VARCHAR(200), student_name VARCHAR(200), PRIMARY KEY(id) ); # 删除主键索引 ALTER TABLE student drop PRIMARY KEY ; 创建单列索引 CREATE TABLE test2( id INT NOT NULL, name CHAR(50) NULL, INDEX single_idx_name(name(20)) ); 创建组合索引 CREATE TABLE test3( id INT(11) NOT NULL, name CHAR(30) NOT NULL, age INT(11) NOT NULL, info VARCHAR(255), INDEX multi_idx(id,name,age) ); 全文索引 CREATE TABLE `papers` ( id` int(10) unsigned NOT NULL AUTO_INCREMENT, `title` varchar(200) DEFAULT NULL, `content` text, PRIMARY KEY (`id`), FULLTEXT KEY `title` (`title`,`content`) ) ENGINE=MyISAM DEFAULT CHARSET=utf8; SELECT * FROM papers WHERE MATCH(title,content) AGAINST (‘查询字符串’); 空间索引 CREATE TABLE test5( geo GEOMETRY NOT NULL, SPATIAL INDEX spa_idx_geo(geo) ) ENGINE=MyISAM; 方式2-已经创建表上的添加 alter 形式 ALTER TABLE table_name ADD [UNIQUE | FULLTEXT | SPATIAL] [INDEX | KEY] [index_name] (col_name[length],.</description>
+    </item>
+    
+    <item>
+      <title>Vue</title>
+      <link>https://AlfredNing.github.io/note/program/front_end/vue/</link>
+      <pubDate>Thu, 01 Jun 2023 00:55:03 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/front_end/vue/</guid>
+      <description>前介 构建用户界面的渐进式的框架
+渐进式：可以在项目中一点点使用
+Vue3初识 命令式编程vs声明式编程 命令式编程：how to do
+声明式编程：what to do . 由框架完成how 的部分
+MVVM模型 Model - View - ViewMode ： 软件架构模式
+Vue Demo &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;!-- 这里的template 是html提供的，也可以换成div等，但是template是不显示 --&amp;gt; &amp;lt;template id=&amp;#34;t1&amp;#34;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h2&amp;gt;{{counter}}&amp;lt;/h2&amp;gt; &amp;lt;button @click=&amp;#39;increment&amp;#39;&amp;gt;+1&amp;lt;/button&amp;gt; &amp;lt;button @click=&amp;#39;decrement&amp;#39;&amp;gt;-1&amp;lt;/button&amp;gt; &amp;lt;h3&amp;gt;{{message}}&amp;lt;/h3&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script src=&amp;#34;https://unpkg.com/vue@3/dist/vue.global.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; Vue.createApp({ // 这里使用模板字符串 template: &amp;#39;#t1&amp;#39;, // vue3 data 函数 data: function () { return { message: &amp;#34;hello&amp;#34;, counter: 100 } }, methods: { increment() { this.</description>
+    </item>
+    
+    <item>
+      <title>DDD</title>
+      <link>https://AlfredNing.github.io/note/program/architecture/ddd/</link>
+      <pubDate>Sat, 27 May 2023 23:18:05 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/architecture/ddd/</guid>
+      <description>DDD是软件核心复杂性的应对之道
+调整程序的结构，该解耦的解耦，该拆分的拆分，在实现新的功能，才能保证设计质量
+运用DDD，当系统业务变得复杂，将对业务的理解绘制出领域模型正确知道软件开发
+微服务： 小而专
+软件开发方式 DL驱动开发 数据驱动设计 DDD驱动设计 DL驱动开发 DeadLine驱动开发，给定截至日期。我挂你他喵的写成什么样，完成就好。
+数据驱动设计 **良好的设计数据库表，**通过数据流串联对应的业务流程。适合小型系统，基本可以应付大多数的应用场景。
+确定对应的数据实体 完成库表设计 DDD领域驱动设计 应对软件架构复杂设计方法论
+整洁架构 软件退化 软件的本质是对真实世界的模拟 软件中业务逻辑正确与否的唯一标准就是是否与真实世界一致 软件要做成什么样，不由我们决定，也不用用户决定，而是由真实世界决定 产品为什么提出变更需求，因为他们对真实世界的理解也不是完全正确，跳过需要，建立在对真实世界理解的基础上进行开发。但认识真实世界是一件非常难的事情，最初只能认识真实世界中那些简单、清晰、易于理解的业务逻辑，完成该部分的软件 根源 第一版软件是完美的，但随后随着业务需求变动，软件的业务逻辑越来越接近真实世界，使得我们的软件越来越专业，同时业务逻辑也越来越复杂，软件规模也越来越大。简单软件有简单软件的设计，复杂软件有复杂软件的设计
+每次软件变更，逐步调整软件的程序结构，由简单程序转变为复杂程序结构，而不是一味的塞代码，赛代码才是最终根源。
+杜绝软件退化的两顶帽子 软件的发展规律是逐步从简单软件转换为复杂软件
+发生在每次新需求变更的时候，采用一下设计方法
+在不添加新功能的前提下，重构代码，调整原有程序结构，以适应新功能实现新的功能 实现新功能 过渡设计 每一种初始所谓的“灵活设计”只能应对一种需求变更，不能真正解决未来变更的问题，被称为“过度设计”
+活在今天的格子里，做今天的事。为当前的需求进行设计，使其刚刚满足当前的需求 解决思路：
+每次需求变更额设计，只有保证每次需求变更时候做出正确的设计，才能使得软件以良性循环维护下午
+两顶帽子的实现思路 困难的是第一步，如何调整程序设计以适应新功能
+多次变更，难以理清思路，设计开始迷失方向
+最终解决 领域驱动的思想： 将真实世界与软件世界进行对应。每次需求变更，将变更还原到真实世界，看看真实世界，在根据真实世界进行变更设计，保持领域驱动。
+领域驱动核心要求：领域模型 每次变更，先回到领域模型，基于业务进行领域模型的变更，然后在根据领域模型的变更指导程序变更
+电商功能演练DDD 首要需求 采用领域分析 先进行需求分析，设计领域模型
+领域模型图
+1. 需求变更 分析付款与折扣的关系？
+单一职责原则：软件系统中的每个元素都只负责自己职责范围内的事情，而将其他的事情交给别人去做，我只是去调用。
+职责如何定义？ 错误理解：做某件事，和这件事相关的一切所有的事都是它的职责
+正确理解：一个职责就是软件变化的原因
+什么是高质量的代码？
+用户提出需求变更，为了实现这个变更而修改软件的成本越低，软件的设计质量就越高。
+这就要求每次需求变更的时候只修改一个模块的代码来实现新需求。
+需要平时不断的整理代码，将因同一个原因而变更的代码放在一起，将因不同原因的代码而放在不同的模块中、不同类中。
+单一职责原则要求在维护软件的过程中需要不断的进行整理，将软件变化的同一个原因的代码放在一起，将软件变化的不同原因分开放。
+如何分析不同原因？
+答案是否定，说明是不同原因。
+2. 需求变更 答案是否定的
+3. 需求变更 支付方式变更</description>
+    </item>
+    
+    <item>
+      <title>MySQL高级-引擎_底层文件</title>
+      <link>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%BC%95%E6%93%8E_%E5%BA%95%E5%B1%82%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Tue, 23 May 2023 19:40:55 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%BC%95%E6%93%8E_%E5%BA%95%E5%B1%82%E6%96%87%E4%BB%B6/</guid>
+      <description>系统配置 字符集的设置 show variables like &amp;#39;character%&amp;#39;; character_set_server：服务器级别的字符集 character_set_database：当前数据库的字符集 character_set_client：服务器解码请求时使用的字符集 character_set_connection：服务器处理请求时会把请求字符串从character_set_client转为character_set_connection character_set_results：服务器向客户端返回数据时使用的字符集 小结
+如果创建或修改列时没有显式的指定字符集和比较规则，则该列默认用表的字符集和比较规则 如果创建表时没有显式的指定字符集和比较规则，则该表默认用数据库的字符集和比较规则 如果创建数据库时没有显式的指定字符集和比较规则，则该数据库默认用服务器的字符集和比较规则 请求到响应过程中字符集的变化 graph TBA(客户端) --&amp;gt; |&amp;#34;使用操作系统的字符集编码请求字符串&amp;#34;| B(从character_set_client转换为character_set_connection)B --&amp;gt; C(从character_set_connection转换为具体的列使用的字符集)C --&amp;gt; D(将查询结果从具体的列上使用的字符集转换为character_set_results)D --&amp;gt; |&amp;#34;使用操作系统的字符集解码响应的字符串&amp;#34;| A SQL大小写的设置 show variables like &amp;#39;%lower_case_table_names%&amp;#39; 该参数只适用于5.7版本 默认为0 大小写敏感 设置为1，大小写不敏感，创建的表都是以小写方式存放在磁盘上，对于sql语句都是转换为小写对表和数据库查找 设置为2，创建的表和数据库依据语句上存放，凡是查找都是转换为小写进行 SQL编写建议 关键字和函数名称全部大写 数据库名、表名、表别名、字段名、字段别名等全部小写 SQL语句必须以分号结尾 SQL_MODE的设置 宽松模式 严格模式 MySQL的sql_mode合理设置
+sql_mode是个很容易被忽视的变量,默认值是空值,在这种设置下是可以允许一些非法操作的,比如允许一些非法数据的插入。在生产环境必须将这个值设置为严格模式,所以开发、测试环境的数据库也必须要设置,这样在开发测试阶段就可以发现问题.
+sql model 常用来解决下面几类问题
+通过设置sql mode, 可以完成不同严格程度的数据校验，有效地保障数据准备性。
+通过设置sql model 为宽松模式，来保证大多数sql符合标准的sql语法，这样应用在不同数据库之间进行迁移时，则不需要对业务sql 进行较大的修改。
+3. 在不同数据库之间进行数据迁移之前，通过设置SQL Mode 可以使MySQL 上的数据更方便地迁移到目标数据库中。
+# 临时设置 set global sql_mode = &amp;#39;&amp;#39;; -- 全局生效 set session sql_mode = &amp;#39;&amp;#39;; -- 会话生效 # my.</description>
+    </item>
+    
+    <item>
+      <title>分布式数据库理论</title>
+      <link>https://AlfredNing.github.io/note/program/sql/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</link>
+      <pubDate>Mon, 08 May 2023 22:36:49 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/sql/distributed_database/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</guid>
+      <description>分布式数据库 分布式数据库的介绍 数据库产品特点
+抽象程度高，用户仅从使用层面解除 商业氛围一直很浓厚 基本概念 分布式数据库的核心： 数据分片、数据同步
+数据分片 讲数据分散到多个节点，以更高效、更灵活的方式来处理数据 分类：
+水平分片：按行进行数据分割，数据被切割成一个个数据组，分散到不同节点 垂直分片：按列进行数据分割，一个数据表的模式（Schema）被切割为多个小的模式 数据同步 数据一致性的保证，分布式数据库的底线
+早期的关系型商业数据库的分布式能力可以满足大部分用户的场景，因此产生了如 Oracle 等几种巨无霸数据库产品；
+OLAP 领域首先寻求突破，演化出了大数据技术与 MPP 类型数据库，提供功能更强的数据分析能力；
+去IOE 引入数据库中间件，并结合应用平台与开源单机数据库形成新一代解决方案，让商业关系型数据库走下神坛，NoSQL 数据库更进一步&amp;gt;打破了关系型数据库唯我独尊的江湖地位；
+新一代分布式 OLTP 数据库正式完成了分布式领域对数据库核心特性的完整支持，它代表了分布式数据库从此走向了成熟，也表明了 OLAP 与 OLTP 分布式场景下，分别在各自领域内取得了胜利；
+HTAP 和多模式数据处理的引入，再一次将 OLAP 与 OLTP 融合，从而将分布式数据库推向如传统商业关系型数据库数十年前那般的盛况，而其产生的影响要比后者更为深远
+SQL的发展史 最初的数据管理“关系模型”是指由 IBM 研究人员 E.F. Codd 在 20 世纪 70 年代初设计的，并在 System R 及后续许多数据库系统中得到了普及。 由于 Schema（模式）的预定义，数据库获得存储相对紧凑，从而导致其性能较为优异；之后就是经典的 ACID 给业务带来了可控性，而基于标准化 SQL 的数据访问模式给企业级应用带来了更多的红利，因为“标准即是生产力”
+缺点：
+对前期设计要求高，因为后期修改 Schema 往往需要停机，没有考虑分布式场景，在扩展性和可用性层面缺乏支持；而分布式是 21 世纪应用必备的技能。
+NoSQL数据库和SQL数据库的区别 NoSQL的缺点 由于缺乏ACID, 应用时需要非常小心处理数据一致性问题；同时其数据模型只针对特定的应用场景，一般不能使用一种 NoSQL 数据库来完成整个应用的构建，导致设计层面的复杂和维护的困难。</description>
+    </item>
+    
   </channel>
 </rss>

@@ -4,23 +4,67 @@
     <title>🏷️标签 on AlfredNing</title>
     <link>https://AlfredNing.github.io/tags/</link>
     <description>Recent content in 🏷️标签 on AlfredNing</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 13 Apr 2023 22:46:33 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://AlfredNing.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>jvm</title>
-      <link>https://AlfredNing.github.io/tags/jvm/</link>
-      <pubDate>Thu, 13 Apr 2023 22:46:33 +0800</pubDate>
+      <title>juc</title>
+      <link>https://AlfredNing.github.io/tags/juc/</link>
+      <pubDate>Mon, 19 Jun 2023 19:56:37 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/tags/jvm/</guid>
+      <guid>https://AlfredNing.github.io/tags/juc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MySQL</title>
+      <link>https://AlfredNing.github.io/tags/mysql/</link>
+      <pubDate>Sun, 11 Jun 2023 13:57:55 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>随记</title>
       <link>https://AlfredNing.github.io/tags/%E9%9A%8F%E8%AE%B0/</link>
-      <pubDate>Tue, 11 Apr 2023 08:06:02 +0800</pubDate>
+      <pubDate>Sun, 04 Jun 2023 21:08:54 +0800</pubDate>
       
       <guid>https://AlfredNing.github.io/tags/%E9%9A%8F%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vue</title>
+      <link>https://AlfredNing.github.io/tags/vue/</link>
+      <pubDate>Thu, 01 Jun 2023 00:55:03 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/tags/vue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DDD</title>
+      <link>https://AlfredNing.github.io/tags/ddd/</link>
+      <pubDate>Sat, 27 May 2023 23:18:05 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/tags/ddd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distributed Database</title>
+      <link>https://AlfredNing.github.io/tags/distributed-database/</link>
+      <pubDate>Mon, 08 May 2023 22:36:49 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/tags/distributed-database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jvm</title>
+      <link>https://AlfredNing.github.io/tags/jvm/</link>
+      <pubDate>Mon, 08 May 2023 20:30:30 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/tags/jvm/</guid>
       <description></description>
     </item>
     
