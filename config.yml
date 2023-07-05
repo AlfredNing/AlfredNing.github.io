@@ -43,7 +43,7 @@ params:
   tocopen: false
   hideFooter: false # 隐藏页脚
   ShowWordCounts: true
-  VisitCount: true
+  VisitCount: false
   ShowLastMod: true #显示文章更新时间
   ShowToc: true # 显示目录
   TocOpen: true # 自动展开目录
