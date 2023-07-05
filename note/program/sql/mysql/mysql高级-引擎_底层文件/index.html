@@ -28,7 +28,7 @@ B --&gt; C(从character_set_connection转换为具体的列使用的字符集)
 C --&gt; D(将查询结果从具体的列上使用的字符集转换为character_set_results)
 D --&gt; |&#34;使用操作系统的字符集解码响应的字符串&#34;| A
 </code></pre><h2 id=sql大小写的设置>SQL大小写的设置<a hidden class=anchor aria-hidden=true href=#sql大小写的设置>#</a></h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=k>show</span><span class=w> </span><span class=n>variables</span><span class=w> </span><span class=k>like</span><span class=w> </span><span class=s1>&#39;%lower_case_table_names%&#39;</span><span class=w> 
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=err>该参数只适用于</span><span class=mi>5</span><span class=p>.</span><span class=mi>7</span><span class=err>版本</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=err>该参数只适用于</span><span class=mi>5</span><span class=p>.</span><span class=mi>7</span><span class=err>版本</span><span class=w> 
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=err>默认为</span><span class=mi>0</span><span class=w> </span><span class=err>大小写敏感</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=err>设置为</span><span class=mi>1</span><span class=err>，大小写不敏感，创建的表都是以小写方式存放在磁盘上，对于</span><span class=n>sql</span><span class=err>语句都是转换为小写对表和数据库查找</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=err>设置为</span><span class=mi>2</span><span class=err>，创建的表和数据库依据语句上存放，凡是查找都是转换为小写进行</span><span class=w>
