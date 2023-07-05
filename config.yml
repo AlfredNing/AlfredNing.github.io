@@ -6,7 +6,6 @@ enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
-enableGitInfo: true
 googleAnalytics: UA-123-45
 
 minify:
@@ -45,6 +44,8 @@ params:
   ShowToc: true # 显示目录
   TocOpen: true # 自动展开目录
   comments: true
+  enableGitInfo: true
+  enablePageViews: true
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true

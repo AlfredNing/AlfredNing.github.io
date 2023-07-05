@@ -30,7 +30,7 @@ cover:
 
 # 系统配置
 
-## 字符集的设置
+## 字符集的设置 
 
 ```sql
 show variables like 'character%';
