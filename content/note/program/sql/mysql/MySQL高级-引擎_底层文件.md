@@ -234,7 +234,7 @@ SELECT id,name FROM student WHERE gender = '女';
 
 4. 执行器：在执行之前需要判断该用户是否`具备权限`。如果没有，就会返回权限错误。如果具备权限，就执行 SQL查询并返回结果。在 MySQL8.0 以下的版本，如果设置了查询缓存，这时会将查询结果进行缓存
 
-**SQL 语句在 MySQL 中的流程是： SQL语句→查询缓存→解析器→优化器→执行器 **
+SQL 语句在 MySQL 中的流程是： SQL语句→查询缓存→解析器→优化器→执行器
 
 ```sql
 show VARIABLES like '%query_cache_type%' # mysql8.0之后没有该参数
