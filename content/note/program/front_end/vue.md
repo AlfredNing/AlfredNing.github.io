@@ -284,9 +284,11 @@ npm install postcss postcss-cli -D
 
 # 图片 打包 file-loader
 npm install file-loader -D 
+# webpack5 	
 ```
 
 **webpack打包原理：是存在依赖图，凡是存在依赖都会把打包进去**
 
 ## 相关使用
 
+webpack5之后提供资源模块类型
