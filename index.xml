@@ -6,7 +6,34 @@
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 19 Jun 2023 19:56:37 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Jul 2023 19:41:37 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数仓理论</title>
+      <link>https://AlfredNing.github.io/note/program/dw/%E6%95%B0%E4%BB%93%E7%90%86%E8%AE%BA/</link>
+      <pubDate>Thu, 06 Jul 2023 19:41:37 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/dw/%E6%95%B0%E4%BB%93%E7%90%86%E8%AE%BA/</guid>
+      <description>数据模型简介 模型的定义 表：负责数据真实存储
+模型：在表的基础上多了业务含义，侧重点：使用角度、业务
+作用：更好的存储、组织数据、在性能、成本、效率和质量取得最佳平衡
+建模方法论 ER建模 对三范式要求更高，基于三范式
+缺点：
+需要全面了解业务和数据 实施周期比较长 对建模人员要求比较高 优点：
+冗余少 维度建模 对数据冗余的宽容度比较高
+基于维度和事实构建
+Data Valut模型 Anchor模型 数仓体系 主题域划分 面向业务分析，将业务过程或者维度抽象集合。
+可以划分多级主题域
+指标体系 原子指标 派生指标 衍生指标 派生指标 = 原子指标 + 时间周期修饰词 + 其他修饰词
+原子指标： 动作 + 度量，例如：支付金额
+修饰词：1d/2h, 只有时间周期有英文名
+模型层次 操作数据层：ods 公共维度模型层：cdm 明细层：dwd 汇总数据层：dws 应用数据层：ads ODS层 业务操作数据几乎无处理存放在数据仓库中
+CDM层 存放明细事实表，维表数据及公共指标数据
+ADS层 存放数据产品个性化的统计指标数据，根据CDM层与ODS层加工生成
+模型设计基本原则 高内聚 低耦合： 将业务相同，粒度相同的数据设计为同一个逻辑或模型，将高概率同时访问的数据放在一起，将低概率同时访问的数据分开存储 核心模型与扩展模型分离 公共处理逻辑下沉及单一 成本与性能平衡 数据可回滚 一致性 数仓构建流程 指导方针 业务调研：自下而上
+需求分析：自上而下
+维度建模 构建总线矩阵 抽象出业务过程和维度 报表需求抽象出指标体系 结合工具，完成指标规范定义和模型设计 代码研发和运维 数仓的规范性特别重要</description>
+    </item>
+    
     <item>
       <title>1.JUC初识</title>
       <link>https://AlfredNing.github.io/note/program/juc/chapter01.juc%E5%88%9D%E8%AF%86/</link>
