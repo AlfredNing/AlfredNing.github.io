@@ -252,7 +252,7 @@ v-model
 - 多个单词，短横线分割，使用时候一样
 - 驼峰。使用可以驼峰[**开发不推荐**]或者中划线
 
-# Webpack5
+# Webpack
 
 ## 安装
 
@@ -292,3 +292,14 @@ npm install file-loader -D
 ## 相关使用
 
 webpack5之后提供资源模块类型
+
+## 相关插件
+
+- clean-webpack-plugin
+- html-webpack-plugin
+- define-plugin
+- copy-webpack-plugin
+
+## Babel
+
+工具链，包括词法转换、源代码转换
