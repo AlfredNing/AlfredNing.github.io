@@ -849,7 +849,7 @@ public class ThreadInterruptDemo {
 
 判断当前线程是否被中断，返回中断标志位目前是什么，默认**false**
 
-### 静态方法 - interrupt
+### 静态方法 - interrupted
 
 该方法完成两件事
 
