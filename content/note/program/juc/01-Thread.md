@@ -1,5 +1,5 @@
 ---
-title: "1.JUC初识"
+title: "01-Thread"
 date: 2023-06-19T19:56:37+08:00
 lastmod: 2023-06-19T19:56:37+08:00
 author: ["AlfredNing"]
