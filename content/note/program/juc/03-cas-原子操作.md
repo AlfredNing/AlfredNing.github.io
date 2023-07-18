@@ -654,7 +654,11 @@ sum()会将所有Cell数组中的value和base累加作为返回值，核心的�
 
 LongAdder在无竞争的情况，跟AtomicLong一样，对同一个base进行操作，当出现竞争关系时则是采用化整为零的做法，从空间换时间，用一个数组cells，将一个value拆分进这个数组cells。多个线程需要同时对value进行操作时候，可以对线程id进行hash得到hash值，再根据hash值映射到这个数组cells的某个下标，再对该下标所对应的值进行自增操作。当所有线程操作完毕，将数组cells的所有值和无竞争值base都加起来作为最终结果。
 
-![img](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/0203AB5C-B6F1-4EBE-B970-A67B9BC3325D.png)![img](C:\Users\15667\AppData\Local\Temp\mindmaster\d71b1ea190\bin\E1151568-974E-4F52-B624-2FC8EC7E671F.png)
+![img](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/0203AB5C-B6F1-4EBE-B970-A67B9BC3325D.png)
+
+
+
+![img](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/E1151568-974E-4F52-B624-2FC8EC7E671F.png)
 
 ## AtomicLong 与 LongAdder
 
