@@ -303,3 +303,22 @@ webpack5之后提供资源模块类型
 ## Babel
 
 工具链，包括词法转换、源代码转换
+
+可以作为独立工具，不和webpack构建工具单独使用，有基础的预设（preset)
+
+### 底层原理
+
+编译器的工作，本质就是一个编译器
+
+工作流程：
+
+1. 解析阶段 Parsing
+2. 转换阶段 Transformation
+3. 生成阶段 Code Generation
+
+![image-20230714223717856](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230714223717856.png)
+
+## vscode对SFC文件支持
+
+- Vetur
+- Volar
