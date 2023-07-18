@@ -6,7 +6,29 @@
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 11 Jul 2023 08:04:59 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jul 2023 16:20:37 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>03-Cas-原子操作</title>
+      <link>https://AlfredNing.github.io/note/program/juc/03-cas-%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Wed, 12 Jul 2023 16:20:37 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/juc/03-cas-%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C/</guid>
+      <description>CAS定义 Compare And Swap：比较并交换 V: 位置内存值 A: 旧的预期值 B: 要修改更新的值
+当且仅当V中的值和A值相等，用B值更新V中的值
+硬件级别保证 CAS底层是一条CPU的原子指令 cmpxchg指令，不会造成数据不一致的问题，Java底层提供由Unsafe类提供的CAS方法
+执行cmpxchg指令的时候，会判断当前系统是否为多核系统，如果是就给总线加锁，只有一个线程会对总线加锁成功，加锁成功之后会执行cas操作，也就是说CAS的原子性实际上是CPU实现的， 其实在这一点上还是有排他锁的，只是比起用synchronized， 这里的排他时间要短的多， 所以在多线程情况下性能会比较好
+Unsafe类 是CAS的核心类，Unsafe位于sun.misc包中，通过CAS类可以直接通过操作特定内存的数据**，所有的方法都是用native修饰， 也就是说Unsafe类底层都直接调用操作系统底层资源执行相应任务**
+变量offSet代表变量值在内存的地址
+变量value用volatile修饰，保证了多线程之间的内存可见性。
+AtomicInteger类 AtomicInteger主要是通过CAS + volatile + native方法类保证原子操作，从而避免 synchronized 的高开销，执行效率大为提升。
+CAS并发原语体现在JAVA语言中就是sun.misc.Unsafe类中的各个方法。调用UnSafe类中的CAS方法，JVM会帮我们实现出CAS汇编指令。这是一种完全依赖于硬件的功能，通过它实现了原子操作。再次强调，由于CAS是一种系统原语，原语属于操作系统用语范畴，是由若干条指令组成的，用于完成某个功能的一个过程，并且原语的执行必须是连续的，在执行过程中不允许被中断，也就是说CAS是一条CPU的原子指令，不会造成所谓的数据不一致问题。
+CAS是靠硬件实现的从而在硬件层面提升效率，最底层还是交给硬件来保证原子性和可见性
+实现方式是基于硬件平台的汇编指令，在intel的CPU中(X86机器上)，使用的是汇编指令cmpxchg指令。
+核心思想就是：比较要更新变量的值V和预期值E（compare），相等才会将V的值设为新值N（swap）如果不相等自旋再来。
+原子引用 AtomicInteger原子整型，可以自定义自己的原理引用类型
+自定义原子引用 import java.util.concurrent.atomic.AtomicReference; import lombok.AllArgsConstructor; import lombok.Data; import lombok.NoArgsConstructor; /** * 自定义原子类型引用 * * @author Alfred.Ning * @since 2023年07月18日 11:41:00 */ public class AtomicReferenceDemo { public static void main(String[] args) { User u1 = new User(&amp;#34;u1&amp;#34;, 20); User u2 = new User(&amp;#34;u2&amp;#34;, 30); AtomicReference&amp;lt;User&amp;gt; userAtomicReference = new AtomicReference&amp;lt;&amp;gt;(); userAtomicReference.</description>
+    </item>
+    
     <item>
       <title>02-Volatile</title>
       <link>https://AlfredNing.github.io/note/program/juc/02-volatile/</link>
