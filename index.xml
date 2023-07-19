@@ -6,7 +6,18 @@
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 12 Jul 2023 16:20:37 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Jul 2023 16:22:32 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>04 ThreadLocal</title>
+      <link>https://AlfredNing.github.io/note/program/juc/04-threadlocal/</link>
+      <pubDate>Wed, 19 Jul 2023 16:22:32 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/juc/04-threadlocal/</guid>
+      <description>定义 ThreadLocal提供线程局部变量。这些变量与正常的变量不同，因为每一个线程在访问ThreadLocal实例的时候（通过其get或set方法）都有自己的、独立初始化的变量副本。ThreadLocal实例通常是类中的私有静态字段，使用它的目的是希望将状态（例如，用户ID或事务ID）与线程关联起来。
+每个ThreadLocl都是自己专属的本地变量副本,不存在多线程间共享的问题
+初始化 ThreadLocal&amp;lt;Integer&amp;gt; tl1 = new ThreadLocal&amp;lt;Integer&amp;gt;() { @Override protected Integer initialValue() { return 2; } }; ThreadLocal&amp;lt;Integer&amp;gt; tl2 = ThreadLocal.withInitial(() -&amp;gt; 2); </description>
+    </item>
+    
     <item>
       <title>03-Cas-原子操作</title>
       <link>https://AlfredNing.github.io/note/program/juc/03-cas-%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C/</link>
@@ -161,7 +172,9 @@ ACID是事务的四大特性，原子性是基础，隔离性是手段，一致�
 基因决定定律 一家公司的基因决定了这家公司的发展
 黑格尔的一句话: 凡是现实的都是合理的，凡是合理的都是现实的。All that is real is rational; and all that is rational is real
 意思是说: 现实存在的现象，当初产生它的时候必然有它产生的原因和理由。如果这个理由将来不存在了，终究有一天它也会消亡。
-巴菲特：成功的关键不在于做对了多少件事，而在于少犯多少错误</description>
+巴菲特：成功的关键不在于做对了多少件事，而在于少犯多少错误
+工业革命与颠覆式创新 蒸汽机 电 信息革命-计算机 人工智能 技术革命的共性 时间间隔大约70-90年 拥有核心技术 带来新的财富剧增 信息和能量的造就
+对服务的需求 对高端人才的需求 对品质的需求 对新事物的需求 工业革命的范式 现有产业 + 蒸汽机 = 新的产业 现有产业 + 电 = 新的产业 现有产业 + 摩尔定律 = 新的产业 第四次工业革命 - 智能革命， 上世纪70年代就提出来数据驱动的方法 现有产业 + 智能技术 = 新的产业 工业革命的核心资源：</description>
     </item>
     
     <item>
