@@ -633,6 +633,8 @@ public class LongAdderDemo2 {
 }
 ```
 
+
+
 ![image-20230718173650061](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230718173650061.png)
 
 ## LongAdder快的原因
@@ -693,4 +695,122 @@ CAS+自旋
 sum求和之后如果还有线程修改结果，最后结果不太准确
 
 # LongAdder源码分析
+
+![img](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/A53885E2-69C4-4244-8E9D-8BB9F6363657.png)
+
+
+
+```java
+LongAdder#increment -> #add
+   /*
+   cs是Striped64 的cells数组属性
+   b是Striped64 的base属性
+   v是当前线程hash到cell存储的值
+   m是cell长度减1，hash作为掩码使用
+   a是当前线程hash到的cell
+   */
+    public void add(long x) {
+        Cell[] cs; long b, v; int m; Cell c;
+    	// 首次线程进来，(cs = cells) != null 一定为false, 走#casBase方法，以cas凡是更新bash值，只有更新失败，走到if中
+    	// (cs = cells) != null  为true: 说明出现过线程竞争，Cell数组已经被创建
+    	// 更新失败，说明有线程抢先异步修改了base 正在出现竞争
+        if ((cs = cells) != null || !casBase(b = base, b + x)) {
+            // 该方法返回线程的ThreadLocalRandom字段
+            // 通过随机数生成的一个值，对于一个确定的线程这个值是固定的
+            int index = getProbe();
+            // true为无竞争 false表示竞争激烈，多个hash到同一个cell, 可能要扩容
+            boolean uncontended = true;
+            // cell为空，说明正在出现竞争，依据上面条件2
+            // (m = cs.length - 1) < 0 应该不会出现
+            //  (c = cs[index & m]) == null 当前线程所在的cell为空，说明线程还没有初始化过cell，应初始一个cell
+            // 更新当前所在线程Cell失败，说明竞争激烈，多个线程Hash到同一个cell,应扩容
+            if (cs == null || (m = cs.length - 1) < 0 ||
+                (c = cs[index & m]) == null ||
+                !(uncontended = c.cas(v = c.value, v + x)))
+                longAccumulate(x, null, uncontended, index);
+        }
+    }
+# longAccumulate
+    final void longAccumulate(long x, LongBinaryOperator fn,
+                              boolean wasUncontended, int index) {
+        if (index == 0) {
+            ThreadLocalRandom.current(); // force initialization
+            index = getProbe();
+            wasUncontended = true;
+        }
+        for (boolean collide = false;;) {       // True if last slot nonempty
+            Cell[] cs; Cell c; int n; long v;
+            // cell已经被初始化
+            if ((cs = cells) != null && (n = cs.length) > 0) {
+                // 线程hash值运算之后得到的cell单元为为null，说明cell没有被使用
+                if ((c = cs[(n - 1) & index]) == null) {
+                     // cell数组正在扩容
+                    if (cellsBusy == 0) {       
+                        Cell r = new Cell(x);   //创建单元格
+                        if (cellsBusy == 0 && casCellsBusy()) { //尝试加锁，成功后cellsBusy = 1
+                            try {              
+                                Cell[] rs; int m, j;
+                                // double check
+                                if ((rs = cells) != null &&
+                                    (m = rs.length) > 0 &&
+                                    rs[j = (m - 1) & index] == null) {
+                                    rs[j] = r; // 添加到cell中
+                                    break;
+                                }
+                            } finally {
+                                cellsBusy = 0;
+                            }
+                            continue;           // Slot is now non-empty
+                        }
+                    }
+                    collide = false;
+                }
+                else if (!wasUncontended)       // CAS already known to fail wasUncontended表示前一次更新cell单元格是否成功
+                    wasUncontended = true;      // Continue after rehash 重置为true，后面重新计算线程的hash值
+                else if (c.cas(v = c.value,
+                               (fn == null) ? v + x : fn.applyAsLong(v, x)))
+                    break;
+                else if (n >= NCPU || cells != cs) // cells数组大小超过CPU核数，永远不会扩容
+                    collide = false;            // At max size or stale
+                else if (!collide)
+                    collide = true;
+                else if (cellsBusy == 0 && casCellsBusy()) { // 尝试加锁扩容
+                    try {
+                        if (cells == cs)        // 扩容后的大小 = 当前容量 * 2
+                            cells = Arrays.copyOf(cs, n << 1);
+                    } finally {
+                        cellsBusy = 0;
+                    }
+                    collide = false;
+                    continue;                   // Retry with expanded table
+                }
+                index = advanceProbe(index);
+            }
+            // cell在没有加锁且没有初始化，尝试加锁，且初始化
+            else if (cellsBusy == 0 && cells == cs && casCellsBusy()) {
+                try {                           // Initialize table
+                    if (cells == cs) {
+                        Cell[] rs = new Cell[2];
+                        rs[index & 1] = new Cell(x);
+                        cells = rs;
+                        break;
+                    }
+                } finally {
+                    cellsBusy = 0;
+                }
+            }
+		// cell正在初始化，直接在基数base上面进行累加操作
+            else if (casBase(v = base,
+                             (fn == null) ? v + x : fn.applyAsLong(v, x)))
+                break;
+        }
+    }    
+
+```
+
+## ? 并发下为什么sum值不精确
+
+sum()会将所有Cell数组中的value和base累加作为返回值。**最终一致性**
+
+**核心的思想就是将之前AtomicLong一个value的更新压力分散到多个value中去，从而降级更新热点。**
 
