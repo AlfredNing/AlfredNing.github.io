@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Spring on AlfredNing</title>
+    <link>https://AlfredNing.github.io/tags/spring/</link>
+    <description>Recent content in Spring on AlfredNing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 24 Jul 2023 14:42:20 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring源码01</title>
+      <link>https://AlfredNing.github.io/note/program/spring/spring%E6%BA%90%E7%A0%8101/</link>
+      <pubDate>Mon, 24 Jul 2023 14:42:20 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/spring/spring%E6%BA%90%E7%A0%8101/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
