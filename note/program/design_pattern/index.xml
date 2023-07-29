@@ -7,5 +7,84 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/program/design_pattern/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>创建型模式 建造者模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 29 Jul 2023 19:24:24 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>定义 创建过程细节复杂，暴露给调用者。屏蔽过程而不屏蔽细节
+角色 产品角色 抽象建造者 具体建造者 指挥者 实现 package design_patterns; /** * 创建者模式 也可以改为返回相同引用 * * @author Alfred.Ning * @since 2023年07月29日 19:41:00 */ public class Builder { public static void main(String[] args) { Director director = new Director(); AbstractBuilder concreteBuilder1 = new ConcreteBuilder1(); director.setBuilder(concreteBuilder1); System.out.println(director.contruct()); AbstractBuilder concreteBuilder2 = new ConcreteBuilder2(); director.setBuilder(concreteBuilder2); System.out.println(director.contruct()); } } // 指挥者 class Director { private AbstractBuilder builder; public void setBuilder(AbstractBuilder abstractBuilder) { this.builder = abstractBuilder; } public Product contruct() { builder.</description>
+    </item>
+    
+    <item>
+      <title>创建型模式 工厂模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 29 Jul 2023 16:21:44 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+      <description>定义 不必关心创建对象的细节，根据不同情况获取不同产品
+分类 简单工厂模式 角色 产品接口 具体产品接口 简单工厂 特点 针对少量产品
+缺陷 违反开闭原则
+实现 /** * 产品接口 * * @author Alfred.Ning * @since 2023年07月29日 16:38:00 */ public interface Product { void operation(); } /** * 具体产品A * * @author Alfred.Ning * @since 2023年07月29日 16:39:00 */ class ConcreteProductA implements Product { @Override public void operation() { System.out.println(&amp;#34;ConcreteProductA....operation&amp;#34;); } } /** * 具体产品B * * @author Alfred.Ning * @since 2023年07月29日 16:39:00 */ class ConcreteProductB implements Product { @Override public void operation() { System.</description>
+    </item>
+    
+    <item>
+      <title>创建型模式 原型模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 29 Jul 2023 16:03:04 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description>定义 用于创建重复对象，同时又能保证性能
+本体给外部提供一个克隆体
+实现 JDK实现Cloneable接口，重写该方法
+使用场景 资源优化 性能和安全要求 一个对象多个修改者 </description>
+    </item>
+    
+    <item>
+      <title>创建型模式 单例模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 29 Jul 2023 12:10:08 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description>定义 一个单一的类，负责创建自己的对象，同时确保系统中只有单个对象被创建
+特点 某个类只能由有一个实例（构造器私有化） 自行创建实例 向外界提供实例方法 实现 /** * 饿汉式 * * @author Alfred.Ning * @since 2023年07月29日 15:50:00 */ public class Singleton { private static volatile Singleton INSTANCE; // private static volatile Singleton INSTANCE = new Singleton(); // 饱汉式 private Singleton() { } public static Singleton getINSTANCE() { if (INSTANCE == null) { synchronized (Singleton.class) { if (INSTANCE == null) { INSTANCE = new Singleton(); } } } return INSTANCE; } // 通过静态内部类单例模式 private static class SingletonHolder { private static Singleton instance = new Singleton(); } public static Singleton getInstanceByInnerClass() { return SingletonHolder.</description>
+    </item>
+    
+    <item>
+      <title>创建型模式导论</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E5%AF%BC%E8%AE%BA/</link>
+      <pubDate>Sat, 29 Jul 2023 12:07:13 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E5%AF%BC%E8%AE%BA/</guid>
+      <description>创建型模式关注点 降低系统耦合度 将对象的创建和使用分离 无需关注对象的创建细节 创建由相关工厂完成	各种工厂模式 创建由一个建造者完成 建造者模式 创建由原来对象克隆模式 原型模式 对象始终在系统中只有一个实例 单例模式 ​</description>
+    </item>
+    
+    <item>
+      <title>设计模式导论</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AF%BC%E8%AE%BA/</link>
+      <pubDate>Sat, 29 Jul 2023 10:59:30 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AF%BC%E8%AE%BA/</guid>
+      <description>设计模式是一种思想，灵活运用远大于死记代码
+对接口编程而不是对实现编程
+优先使用对象组合而不是继承
+面向对象的特性 封装 继承 多态 设计模式分类 创建型模式 结构型模式 行为型模式 也存在多种形式模式组合在不同阶段中使用
+设计模式的7大原则 开闭原则 - Open Closed Principle (OCP) 对扩展开放，对修改关闭
+扩展新类而不是修改旧类
+里氏替换原则- Liskov Substitution Principle (LSP) 继承必须确保超类所拥有的性质在子类中仍然成立
+继承父类而不去改变父类
+依赖倒置原则- Dependence Inversion Principle (DIP) 高层模块不依赖于底层模块，两者都依赖于抽象，抽象不依赖于细节，细节依赖于抽象
+接口隔离原则- Interface Segrgation Principle (ISP) 一个类对另一个类的依赖原则应该建立在最下的接口上
+各个类建立自己的专用接口，而不是建立万能接口
+单一职责原则- Single Responsibility Principle, SRP 一个类应该有且仅有一个引起它变化的原因，否则应该被拆分
+每个类只负责自己的事，而不是变成万能
+迪米特法则- Law of Demeter (Lod) 最少知识原则
+无需直接交互的类，如果需要交互，使用中间者
+过度使用迪米特法则则会使系统产生大量的中介类，从而增加系统的复杂性，使模块直接的通信效率降低
+合成复用原则 组合/聚合原则
+优先组合，其次继承</description>
+    </item>
+    
   </channel>
 </rss>
