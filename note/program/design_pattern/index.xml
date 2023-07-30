@@ -8,6 +8,24 @@
     <language>zh</language>
     <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/program/design_pattern/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>结构型模式</title>
+      <link>https://AlfredNing.github.io/note/program/design_pattern/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 30 Jul 2023 11:44:12 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/design_pattern/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description>导论 结构型模式关注点在于 怎样组合对象和类 类结构模式关心类的组合，由多个类组合成一个更大的 对象结构模式关心类与对象的组合，通过关联关系在一个类中定义另一个类的实例对象 根据合成复用原则，在系统中尽量使用关联关系来替代继承关系，因为大部分结构型模式都是对象结构模式
+适配器模式: 两个不兼容接口之间适配的桥梁 桥接模式：相同功能抽象化与是实现化解构，抽象和实现独立升级 过滤器模式：使用不同的标准来过滤同一组对象 组合模式：相似对象组合，形成树形结构 装饰器模式：向一个对象中添加新功能，同时不改变其结构 外观模式：向现有系统添加一个接口，客户端访问此接口来隐藏系统的复杂性 享元模式：尝试重用现有的同类对象，如果未找到匹配的对象，则创建新的对象 代理模式：一个类代表另一个类的功能 适配器模式 将一个接口转换为客户希望的另一个接口，适配器使不兼容的类一起工作，适配器模式分为：
+类适配器模式： 继承手段 对象适配器模式: 组合手段 类适配器模式耦合度要求较高，应用相对比较少，别名：Wrapper, 包装器
+角色 目标接口 适配器 被适配对象 使用场景 当需要使用一个已有的类，但其接口与现有代码不匹配时，可以使用适配器模式将其转换为所需的接口
+当希望复用一些现有的类，但其接口与应用代码的接口要求不一致时，可以通过适配器模式将这些类适配为符合要求的接口。
+Tomcat Request转标准Request
+Spring AOP的Advisor Adapter
+Spring MVC的 HandlerAdapter
+SpringBoot的 WebMvcConfigurerAdapter
+实现 package design_patterns.behavior; /** * @author Alfred.Ning * @since 2023年07月30日 12:12:00 */ public class AdapterMain { public static void main(String[] args) { Adapter adapter = new Adapter(new Adaptee()); adapter.request(); } } // 目标接口 interface Target { void request(); } // 被适配对象 class Adaptee { public void specificRequest() { System.</description>
+    </item>
+    
+    <item>
       <title>创建型模式 建造者模式</title>
       <link>https://AlfredNing.github.io/note/program/design_pattern/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 29 Jul 2023 19:24:24 +0800</pubDate>
