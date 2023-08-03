@@ -86,7 +86,7 @@ Vue Demo &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;m
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://AlfredNing.github.io/note/program/front_end/vue/" /><meta property="article:section" content="note" />
 <meta property="article:published_time" content="2023-06-01T00:55:03+08:00" />
-<meta property="article:modified_time" content="2023-07-05T22:35:39+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
+<meta property="article:modified_time" content="2023-07-18T18:15:37+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vue"/>
@@ -134,11 +134,11 @@ Vue Demo &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;m
   "keywords": [
     ""
   ],
-  "articleBody": "前介 构建用户界面的渐进式的框架\n渐进式：可以在项目中一点点使用\nVue3初识 命令式编程vs声明式编程 命令式编程：how to do\n声明式编程：what to do . 由框架完成how 的部分\nMVVM模型 Model - View - ViewMode ： 软件架构模式\nVue Demo \u003c!DOCTYPE html\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e \u003cmeta charset=\"UTF-8\"\u003e \u003cmeta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"\u003e \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"\u003e \u003ctitle\u003eDocument\u003c/title\u003e \u003c/head\u003e \u003cbody\u003e \u003cdiv id=\"app\"\u003e \u003c/div\u003e \u003ctemplate id=\"t1\"\u003e \u003cdiv\u003e \u003ch2\u003e{{counter}}\u003c/h2\u003e \u003cbutton @click='increment'\u003e+1\u003c/button\u003e \u003cbutton @click='decrement'\u003e-1\u003c/button\u003e \u003ch3\u003e{{message}}\u003c/h3\u003e \u003c/div\u003e \u003c/template\u003e \u003cscript src=\"https://unpkg.com/vue@3/dist/vue.global.js\"\u003e\u003c/script\u003e \u003cscript\u003e Vue.createApp({ // 这里使用模板字符串 template: '#t1', // vue3 data 函数 data: function () { return { message: \"hello\", counter: 100 } }, methods: { increment() { this.counter++; }, decrement() { this.counter--; }, }, }).mount('#app'); \u003c/script\u003e \u003c/body\u003e \u003c/html\u003e template属性 利用script写法 利用template写法 直接放置 data属性 vue3: 传入一个函数，返回一个对象 data返回对象会被vue响应系统劫持，之后对象的修改和访问都会被系统劫持 methods属性 一个对象，定义我们通用的方法。\nmethods中定义函数，不建议用箭头函数。\n其他属性 非常多\n基础语法 vs code代码快捷生成帮助网站https://snippet-generator.app/\nMustche双括号 可以是表达式 可以调用函数 methods 三元运算符 v-once 用户指定元素或者组件只渲染一次\n数据发生变化，元素或者组件以及所有的子元素视为静态内容并且跳过 该指令用于性能优化 子节点，也只渲染一次 v-text 很少使用\nv-html 内容本身是html，vue帮助解析\nv-pre 跳过元素和子元素的编译过程，显示原始的Mustache标签\n跳过必须要编译的节点，加快编译\nv-cloak 编译组件结束之后取消该属性\nv-bind 属性动态绑定\n缩写：::\n绑定class属性\nv-on 绑定事件\n缩写：@\n可以绑定表达式: 内敛表达式 可以绑定对象 传递参数 条件渲染 v-if: 惰性 v-else-if v-else v- show v-show 不支持template\nv-show 不可以和v-else连用\nv-show 是设置display: none属性 进行切换\nv-if 不会渲染到dom上面\n开发频繁切换 v-show 不会使用 v-if 列表渲染 v-for\nkey的作用：作用于diff元素\ncomputed 计算属性 包含响应式的复杂逻辑\nmethods调用也可以显示\n计算属性是有缓存的，多次使用，只会执行一次。依赖数据会进行重新计算\n计算属性的getter和setter 监听器Watch 代码逻辑中监听某个数据的变化\n深度侦听 立即执行 监听对象的属性 表单和开发模式 v-model\n可以绑定的元素\ninput textArea checkbox radio select 可以跟修饰符\nlazy number trim 组件 全局注册 局部注册 组件名称：\n多个单词，短横线分割，使用时候一样 驼峰。使用可以驼峰[开发不推荐]或者中划线 Webpack5 安装 # 全局安装 npm install webpack webpack-cli -g # 局部安装 npm install webpack webpack-cli -D webpack --version npm init # 默认yes npm init -y # 安装依赖开发环境 npm install webpack webpack-cli -D # 使用项目本地依赖打包 npx webpack # 引入配置文件 webpack.config.js # css css-loader style-loader # less less less-loader css-loader style-loader # 工具css PostCss 进行转换或者postcss-preset-env npm install postcss postcss-cli -D # 图片 打包 file-loader npm install file-loader -D webpack打包原理：是存在依赖图，凡是存在依赖都会把打包进去\n相关使用 ",
-  "wordCount" : "265",
+  "articleBody": "前介 构建用户界面的渐进式的框架\n渐进式：可以在项目中一点点使用\nVue3初识 命令式编程vs声明式编程 命令式编程：how to do\n声明式编程：what to do . 由框架完成how 的部分\nMVVM模型 Model - View - ViewMode ： 软件架构模式\nVue Demo \u003c!DOCTYPE html\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e \u003cmeta charset=\"UTF-8\"\u003e \u003cmeta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"\u003e \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"\u003e \u003ctitle\u003eDocument\u003c/title\u003e \u003c/head\u003e \u003cbody\u003e \u003cdiv id=\"app\"\u003e \u003c/div\u003e \u003ctemplate id=\"t1\"\u003e \u003cdiv\u003e \u003ch2\u003e{{counter}}\u003c/h2\u003e \u003cbutton @click='increment'\u003e+1\u003c/button\u003e \u003cbutton @click='decrement'\u003e-1\u003c/button\u003e \u003ch3\u003e{{message}}\u003c/h3\u003e \u003c/div\u003e \u003c/template\u003e \u003cscript src=\"https://unpkg.com/vue@3/dist/vue.global.js\"\u003e\u003c/script\u003e \u003cscript\u003e Vue.createApp({ // 这里使用模板字符串 template: '#t1', // vue3 data 函数 data: function () { return { message: \"hello\", counter: 100 } }, methods: { increment() { this.counter++; }, decrement() { this.counter--; }, }, }).mount('#app'); \u003c/script\u003e \u003c/body\u003e \u003c/html\u003e template属性 利用script写法 利用template写法 直接放置 data属性 vue3: 传入一个函数，返回一个对象 data返回对象会被vue响应系统劫持，之后对象的修改和访问都会被系统劫持 methods属性 一个对象，定义我们通用的方法。\nmethods中定义函数，不建议用箭头函数。\n其他属性 非常多\n基础语法 vs code代码快捷生成帮助网站https://snippet-generator.app/\nMustche双括号 可以是表达式 可以调用函数 methods 三元运算符 v-once 用户指定元素或者组件只渲染一次\n数据发生变化，元素或者组件以及所有的子元素视为静态内容并且跳过 该指令用于性能优化 子节点，也只渲染一次 v-text 很少使用\nv-html 内容本身是html，vue帮助解析\nv-pre 跳过元素和子元素的编译过程，显示原始的Mustache标签\n跳过必须要编译的节点，加快编译\nv-cloak 编译组件结束之后取消该属性\nv-bind 属性动态绑定\n缩写：::\n绑定class属性\nv-on 绑定事件\n缩写：@\n可以绑定表达式: 内敛表达式 可以绑定对象 传递参数 条件渲染 v-if: 惰性 v-else-if v-else v- show v-show 不支持template\nv-show 不可以和v-else连用\nv-show 是设置display: none属性 进行切换\nv-if 不会渲染到dom上面\n开发频繁切换 v-show 不会使用 v-if 列表渲染 v-for\nkey的作用：作用于diff元素\ncomputed 计算属性 包含响应式的复杂逻辑\nmethods调用也可以显示\n计算属性是有缓存的，多次使用，只会执行一次。依赖数据会进行重新计算\n计算属性的getter和setter 监听器Watch 代码逻辑中监听某个数据的变化\n深度侦听 立即执行 监听对象的属性 表单和开发模式 v-model\n可以绑定的元素\ninput textArea checkbox radio select 可以跟修饰符\nlazy number trim 组件 全局注册 局部注册 组件名称：\n多个单词，短横线分割，使用时候一样 驼峰。使用可以驼峰[开发不推荐]或者中划线 Webpack 安装 # 全局安装 npm install webpack webpack-cli -g # 局部安装 npm install webpack webpack-cli -D webpack --version npm init # 默认yes npm init -y # 安装依赖开发环境 npm install webpack webpack-cli -D # 使用项目本地依赖打包 npx webpack # 引入配置文件 webpack.config.js # css css-loader style-loader # less less less-loader css-loader style-loader # 工具css PostCss 进行转换或者postcss-preset-env npm install postcss postcss-cli -D # 图片 打包 file-loader npm install file-loader -D # webpack5 webpack打包原理：是存在依赖图，凡是存在依赖都会把打包进去\n相关使用 webpack5之后提供资源模块类型\n相关插件 clean-webpack-plugin html-webpack-plugin define-plugin copy-webpack-plugin Babel 工具链，包括词法转换、源代码转换\n可以作为独立工具，不和webpack构建工具单独使用，有基础的预设（preset)\n底层原理 编译器的工作，本质就是一个编译器\n工作流程：\n解析阶段 Parsing 转换阶段 Transformation 生成阶段 Code Generation vscode对SFC文件支持 Vetur Volar ",
+  "wordCount" : "289",
   "inLanguage": "zh",
   "datePublished": "2023-06-01T00:55:03+08:00",
-  "dateModified": "2023-07-05T22:35:39+08:00",
+  "dateModified": "2023-07-18T18:15:37+08:00",
   "author":[{
     "@type": "Person",
     "name": "AlfredNing"
@@ -240,7 +240,7 @@ Vue Demo &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;m
             <h1 class="post-title">
                 Vue
             </h1>
-            <div class="post-meta">创建:&nbsp;<span title='2023-06-01 00:55:03 +0800 CST'>2023年-06月-01日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-07月-05日&nbsp;|&nbsp;字数:&nbsp;265字&nbsp;|&nbsp;时长:&nbsp;2分钟&nbsp;|&nbsp;AlfredNing
+            <div class="post-meta">创建:&nbsp;<span title='2023-06-01 00:55:03 +0800 CST'>2023年-06月-01日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-07月-18日&nbsp;|&nbsp;字数:&nbsp;289字&nbsp;|&nbsp;时长:&nbsp;2分钟&nbsp;|&nbsp;AlfredNing
 
                 &nbsp;|&nbsp;标签: &nbsp;
                 <ul class="post-tags-meta">
@@ -322,12 +322,22 @@ Vue Demo &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;m
                 <li>
                     <a href="#%e7%bb%84%e4%bb%b6" aria-label="组件">组件</a></li>
                 <li>
-                    <a href="#webpack5" aria-label="Webpack5">Webpack5</a><ul>
+                    <a href="#webpack" aria-label="Webpack">Webpack</a><ul>
                         
                 <li>
                     <a href="#%e5%ae%89%e8%a3%85" aria-label="安装">安装</a></li>
                 <li>
-                    <a href="#%e7%9b%b8%e5%85%b3%e4%bd%bf%e7%94%a8" aria-label="相关使用">相关使用</a>
+                    <a href="#%e7%9b%b8%e5%85%b3%e4%bd%bf%e7%94%a8" aria-label="相关使用">相关使用</a></li>
+                <li>
+                    <a href="#%e7%9b%b8%e5%85%b3%e6%8f%92%e4%bb%b6" aria-label="相关插件">相关插件</a></li>
+                <li>
+                    <a href="#babel" aria-label="Babel">Babel</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ba%95%e5%b1%82%e5%8e%9f%e7%90%86" aria-label="底层原理">底层原理</a></li></ul>
+                </li>
+                <li>
+                    <a href="#vscode%e5%af%b9sfc%e6%96%87%e4%bb%b6%e6%94%af%e6%8c%81" aria-label="vscode对SFC文件支持">vscode对SFC文件支持</a>
                 </li>
             </ul>
             </li>
@@ -577,7 +587,7 @@ Vue Demo &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;m
 <li>多个单词，短横线分割，使用时候一样</li>
 <li>驼峰。使用可以驼峰[<strong>开发不推荐</strong>]或者中划线</li>
 </ul>
-<h1 id="webpack5">Webpack5<a hidden class="anchor" aria-hidden="true" href="#webpack5">#</a></h1>
+<h1 id="webpack">Webpack<a hidden class="anchor" aria-hidden="true" href="#webpack">#</a></h1>
 <h2 id="安装">安装<a hidden class="anchor" aria-hidden="true" href="#安装">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="err">#</span> <span class="err">全局安装</span>
 </span></span><span class="line"><span class="cl"><span class="nt">npm</span> <span class="nt">install</span> <span class="nt">webpack</span> <span class="nt">webpack-cli</span> <span class="nt">-g</span>
@@ -606,8 +616,35 @@ Vue Demo &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;m
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="err">图片</span> <span class="err">打包</span> <span class="nt">file-loader</span>
 </span></span><span class="line"><span class="cl"><span class="nt">npm</span> <span class="nt">install</span> <span class="nt">file-loader</span> <span class="nt">-D</span> 
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nt">webpack5</span> 	
 </span></span></code></pre></div><p><strong>webpack打包原理：是存在依赖图，凡是存在依赖都会把打包进去</strong></p>
 <h2 id="相关使用">相关使用<a hidden class="anchor" aria-hidden="true" href="#相关使用">#</a></h2>
+<p>webpack5之后提供资源模块类型</p>
+<h2 id="相关插件">相关插件<a hidden class="anchor" aria-hidden="true" href="#相关插件">#</a></h2>
+<ul>
+<li>clean-webpack-plugin</li>
+<li>html-webpack-plugin</li>
+<li>define-plugin</li>
+<li>copy-webpack-plugin</li>
+</ul>
+<h2 id="babel">Babel<a hidden class="anchor" aria-hidden="true" href="#babel">#</a></h2>
+<p>工具链，包括词法转换、源代码转换</p>
+<p>可以作为独立工具，不和webpack构建工具单独使用，有基础的预设（preset)</p>
+<h3 id="底层原理">底层原理<a hidden class="anchor" aria-hidden="true" href="#底层原理">#</a></h3>
+<p>编译器的工作，本质就是一个编译器</p>
+<p>工作流程：</p>
+<ol>
+<li>解析阶段 Parsing</li>
+<li>转换阶段 Transformation</li>
+<li>生成阶段 Code Generation</li>
+</ol>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230714223717856.png" alt="image-20230714223717856"  />
+</p>
+<h2 id="vscode对sfc文件支持">vscode对SFC文件支持<a hidden class="anchor" aria-hidden="true" href="#vscode对sfc文件支持">#</a></h2>
+<ul>
+<li>Vetur</li>
+<li>Volar</li>
+</ul>
 
 
         </div>
