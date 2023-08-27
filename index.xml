@@ -94,7 +94,7 @@ SpringBoot的 WebMvcConfigurerAdapter
       <pubDate>Sat, 29 Jul 2023 10:59:30 +0800</pubDate>
       
       <guid>https://AlfredNing.github.io/note/program/design_pattern/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AF%BC%E8%AE%BA/</guid>
-      <description>设计模式是一种思想，灵活运用远大于死记代码
+      <description> 设计模式是一种思想，灵活运用远大于死记代码
 对接口编程而不是对实现编程
 优先使用对象组合而不是继承
 面向对象的特性 封装 继承 多态 设计模式分类 创建型模式 结构型模式 行为型模式 也存在多种形式模式组合在不同阶段中使用
@@ -111,7 +111,8 @@ SpringBoot的 WebMvcConfigurerAdapter
 无需直接交互的类，如果需要交互，使用中间者
 过度使用迪米特法则则会使系统产生大量的中介类，从而增加系统的复杂性，使模块直接的通信效率降低
 合成复用原则 组合/聚合原则
-优先组合，其次继承</description>
+优先组合，其次继承
+总结 </description>
     </item>
     
     <item>
@@ -120,7 +121,12 @@ SpringBoot的 WebMvcConfigurerAdapter
       <pubDate>Mon, 24 Jul 2023 14:42:20 +0800</pubDate>
       
       <guid>https://AlfredNing.github.io/note/program/spring/%E4%B8%8E%E6%BA%90%E7%A0%81%E5%B9%B2%E6%88%98-spring-01/</guid>
-      <description></description>
+      <description>基本注解 @Lookup 从容器中查找不同的实例，
+/** * @author Alfred.Ning * @since 2023年08月12日 20:27:00 */ @Component @Data public class Person { private String name; // @Autowired private Cat cat; @Lookup // 去容器里找 public Cat getCat() { return cat; } } /** * @author Alfred.Ning * @since 2023年08月13日 14:42:00 */ @Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE) @Component @Data public class Cat { private String name; } Resource+ResourceLoader Resource:负责资源
+ResourceLoader: 对应资源加载 ，策略模式。
+BeanFactory 容器的根节点，入口。
+HierarchicalBeanFactory： 定义父子容器
+AutowireCapableBeanFactory： 处理自动装配功能</description>
     </item>
     
     <item>

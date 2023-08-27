@@ -13,7 +13,12 @@
       <pubDate>Mon, 24 Jul 2023 14:42:20 +0800</pubDate>
       
       <guid>https://AlfredNing.github.io/note/program/spring/%E4%B8%8E%E6%BA%90%E7%A0%81%E5%B9%B2%E6%88%98-spring-01/</guid>
-      <description></description>
+      <description>基本注解 @Lookup 从容器中查找不同的实例，
+/** * @author Alfred.Ning * @since 2023年08月12日 20:27:00 */ @Component @Data public class Person { private String name; // @Autowired private Cat cat; @Lookup // 去容器里找 public Cat getCat() { return cat; } } /** * @author Alfred.Ning * @since 2023年08月13日 14:42:00 */ @Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE) @Component @Data public class Cat { private String name; } Resource+ResourceLoader Resource:负责资源
+ResourceLoader: 对应资源加载 ，策略模式。
+BeanFactory 容器的根节点，入口。
+HierarchicalBeanFactory： 定义父子容器
+AutowireCapableBeanFactory： 处理自动装配功能</description>
     </item>
     
   </channel>
