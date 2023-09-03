@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MyBatis on AlfredNing</title>
+    <link>https://AlfredNing.github.io/tags/mybatis/</link>
+    <description>Recent content in MyBatis on AlfredNing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 03 Sep 2023 08:44:09 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mybatis_generator</title>
+      <link>https://AlfredNing.github.io/note/program/mybatis/mybatis_generator/</link>
+      <pubDate>Sun, 03 Sep 2023 08:44:09 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/mybatis/mybatis_generator/</guid>
+      <description>Mybatis-Generator 生成方式 命令行 maven插件 使用图形化 运行过程 连接数据库 从数据库元数据 生成文件 问题 下划线和驼峰法命名，不加设置下划线自动转驼峰
+maven插件生成 pom.xml
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.nq&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis_generator&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;maven.compiler.source&amp;gt;8&amp;lt;/maven.compiler.source&amp;gt; &amp;lt;maven.compiler.target&amp;gt;8&amp;lt;/maven.compiler.target&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis.generator&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-generator-maven-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.4.2&amp;lt;/version&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.46&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;!--指定生成文件--&amp;gt; &amp;lt;configurationFile&amp;gt;src/main/resources/generator/generatorConfig.xml&amp;lt;/configurationFile&amp;gt; &amp;lt;!--If true, then MBG will write progress messages to the build log.--&amp;gt; &amp;lt;verbose&amp;gt;true&amp;lt;/verbose&amp;gt; &amp;lt;!-- If true, then existing Java files will be overwritten if an existing Java file if found with the same name as a generated file.</description>
+    </item>
+    
+  </channel>
+</rss>
