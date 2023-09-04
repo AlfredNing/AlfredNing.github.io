@@ -6,7 +6,31 @@
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 03 Sep 2023 08:44:09 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Sep 2023 12:31:43 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dubbo Level01</title>
+      <link>https://AlfredNing.github.io/note/program/dubbo/dubbo-level01/</link>
+      <pubDate>Sun, 03 Sep 2023 12:31:43 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/dubbo/dubbo-level01/</guid>
+      <description>基础理论 “分布式系统是若干独立计算机的集合，这些计算机对于用户来说就像单个相关系统”，分布式系统（distributed system）是建立在网络之上的软件系统。分布式服务架构以及流动计算架构势在必行，亟需一个治理系统确保架构有条不紊的演进。
+架构演变 单一应用架构
+适用于小型网站，小型管理系统，将所有功能都部署到一个功能里，简单易用。
+缺点： 1、性能扩展比较难
+2、协同开发问题 3、不利于升级维护 垂直应用架构
+适用于小型网站，小型管理系统，将所有功能都部署到一个功能里，简单易用。
+缺点： 1、性能扩展比较难
+2、协同开发问题 3、不利于升级维护 分布式服务架构 当垂直应用越来越多，应用之间交互不可避免，将核心业务抽取出来，作为独立的服务，逐渐形成稳定的服务中心，使前端应用能更快速的响应多变的市场需求。此时，用于提高业务复用及整合的**分布式服务框架(RPC)**是关键
+流动计算架构 当服务越来越多，容量的评估，小服务资源的浪费等问题逐渐显现，此时需增加一个调度中心基于访问压力实时管理集群容量，提高集群利用率。此时，用于提高机器利用率的资源调度和治理中心(SOA)[ Service Oriented Architecture]是关键
+RPC RPC【Remote Procedure Call】是指远程过程调用，是一种进程间通信方式，他是一种技术的思想，而不是规范。它允许程序调用另一个地址空间（通常是共享网络的另一台机器上）的过程或函数，而不用程序员显式编码这个远程调用的细节。即程序员无论是调用本地的还是远程的函数，本质上编写的调用代码基本相同.
+RPC框架：dubbo gRpc 、Thrift 、HSF(High Speed Service Framework)
+dubbo Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的开源Java RPC框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。
+设计架构 zookeeper 监控 dubbo-admin 核心配置 加载配置 jvm启动参数 -&amp;gt; dubbo.properties -&amp;gt; spring配置
+启动时候检查 Dubbo 缺省会在启动时检查依赖的服务是否可用，不可用时会抛出异常，阻止 Spring 初始化完成，以便上线时，能及早发现问题，默认 check=&amp;quot;true&amp;quot;。
+可以通过 check=&amp;quot;false&amp;quot; 关闭检查，比如，测试时，有些服务不关心，或者出现了循环依赖，必须有一方先启动。
+另外，如果你的 Spring 容器是懒加载的，或者通过 API 编程延迟引用服务，请关闭 check，否则服务临时不可用时，会抛出异常，拿到 null 引用，如果 check=&amp;quot;false&amp;quot;，总是会返回引用，当服务恢复时，能自动连上。</description>
+    </item>
+    
     <item>
       <title>Mybatis_generator</title>
       <link>https://AlfredNing.github.io/note/program/mybatis/mybatis_generator/</link>
