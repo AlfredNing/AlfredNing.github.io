@@ -273,3 +273,26 @@ Connect（连接就绪）、Accept（接受就绪）、Read（读就绪）、Wri
 
 ## 框架设计
 
+![image-20230904221503943](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230904221503943.png)
+
+## 标签解析
+
+`DubboBeanDefinitionParser`  ： Bean的xml标签解析
+
+`AnnotationBeanDefinitionParser` : Bean的注解解析
+
+`DubboNamespaceHandler` ： 标签对应class解析
+
+## 服务暴露
+
+![image-20230904223107018](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230904223107018.png)
+
+## 服务引用流程
+
+`ReferenceBean`
+
+![image-20230904233307228](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230904233307228.png)
+
+## 服务调用
+
+![image-20230904233727674](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230904233727674.png)
