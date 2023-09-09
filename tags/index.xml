@@ -7,6 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language><atom:link href="https://AlfredNing.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>RocketMQ</title>
+      <link>https://AlfredNing.github.io/tags/rocketmq/</link>
+      <pubDate>Tue, 05 Sep 2023 08:37:14 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/tags/rocketmq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Dubbo</title>
       <link>https://AlfredNing.github.io/tags/dubbo/</link>
       <pubDate>Sun, 03 Sep 2023 12:31:43 +0800</pubDate>
