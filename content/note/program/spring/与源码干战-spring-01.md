@@ -144,3 +144,37 @@ public Object postProcessBeforeInitialization(Object bean, String beanName) thro
 ```
 
 **Bean的功能增强 BeanPostProcessor + InitializingBean**
+
+## 普通Bean与工厂Bean区别
+
+```java
+* 工厂bean: 实现FactoryBean接口，注册的不是HelloFactory，而是getObject返回的对象，类型是getObjectType类型
+* 普通bean: 例如Person 对象，注册的组件对象就是person对象，类型就是Person
+* 例如Mybatis与Spring整合
+```
+
+## BeanPostProcessor
+
+后置增强，对**普通Bean**初始化前后进行功能增强
+
+###  BeanFactoryPostProcessor
+
+对**BeanFactory**初始化前后进行功能增强
+
+- 隔离组件、注册Bean，池化技术
+
+###  BeanDefinitionRegistryPostProcessor
+
+bean定义信息注册的后置增强
+
+## InitializingBean
+
+Bean组件初始化后，对组件进行后续设置
+
+**BeanPostProcessor在于改变，InitializingBean在于额外处理，不会传入组件任何信息**
+
+## Bean生命周期
+
+> 后置处理围绕整个Bean的创建和初始化对Bean功能改造
+
+![Bean生命周期流程](https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/Bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%B5%81%E7%A8%8B.jpg)

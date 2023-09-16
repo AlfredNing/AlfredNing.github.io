@@ -102,6 +102,10 @@ cover:
 </project>
 ```
 
+
+
+
+
 `generator/generatorConfig.xml`
 
 ```xml
