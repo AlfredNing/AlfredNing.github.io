@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>RocketMQ on AlfredNing</title>
+    <link>https://AlfredNing.github.io/tags/rocketmq/</link>
+    <description>Recent content in RocketMQ on AlfredNing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 05 Sep 2023 08:37:14 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/rocketmq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rocket Level01</title>
+      <link>https://AlfredNing.github.io/note/program/rocket/rocket-level01/</link>
+      <pubDate>Tue, 05 Sep 2023 08:37:14 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/rocket/rocket-level01/</guid>
+      <description>介绍 应用场景 应用解耦 流量削峰 大数据处理 异构系统 优势 低延迟 高压 可持续性 审计、银行、工业 角色 broker 向生产者和消费者接收和发送消息 向nameserver提交自己的消息(nameserver是集群存在) 是消息中间件的消息存储，转发服务器 每个broker节点启动，遍历nameserver列表，与每个nameserver建立长连接，注册自己的信息，之后定时上报 broker集群 可以配成Master/Slave结构 producer 消息生产者 通过集群的其中一个节点（随机选择）建立长连接，获得Topic路由信息，包括Topic下面有哪些Queue,这些Queue分布在哪些Topic上 向提供Topic的Master建立长连接，且定时向Master发送心跳 Consumer 消息的消费者 可以和Master和slave连接 nameserver 底层netty实现，提供路由管理，服务注册、服务发现，无状态节点 服务发现者 可以部署多个 nameserver集群间互不通信 内存式存储，默认不会持久化 操作 简单操作 依赖
+&amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.rocketmq&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rocketmq-client&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.6.1&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; 同步发送消息 package rocketq; import org.apache.rocketmq.client.exception.MQClientException; import org.apache.rocketmq.client.producer.DefaultMQProducer; import org.apache.rocketmq.client.producer.SendResult; import org.apache.rocketmq.common.message.Message; /** * 发送者 * * @author Alfred.Ning * @since 2023年09月08日 21:27:00 */ public class Producer { public static void main(String[] args) throws Exception { DefaultMQProducer producer = new DefaultMQProducer(&amp;#34;xyz&amp;#34;); producer.</description>
+    </item>
+    
+  </channel>
+</rss>
