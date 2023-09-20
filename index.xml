@@ -6,13 +6,22 @@
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 16 Sep 2023 20:21:08 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Sep 2023 08:53:52 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mybatis_plus</title>
+      <link>https://AlfredNing.github.io/note/program/mybatis/mybatis_plus/</link>
+      <pubDate>Sun, 17 Sep 2023 08:53:52 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/mybatis/mybatis_plus/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>通用mapper</title>
-      <link>https://AlfredNing.github.io/note/program/mybatis/%E9%80%9A%E7%94%A8mapper/</link>
+      <link>https://AlfredNing.github.io/note/program/mybatis/tk-mapper/</link>
       <pubDate>Sat, 16 Sep 2023 20:21:08 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/mybatis/%E9%80%9A%E7%94%A8mapper/</guid>
+      <guid>https://AlfredNing.github.io/note/program/mybatis/tk-mapper/</guid>
       <description>通用MapperMBG pom.xml
 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.nq&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;MapperMBG&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;maven.compiler.source&amp;gt;8&amp;lt;/maven.compiler.source&amp;gt; &amp;lt;maven.compiler.target&amp;gt;8&amp;lt;/maven.compiler.target&amp;gt; &amp;lt;!-- basedir引用工程目录--&amp;gt; &amp;lt;!-- targetJavaProject: 声明存放源码的目录位置--&amp;gt; &amp;lt;targetJavaProject&amp;gt;${basedir}/src/main/java&amp;lt;/targetJavaProject&amp;gt; &amp;lt;!-- targetMapperPackage: 声明存放mapper接口的package位置--&amp;gt; &amp;lt;targetMapperPackage&amp;gt;com.nq.user.mapper&amp;lt;/targetMapperPackage&amp;gt; &amp;lt;!-- targetModelPackage: 声明存放实体类位置--&amp;gt; &amp;lt;targetModelPackage&amp;gt;com.nq.user.entity&amp;lt;/targetModelPackage&amp;gt; &amp;lt;!-- targetResourcesProject 声明存放资源文件的目录位置--&amp;gt; &amp;lt;targetResourcesProject&amp;gt;${basedir}/src/main/resources&amp;lt;/targetResourcesProject&amp;gt; &amp;lt;!-- targetXMLPackage 声明存放mapper xml文件的目录位置 多层文件写法com/nq/mapper--&amp;gt; &amp;lt;targetXMLPackage&amp;gt;mappers&amp;lt;/targetXMLPackage&amp;gt; &amp;lt;!-- 通用mapper版本号 --&amp;gt; &amp;lt;mapper.version&amp;gt;4.1.5&amp;lt;/mapper.version&amp;gt; &amp;lt;!-- mysql驱动版本号 --&amp;gt; &amp;lt;mysql.version&amp;gt;5.1.46&amp;lt;/mysql.version&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;tk.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mapper&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${mapper.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.2.8&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${mysql.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
     </item>
@@ -439,20 +448,6 @@ Memory: 支持B-Tree，Hash索引，不支持FullText索引
 NDB: 支持Hash索引，不支持 B-Tree, FullText索引
 Archive: 不支持 B-Tree, FullText,Hash索引
 创建索引 方式1- 创建表时候指定 普通索引 CREATE TABLE book( book_id INT , book_name VARCHAR(100), authors VARCHAR(100), info VARCHAR(100) , comment VARCHAR(100), year_publication YEAR, INDEX(year_publication) ); 创建唯一索引 CREATE TABLE test1( id INT NOT NULL, name varchar(30) NOT NULL, UNIQUE INDEX uk_idx_id(id) ); 主键索引 CREATE TABLE student ( id INT(10) UNSIGNED AUTO_INCREMENT, student_no VARCHAR(200), student_name VARCHAR(200), PRIMARY KEY(id) ); # 删除主键索引 ALTER TABLE student drop PRIMARY KEY ; 创建单列索引 CREATE TABLE test2( id INT NOT NULL, name CHAR(50) NULL, INDEX single_idx_name(name(20)) ); 创建组合索引 CREATE TABLE test3( id INT(11) NOT NULL, name CHAR(30) NOT NULL, age INT(11) NOT NULL, info VARCHAR(255), INDEX multi_idx(id,name,age) ); 全文索引 CREATE TABLE `papers` ( id` int(10) unsigned NOT NULL AUTO_INCREMENT, `title` varchar(200) DEFAULT NULL, `content` text, PRIMARY KEY (`id`), FULLTEXT KEY `title` (`title`,`content`) ) ENGINE=MyISAM DEFAULT CHARSET=utf8; SELECT * FROM papers WHERE MATCH(title,content) AGAINST (‘查询字符串’); 空间索引 CREATE TABLE test5( geo GEOMETRY NOT NULL, SPATIAL INDEX spa_idx_geo(geo) ) ENGINE=MyISAM; 方式2-已经创建表上的添加 alter 形式 ALTER TABLE table_name ADD [UNIQUE | FULLTEXT | SPATIAL] [INDEX | KEY] [index_name] (col_name[length],.</description>
-    </item>
-    
-    <item>
-      <title>Vue</title>
-      <link>https://AlfredNing.github.io/note/program/front_end/vue/</link>
-      <pubDate>Thu, 01 Jun 2023 00:55:03 +0800</pubDate>
-      
-      <guid>https://AlfredNing.github.io/note/program/front_end/vue/</guid>
-      <description>前介 构建用户界面的渐进式的框架
-渐进式：可以在项目中一点点使用
-Vue3初识 命令式编程vs声明式编程 命令式编程：how to do
-声明式编程：what to do . 由框架完成how 的部分
-MVVM模型 Model - View - ViewMode ： 软件架构模式
-Vue Demo &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;!-- 这里的template 是html提供的，也可以换成div等，但是template是不显示 --&amp;gt; &amp;lt;template id=&amp;#34;t1&amp;#34;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h2&amp;gt;{{counter}}&amp;lt;/h2&amp;gt; &amp;lt;button @click=&amp;#39;increment&amp;#39;&amp;gt;+1&amp;lt;/button&amp;gt; &amp;lt;button @click=&amp;#39;decrement&amp;#39;&amp;gt;-1&amp;lt;/button&amp;gt; &amp;lt;h3&amp;gt;{{message}}&amp;lt;/h3&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script src=&amp;#34;https://unpkg.com/vue@3/dist/vue.global.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; Vue.createApp({ // 这里使用模板字符串 template: &amp;#39;#t1&amp;#39;, // vue3 data 函数 data: function () { return { message: &amp;#34;hello&amp;#34;, counter: 100 } }, methods: { increment() { this.</description>
     </item>
     
     <item>
