@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>jvm on AlfredNing</title>
+    <title>Jvm on AlfredNing</title>
     <link>https://AlfredNing.github.io/tags/jvm/</link>
-    <description>Recent content in jvm on AlfredNing</description>
+    <description>Recent content in Jvm on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Mon, 08 May 2023 20:30:30 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
