@@ -13,13 +13,15 @@
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    color: white;
+    color: transparent; /* 文字透明，让彩虹边框显示 */
     font-family: Arial, sans-serif;
+    position: relative;
   }
 
   .text-container {
     font-size: 3em;
     white-space: nowrap;
+    position: relative;
   }
 
   .char {
@@ -27,6 +29,28 @@
     animation: jumpOut 1s ease forwards;
     /* 使用粉色作为文字颜色 */
     color: #FFC0CB; /* 粉色 */
+  }
+
+  .rainbow-border {
+    position: absolute;
+    top: -10px; /* 调整边框位置 */
+    left: -10px; /* 调整边框位置 */
+    right: -10px; /* 调整边框位置 */
+    bottom: -10px; /* 调整边框位置 */
+    border: 5px solid transparent; /* 初始边框透明 */
+    border-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red) 1;
+    border-image-slice: 1;
+    animation: rainbowBorderAnimation 10s linear infinite; /* 边框动画 */
+    z-index: -1; /* 将边框置于文字背后 */
+  }
+
+  .icon {
+    position: absolute;
+    top: 200px; /* 距离页面上方边界 200px */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    animation: heartBeat 1s ease infinite alternate; /* 心形动画 */
   }
 
   @keyframes jumpOut {
@@ -43,21 +67,72 @@
       opacity: 1;
     }
   }
+
+  @keyframes heartBeat {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes rainbowBorderAnimation {
+    0% {
+      border-image-slice: 1;
+    }
+    100% {
+      border-image-slice: 2;
+    }
+  }
+
+  @keyframes blowHeart {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(-20px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+  }
+
+  .heart {
+    position: absolute;
+    animation: blowHeart 1s ease infinite;
+    color: red; /* 红色心形 */
+  }
 </style>
 </head>
 <body>
-<div class="text-container" id="textContainer"></div>
+<div class="text-container">
+  <span class="char">我</span>
+  <span class="char">非</span>
+  <span class="char">常</span>
+  <span class="char">中</span>
+  <span class="char">意</span>
+  <span class="char">你</span>
+  <span class="char">啊</span>
+  <div class="rainbow-border"></div>
+</div>
+<div class="icon">&#x1F468;</div>
 
 <script>
-  const textContainer = document.getElementById('textContainer');
-  const text = '我非常中意你啊'; // 设置你想要显示的文字
+  const chars = document.querySelectorAll('.char');
+  chars.forEach((char, index) => {
+    char.style.animationDelay = `${index * 0.2}s`; // 调整延迟时间
+  });
 
-  text.split('').forEach((char, index) => {
-    const span = document.createElement('span');
-    span.textContent = char;
-    span.classList.add('char');
-    span.style.animationDelay = `${index * 0.2}s`; // 调整延迟时间
-    textContainer.appendChild(span);
+  const icon = document.querySelector('.icon');
+  icon.innerHTML += '<span class="heart">&#x2764;</span>'.repeat(3); // 添加红色心形
+
+  const hearts = document.querySelectorAll('.heart');
+  hearts.forEach((heart, index) => {
+    heart.style.animationDelay = `${index * 0.3}s`; // 调整红色心形动画延迟时间
   });
 </script>
 </body>
