@@ -15,7 +15,6 @@
             margin: 0;
             overflow: hidden;
             color: transparent;
-            /* 文字透明，让彩虹边框显示 */
             font-family: Arial, sans-serif;
             position: relative;
         }
@@ -24,83 +23,47 @@
             font-size: 3em;
             white-space: nowrap;
             position: relative;
-            animation: fadeIn 1s ease 4s forwards;
-            /* 文字延迟显示 */
+            opacity: 0;
+            transition: opacity 1s ease;
         }
 
         .char {
+            display: inline-block;
             opacity: 0;
-            animation: jumpOut 1s ease forwards;
-            /* 使用粉色作为文字颜色 */
+            transition: opacity 0.5s ease;
             color: #FFC0CB;
-            /* 粉色 */
         }
 
         .rainbow-border {
             position: absolute;
             top: -10px;
-            /* 调整边框位置 */
             left: -10px;
-            /* 调整边框位置 */
             right: -10px;
-            /* 调整边框位置 */
             bottom: -10px;
-            /* 调整边框位置 */
             border: 5px solid transparent;
-            /* 初始边框透明 */
             border-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red) 1;
             border-image-slice: 1;
             animation: rainbowBorderAnimation 10s linear infinite;
-            /* 边框动画 */
             z-index: -1;
-            /* 将边框置于文字背后 */
+            opacity: 0;
+            transition: opacity 1s ease;
         }
 
         .icon {
             position: absolute;
             top: 200px;
-            /* 距离页面上方边界 200px */
             left: 50%;
             transform: translateX(-50%);
             font-size: 1.5em;
             animation: heartBeat 1s ease infinite alternate;
-            /* 心形动画 */
         }
 
         @keyframes fadeIn {
             0% {
                 opacity: 0;
             }
-
             100% {
                 opacity: 1;
-            }
-        }
-
-        @keyframes jumpOut {
-            0% {
-                transform: translateY(0) rotateY(0deg);
-                opacity: 0;
-            }
-
-            50% {
-                transform: translateY(-50px) rotateY(0deg);
-                opacity: 0.5;
-            }
-
-            100% {
-                transform: translateY(-100px) rotateY(0deg);
-                opacity: 1;
-            }
-        }
-
-        @keyframes heartBeat {
-            0% {
-                transform: scale(1);
-            }
-
-            100% {
-                transform: scale(1.2);
             }
         }
 
@@ -108,7 +71,6 @@
             0% {
                 border-image-slice: 1;
             }
-
             100% {
                 border-image-slice: 2;
             }
@@ -119,12 +81,10 @@
                 transform: translateY(0);
                 opacity: 0;
             }
-
             50% {
                 transform: translateY(-20px);
                 opacity: 0.8;
             }
-
             100% {
                 transform: translateY(-40px);
                 opacity: 0;
@@ -135,8 +95,63 @@
             position: absolute;
             animation: blowHeart 1s ease infinite;
             color: red;
-            font-size: 8em;
-            /* 红色心形 */
+            font-size: 2em;
+        }
+
+        /* 新增红心动画 */
+        @keyframes collectHearts {
+            0% {
+                transform: translate(-50%, -50%);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(50%, 50%);
+                opacity: 1;
+            }
+        }
+
+        .big-heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: collectHearts 2s ease forwards;
+            font-size: 10em;
+            color: red;
+            opacity: 0;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        .pulse-heart {
+            animation: pulse 1s ease infinite alternate;
+        }
+
+        /* 新增页面消失动画 */
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .fade-out {
+            animation: fadeOut 1s ease forwards;
         }
     </style>
 </head>
@@ -155,20 +170,30 @@
     <div class="icon">&#x1F468;</div>
 
     <script>
-        const chars = document.querySelectorAll('.char');
-        chars.forEach((char, index) => {
-            char.style.animationDelay = `${index * 0.2}s`; // 调整延迟时间
-        });
+        setTimeout(() => {
+            // 文字和边框出现后的动画
+            const textContainer = document.querySelector('.text-container');
+            const chars = document.querySelectorAll('.char');
+            const rainbowBorder = document.querySelector('.rainbow-border');
+            const bigHeart = document.createElement('span');
+            bigHeart.classList.add('big-heart', 'pulse-heart');
+            bigHeart.innerHTML = '&#x2764;';
+            document.body.appendChild(bigHeart);
 
-        const icon = document.querySelector('.icon');
-        // icon.innerHTML += '<span class="heart">&#x2764;</span>'.repeat(50); // 添加红色心形
+            chars.forEach((char, index) => {
+                setTimeout(() => {
+                    char.style.opacity = '1';
+                }, index * 100);
+            });
 
-        const hearts = document.querySelectorAll('.heart');
-        hearts.forEach((heart, index) => {
-            heart.style.animationDelay = `${index * 0.3}s`; // 调整红色心形动画延迟时间
-        });
+            textContainer.style.opacity = '1';
+            rainbowBorder.style.opacity = '1';
 
-        // 随机生成红色心形
+            // setTimeout(() => {
+            //     bigHeart.classList.add('fade-out');
+            // }, 4000); // 4秒后开始消失动画
+        }, 3000);
+
         setInterval(() => {
             const heart = document.createElement('span');
             heart.classList.add('heart');
@@ -179,9 +204,8 @@
             document.body.appendChild(heart);
             setTimeout(() => {
                 heart.remove();
-            }, 1000); // 1秒后移除
-        }, 250); // 每0.25秒生成一个
-
+            }, 1000);
+        }, 250);
     </script>
 </body>
 
