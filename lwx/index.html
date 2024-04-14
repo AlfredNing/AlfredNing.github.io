@@ -1,139 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Love You</title>
-<style>
-  body {
-    background-color: #111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-    color: transparent; /* 文字透明，让彩虹边框显示 */
-    font-family: Arial, sans-serif;
-    position: relative;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love You</title>
+    <style>
+        body {
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: transparent;
+            /* 文字透明，让彩虹边框显示 */
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
 
-  .text-container {
-    font-size: 3em;
-    white-space: nowrap;
-    position: relative;
-  }
+        .text-container {
+            font-size: 3em;
+            white-space: nowrap;
+            position: relative;
+            animation: fadeIn 1s ease 4s forwards;
+            /* 文字延迟显示 */
+        }
 
-  .char {
-    opacity: 0;
-    animation: jumpOut 1s ease forwards;
-    /* 使用粉色作为文字颜色 */
-    color: #FFC0CB; /* 粉色 */
-  }
+        .char {
+            opacity: 0;
+            animation: jumpOut 1s ease forwards;
+            /* 使用粉色作为文字颜色 */
+            color: #FFC0CB;
+            /* 粉色 */
+        }
 
-  .rainbow-border {
-    position: absolute;
-    top: -10px; /* 调整边框位置 */
-    left: -10px; /* 调整边框位置 */
-    right: -10px; /* 调整边框位置 */
-    bottom: -10px; /* 调整边框位置 */
-    border: 5px solid transparent; /* 初始边框透明 */
-    border-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red) 1;
-    border-image-slice: 1;
-    animation: rainbowBorderAnimation 10s linear infinite; /* 边框动画 */
-    z-index: -1; /* 将边框置于文字背后 */
-  }
+        .rainbow-border {
+            position: absolute;
+            top: -10px;
+            /* 调整边框位置 */
+            left: -10px;
+            /* 调整边框位置 */
+            right: -10px;
+            /* 调整边框位置 */
+            bottom: -10px;
+            /* 调整边框位置 */
+            border: 5px solid transparent;
+            /* 初始边框透明 */
+            border-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red) 1;
+            border-image-slice: 1;
+            animation: rainbowBorderAnimation 10s linear infinite;
+            /* 边框动画 */
+            z-index: -1;
+            /* 将边框置于文字背后 */
+        }
 
-  .icon {
-    position: absolute;
-    top: 200px; /* 距离页面上方边界 200px */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.5em;
-    animation: heartBeat 1s ease infinite alternate; /* 心形动画 */
-  }
+        .icon {
+            position: absolute;
+            top: 200px;
+            /* 距离页面上方边界 200px */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em;
+            animation: heartBeat 1s ease infinite alternate;
+            /* 心形动画 */
+        }
 
-  @keyframes jumpOut {
-    0% {
-      transform: translateY(0) rotateY(0deg);
-      opacity: 0;
-    }
-    50% {
-      transform: translateY(-50px) rotateY(0deg);
-      opacity: 0.5;
-    }
-    100% {
-      transform: translateY(-100px) rotateY(0deg);
-      opacity: 1;
-    }
-  }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
 
-  @keyframes heartBeat {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(1.2);
-    }
-  }
+            100% {
+                opacity: 1;
+            }
+        }
 
-  @keyframes rainbowBorderAnimation {
-    0% {
-      border-image-slice: 1;
-    }
-    100% {
-      border-image-slice: 2;
-    }
-  }
+        @keyframes jumpOut {
+            0% {
+                transform: translateY(0) rotateY(0deg);
+                opacity: 0;
+            }
 
-  @keyframes blowHeart {
-    0% {
-      transform: translateY(0);
-      opacity: 0;
-    }
-    50% {
-      transform: translateY(-20px);
-      opacity: 0.8;
-    }
-    100% {
-      transform: translateY(-40px);
-      opacity: 0;
-    }
-  }
+            50% {
+                transform: translateY(-50px) rotateY(0deg);
+                opacity: 0.5;
+            }
 
-  .heart {
-    position: absolute;
-    animation: blowHeart 1s ease infinite;
-    color: red; /* 红色心形 */
-  }
-</style>
+            100% {
+                transform: translateY(-100px) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes heartBeat {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes rainbowBorderAnimation {
+            0% {
+                border-image-slice: 1;
+            }
+
+            100% {
+                border-image-slice: 2;
+            }
+        }
+
+        @keyframes blowHeart {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateY(-20px);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+        }
+
+        .heart {
+            position: absolute;
+            animation: blowHeart 1s ease infinite;
+            color: red;
+            font-size: 8em;
+            /* 红色心形 */
+        }
+    </style>
 </head>
+
 <body>
-<div class="text-container">
-  <span class="char">我</span>
-  <span class="char">非</span>
-  <span class="char">常</span>
-  <span class="char">中</span>
-  <span class="char">意</span>
-  <span class="char">你</span>
-  <span class="char">啊</span>
-  <div class="rainbow-border"></div>
-</div>
-<div class="icon">&#x1F468;</div>
+    <div class="text-container">
+        <span class="char">我</span>
+        <span class="char">非</span>
+        <span class="char">常</span>
+        <span class="char">中</span>
+        <span class="char">意</span>
+        <span class="char">你</span>
+        <span class="char">啊</span>
+        <div class="rainbow-border"></div>
+    </div>
+    <div class="icon">&#x1F468;</div>
 
-<script>
-  const chars = document.querySelectorAll('.char');
-  chars.forEach((char, index) => {
-    char.style.animationDelay = `${index * 0.2}s`; // 调整延迟时间
-  });
+    <script>
+        const chars = document.querySelectorAll('.char');
+        chars.forEach((char, index) => {
+            char.style.animationDelay = `${index * 0.2}s`; // 调整延迟时间
+        });
 
-  const icon = document.querySelector('.icon');
-  icon.innerHTML += '<span class="heart">&#x2764;</span>'.repeat(3); // 添加红色心形
+        const icon = document.querySelector('.icon');
+        // icon.innerHTML += '<span class="heart">&#x2764;</span>'.repeat(50); // 添加红色心形
 
-  const hearts = document.querySelectorAll('.heart');
-  hearts.forEach((heart, index) => {
-    heart.style.animationDelay = `${index * 0.3}s`; // 调整红色心形动画延迟时间
-  });
-</script>
+        const hearts = document.querySelectorAll('.heart');
+        hearts.forEach((heart, index) => {
+            heart.style.animationDelay = `${index * 0.3}s`; // 调整红色心形动画延迟时间
+        });
+
+        // 随机生成红色心形
+        setInterval(() => {
+            const heart = document.createElement('span');
+            heart.classList.add('heart');
+            heart.innerHTML = '&#x2764;';
+            heart.style.fontSize = `${Math.random() * 2 + 1}em`;
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.top = `${Math.random() * 100}vh`;
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 1000); // 1秒后移除
+        }, 250); // 每0.25秒生成一个
+
+    </script>
 </body>
+
 </html>
