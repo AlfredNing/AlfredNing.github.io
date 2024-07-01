@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>笔记 on AlfredNing</title>
-    <link>http://localhost:1313/note/</link>
+    <link>https://AlfredNing.github.io/note/</link>
     <description>Recent content in 笔记 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/note/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
