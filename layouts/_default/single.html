@@ -15,10 +15,10 @@
             {{- if not (.Param "hideMeta") }}
             <div class="post-meta">
                 {{- partial "post_meta.html" . -}}
-
+               
                 <!--标签显示在头部-->
                 &nbsp;|&nbsp;标签: &nbsp;
-                {{- if .Params.tags }}
+                 {{- if .Params.tags }}
                 <ul class="post-tags-meta">
                     {{- range $index, $value := ($.GetTerms "tags") }}
                     {{- if eq $index 0}}
