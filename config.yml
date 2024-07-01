@@ -67,7 +67,6 @@ params:
     enabled: true # needs to be explicitly set
     title: AlfredNing's Blog
     description: |
-      🖊️ 菜而不自知  
       🖊️ Free Thinker  
       🖊️ 稳定的长期主义者      
     imageUrl: https://pbs.twimg.com/media/Fl7-NppakAIg2WK?format=jpg&name=900x900
