@@ -27,7 +27,7 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3a98f5547189c82a95c3f9771fcf711c0443d8fb2402e878cc7608bafce4aede.css" integrity="sha256-Opj1VHGJyCqVw/l3H89xHARD2PskAuh4zHYIuvzkrt4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0afa94d2b970a706db3fee2bf670661d8e9e2df61019549dcb856ed6d409b75d.css" integrity="sha256-CvqU0rlwpwbbP&#43;4r9nBmHY6eLfYQGVSdy4Vu1tQJt10=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
@@ -37,6 +37,7 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
 <link rel="mask-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://AlfredNing.github.io/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,18 +75,13 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
 
     </style>
 </noscript>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123-45', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><meta property="og:title" content="运行时内存" />
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="运行时内存" />
 <meta property="og:description" content="jvm内存结构图
 哪些内存结构与线程意义对应，其实问的是线程共有和私有 共有： 堆和方法区 私有： 本地方法栈、虚拟机栈、程序计数器
 程序计数器 保证程序在程序系统中能够执行下去，CPU必须具有某些手段来确定下一条指令的地址。而程序计数器正是起到这种作用，所以通常又称为指令计数器 一条指令的地址。而程序计数器正是起到这种作用，所以通常又称为指令计数器。 在程序开始执行前，必须将它的起始地址，即程序的一条指令所在的内存单元地址送入PC，因此程序计数器（PC）的内容即是从内存提取的第一条指令的地址。当执行指令时，CPU将自动修改PC的内容，即每执行一条指令PC增加一个量，这个量等于指令所含的字节数，以便使其保持的总是将要执行的下一条指令的地址 由于大多数指令都是按顺序来执行的，所以修改的过程通常只是简单的对PC加1 当程序转移时，转移指令执行的最终结果就是要改变PC的值，此PC值就是转去的地址，以此实现转移。有些机器中也称PC为指令指针IP（Instruction Pointer） 特征 JVM中的程序计数寄存器（Program Counter Register）中， Register 的命名源于CPU的寄存器，寄存器存储指令相关的现场信息。 CPU只有把数据装载到寄存器才能够运行。
@@ -104,7 +100,7 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://AlfredNing.github.io/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/" /><meta property="article:section" content="note" />
 <meta property="article:published_time" content="2023-02-27T21:33:26+08:00" />
-<meta property="article:modified_time" content="2023-04-15T22:21:56+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
+<meta property="article:modified_time" content="2024-07-01T11:38:49+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="运行时内存"/>
@@ -129,28 +125,28 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [, 
+  "itemListElement": [
     {
       "@type": "ListItem",
-      "position":  2 ,
+      "position":  1 ,
       "name": "笔记",
       "item": "https://AlfredNing.github.io/note/"
     }, 
     {
       "@type": "ListItem",
-      "position":  3 ,
+      "position":  2 ,
       "name": "编程",
       "item": "https://AlfredNing.github.io/note/program/"
     }, 
     {
       "@type": "ListItem",
-      "position":  4 ,
+      "position":  3 ,
       "name": "jvm",
       "item": "https://AlfredNing.github.io/note/program/jvm/"
     }, 
     {
       "@type": "ListItem",
-      "position":  5 ,
+      "position":  4 ,
       "name": "运行时内存",
       "item": "https://AlfredNing.github.io/note/program/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98/"
     }
@@ -171,7 +167,7 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
   "wordCount" : "588",
   "inLanguage": "zh",
   "datePublished": "2023-02-27T21:33:26+08:00",
-  "dateModified": "2023-04-15T22:21:56.9736652+08:00",
+  "dateModified": "2024-07-01T11:38:49.724478+08:00",
   "author":[{
     "@type": "Person",
     "name": "AlfredNing"
@@ -207,7 +203,7 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://AlfredNing.github.io" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
+            <a href="https://AlfredNing.github.io/" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -229,6 +225,8 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -269,15 +267,15 @@ jdk5.0之前，默认为256k jdk5.0之后，默认为1024k
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/jvm/">jvm</a></div>
+            <div class="breadcrumbs"><a href="https://AlfredNing.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/jvm/">jvm</a></div>
             <h1 class="post-title">
                 运行时内存
             </h1>
-            <div class="post-meta">创建:&nbsp;<span title='2023-02-27 21:33:26 +0800 CST'>2023年-02月-27日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-04月-15日&nbsp;|&nbsp;字数:&nbsp;588字&nbsp;|&nbsp;时长:&nbsp;3分钟&nbsp;|&nbsp;AlfredNing
+            <div class="post-meta">创建:&amp;nbsp;&lt;span title=&#39;2023-02-27 21:33:26 &#43;0800 CST&#39;&gt;2023年-02月-27日&lt;/span&gt;&amp;nbsp;|&amp;nbsp;更新:&amp;nbsp;2024年-07月-01日&amp;nbsp;|&amp;nbsp;字数:&amp;nbsp;588字&amp;nbsp;|&amp;nbsp;时长:&amp;nbsp;3分钟&amp;nbsp;|&amp;nbsp;AlfredNing
 
                 &nbsp;|&nbsp;标签: &nbsp;
                 <ul class="post-tags-meta">
-                    <a href="https://AlfredNing.github.io/tags/jvm/">jvm</a>
+                    <a href="https://AlfredNing.github.io/tags/jvm/">Jvm</a>
                 </ul>
 
                 
@@ -808,11 +806,11 @@ Meta Space                元空间      Meta
 </ul>
 <h3 id="查看所有的参数的最终值">查看所有的参数的最终值<a hidden class="anchor" aria-hidden="true" href="#查看所有的参数的最终值">#</a></h3>
 <p><strong>-XX:+PrintFlagsFinal</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">具体查看某个参数的指令：</span> <span class="n">jps</span><span class="err">：查看当前运行中的进程</span>
-</span></span><span class="line"><span class="cl"> <span class="n">jinfo</span> <span class="o">-</span><span class="n">flag</span> <span class="n">SurvivorRatio</span> <span class="err">进程</span><span class="n">id</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">Xms60m</span> <span class="o">-</span><span class="n">Xmx60m</span> <span class="o">-</span><span class="n">XX</span><span class="o">:</span><span class="n">NewRatio</span><span class="o">=</span><span class="mi">2</span> <span class="o">-</span><span class="n">XX</span><span class="o">:</span><span class="n">SurvivorRatio</span><span class="o">=</span><span class="mi">8</span> <span class="o">-</span><span class="n">XX</span><span class="o">:+</span><span class="n">PrintGCDetails</span>    
-</span></span></code></pre></div><h2 id="对象分配过程">对象分配过程<a hidden class="anchor" aria-hidden="true" href="#对象分配过程">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">具体查看某个参数的指令</span><span class="err">：</span><span class="w"> </span><span class="n">jps</span><span class="err">：</span><span class="n">查看当前运行中的进程</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">jinfo</span><span class="w"> </span><span class="o">-</span><span class="n">flag</span><span class="w"> </span><span class="n">SurvivorRatio</span><span class="w"> </span><span class="n">进程id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">-</span><span class="n">Xms60m</span><span class="w"> </span><span class="o">-</span><span class="n">Xmx60m</span><span class="w"> </span><span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">NewRatio</span><span class="o">=</span><span class="n">2</span><span class="w"> </span><span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">SurvivorRatio</span><span class="o">=</span><span class="n">8</span><span class="w"> </span><span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="o">+</span><span class="n">PrintGCDetails</span><span class="w">    
+</span></span></span></code></pre></div><h2 id="对象分配过程">对象分配过程<a hidden class="anchor" aria-hidden="true" href="#对象分配过程">#</a></h2>
 <p>1.new的对象先放伊甸园区。此区有大小限制。</p>
 <p>2.当伊甸园的空间填满时，程序又需要创建对象，JVM的垃圾回收器将对伊甸园区进行垃圾回收(Minor GC/YGC)，将伊甸园区中的不再被其他对象所引用的对象进行销毁。再加载新的对象放到伊甸园区</p>
 <p>3.然后将伊甸园中的剩余对象移动到幸存者0区。</p>
@@ -1124,7 +1122,7 @@ Meta Space                元空间      Meta
 </main>
 
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
+    <span>&copy; 2024 <a href="https://AlfredNing.github.io/">AlfredNing</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

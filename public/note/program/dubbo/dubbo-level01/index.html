@@ -28,7 +28,7 @@ dubbo Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的�
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.b91229cde124e7e554c449f8fad7516eafaf28cae03248ddf56e701706cbffee.css" integrity="sha256-uRIpzeEk5&#43;VUxEn4&#43;tdRbq&#43;vKMrgMkjd9W5wFwbL/&#43;4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0afa94d2b970a706db3fee2bf670661d8e9e2df61019549dcb856ed6d409b75d.css" integrity="sha256-CvqU0rlwpwbbP&#43;4r9nBmHY6eLfYQGVSdy4Vu1tQJt10=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
@@ -38,6 +38,7 @@ dubbo Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的�
 <link rel="mask-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://AlfredNing.github.io/note/program/dubbo/dubbo-level01/">
 <noscript>
     <style>
         #theme-toggle,
@@ -75,18 +76,13 @@ dubbo Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的�
 
     </style>
 </noscript>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123-45', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><meta property="og:title" content="Dubbo Level01" />
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="Dubbo Level01" />
 <meta property="og:description" content="基础理论 “分布式系统是若干独立计算机的集合，这些计算机对于用户来说就像单个相关系统”，分布式系统（distributed system）是建立在网络之上的软件系统。分布式服务架构以及流动计算架构势在必行，亟需一个治理系统确保架构有条不紊的演进。
 架构演变 单一应用架构
 适用于小型网站，小型管理系统，将所有功能都部署到一个功能里，简单易用。
@@ -132,22 +128,22 @@ dubbo Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的�
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [, 
+  "itemListElement": [
     {
       "@type": "ListItem",
-      "position":  2 ,
+      "position":  1 ,
       "name": "笔记",
       "item": "https://AlfredNing.github.io/note/"
     }, 
     {
       "@type": "ListItem",
-      "position":  3 ,
+      "position":  2 ,
       "name": "编程",
       "item": "https://AlfredNing.github.io/note/program/"
     }, 
     {
       "@type": "ListItem",
-      "position":  4 ,
+      "position":  3 ,
       "name": "Dubbo Level01",
       "item": "https://AlfredNing.github.io/note/program/dubbo/dubbo-level01/"
     }
@@ -204,7 +200,7 @@ dubbo Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的�
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://AlfredNing.github.io" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
+            <a href="https://AlfredNing.github.io/" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -226,6 +222,8 @@ dubbo Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的�
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -266,11 +264,11 @@ dubbo Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的�
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a></div>
+            <div class="breadcrumbs"><a href="https://AlfredNing.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a></div>
             <h1 class="post-title">
                 Dubbo Level01
             </h1>
-            <div class="post-meta">创建:&nbsp;<span title='2023-09-03 12:31:43 +0800 CST'>2023年-09月-03日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-09月-04日&nbsp;|&nbsp;字数:&nbsp;281字&nbsp;|&nbsp;时长:&nbsp;2分钟&nbsp;|&nbsp;AlfredNing
+            <div class="post-meta">创建:&amp;nbsp;&lt;span title=&#39;2023-09-03 12:31:43 &#43;0800 CST&#39;&gt;2023年-09月-03日&lt;/span&gt;&amp;nbsp;|&amp;nbsp;更新:&amp;nbsp;2023年-09月-04日&amp;nbsp;|&amp;nbsp;字数:&amp;nbsp;281字&amp;nbsp;|&amp;nbsp;时长:&amp;nbsp;2分钟&amp;nbsp;|&amp;nbsp;AlfredNing
 
                 &nbsp;|&nbsp;标签: &nbsp;
                 <ul class="post-tags-meta">
@@ -542,9 +540,9 @@ dubbo Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的�
 <p><strong>当服务器压力剧增的情况下，根据实际业务情况及流量，对一些服务和页面有策略的不处理或换种简单的方式处理，从而释放服务器资源以保证核心交易正常运作或高效运作</strong></p>
 <p>可以通过服务降级功能临时屏蔽某个出错的非关键服务，并定义降级后的返回策略。也可以通过监控设置</p>
 <p>向注册中心写入动态配置覆盖规则：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">RegistryFactory</span>  <span class="n">registryFactory</span> <span class="o">=</span>  <span class="n">ExtensionLoader</span><span class="o">.</span><span class="na">getExtensionLoader</span><span class="o">(</span><span class="n">RegistryFactory</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">getAdaptiveExtension</span><span class="o">();</span>  
-</span></span><span class="line"><span class="cl"><span class="n">Registry</span>  <span class="n">registry</span> <span class="o">=</span>  <span class="n">registryFactory</span><span class="o">.</span><span class="na">getRegistry</span><span class="o">(</span><span class="n">URL</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="s">&#34;zookeeper://10.20.153.10:2181&#34;</span><span class="o">));</span> <span class="n">registry</span><span class="o">.</span><span class="na">register</span><span class="o">(</span><span class="n">URL</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="s">&#34;override://0.0.0.0/com.foo.BarService?category=configurators&amp;dynamic=false&amp;application=foo&amp;mock=force:return+null&#34;</span><span class="o">));</span>  
-</span></span></code></pre></div><p>其中：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">RegistryFactory</span><span class="w">  </span><span class="n">registryFactory</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">ExtensionLoader</span><span class="p">.</span><span class="na">getExtensionLoader</span><span class="p">(</span><span class="n">RegistryFactory</span><span class="p">.</span><span class="na">class</span><span class="p">).</span><span class="na">getAdaptiveExtension</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Registry</span><span class="w">  </span><span class="n">registry</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">registryFactory</span><span class="p">.</span><span class="na">getRegistry</span><span class="p">(</span><span class="n">URL</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&#34;zookeeper://10.20.153.10:2181&#34;</span><span class="p">));</span><span class="w"> </span><span class="n">registry</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">URL</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&#34;override://0.0.0.0/com.foo.BarService?category=configurators&amp;dynamic=false&amp;application=foo&amp;mock=force:return+null&#34;</span><span class="p">));</span><span class="w">  
+</span></span></span></code></pre></div><p>其中：</p>
 <ul>
 <li>mock=force:return+null 表示消费方对该服务的方法调用都直接返回 null 值，不发起远程调用。用来屏蔽不重要服务不可用时对调用方的影响。</li>
 <li>还可以改为 mock=fail:return+null 表示消费方对该服务的方法调用在失败后，再返回 null 值，不抛异常。用来容忍不重要服务不稳定时对调用方的影响。</li>
@@ -552,39 +550,39 @@ dubbo Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的�
 <h2 id="集群容错">集群容错<a hidden class="anchor" aria-hidden="true" href="#集群容错">#</a></h2>
 <p>在集群调用失败时，Dubbo 提供了多种容错方案，缺省为 failover 重试。</p>
 <p><strong>集群容错模式</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">Failover</span> <span class="n">Cluster</span>  <span class="err">默认</span>
-</span></span><span class="line"><span class="cl"><span class="err">失败自动切换，当出现失败，重试其它服务器。通常用于读操作，但重试会带来更长延迟。可通过</span> <span class="n">retries</span><span class="o">=</span><span class="s">&#34;2&#34;</span> <span class="err">来设置重试次数</span><span class="o">(</span><span class="err">不含第一次</span><span class="o">)</span><span class="err">。</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">重试次数配置如下：</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dubbo</span><span class="o">:</span><span class="n">service</span> <span class="n">retries</span><span class="o">=</span><span class="s">&#34;2&#34;</span> <span class="o">/&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="err">或</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dubbo</span><span class="o">:</span><span class="n">reference</span> <span class="n">retries</span><span class="o">=</span><span class="s">&#34;2&#34;</span> <span class="o">/&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="err">或</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dubbo</span><span class="o">:</span><span class="n">reference</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">dubbo</span><span class="o">:</span><span class="n">method</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;findFoo&#34;</span> <span class="n">retries</span><span class="o">=</span><span class="s">&#34;2&#34;</span> <span class="o">/&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dubbo</span><span class="o">:</span><span class="n">reference</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="n">Failfast</span> <span class="n">Cluster</span>
-</span></span><span class="line"><span class="cl"><span class="err">快速失败，只发起一次调用，失败立即报错。通常用于非幂等性的写操作，比如新增记录。</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="n">Failsafe</span> <span class="n">Cluster</span>
-</span></span><span class="line"><span class="cl"><span class="err">失败安全，出现异常时，直接忽略。通常用于写入审计日志等操作。</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="n">Failback</span> <span class="n">Cluster</span>
-</span></span><span class="line"><span class="cl"><span class="err">失败自动恢复，后台记录失败请求，定时重发。通常用于消息通知操作。</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="n">Forking</span> <span class="n">Cluster</span>
-</span></span><span class="line"><span class="cl"><span class="err">并行调用多个服务器，只要一个成功即返回。通常用于实时性要求较高的读操作，但需要浪费更多服务资源。可通过</span> <span class="n">forks</span><span class="o">=</span><span class="s">&#34;2&#34;</span> <span class="err">来设置最大并行数。</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="n">Broadcast</span> <span class="n">Cluster</span>
-</span></span><span class="line"><span class="cl"><span class="err">广播调用所有提供者，逐个调用，任意一台报错则报错</span> <span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="err">。通常用于通知所有提供者更新缓存或日志等本地资源信息。</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">集群模式配置</span>
-</span></span><span class="line"><span class="cl"><span class="err">按照以下示例在服务提供方和消费方配置集群模式</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dubbo</span><span class="o">:</span><span class="n">service</span> <span class="n">cluster</span><span class="o">=</span><span class="s">&#34;failsafe&#34;</span> <span class="o">/&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="err">或</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dubbo</span><span class="o">:</span><span class="n">reference</span> <span class="n">cluster</span><span class="o">=</span><span class="s">&#34;failsafe&#34;</span> <span class="o">/&gt;</span>
-</span></span></code></pre></div><p>配合hystrix实现容错调用</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span><span class="w"> </span><span class="n">Failover</span><span class="w"> </span><span class="n">Cluster</span><span class="w">  </span><span class="n">默认</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">失败自动切换</span><span class="err">，</span><span class="n">当出现失败</span><span class="err">，</span><span class="n">重试其它服务器</span><span class="err">。</span><span class="n">通常用于读操作</span><span class="err">，</span><span class="n">但重试会带来更长延迟</span><span class="err">。</span><span class="n">可通过</span><span class="w"> </span><span class="n">retries</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="w"> </span><span class="n">来设置重试次数</span><span class="p">(</span><span class="n">不含第一次</span><span class="p">)</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">重试次数配置如下</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">dubbo</span><span class="p">:</span><span class="n">service</span><span class="w"> </span><span class="n">retries</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">或</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">dubbo</span><span class="p">:</span><span class="n">reference</span><span class="w"> </span><span class="n">retries</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">或</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">dubbo</span><span class="p">:</span><span class="n">reference</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">dubbo</span><span class="p">:</span><span class="n">method</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&#34;findFoo&#34;</span><span class="w"> </span><span class="n">retries</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="n">dubbo</span><span class="p">:</span><span class="n">reference</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">-</span><span class="w"> </span><span class="n">Failfast</span><span class="w"> </span><span class="n">Cluster</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">快速失败</span><span class="err">，</span><span class="n">只发起一次调用</span><span class="err">，</span><span class="n">失败立即报错</span><span class="err">。</span><span class="n">通常用于非幂等性的写操作</span><span class="err">，</span><span class="n">比如新增记录</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">-</span><span class="w"> </span><span class="n">Failsafe</span><span class="w"> </span><span class="n">Cluster</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">失败安全</span><span class="err">，</span><span class="n">出现异常时</span><span class="err">，</span><span class="n">直接忽略</span><span class="err">。</span><span class="n">通常用于写入审计日志等操作</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">-</span><span class="w"> </span><span class="n">Failback</span><span class="w"> </span><span class="n">Cluster</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">失败自动恢复</span><span class="err">，</span><span class="n">后台记录失败请求</span><span class="err">，</span><span class="n">定时重发</span><span class="err">。</span><span class="n">通常用于消息通知操作</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">-</span><span class="w"> </span><span class="n">Forking</span><span class="w"> </span><span class="n">Cluster</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">并行调用多个服务器</span><span class="err">，</span><span class="n">只要一个成功即返回</span><span class="err">。</span><span class="n">通常用于实时性要求较高的读操作</span><span class="err">，</span><span class="n">但需要浪费更多服务资源</span><span class="err">。</span><span class="n">可通过</span><span class="w"> </span><span class="n">forks</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="w"> </span><span class="n">来设置最大并行数</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">-</span><span class="w"> </span><span class="n">Broadcast</span><span class="w"> </span><span class="n">Cluster</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">广播调用所有提供者</span><span class="err">，</span><span class="n">逐个调用</span><span class="err">，</span><span class="n">任意一台报错则报错</span><span class="w"> </span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="err">。</span><span class="n">通常用于通知所有提供者更新缓存或日志等本地资源信息</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">集群模式配置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">按照以下示例在服务提供方和消费方配置集群模式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">dubbo</span><span class="p">:</span><span class="n">service</span><span class="w"> </span><span class="n">cluster</span><span class="o">=</span><span class="s">&#34;failsafe&#34;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">或</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">dubbo</span><span class="p">:</span><span class="n">reference</span><span class="w"> </span><span class="n">cluster</span><span class="o">=</span><span class="s">&#34;failsafe&#34;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w">
+</span></span></span></code></pre></div><p>配合hystrix实现容错调用</p>
 <h1 id="原理">原理<a hidden class="anchor" aria-hidden="true" href="#原理">#</a></h1>
 <h2 id="rpc原理">RPC原理<a hidden class="anchor" aria-hidden="true" href="#rpc原理">#</a></h2>
 <p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230904083308545.png" alt="image-20230904083308545"  />
@@ -671,7 +669,7 @@ dubbo Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的�
 </main>
 
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
+    <span>&copy; 2024 <a href="https://AlfredNing.github.io/">AlfredNing</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

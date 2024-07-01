@@ -5,7 +5,72 @@
     <link>https://AlfredNing.github.io/note/program/</link>
     <description>Recent content in 编程 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
     <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/program/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mybatis_plus</title>
+      <link>https://AlfredNing.github.io/note/program/mybatis/mybatis_plus/</link>
+      <pubDate>Sun, 17 Sep 2023 08:53:52 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/mybatis/mybatis_plus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>通用mapper</title>
+      <link>https://AlfredNing.github.io/note/program/mybatis/tk-mapper/</link>
+      <pubDate>Sat, 16 Sep 2023 20:21:08 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/mybatis/tk-mapper/</guid>
+      <description>通用MapperMBG pom.xml
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.nq&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;MapperMBG&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;maven.compiler.source&amp;gt;8&amp;lt;/maven.compiler.source&amp;gt; &amp;lt;maven.compiler.target&amp;gt;8&amp;lt;/maven.compiler.target&amp;gt; &amp;lt;!-- basedir引用工程目录--&amp;gt; &amp;lt;!-- targetJavaProject: 声明存放源码的目录位置--&amp;gt; &amp;lt;targetJavaProject&amp;gt;${basedir}/src/main/java&amp;lt;/targetJavaProject&amp;gt; &amp;lt;!-- targetMapperPackage: 声明存放mapper接口的package位置--&amp;gt; &amp;lt;targetMapperPackage&amp;gt;com.nq.user.mapper&amp;lt;/targetMapperPackage&amp;gt; &amp;lt;!-- targetModelPackage: 声明存放实体类位置--&amp;gt; &amp;lt;targetModelPackage&amp;gt;com.nq.user.entity&amp;lt;/targetModelPackage&amp;gt; &amp;lt;!-- targetResourcesProject 声明存放资源文件的目录位置--&amp;gt; &amp;lt;targetResourcesProject&amp;gt;${basedir}/src/main/resources&amp;lt;/targetResourcesProject&amp;gt; &amp;lt;!-- targetXMLPackage 声明存放mapper xml文件的目录位置 多层文件写法com/nq/mapper--&amp;gt; &amp;lt;targetXMLPackage&amp;gt;mappers&amp;lt;/targetXMLPackage&amp;gt; &amp;lt;!-- 通用mapper版本号 --&amp;gt; &amp;lt;mapper.version&amp;gt;4.1.5&amp;lt;/mapper.version&amp;gt; &amp;lt;!-- mysql驱动版本号 --&amp;gt; &amp;lt;mysql.version&amp;gt;5.1.46&amp;lt;/mysql.version&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;tk.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mapper&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${mapper.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.2.8&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${mysql.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
+    </item>
+    
+    <item>
+      <title>Rocket Level01</title>
+      <link>https://AlfredNing.github.io/note/program/rocket/rocket-level01/</link>
+      <pubDate>Tue, 05 Sep 2023 08:37:14 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/rocket/rocket-level01/</guid>
+      <description>介绍 应用场景 应用解耦 流量削峰 大数据处理 异构系统 优势 低延迟 高压 可持续性 审计、银行、工业 角色 broker 向生产者和消费者接收和发送消息 向nameserver提交自己的消息(nameserver是集群存在) 是消息中间件的消息存储，转发服务器 每个broker节点启动，遍历nameserver列表，与每个nameserver建立长连接，注册自己的信息，之后定时上报 broker集群 可以配成Master/Slave结构 producer 消息生产者 通过集群的其中一个节点（随机选择）建立长连接，获得Topic路由信息，包括Topic下面有哪些Queue,这些Queue分布在哪些Topic上 向提供Topic的Master建立长连接，且定时向Master发送心跳 Consumer 消息的消费者 可以和Master和slave连接 nameserver 底层netty实现，提供路由管理，服务注册、服务发现，无状态节点 服务发现者 可以部署多个 nameserver集群间互不通信 内存式存储，默认不会持久化 操作 简单操作 依赖
+&amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.rocketmq&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rocketmq-client&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.6.1&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; 同步发送消息 package rocketq; import org.apache.rocketmq.client.exception.MQClientException; import org.apache.rocketmq.client.producer.DefaultMQProducer; import org.apache.rocketmq.client.producer.SendResult; import org.apache.rocketmq.common.message.Message; /** * 发送者 * * @author Alfred.Ning * @since 2023年09月08日 21:27:00 */ public class Producer { public static void main(String[] args) throws Exception { DefaultMQProducer producer = new DefaultMQProducer(&amp;#34;xyz&amp;#34;); producer.</description>
+    </item>
+    
+    <item>
+      <title>Dubbo Level01</title>
+      <link>https://AlfredNing.github.io/note/program/dubbo/dubbo-level01/</link>
+      <pubDate>Sun, 03 Sep 2023 12:31:43 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/dubbo/dubbo-level01/</guid>
+      <description>基础理论 “分布式系统是若干独立计算机的集合，这些计算机对于用户来说就像单个相关系统”，分布式系统（distributed system）是建立在网络之上的软件系统。分布式服务架构以及流动计算架构势在必行，亟需一个治理系统确保架构有条不紊的演进。
+架构演变 单一应用架构
+适用于小型网站，小型管理系统，将所有功能都部署到一个功能里，简单易用。
+缺点： 1、性能扩展比较难
+2、协同开发问题3、不利于升级维护垂直应用架构
+适用于小型网站，小型管理系统，将所有功能都部署到一个功能里，简单易用。
+缺点： 1、性能扩展比较难
+2、协同开发问题3、不利于升级维护分布式服务架构 当垂直应用越来越多，应用之间交互不可避免，将核心业务抽取出来，作为独立的服务，逐渐形成稳定的服务中心，使前端应用能更快速的响应多变的市场需求。此时，用于提高业务复用及整合的**分布式服务框架(RPC)**是关键
+流动计算架构 当服务越来越多，容量的评估，小服务资源的浪费等问题逐渐显现，此时需增加一个调度中心基于访问压力实时管理集群容量，提高集群利用率。此时，用于提高机器利用率的资源调度和治理中心(SOA)[ Service Oriented Architecture]是关键
+RPC RPC【Remote Procedure Call】是指远程过程调用，是一种进程间通信方式，他是一种技术的思想，而不是规范。它允许程序调用另一个地址空间（通常是共享网络的另一台机器上）的过程或函数，而不用程序员显式编码这个远程调用的细节。即程序员无论是调用本地的还是远程的函数，本质上编写的调用代码基本相同.
+RPC框架：dubbo gRpc 、Thrift 、HSF(High Speed Service Framework)
+dubbo Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的开源Java RPC框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。
+设计架构 zookeeper 监控 dubbo-admin 核心配置 加载配置 jvm启动参数 -&amp;gt; dubbo.properties -&amp;gt; spring配置
+启动时候检查 Dubbo 缺省会在启动时检查依赖的服务是否可用，不可用时会抛出异常，阻止 Spring 初始化完成，以便上线时，能及早发现问题，默认 check=&amp;quot;true&amp;quot;。
+可以通过 check=&amp;quot;false&amp;quot; 关闭检查，比如，测试时，有些服务不关心，或者出现了循环依赖，必须有一方先启动。
+另外，如果你的 Spring 容器是懒加载的，或者通过 API 编程延迟引用服务，请关闭 check，否则服务临时不可用时，会抛出异常，拿到 null 引用，如果 check=&amp;quot;false&amp;quot;，总是会返回引用，当服务恢复时，能自动连上。</description>
+    </item>
+    
+    <item>
+      <title>Mybatis_generator</title>
+      <link>https://AlfredNing.github.io/note/program/mybatis/mybatis_generator/</link>
+      <pubDate>Sun, 03 Sep 2023 08:44:09 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/mybatis/mybatis_generator/</guid>
+      <description>Mybatis-Generator 生成方式 命令行 maven插件 使用图形化 运行过程 连接数据库 从数据库元数据 生成文件 问题 下划线和驼峰法命名，不加设置下划线自动转驼峰
+maven插件生成 pom.xml
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.nq&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis_generator&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;maven.compiler.source&amp;gt;8&amp;lt;/maven.compiler.source&amp;gt; &amp;lt;maven.compiler.target&amp;gt;8&amp;lt;/maven.compiler.target&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis.generator&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-generator-maven-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.4.2&amp;lt;/version&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.46&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;!--指定生成文件--&amp;gt; &amp;lt;configurationFile&amp;gt;src/main/resources/generator/generatorConfig.xml&amp;lt;/configurationFile&amp;gt; &amp;lt;!--If true, then MBG will write progress messages to the build log.--&amp;gt; &amp;lt;verbose&amp;gt;true&amp;lt;/verbose&amp;gt; &amp;lt;!-- If true, then existing Java files will be overwritten if an existing Java file if found with the same name as a generated file.</description>
+    </item>
+    
     <item>
       <title>数仓理论</title>
       <link>https://AlfredNing.github.io/note/program/dw/%E6%95%B0%E4%BB%93%E7%90%86%E8%AE%BA/</link>
@@ -69,20 +134,6 @@ Memory: 支持B-Tree，Hash索引，不支持FullText索引
 NDB: 支持Hash索引，不支持 B-Tree, FullText索引
 Archive: 不支持 B-Tree, FullText,Hash索引
 创建索引 方式1- 创建表时候指定 普通索引 CREATE TABLE book( book_id INT , book_name VARCHAR(100), authors VARCHAR(100), info VARCHAR(100) , comment VARCHAR(100), year_publication YEAR, INDEX(year_publication) ); 创建唯一索引 CREATE TABLE test1( id INT NOT NULL, name varchar(30) NOT NULL, UNIQUE INDEX uk_idx_id(id) ); 主键索引 CREATE TABLE student ( id INT(10) UNSIGNED AUTO_INCREMENT, student_no VARCHAR(200), student_name VARCHAR(200), PRIMARY KEY(id) ); # 删除主键索引 ALTER TABLE student drop PRIMARY KEY ; 创建单列索引 CREATE TABLE test2( id INT NOT NULL, name CHAR(50) NULL, INDEX single_idx_name(name(20)) ); 创建组合索引 CREATE TABLE test3( id INT(11) NOT NULL, name CHAR(30) NOT NULL, age INT(11) NOT NULL, info VARCHAR(255), INDEX multi_idx(id,name,age) ); 全文索引 CREATE TABLE `papers` ( id` int(10) unsigned NOT NULL AUTO_INCREMENT, `title` varchar(200) DEFAULT NULL, `content` text, PRIMARY KEY (`id`), FULLTEXT KEY `title` (`title`,`content`) ) ENGINE=MyISAM DEFAULT CHARSET=utf8; SELECT * FROM papers WHERE MATCH(title,content) AGAINST (‘查询字符串’); 空间索引 CREATE TABLE test5( geo GEOMETRY NOT NULL, SPATIAL INDEX spa_idx_geo(geo) ) ENGINE=MyISAM; 方式2-已经创建表上的添加 alter 形式 ALTER TABLE table_name ADD [UNIQUE | FULLTEXT | SPATIAL] [INDEX | KEY] [index_name] (col_name[length],.</description>
-    </item>
-    
-    <item>
-      <title>Vue</title>
-      <link>https://AlfredNing.github.io/note/program/front_end/vue/</link>
-      <pubDate>Thu, 01 Jun 2023 00:55:03 +0800</pubDate>
-      
-      <guid>https://AlfredNing.github.io/note/program/front_end/vue/</guid>
-      <description>前介 构建用户界面的渐进式的框架
-渐进式：可以在项目中一点点使用
-Vue3初识 命令式编程vs声明式编程 命令式编程：how to do
-声明式编程：what to do . 由框架完成how 的部分
-MVVM模型 Model - View - ViewMode ： 软件架构模式
-Vue Demo &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;!-- 这里的template 是html提供的，也可以换成div等，但是template是不显示 --&amp;gt; &amp;lt;template id=&amp;#34;t1&amp;#34;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h2&amp;gt;{{counter}}&amp;lt;/h2&amp;gt; &amp;lt;button @click=&amp;#39;increment&amp;#39;&amp;gt;+1&amp;lt;/button&amp;gt; &amp;lt;button @click=&amp;#39;decrement&amp;#39;&amp;gt;-1&amp;lt;/button&amp;gt; &amp;lt;h3&amp;gt;{{message}}&amp;lt;/h3&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script src=&amp;#34;https://unpkg.com/vue@3/dist/vue.global.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; Vue.createApp({ // 这里使用模板字符串 template: &amp;#39;#t1&amp;#39;, // vue3 data 函数 data: function () { return { message: &amp;#34;hello&amp;#34;, counter: 100 } }, methods: { increment() { this.</description>
     </item>
     
     <item>

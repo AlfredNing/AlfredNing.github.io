@@ -15,7 +15,7 @@ NEW ：如果找不到Class对象，则进行类加载。加载成功后，则�
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3a98f5547189c82a95c3f9771fcf711c0443d8fb2402e878cc7608bafce4aede.css" integrity="sha256-Opj1VHGJyCqVw/l3H89xHARD2PskAuh4zHYIuvzkrt4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0afa94d2b970a706db3fee2bf670661d8e9e2df61019549dcb856ed6d409b75d.css" integrity="sha256-CvqU0rlwpwbbP&#43;4r9nBmHY6eLfYQGVSdy4Vu1tQJt10=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
@@ -25,6 +25,7 @@ NEW ：如果找不到Class对象，则进行类加载。加载成功后，则�
 <link rel="mask-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://AlfredNing.github.io/note/program/jvm/%E5%AF%B9%E8%B1%A1%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/">
 <noscript>
     <style>
         #theme-toggle,
@@ -62,25 +63,20 @@ NEW ：如果找不到Class对象，则进行类加载。加载成功后，则�
 
     </style>
 </noscript>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123-45', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><meta property="og:title" content="对象内存布局" />
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="对象内存布局" />
 <meta property="og:description" content="对象的实例化 创建对象的方式 new 关键字 Class的newInstance()：反射的方式，只能调用空参的构造器，权限必须是public Constructor的newInstance(X)：反射的方式，可以调用空参、带参的构造器，权限没有要求，实用性更广 使用clone: 不调用任何构造器，当前类只需要实现Clonable接口，默认是浅拷贝 使用反序列化：从文件、数据库当中、网络中获取一个对象的二进制流，反序列化为内存的对象 利用asm字节码技术，动态生成Constructor对象，第三方库Objensis 创建对象的步骤 字节码角度 new 后面来说一般都会跟着dup，因为在需要调用init方法，操作栈上要进行出栈
 NEW ：如果找不到Class对象，则进行类加载。加载成功后，则在堆中分配内存，从Object 开始到本类路径上的所有属性值都要分配内存。分配完毕之后，进行零值初始化。在分配过程中，注意引用是占据存储空间的，它是一个变量，占用4个字节。这个指令完毕后，将指向实例对象的引用变量压入虚拟机栈顶。 DUP ：在栈顶复制该引用变量，这时的栈顶有两个指向堆内实例对象的引用变量。如果 方法有参数，还需要把参数压人操作栈中。两个引用变量的目的不同，其中压至底下的引用用于赋值，或者保存到局部变量表，另一个栈顶的引用变量作为句柄调用相关方法。 INVOKESPECIAL ：调用对象实例方法，通过栈顶的引用变量调用＜init&gt; 方法。
 执行步骤角度 - 面试回答 判断对象的类是否加载、链接、初始化 虚拟机遇到一条new指令，首选会去检查指令的参数能否在Metaspace的常量池中定位到一个类的符号引用，并且检查这个符号所代表的类是否被加载、解析和初始化。（判断类元信息是否存在） 如果没有，在双亲委派模型下，使用当前类加载器以ClassLoader&#43;包名&#43;类名为key进行查找对应的.class文件 如果没有找到文件，抛出ClassNotFoundException异常 如果找到，则进行类加载，并生成对应的class类对象 为对象分配内存 首先计算对象占用空间的大小，接着在堆中划分一块内存给对象。如果实例成员变量是引用变量，仅分配引用变量空间即可，即4个字节大小 说明：选择哪种分配方式由Java堆是否规整决定，而Java堆是否规整又由所采用的垃圾收集器是否带有压缩整理功能决定。 指针碰撞 如果内存规整，使用指针碰撞 如果内存是规整的，那么虚拟机将采用的是指针碰撞法（Bump The Pointer）来为对象分配内存。意思是所有用过的内存在一边，空闲的内存在另外一边，中间放着一个指针作为分界点的指示器，分配内存就仅仅是把指针向空闲那边挪动一段与对象大小相等的距离罢了。 如果垃圾收集器选择的是Serial、ParNew这种基于压缩算法的，虚拟机采用这种分配方式。 一般使用带有compact（整理）过程的收集器时，使用指针碰撞。 空闲列表 如果内存不规整，虚拟机需要维护一个列表，使用空闲列表分配 如果内存不是规整的，已使用的内存和未使用的内存相互交错，那么虚拟机将采用的是空闲列表法来为对象分配内存。意思是虚拟机维护了一个列表，记录上哪些内存块是可用的，再分配的时候从列表中找到一块足够大的空间划分给对象实例，并更新列表上的内容。这种分配方式称为“空闲列表（Free List）”。处理并发安全问题 分配内存空间问题，创建对象是很频繁的操作，虚拟机确保new对象的时候的线程安全，需要解决并发问题。虚拟机采用两种方式来解决并发问题 CAS 失败重试、区域加锁：保证指针更新操作的原子性 TLAB 把内存分配的动作按照不同的线程划分在不同的空间之中进行，即保证每个线程在Java堆中预先分配一小块内存，称为本地线程分配缓冲区。（Thread Local Allocation Buffer)。虚拟机是否使用TLAB, 可以通过-XX:&#43;/-UseTLAB参数决定 初始化分配到的内存空间 内存分配结束，虚拟机将分配到的内存空间都初始化为零值(不包括对象头)。这一步保证了对象的实例字段在Java代码中不用初始化就可以直接使用，程序能访问到这些字段的数据类型所对应的零值 设置对象的对象头 将对象的所属类（即类的元数据信息）、对象的hashCode和对象的GC信息、锁信息等数据存储在对象的对象头中。这个过程的具体设置方式取决于JVM实现 执行init方法的初始化 在Java程序的视角来看，初始化在正式开始。初始化成员变量，执行实例化代码块，调用类的构造方法，并把堆内对象的首地址赋值给引用变量 因此一般来说（由字节码中是否跟随有invokespecial指令所决定），new指令之后会接着就是执行方法，把对象按照程序员的意愿进行初始化，这样一个真正可用的对象才算完全创建出来。 对象的内存布局 对象头 对象自身运行的运行时元数据 哈希值：对象在堆空间中都有一个首地址值，栈空间的引用根据这个地址指向堆中的对象，这就是哈希值起的作用 GC分代年龄：对象是在Eden区创建，经过多次GC后，如果还没有进行回收，就会在survivor中来回移动，其对应的年龄计数器会发生变化，达到阈值后会进入养老区。 锁状态标志：在同步中判断该对象是否是锁 线程持有的锁 线程偏向ID 偏向时间戳 另一个是类型指针，执行元数据区的类元数据InstancClass,确定该对象所数据的类型 如果对象是数组，对象头中还必须要有一块用于记录数组的长度的数据 因为正常对象元数据就知道对象的确切大小。数组必须得知道长度 实例数据 对象真正存储的有效数据，包括代码中定义的各种类型的字段（包括从父类继承下来【包括父类私有】的和本身拥有的字段）" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://AlfredNing.github.io/note/program/jvm/%E5%AF%B9%E8%B1%A1%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/" /><meta property="article:section" content="note" />
 <meta property="article:published_time" content="2023-04-13T22:46:33+08:00" />
-<meta property="article:modified_time" content="2023-04-19T22:44:50+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
+<meta property="article:modified_time" content="2024-07-01T11:38:49+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="对象内存布局"/>
@@ -93,28 +89,28 @@ NEW ：如果找不到Class对象，则进行类加载。加载成功后，则�
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [, 
+  "itemListElement": [
     {
       "@type": "ListItem",
-      "position":  2 ,
+      "position":  1 ,
       "name": "笔记",
       "item": "https://AlfredNing.github.io/note/"
     }, 
     {
       "@type": "ListItem",
-      "position":  3 ,
+      "position":  2 ,
       "name": "编程",
       "item": "https://AlfredNing.github.io/note/program/"
     }, 
     {
       "@type": "ListItem",
-      "position":  4 ,
+      "position":  3 ,
       "name": "jvm",
       "item": "https://AlfredNing.github.io/note/program/jvm/"
     }, 
     {
       "@type": "ListItem",
-      "position":  5 ,
+      "position":  4 ,
       "name": "对象内存布局",
       "item": "https://AlfredNing.github.io/note/program/jvm/%E5%AF%B9%E8%B1%A1%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/"
     }
@@ -135,7 +131,7 @@ NEW ：如果找不到Class对象，则进行类加载。加载成功后，则�
   "wordCount" : "96",
   "inLanguage": "zh",
   "datePublished": "2023-04-13T22:46:33+08:00",
-  "dateModified": "2023-04-19T22:44:50.0484733+08:00",
+  "dateModified": "2024-07-01T11:38:49.7214789+08:00",
   "author":[{
     "@type": "Person",
     "name": "AlfredNing"
@@ -171,7 +167,7 @@ NEW ：如果找不到Class对象，则进行类加载。加载成功后，则�
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://AlfredNing.github.io" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
+            <a href="https://AlfredNing.github.io/" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -193,6 +189,8 @@ NEW ：如果找不到Class对象，则进行类加载。加载成功后，则�
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -233,15 +231,15 @@ NEW ：如果找不到Class对象，则进行类加载。加载成功后，则�
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/jvm/">jvm</a></div>
+            <div class="breadcrumbs"><a href="https://AlfredNing.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/jvm/">jvm</a></div>
             <h1 class="post-title">
                 对象内存布局
             </h1>
-            <div class="post-meta">创建:&nbsp;<span title='2023-04-13 22:46:33 +0800 CST'>2023年-04月-13日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-04月-19日&nbsp;|&nbsp;字数:&nbsp;96字&nbsp;|&nbsp;时长:&nbsp;1分钟&nbsp;|&nbsp;AlfredNing
+            <div class="post-meta">创建:&amp;nbsp;&lt;span title=&#39;2023-04-13 22:46:33 &#43;0800 CST&#39;&gt;2023年-04月-13日&lt;/span&gt;&amp;nbsp;|&amp;nbsp;更新:&amp;nbsp;2024年-07月-01日&amp;nbsp;|&amp;nbsp;字数:&amp;nbsp;96字&amp;nbsp;|&amp;nbsp;时长:&amp;nbsp;1分钟&amp;nbsp;|&amp;nbsp;AlfredNing
 
                 &nbsp;|&nbsp;标签: &nbsp;
                 <ul class="post-tags-meta">
-                    <a href="https://AlfredNing.github.io/tags/jvm/">jvm</a>
+                    <a href="https://AlfredNing.github.io/tags/jvm/">Jvm</a>
                 </ul>
 
                 
@@ -504,7 +502,7 @@ INVOKESPECIAL ：调用对象实例方法，通过栈顶的引用变量调用＜
 </main>
 
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
+    <span>&copy; 2024 <a href="https://AlfredNing.github.io/">AlfredNing</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

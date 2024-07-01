@@ -18,7 +18,7 @@ Archive: 不支持 B-Tree, FullText,Hash索引
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3a98f5547189c82a95c3f9771fcf711c0443d8fb2402e878cc7608bafce4aede.css" integrity="sha256-Opj1VHGJyCqVw/l3H89xHARD2PskAuh4zHYIuvzkrt4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0afa94d2b970a706db3fee2bf670661d8e9e2df61019549dcb856ed6d409b75d.css" integrity="sha256-CvqU0rlwpwbbP&#43;4r9nBmHY6eLfYQGVSdy4Vu1tQJt10=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
@@ -28,6 +28,7 @@ Archive: 不支持 B-Tree, FullText,Hash索引
 <link rel="mask-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%88%86%E6%9E%90_%E7%B4%A2%E5%BC%95/">
 <noscript>
     <style>
         #theme-toggle,
@@ -65,18 +66,13 @@ Archive: 不支持 B-Tree, FullText,Hash索引
 
     </style>
 </noscript>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123-45', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><meta property="og:title" content="MySql高级 索引_集群" />
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="MySql高级 索引_集群" />
 <meta property="og:description" content="索引 索引的分类 从功能逻辑划分 普通索引 唯一索引 主键索引 全文索引 从物理实现方法划分 聚簇索引 非聚簇索引 从作用字段划分 单列索引 联合索引 InnoDB: 支持B-Tree，FullText索引，不支持Hash索引
 MyISAM: 支持B-Tree，FullText索引，不支持Hash索引
 Memory: 支持B-Tree，Hash索引，不支持FullText索引
@@ -86,7 +82,7 @@ Archive: 不支持 B-Tree, FullText,Hash索引
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%88%86%E6%9E%90_%E7%B4%A2%E5%BC%95/" /><meta property="article:section" content="note" />
 <meta property="article:published_time" content="2023-06-04T11:20:59+08:00" />
-<meta property="article:modified_time" content="2023-06-11T13:55:51+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
+<meta property="article:modified_time" content="2024-07-01T11:38:49+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MySql高级 索引_集群"/>
@@ -102,22 +98,22 @@ Archive: 不支持 B-Tree, FullText,Hash索引
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [, 
+  "itemListElement": [
     {
       "@type": "ListItem",
-      "position":  2 ,
+      "position":  1 ,
       "name": "笔记",
       "item": "https://AlfredNing.github.io/note/"
     }, 
     {
       "@type": "ListItem",
-      "position":  3 ,
+      "position":  2 ,
       "name": "编程",
       "item": "https://AlfredNing.github.io/note/program/"
     }, 
     {
       "@type": "ListItem",
-      "position":  4 ,
+      "position":  3 ,
       "name": "MySql高级 索引_集群",
       "item": "https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%88%86%E6%9E%90_%E7%B4%A2%E5%BC%95/"
     }
@@ -138,7 +134,7 @@ Archive: 不支持 B-Tree, FullText,Hash索引
   "wordCount" : "2321",
   "inLanguage": "zh",
   "datePublished": "2023-06-04T11:20:59+08:00",
-  "dateModified": "2023-06-11T13:55:51.9850141+08:00",
+  "dateModified": "2024-07-01T11:38:49.7405108+08:00",
   "author":[{
     "@type": "Person",
     "name": "AlfredNing"
@@ -174,7 +170,7 @@ Archive: 不支持 B-Tree, FullText,Hash索引
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://AlfredNing.github.io" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
+            <a href="https://AlfredNing.github.io/" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -196,6 +192,8 @@ Archive: 不支持 B-Tree, FullText,Hash索引
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -236,11 +234,11 @@ Archive: 不支持 B-Tree, FullText,Hash索引
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a></div>
+            <div class="breadcrumbs"><a href="https://AlfredNing.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a></div>
             <h1 class="post-title">
                 MySql高级 索引_集群
             </h1>
-            <div class="post-meta">创建:&nbsp;<span title='2023-06-04 11:20:59 +0800 CST'>2023年-06月-04日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-06月-11日&nbsp;|&nbsp;字数:&nbsp;2321字&nbsp;|&nbsp;时长:&nbsp;11分钟&nbsp;|&nbsp;AlfredNing
+            <div class="post-meta">创建:&amp;nbsp;&lt;span title=&#39;2023-06-04 11:20:59 &#43;0800 CST&#39;&gt;2023年-06月-04日&lt;/span&gt;&amp;nbsp;|&amp;nbsp;更新:&amp;nbsp;2024年-07月-01日&amp;nbsp;|&amp;nbsp;字数:&amp;nbsp;2321字&amp;nbsp;|&amp;nbsp;时长:&amp;nbsp;11分钟&amp;nbsp;|&amp;nbsp;AlfredNing
 
                 &nbsp;|&nbsp;标签: &nbsp;
                 <ul class="post-tags-meta">
@@ -1170,14 +1168,14 @@ Archive: 不支持 B-Tree, FullText,Hash索引
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 表相关
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">#</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">查询表的访问量</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">table_schema</span><span class="p">,</span><span class="k">table_name</span><span class="p">,</span><span class="k">sum</span><span class="p">(</span><span class="n">io_read_requests</span><span class="o">+</span><span class="n">io_write_requests</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">io</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">schema_table_statistics</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">table_schema</span><span class="p">,</span><span class="k">table_name</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">io</span><span class="w"> </span><span class="k">desc</span><span class="p">;</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">查询占用</span><span class="n">bufferpool</span><span class="err">较多的表</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">查询占用</span><span class="n">bufferpool较多的表</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">object_schema</span><span class="p">,</span><span class="n">object_name</span><span class="p">,</span><span class="n">allocated</span><span class="p">,</span><span class="k">data</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">innodb_buffer_stats_by_table</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">allocated</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="err">查看表的全表扫描情况</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">statements_with_full_table_scans</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">db</span><span class="o">=</span><span class="s1">&#39;dbname&#39;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 语句相关
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">#</span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">监控</span><span class="n">SQL</span><span class="err">执行的频率</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">#</span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">监控</span><span class="n">SQL执行的频率</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">db</span><span class="p">,</span><span class="n">exec_count</span><span class="p">,</span><span class="n">query</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">statement_analysis</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">exec_count</span><span class="w"> </span><span class="k">desc</span><span class="p">;</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">监控使用了排序的</span><span class="k">SQL</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">db</span><span class="p">,</span><span class="n">exec_count</span><span class="p">,</span><span class="n">first_seen</span><span class="p">,</span><span class="n">last_seen</span><span class="p">,</span><span class="n">query</span><span class="w">
@@ -1187,7 +1185,7 @@ Archive: 不支持 B-Tree, FullText,Hash索引
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">statement_analysis</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">tmp_tables</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">tmp_disk_tables</span><span class="w"> </span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="p">(</span><span class="n">tmp_tables</span><span class="o">+</span><span class="n">tmp_disk_tables</span><span class="p">)</span><span class="w"> </span><span class="k">desc</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- io相关
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">#</span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">查看消耗磁盘</span><span class="n">IO</span><span class="err">的文件</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">#</span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">查看消耗磁盘</span><span class="n">IO的文件</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="n">avg_read</span><span class="p">,</span><span class="n">avg_write</span><span class="p">,</span><span class="n">avg_read</span><span class="o">+</span><span class="n">avg_write</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_io</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">io_global_by_file_by_bytes</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">avg_read</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -1210,15 +1208,15 @@ Archive: 不支持 B-Tree, FullText,Hash索引
 <h3 id="全值匹配">全值匹配<a hidden class="anchor" aria-hidden="true" href="#全值匹配">#</a></h3>
 <p>按照索引进行匹配，<strong>不会失效</strong></p>
 <h3 id="最佳左前缀法则">最佳左前缀法则<a hidden class="anchor" aria-hidden="true" href="#最佳左前缀法则">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">-</span><span class="w"> </span><span class="n">age</span><span class="err">建立索引</span><span class="w"> </span><span class="n">name</span><span class="err">建立索引</span><span class="w"> </span><span class="err">使用</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">-</span><span class="w"> </span><span class="n">age建立索引</span><span class="w"> </span><span class="n">name建立索引</span><span class="w"> </span><span class="err">使用</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">SQL_NO_CACHE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;abcd&#39;</span><span class="p">;</span><span class="w">	
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 只有索引age classid name 下面不会使用索引 但现在没有这样的索引，idx_age_classid_name的字段顺序是先找age，所以不符合，所以此时不能用索引
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">SQL_NO_CACHE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">classid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;abcd&#39;</span><span class="p">;</span><span class="w">	
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">SQL_NO_CACHE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;abcd&#39;</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">现在，删除</span><span class="n">idx_age</span><span class="err">和</span><span class="n">idx_age_classid</span><span class="err">，发现用到</span><span class="n">idx_age_classid_name</span><span class="err">，而</span><span class="n">key_len</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="err">即只用到</span><span class="n">age</span><span class="err">字段，</span><span class="nb">int</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="k">null</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="err">因为索引完</span><span class="n">age</span><span class="err">后没有</span><span class="n">classid</span><span class="err">了，不能再查找到</span><span class="n">name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">现在，删除</span><span class="n">idx_age和idx_age_classid</span><span class="err">，发现用到</span><span class="n">idx_age_classid_name</span><span class="err">，而</span><span class="n">key_len</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="err">即只用到</span><span class="n">age字段</span><span class="err">，</span><span class="nb">int</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="k">null</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="err">因为索引完</span><span class="n">age后没有classid了</span><span class="err">，不能再查找到</span><span class="n">name</span><span class="w">
 </span></span></span></code></pre></div><p>在MySQL建立联合索引时会遵守最佳左前缀匹配原则，即最左优先，在检索数据时从联合索引的最左边开始匹配。</p>
 <p>结论：MySQL可以为多个字段创建索引，一个索引可以包括16个字段。对于多列索引，**过滤条件要使用索引必须按照索引建立时的顺序，依次满足，一旦跳过某个字段，索引后面的字段都无法被使用。**如果查询条件中没有使用这些字段中第1个字段时，多列（或联合）索引不会被使用。</p>
 <h3 id="主键插入顺序">主键插入顺序<a hidden class="anchor" aria-hidden="true" href="#主键插入顺序">#</a></h3>
@@ -1230,9 +1228,9 @@ Archive: 不支持 B-Tree, FullText,Hash索引
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">SQL_NO_CACHE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;abc%&#39;</span><span class="p">;</span><span class="w">	</span><span class="o">#</span><span class="err">更好，能够使用上索引</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="k">type</span><span class="o">=</span><span class="n">range</span><span class="w"> </span><span class="err">使用了索引中的排序</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">SQL_NO_CACHE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">LEFT</span><span class="p">(</span><span class="n">student</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;abc&#39;</span><span class="p">;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="k">left</span><span class="p">(</span><span class="nb">text</span><span class="p">,</span><span class="n">num_chars</span><span class="p">):</span><span class="err">截取左侧</span><span class="n">n</span><span class="err">个字符</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">SQL_NO_CACHE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">LEFT</span><span class="p">(</span><span class="n">student</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;abc&#39;</span><span class="p">;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="k">left</span><span class="p">(</span><span class="nb">text</span><span class="p">,</span><span class="n">num_chars</span><span class="p">):</span><span class="err">截取左侧</span><span class="n">n个字符</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="err">全表的访问</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">该语句的执行过程：针对每一条数据，一个一个取出，先作用一遍函数，再拿函数结果与</span><span class="n">abc</span><span class="err">对比，用不上</span><span class="n">b</span><span class="o">+</span><span class="err">树</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">该语句的执行过程：针对每一条数据，一个一个取出，先作用一遍函数，再拿函数结果与</span><span class="n">abc对比</span><span class="err">，用不上</span><span class="n">b</span><span class="o">+</span><span class="err">树</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_name</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">student</span><span class="p">(</span><span class="n">NAME</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -1245,7 +1243,7 @@ Archive: 不支持 B-Tree, FullText,Hash索引
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">#</span><span class="w"> </span><span class="err">未使用到索引</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">SQL_NO_CACHE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">NAME</span><span class="o">=</span><span class="mi">123</span><span class="p">;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="err">这里使用了隐式转换</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">使用到索引</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">SQL_NO_CACHE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">NAME</span><span class="o">=</span><span class="s1">&#39;123&#39;</span><span class="p">;</span><span class="w"> 	</span><span class="o">#</span><span class="w"> </span><span class="n">name</span><span class="err">本身就是字符串类型</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">SQL_NO_CACHE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">NAME</span><span class="o">=</span><span class="s1">&#39;123&#39;</span><span class="p">;</span><span class="w"> 	</span><span class="o">#</span><span class="w"> </span><span class="n">name本身就是字符串类型</span><span class="w">
 </span></span></span></code></pre></div><h3 id="范围条件右边的列索引失效">范围条件右边的列索引失效<a hidden class="anchor" aria-hidden="true" href="#范围条件右边的列索引失效">#</a></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 存在索引 age classId name 但是下面只会使用到 age classId
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">SQL_NO_CACHE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">classId</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;abc&#39;</span><span class="p">;</span><span class="w">	
@@ -1264,7 +1262,7 @@ Archive: 不支持 B-Tree, FullText,Hash索引
 <h3 id="is-null-可以使用索引-is-not-null-无法使用索引">is null 可以使用索引 is not null 无法使用索引<a hidden class="anchor" aria-hidden="true" href="#is-null-可以使用索引-is-not-null-无法使用索引">#</a></h3>
 <p>is null : 触发索引</p>
 <h3 id="like以通配符开头索引失效">like以通配符%开头索引失效<a hidden class="anchor" aria-hidden="true" href="#like以通配符开头索引失效">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">#</span><span class="w"> </span><span class="n">like</span><span class="err">以通配符</span><span class="o">%</span><span class="err">开头索引失效</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">#</span><span class="w"> </span><span class="n">like以通配符</span><span class="o">%</span><span class="err">开头索引失效</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">SQL_NO_CACHE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">NAME</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;ab%&#39;</span><span class="p">;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="err">可用索引</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">SQL_NO_CACHE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">NAME</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%ab&#39;</span><span class="p">;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="err">索引失效</span><span class="w">
@@ -1562,34 +1560,34 @@ SHOW VARIABLES LIKE &lsquo;%max_length_for_sort_data%&rsquo;;</li>
 <li>触发条件不能下推。</li>
 </ol>
 <h3 id="icp的开启和关闭">ICP的开启和关闭<a hidden class="anchor" aria-hidden="true" href="#icp的开启和关闭">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="err">索引条件默认启用“下推”。可以通过设置</span><span class="n">index_condition_pushdown</span><span class="err">标志来控制</span><span class="n">optimizer_switch</span><span class="err">系统变量</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="err">索引条件默认启用“下推”。可以通过设置</span><span class="n">index_condition_pushdown标志来控制optimizer_switch系统变量</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">optimizer_switch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;index_condition_pushdown=off&#39;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">optimizer_switch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;index_condition_pushdown=on&#39;</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div><h2 id="其他查询优化策略">其他查询优化策略<a hidden class="anchor" aria-hidden="true" href="#其他查询优化策略">#</a></h2>
 <h3 id="exists-与-in-区分">exists 与 in 区分<a hidden class="anchor" aria-hidden="true" href="#exists-与-in-区分">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">#</span><span class="w"> </span><span class="err">大表</span><span class="n">A</span><span class="err">驱动小表</span><span class="n">cc</span><span class="err">时用</span><span class="k">in</span><span class="err">；即当</span><span class="n">A</span><span class="err">表的数据量大于</span><span class="n">B</span><span class="err">表的数据量时</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">#</span><span class="w"> </span><span class="err">大表</span><span class="n">A驱动小表cc时用in</span><span class="err">；即当</span><span class="n">A表的数据量大于B表的数据量时</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">cc</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">CC</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">B</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">当</span><span class="n">A</span><span class="err">表的数据量小于</span><span class="n">B</span><span class="err">表的数据量时</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">小表</span><span class="n">A</span><span class="err">驱动大表</span><span class="n">cc</span><span class="err">时用</span><span class="k">EXISTS</span><span class="w"> </span><span class="err">，因为执行时每次是从</span><span class="n">A</span><span class="err">中取一条数据到</span><span class="k">SELECT</span><span class="w"> </span><span class="n">cc</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">cc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">cc</span><span class="err">中执行，</span><span class="n">A</span><span class="err">小一点更合适</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">当</span><span class="n">A表的数据量小于B表的数据量时</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">小表</span><span class="n">A驱动大表cc时用EXISTS</span><span class="w"> </span><span class="err">，因为执行时每次是从</span><span class="n">A中取一条数据到SELECT</span><span class="w"> </span><span class="n">cc</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">cc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">cc中执行</span><span class="err">，</span><span class="n">A小一点更合适</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">cc</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">cc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">cc</span><span class="p">)</span><span class="w">
 </span></span></span></code></pre></div><h3 id="count与count具体字段效率">COUNT(*)与COUNT(具体字段)效率<a hidden class="anchor" aria-hidden="true" href="#count与count具体字段效率">#</a></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="err">与</span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="err">都是统计表的所有数量，效率差别不大</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">如果使用</span><span class="n">MyISAM</span><span class="err">存储引擎，统计数据表的行数只需要</span><span class="n">O</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="err">的复杂度</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">如果使用</span><span class="n">InnoDB</span><span class="err">存储引擎，使用</span><span class="n">O</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="err">的复杂度</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">在</span><span class="n">InnoDB</span><span class="err">存储引擎中，如果使用</span><span class="k">Count</span><span class="p">(</span><span class="err">具体字段</span><span class="p">)</span><span class="err">来统计数据行数，尽量采用二级索引，如果没有二级索引，才使用主键索引来使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">如果使用</span><span class="n">MyISAM存储引擎</span><span class="err">，统计数据表的行数只需要</span><span class="n">O</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="err">的复杂度</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">如果使用</span><span class="n">InnoDB存储引擎</span><span class="err">，使用</span><span class="n">O</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="err">的复杂度</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">在</span><span class="n">InnoDB存储引擎中</span><span class="err">，如果使用</span><span class="k">Count</span><span class="p">(</span><span class="err">具体字段</span><span class="p">)</span><span class="err">来统计数据行数，尽量采用二级索引，如果没有二级索引，才使用主键索引来使用</span><span class="w">
 </span></span></span></code></pre></div><h3 id="select-字段">select 字段<a hidden class="anchor" aria-hidden="true" href="#select-字段">#</a></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="err">在表查询中，建议明确字段，不要使用</span><span class="o">*</span><span class="err">作为查询的字段列表，推荐使用</span><span class="k">SELECT</span><span class="o">&lt;</span><span class="err">字段列表</span><span class="o">&gt;</span><span class="err">查询。原因：</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">①</span><span class="n">MySQL</span><span class="err">在解析的过程中，会通过查询数据字典将</span><span class="s2">&#34;*&#34;</span><span class="err">按序转换成所有列名，这会大大的耗费资源和时间。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">①</span><span class="n">MySQL在解析的过程中</span><span class="err">，会通过查询数据字典将</span><span class="s2">&#34;*&#34;</span><span class="err">按序转换成所有列名，这会大大的耗费资源和时间。</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">②无法使用覆盖索引</span><span class="w">
 </span></span></span></code></pre></div><h3 id="limit-1-对优化的影响">limit 1 对优化的影响<a hidden class="anchor" aria-hidden="true" href="#limit-1-对优化的影响">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="err">针对的是会扫描全表的</span><span class="n">SQL</span><span class="err">语句，如果你可以确定结果集只有一条，那么加上</span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">的时候，当找到一条结果的时候就不会继续扫描了，这样会加快查询速度。</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="err">针对的是会扫描全表的</span><span class="n">SQL语句</span><span class="err">，如果你可以确定结果集只有一条，那么加上</span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">的时候，当找到一条结果的时候就不会继续扫描了，这样会加快查询速度。</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">如果数据表已经对字段建立了唯一索引，那么可以通过索引进行查询，不会全表扫描的话，就不需要加上</span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">了。</span><span class="w">
 </span></span></span></code></pre></div><h3 id="多使用commit">多使用COMMIT<a hidden class="anchor" aria-hidden="true" href="#多使用commit">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="err">只要有可能，在程序中尽量多使用</span><span class="k">COMMIT</span><span class="err">，这样程序的性能得到提高，需求也会因为</span><span class="n">COMMIT</span><span class="err">所释放的资源而减少。</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="err">只要有可能，在程序中尽量多使用</span><span class="k">COMMIT</span><span class="err">，这样程序的性能得到提高，需求也会因为</span><span class="n">COMMIT所释放的资源而减少</span><span class="err">。</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">COMMIT</span><span class="err">所释放的资源：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">COMMIT所释放的资源</span><span class="err">：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">回滚段上用于恢复数据的信息</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">被程序语句获得的锁</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">redo</span><span class="o">/</span><span class="w"> </span><span class="n">undo</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="err">中的空间</span><span class="w">
@@ -1643,10 +1641,10 @@ SHOW VARIABLES LIKE &lsquo;%max_length_for_sort_data%&rsquo;;</li>
     <br>
     <span>MySql高级 事务</span>
   </a>
-  <a class="next" href="https://AlfredNing.github.io/note/program/front_end/vue/">
+  <a class="next" href="https://AlfredNing.github.io/note/program/architecture/ddd/">
     <span class="title">下一页 »</span>
     <br>
-    <span>Vue</span>
+    <span>DDD</span>
   </a>
 </nav>
 
@@ -1671,7 +1669,7 @@ SHOW VARIABLES LIKE &lsquo;%max_length_for_sort_data%&rsquo;;</li>
 </main>
 
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
+    <span>&copy; 2024 <a href="https://AlfredNing.github.io/">AlfredNing</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

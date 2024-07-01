@@ -5,7 +5,27 @@
     <link>https://AlfredNing.github.io/tags/mybatis/</link>
     <description>Recent content in MyBatis on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 03 Sep 2023 08:44:09 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh</language>
+    <lastBuildDate>Sun, 17 Sep 2023 08:53:52 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mybatis_plus</title>
+      <link>https://AlfredNing.github.io/note/program/mybatis/mybatis_plus/</link>
+      <pubDate>Sun, 17 Sep 2023 08:53:52 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/mybatis/mybatis_plus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>通用mapper</title>
+      <link>https://AlfredNing.github.io/note/program/mybatis/tk-mapper/</link>
+      <pubDate>Sat, 16 Sep 2023 20:21:08 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/mybatis/tk-mapper/</guid>
+      <description>通用MapperMBG pom.xml
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.nq&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;MapperMBG&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;maven.compiler.source&amp;gt;8&amp;lt;/maven.compiler.source&amp;gt; &amp;lt;maven.compiler.target&amp;gt;8&amp;lt;/maven.compiler.target&amp;gt; &amp;lt;!-- basedir引用工程目录--&amp;gt; &amp;lt;!-- targetJavaProject: 声明存放源码的目录位置--&amp;gt; &amp;lt;targetJavaProject&amp;gt;${basedir}/src/main/java&amp;lt;/targetJavaProject&amp;gt; &amp;lt;!-- targetMapperPackage: 声明存放mapper接口的package位置--&amp;gt; &amp;lt;targetMapperPackage&amp;gt;com.nq.user.mapper&amp;lt;/targetMapperPackage&amp;gt; &amp;lt;!-- targetModelPackage: 声明存放实体类位置--&amp;gt; &amp;lt;targetModelPackage&amp;gt;com.nq.user.entity&amp;lt;/targetModelPackage&amp;gt; &amp;lt;!-- targetResourcesProject 声明存放资源文件的目录位置--&amp;gt; &amp;lt;targetResourcesProject&amp;gt;${basedir}/src/main/resources&amp;lt;/targetResourcesProject&amp;gt; &amp;lt;!-- targetXMLPackage 声明存放mapper xml文件的目录位置 多层文件写法com/nq/mapper--&amp;gt; &amp;lt;targetXMLPackage&amp;gt;mappers&amp;lt;/targetXMLPackage&amp;gt; &amp;lt;!-- 通用mapper版本号 --&amp;gt; &amp;lt;mapper.version&amp;gt;4.1.5&amp;lt;/mapper.version&amp;gt; &amp;lt;!-- mysql驱动版本号 --&amp;gt; &amp;lt;mysql.version&amp;gt;5.1.46&amp;lt;/mysql.version&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;tk.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mapper&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${mapper.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.2.8&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${mysql.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
+    </item>
+    
     <item>
       <title>Mybatis_generator</title>
       <link>https://AlfredNing.github.io/note/program/mybatis/mybatis_generator/</link>

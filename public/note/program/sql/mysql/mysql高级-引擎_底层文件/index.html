@@ -20,7 +20,7 @@ sql model 常用来解决下面几类问题
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3a98f5547189c82a95c3f9771fcf711c0443d8fb2402e878cc7608bafce4aede.css" integrity="sha256-Opj1VHGJyCqVw/l3H89xHARD2PskAuh4zHYIuvzkrt4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0afa94d2b970a706db3fee2bf670661d8e9e2df61019549dcb856ed6d409b75d.css" integrity="sha256-CvqU0rlwpwbbP&#43;4r9nBmHY6eLfYQGVSdy4Vu1tQJt10=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
@@ -30,6 +30,7 @@ sql model 常用来解决下面几类问题
 <link rel="mask-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%BC%95%E6%93%8E_%E5%BA%95%E5%B1%82%E6%96%87%E4%BB%B6/">
 <noscript>
     <style>
         #theme-toggle,
@@ -67,18 +68,13 @@ sql model 常用来解决下面几类问题
 
     </style>
 </noscript>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123-45', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><meta property="og:title" content="MySQL高级-引擎_底层文件" />
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="MySQL高级-引擎_底层文件" />
 <meta property="og:description" content="系统配置 字符集的设置 show variables like &#39;character%&#39;; character_set_server：服务器级别的字符集 character_set_database：当前数据库的字符集 character_set_client：服务器解码请求时使用的字符集 character_set_connection：服务器处理请求时会把请求字符串从character_set_client转为character_set_connection character_set_results：服务器向客户端返回数据时使用的字符集 小结
 如果创建或修改列时没有显式的指定字符集和比较规则，则该列默认用表的字符集和比较规则 如果创建表时没有显式的指定字符集和比较规则，则该表默认用数据库的字符集和比较规则 如果创建数据库时没有显式的指定字符集和比较规则，则该数据库默认用服务器的字符集和比较规则 请求到响应过程中字符集的变化 graph TBA(客户端) --&gt; |&#34;使用操作系统的字符集编码请求字符串&#34;| B(从character_set_client转换为character_set_connection)B --&gt; C(从character_set_connection转换为具体的列使用的字符集)C --&gt; D(将查询结果从具体的列上使用的字符集转换为character_set_results)D --&gt; |&#34;使用操作系统的字符集解码响应的字符串&#34;| A SQL大小写的设置 show variables like &#39;%lower_case_table_names%&#39; 该参数只适用于5.7版本 默认为0 大小写敏感 设置为1，大小写不敏感，创建的表都是以小写方式存放在磁盘上，对于sql语句都是转换为小写对表和数据库查找 设置为2，创建的表和数据库依据语句上存放，凡是查找都是转换为小写进行 SQL编写建议 关键字和函数名称全部大写 数据库名、表名、表别名、字段名、字段别名等全部小写 SQL语句必须以分号结尾 SQL_MODE的设置 宽松模式 严格模式 MySQL的sql_mode合理设置
 sql_mode是个很容易被忽视的变量,默认值是空值,在这种设置下是可以允许一些非法操作的,比如允许一些非法数据的插入。在生产环境必须将这个值设置为严格模式,所以开发、测试环境的数据库也必须要设置,这样在开发测试阶段就可以发现问题.
@@ -90,7 +86,7 @@ sql model 常用来解决下面几类问题
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%BC%95%E6%93%8E_%E5%BA%95%E5%B1%82%E6%96%87%E4%BB%B6/" /><meta property="article:section" content="note" />
 <meta property="article:published_time" content="2023-05-23T19:40:55+08:00" />
-<meta property="article:modified_time" content="2023-07-05T17:46:43+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
+<meta property="article:modified_time" content="2024-07-01T11:38:49+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MySQL高级-引擎_底层文件"/>
@@ -108,22 +104,22 @@ sql model 常用来解决下面几类问题
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [, 
+  "itemListElement": [
     {
       "@type": "ListItem",
-      "position":  2 ,
+      "position":  1 ,
       "name": "笔记",
       "item": "https://AlfredNing.github.io/note/"
     }, 
     {
       "@type": "ListItem",
-      "position":  3 ,
+      "position":  2 ,
       "name": "编程",
       "item": "https://AlfredNing.github.io/note/program/"
     }, 
     {
       "@type": "ListItem",
-      "position":  4 ,
+      "position":  3 ,
       "name": "MySQL高级-引擎_底层文件",
       "item": "https://AlfredNing.github.io/note/program/sql/mysql/mysql%E9%AB%98%E7%BA%A7-%E5%BC%95%E6%93%8E_%E5%BA%95%E5%B1%82%E6%96%87%E4%BB%B6/"
     }
@@ -144,7 +140,7 @@ sql model 常用来解决下面几类问题
   "wordCount" : "1070",
   "inLanguage": "zh",
   "datePublished": "2023-05-23T19:40:55+08:00",
-  "dateModified": "2023-07-05T17:46:43.551805+08:00",
+  "dateModified": "2024-07-01T11:38:49.7385103+08:00",
   "author":[{
     "@type": "Person",
     "name": "AlfredNing"
@@ -180,7 +176,7 @@ sql model 常用来解决下面几类问题
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://AlfredNing.github.io" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
+            <a href="https://AlfredNing.github.io/" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -202,6 +198,8 @@ sql model 常用来解决下面几类问题
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -242,11 +240,11 @@ sql model 常用来解决下面几类问题
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a></div>
+            <div class="breadcrumbs"><a href="https://AlfredNing.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a></div>
             <h1 class="post-title">
                 MySQL高级-引擎_底层文件
             </h1>
-            <div class="post-meta">创建:&nbsp;<span title='2023-05-23 19:40:55 +0800 CST'>2023年-05月-23日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-07月-05日&nbsp;|&nbsp;字数:&nbsp;1070字&nbsp;|&nbsp;时长:&nbsp;6分钟&nbsp;|&nbsp;AlfredNing
+            <div class="post-meta">创建:&amp;nbsp;&lt;span title=&#39;2023-05-23 19:40:55 &#43;0800 CST&#39;&gt;2023年-05月-23日&lt;/span&gt;&amp;nbsp;|&amp;nbsp;更新:&amp;nbsp;2024年-07月-01日&amp;nbsp;|&amp;nbsp;字数:&amp;nbsp;1070字&amp;nbsp;|&amp;nbsp;时长:&amp;nbsp;6分钟&amp;nbsp;|&amp;nbsp;AlfredNing
 
                 &nbsp;|&nbsp;标签: &nbsp;
                 <ul class="post-tags-meta">
@@ -647,7 +645,7 @@ D --&gt; |&#34;使用操作系统的字符集解码响应的字符串&#34;| A
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">show</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%lower_case_table_names%&#39;</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">该参数只适用于</span><span class="mi">5</span><span class="p">.</span><span class="mi">7</span><span class="err">版本</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">默认为</span><span class="mi">0</span><span class="w"> </span><span class="err">大小写敏感</span><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">设置为</span><span class="mi">1</span><span class="err">，大小写不敏感，创建的表都是以小写方式存放在磁盘上，对于</span><span class="n">sql</span><span class="err">语句都是转换为小写对表和数据库查找</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">设置为</span><span class="mi">1</span><span class="err">，大小写不敏感，创建的表都是以小写方式存放在磁盘上，对于</span><span class="n">sql语句都是转换为小写对表和数据库查找</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">设置为</span><span class="mi">2</span><span class="err">，创建的表和数据库依据语句上存放，凡是查找都是转换为小写进行</span><span class="w">
 </span></span></span></code></pre></div><h2 id="sql编写建议">SQL编写建议<a hidden class="anchor" aria-hidden="true" href="#sql编写建议">#</a></h2>
 <ol>
@@ -675,7 +673,7 @@ D --&gt; |&#34;使用操作系统的字符集解码响应的字符串&#34;| A
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">#</span><span class="w"> </span><span class="err">临时设置</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">set</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="n">sql_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 全局生效
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">set</span><span class="w"> </span><span class="k">session</span><span class="w"> </span><span class="n">sql_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 会话生效
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">#</span><span class="w"> </span><span class="n">my</span><span class="p">.</span><span class="n">cnf</span><span class="err">可以修改，永久设置，设置完毕重启</span><span class="w"> 	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">#</span><span class="w"> </span><span class="n">my</span><span class="p">.</span><span class="n">cnf可以修改</span><span class="err">，永久设置，设置完毕重启</span><span class="w"> 	
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">生成环境：</span><span class="w"> </span><span class="err">临时设置</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="err">全局设置。重启也会永久生效</span><span class="w">
 </span></span></span></code></pre></div><h2 id="数据目录">数据目录<a hidden class="anchor" aria-hidden="true" href="#数据目录">#</a></h2>
@@ -804,9 +802,9 @@ D --&gt; |&#34;使用操作系统的字符集解码响应的字符串&#34;| A
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">建议在静态表使用查询缓存，静态表：更新不频繁</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">查看缓存信息</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">show</span><span class="w"> </span><span class="n">STATUS</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Qcache%&#39;</span><span class="p">;</span><span class="w"> </span><span class="o">#</span><span class="w"> </span><span class="n">mysql8</span><span class="p">.</span><span class="mi">0</span><span class="err">之后没有该参数</span><span class="w">
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">#</span><span class="w"> </span><span class="err">开启</span><span class="n">sql</span><span class="err">记录执行</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">#</span><span class="w"> </span><span class="err">开启</span><span class="n">sql记录执行</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">@@</span><span class="n">profiling</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">set</span><span class="w"> </span><span class="n">profiling</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="o">#</span><span class="err">开启</span><span class="w"> </span><span class="n">session</span><span class="err">级别</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">set</span><span class="w"> </span><span class="n">profiling</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="o">#</span><span class="err">开启</span><span class="w"> </span><span class="n">session级别</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">job_history</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -832,20 +830,20 @@ D --&gt; |&#34;使用操作系统的字符集解码响应的字符串&#34;| A
 <p>在读取部分数据同时，会预先读取部分数据的上下可能引用的数据。</p>
 <h4 id="读取数据">读取数据<a hidden class="anchor" aria-hidden="true" href="#读取数据">#</a></h4>
 <p>缓冲池管理器会尽量将经常使用的数据保存起来，在数据库进行页面读操作的时候，首先会判断该页面是否在缓冲池中，如果存在就直接读取，如果不存在，就会通过内存或磁盘将页面存放到缓冲池中再进行读取。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">--</span>  <span class="err">查看缓冲池大小</span>
-</span></span><span class="line"><span class="cl"><span class="n">show</span> <span class="n">variables</span> <span class="n">like</span> <span class="err">&#39;</span><span class="n">innodb_buffer_pool_size</span><span class="err">&#39;</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="o">--</span> <span class="err">修改缓冲池，也可以修改配置文件</span> <span class="err">全局修改</span>
-</span></span><span class="line"><span class="cl"><span class="n">set</span> <span class="n">global</span> <span class="n">innodb_buffer_pool_size</span> <span class="o">=</span> <span class="mi">268435456</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="o">--</span> <span class="err">将单个</span><span class="n">buffer</span> <span class="n">poll</span> <span class="err">拆分成小的</span><span class="n">buffer</span> <span class="n">pool</span>
-</span></span><span class="line"><span class="cl"><span class="n">show</span> <span class="n">variables</span> <span class="n">like</span> <span class="err">&#39;</span><span class="n">innodb_buffer_pool_instances</span><span class="err">&#39;</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="cm">/**
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">--</span><span class="w">  </span><span class="n">查看缓冲池大小</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">show</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="err">&#39;</span><span class="n">innodb_buffer_pool_size</span><span class="err">&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">--</span><span class="w"> </span><span class="n">修改缓冲池</span><span class="err">，</span><span class="n">也可以修改配置文件</span><span class="w"> </span><span class="n">全局修改</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">set</span><span class="w"> </span><span class="n">global</span><span class="w"> </span><span class="n">innodb_buffer_pool_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">268435456</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">--</span><span class="w"> </span><span class="n">将单个buffer</span><span class="w"> </span><span class="n">poll</span><span class="w"> </span><span class="n">拆分成小的buffer</span><span class="w"> </span><span class="n">pool</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">show</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="err">&#39;</span><span class="n">innodb_buffer_pool_instances</span><span class="err">&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">配置文件修改 buffer_poll
 </span></span></span><span class="line"><span class="cl"><span class="cm">[server]
 </span></span></span><span class="line"><span class="cl"><span class="cm">innodb_buffer_pool_instances = 
-</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
-</span></span><span class="line"><span class="cl"><span class="err">计算每个</span><span class="n">buffer</span> <span class="n">poll</span><span class="err">占比：</span> <span class="n">innodb_buffer_pool_size</span><span class="o">/</span><span class="n">innodb_buffer_pool_instances</span>
-</span></span></code></pre></div><h4 id="更新数据流程">更新数据流程<a hidden class="anchor" aria-hidden="true" href="#更新数据流程">#</a></h4>
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">计算每个buffer</span><span class="w"> </span><span class="n">poll占比</span><span class="err">：</span><span class="w"> </span><span class="n">innodb_buffer_pool_size</span><span class="o">/</span><span class="n">innodb_buffer_pool_instances</span><span class="w">
+</span></span></span></code></pre></div><h4 id="更新数据流程">更新数据流程<a hidden class="anchor" aria-hidden="true" href="#更新数据流程">#</a></h4>
 <p>更新某个数据，如果数据在Buffer Pool不存在，会先将数据从磁盘中国加载，修改完成之后，放入缓冲池当中，当达到一定的落盘时机，才会刷入磁盘中</p>
 <p><strong>缓冲池无论是5.7还是8.0都存在，查询缓存在8.0中不存在</strong></p>
 <h1 id="存储引擎">存储引擎<a hidden class="anchor" aria-hidden="true" href="#存储引擎">#</a></h1>
@@ -1584,7 +1582,7 @@ D --&gt; |&#34;使用操作系统的字符集解码响应的字符串&#34;| A
 </main>
 
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
+    <span>&copy; 2024 <a href="https://AlfredNing.github.io/">AlfredNing</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

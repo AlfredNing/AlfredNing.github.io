@@ -7,13 +7,18 @@
 <meta name="robots" content="index, follow">
 <title>Spring源码01 | AlfredNing</title>
 <meta name="keywords" content="">
-<meta name="description" content="Spring源码01 - AlfredNing">
+<meta name="description" content="基本注解 @Lookup 从容器中查找不同的实例，
+/** * @author Alfred.Ning * @since 2023年08月12日 20:27:00 */ @Component @Data public class Person { private String name; // @Autowired private Cat cat; @Lookup // 去容器里找 public Cat getCat() { return cat; } } /** * @author Alfred.Ning * @since 2023年08月13日 14:42:00 */ @Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE) @Component @Data public class Cat { private String name; } Resource&#43;ResourceLoader Resource:负责资源
+ResourceLoader: 对应资源加载 ，策略模式。
+BeanFactory 容器的根节点，入口。
+HierarchicalBeanFactory： 定义父子容器
+AutowireCapableBeanFactory： 处理自动装配功能">
 <meta name="author" content="AlfredNing">
 <link rel="canonical" href="https://AlfredNing.github.io/note/program/spring/%E4%B8%8E%E6%BA%90%E7%A0%81%E5%B9%B2%E6%88%98-spring-01/">
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3a98f5547189c82a95c3f9771fcf711c0443d8fb2402e878cc7608bafce4aede.css" integrity="sha256-Opj1VHGJyCqVw/l3H89xHARD2PskAuh4zHYIuvzkrt4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0afa94d2b970a706db3fee2bf670661d8e9e2df61019549dcb856ed6d409b75d.css" integrity="sha256-CvqU0rlwpwbbP&#43;4r9nBmHY6eLfYQGVSdy4Vu1tQJt10=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
@@ -23,6 +28,7 @@
 <link rel="mask-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://AlfredNing.github.io/note/program/spring/%E4%B8%8E%E6%BA%90%E7%A0%81%E5%B9%B2%E6%88%98-spring-01/">
 <noscript>
     <style>
         #theme-toggle,
@@ -60,55 +66,60 @@
 
     </style>
 </noscript>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123-45', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><meta property="og:title" content="Spring源码01" />
-<meta property="og:description" content="" />
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="Spring源码01" />
+<meta property="og:description" content="基本注解 @Lookup 从容器中查找不同的实例，
+/** * @author Alfred.Ning * @since 2023年08月12日 20:27:00 */ @Component @Data public class Person { private String name; // @Autowired private Cat cat; @Lookup // 去容器里找 public Cat getCat() { return cat; } } /** * @author Alfred.Ning * @since 2023年08月13日 14:42:00 */ @Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE) @Component @Data public class Cat { private String name; } Resource&#43;ResourceLoader Resource:负责资源
+ResourceLoader: 对应资源加载 ，策略模式。
+BeanFactory 容器的根节点，入口。
+HierarchicalBeanFactory： 定义父子容器
+AutowireCapableBeanFactory： 处理自动装配功能" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://AlfredNing.github.io/note/program/spring/%E4%B8%8E%E6%BA%90%E7%A0%81%E5%B9%B2%E6%88%98-spring-01/" /><meta property="article:section" content="note" />
 <meta property="article:published_time" content="2023-07-24T14:42:20+08:00" />
-<meta property="article:modified_time" content="2023-07-25T15:19:59+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
+<meta property="article:modified_time" content="2024-07-01T11:38:49+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring源码01"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="基本注解 @Lookup 从容器中查找不同的实例，
+/** * @author Alfred.Ning * @since 2023年08月12日 20:27:00 */ @Component @Data public class Person { private String name; // @Autowired private Cat cat; @Lookup // 去容器里找 public Cat getCat() { return cat; } } /** * @author Alfred.Ning * @since 2023年08月13日 14:42:00 */ @Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE) @Component @Data public class Cat { private String name; } Resource&#43;ResourceLoader Resource:负责资源
+ResourceLoader: 对应资源加载 ，策略模式。
+BeanFactory 容器的根节点，入口。
+HierarchicalBeanFactory： 定义父子容器
+AutowireCapableBeanFactory： 处理自动装配功能"/>
 
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [, 
+  "itemListElement": [
     {
       "@type": "ListItem",
-      "position":  2 ,
+      "position":  1 ,
       "name": "笔记",
       "item": "https://AlfredNing.github.io/note/"
     }, 
     {
       "@type": "ListItem",
-      "position":  3 ,
+      "position":  2 ,
       "name": "编程",
       "item": "https://AlfredNing.github.io/note/program/"
     }, 
     {
       "@type": "ListItem",
-      "position":  4 ,
+      "position":  3 ,
       "name": "Spring",
       "item": "https://AlfredNing.github.io/note/program/spring/"
     }, 
     {
       "@type": "ListItem",
-      "position":  5 ,
+      "position":  4 ,
       "name": "Spring源码01",
       "item": "https://AlfredNing.github.io/note/program/spring/%E4%B8%8E%E6%BA%90%E7%A0%81%E5%B9%B2%E6%88%98-spring-01/"
     }
@@ -121,15 +132,15 @@ if (!doNotTrack) {
   "@type": "BlogPosting",
   "headline": "Spring源码01",
   "name": "Spring源码01",
-  "description": "",
+  "description": "基本注解 @Lookup 从容器中查找不同的实例，\n/** * @author Alfred.Ning * @since 2023年08月12日 20:27:00 */ @Component @Data public class Person { private String name; // @Autowired private Cat cat; @Lookup // 去容器里找 public Cat getCat() { return cat; } } /** * @author Alfred.Ning * @since 2023年08月13日 14:42:00 */ @Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE) @Component @Data public class Cat { private String name; } Resource+ResourceLoader Resource:负责资源\nResourceLoader: 对应资源加载 ，策略模式。\nBeanFactory 容器的根节点，入口。\nHierarchicalBeanFactory： 定义父子容器\nAutowireCapableBeanFactory： 处理自动装配功能",
   "keywords": [
     ""
   ],
-  "articleBody": "",
-  "wordCount" : "0",
+  "articleBody": "基本注解 @Lookup 从容器中查找不同的实例，\n/** * @author Alfred.Ning * @since 2023年08月12日 20:27:00 */ @Component @Data public class Person { private String name; // @Autowired private Cat cat; @Lookup // 去容器里找 public Cat getCat() { return cat; } } /** * @author Alfred.Ning * @since 2023年08月13日 14:42:00 */ @Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE) @Component @Data public class Cat { private String name; } Resource+ResourceLoader Resource:负责资源\nResourceLoader: 对应资源加载 ，策略模式。\nBeanFactory 容器的根节点，入口。\nHierarchicalBeanFactory： 定义父子容器\nAutowireCapableBeanFactory： 处理自动装配功能\nDefaultListableBeanFactory： 内部所有Bean处理信息，所有组件\nGenericApplicationContext： 用户使用\nAnnotationConfigApplicationContext： 组合了自动装配能力\nBeanDefinition BeanDefinitionReader BeanDefinitionRegistry ApplicationContext Aware BeanFactoryPostProcessor InitializingBean BeanPostProcessor Spring整体流程 BeanDefinition注册流程（类如何加载在Spring当中） Aware接口 使用到sping组件,使用XXXAware接口直接获取\n实现方式是利用回调，传入组件（ioc容器）\n第一种方式 组件中注入IOC容器 第二种方式 实现ApplicationContextAware Aware接口实现原理 例如ApplicationContextAware有一个ApplicationContextAwareProcessor 实现了BeanPostProcessor接口，执行Aware固定的接口\n// 所有的aware接口 public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException { if (!(bean instanceof EnvironmentAware || bean instanceof EmbeddedValueResolverAware || bean instanceof ResourceLoaderAware || bean instanceof ApplicationEventPublisherAware || bean instanceof MessageSourceAware || bean instanceof ApplicationContextAware || bean instanceof ApplicationStartupAware)) { return bean; } Bean的功能增强 BeanPostProcessor + InitializingBean\n普通Bean与工厂Bean区别 * 工厂bean: 实现FactoryBean接口，注册的不是HelloFactory，而是getObject返回的对象，类型是getObjectType类型 * 普通bean: 例如Person 对象，注册的组件对象就是person对象，类型就是Person * 例如Mybatis与Spring整合 BeanPostProcessor 后置增强，对普通Bean初始化前后进行功能增强\nBeanFactoryPostProcessor 对BeanFactory初始化前后进行功能增强\n隔离组件、注册Bean，池化技术 BeanDefinitionRegistryPostProcessor bean定义信息注册的后置增强\nInitializingBean Bean组件初始化后，对组件进行后续设置\nBeanPostProcessor在于改变，InitializingBean在于额外处理，不会传入组件任何信息\nBean生命周期 后置处理围绕整个Bean的创建和初始化对Bean功能改造\n",
+  "wordCount" : "165",
   "inLanguage": "zh",
   "datePublished": "2023-07-24T14:42:20+08:00",
-  "dateModified": "2023-07-25T15:19:59.5670323+08:00",
+  "dateModified": "2024-07-01T11:38:49.7345126+08:00",
   "author":[{
     "@type": "Person",
     "name": "AlfredNing"
@@ -165,7 +176,7 @@ if (!doNotTrack) {
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://AlfredNing.github.io" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
+            <a href="https://AlfredNing.github.io/" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -187,6 +198,8 @@ if (!doNotTrack) {
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -227,11 +240,11 @@ if (!doNotTrack) {
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/spring/">Spring</a></div>
+            <div class="breadcrumbs"><a href="https://AlfredNing.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/spring/">Spring</a></div>
             <h1 class="post-title">
                 Spring源码01
             </h1>
-            <div class="post-meta">创建:&nbsp;<span title='2023-07-24 14:42:20 +0800 CST'>2023年-07月-24日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-07月-25日&nbsp;|&nbsp;字数:&nbsp;0字&nbsp;|&nbsp;时长:&nbsp;0分钟&nbsp;|&nbsp;AlfredNing
+            <div class="post-meta">创建:&amp;nbsp;&lt;span title=&#39;2023-07-24 14:42:20 &#43;0800 CST&#39;&gt;2023年-07月-24日&lt;/span&gt;&amp;nbsp;|&amp;nbsp;更新:&amp;nbsp;2024年-07月-01日&amp;nbsp;|&amp;nbsp;字数:&amp;nbsp;165字&amp;nbsp;|&amp;nbsp;时长:&amp;nbsp;1分钟&amp;nbsp;|&amp;nbsp;AlfredNing
 
                 &nbsp;|&nbsp;标签: &nbsp;
                 <ul class="post-tags-meta">
@@ -244,8 +257,244 @@ if (!doNotTrack) {
 
 </div>
         </header> 
+        <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%9f%ba%e6%9c%ac%e6%b3%a8%e8%a7%a3" aria-label="基本注解">基本注解</a><ul>
+                        
+                <li>
+                    <a href="#lookup" aria-label="@Lookup">@Lookup</a></li>
+                <li>
+                    <a href="#resourceresourceloader" aria-label="Resource&#43;ResourceLoader">Resource+ResourceLoader</a></li>
+                <li>
+                    <a href="#beanfactory" aria-label="BeanFactory">BeanFactory</a></li>
+                <li>
+                    <a href="#beandefinition" aria-label="BeanDefinition">BeanDefinition</a></li>
+                <li>
+                    <a href="#beandefinitionreader" aria-label="BeanDefinitionReader">BeanDefinitionReader</a></li>
+                <li>
+                    <a href="#beandefinitionregistry" aria-label="BeanDefinitionRegistry">BeanDefinitionRegistry</a></li>
+                <li>
+                    <a href="#applicationcontext" aria-label="ApplicationContext">ApplicationContext</a></li>
+                <li>
+                    <a href="#aware" aria-label="Aware">Aware</a></li>
+                <li>
+                    <a href="#beanfactorypostprocessor" aria-label="BeanFactoryPostProcessor">BeanFactoryPostProcessor</a></li>
+                <li>
+                    <a href="#initializingbean" aria-label="InitializingBean">InitializingBean</a></li>
+                <li>
+                    <a href="#beanpostprocessor" aria-label="BeanPostProcessor">BeanPostProcessor</a></li></ul>
+                </li>
+                <li>
+                    <a href="#spring%e6%95%b4%e4%bd%93%e6%b5%81%e7%a8%8b" aria-label="Spring整体流程">Spring整体流程</a><ul>
+                        
+                <li>
+                    <a href="#beandefinition%e6%b3%a8%e5%86%8c%e6%b5%81%e7%a8%8b%e7%b1%bb%e5%a6%82%e4%bd%95%e5%8a%a0%e8%bd%bd%e5%9c%a8spring%e5%bd%93%e4%b8%ad" aria-label="BeanDefinition注册流程（类如何加载在Spring当中）">BeanDefinition注册流程（类如何加载在Spring当中）</a></li>
+                <li>
+                    <a href="#aware%e6%8e%a5%e5%8f%a3" aria-label="Aware接口">Aware接口</a><ul>
+                        
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%80%e7%a7%8d%e6%96%b9%e5%bc%8f-%e7%bb%84%e4%bb%b6%e4%b8%ad%e6%b3%a8%e5%85%a5ioc%e5%ae%b9%e5%99%a8" aria-label="第一种方式 组件中注入IOC容器">第一种方式 组件中注入IOC容器</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%ba%8c%e7%a7%8d%e6%96%b9%e5%bc%8f-%e5%ae%9e%e7%8e%b0applicationcontextaware" aria-label="第二种方式 实现ApplicationContextAware">第二种方式 实现ApplicationContextAware</a></li>
+                <li>
+                    <a href="#aware%e6%8e%a5%e5%8f%a3%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" aria-label="Aware接口实现原理">Aware接口实现原理</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%99%ae%e9%80%9abean%e4%b8%8e%e5%b7%a5%e5%8e%82bean%e5%8c%ba%e5%88%ab" aria-label="普通Bean与工厂Bean区别">普通Bean与工厂Bean区别</a></li>
+                <li>
+                    <a href="#beanpostprocessor-1" aria-label="BeanPostProcessor">BeanPostProcessor</a><ul>
+                        
+                <li>
+                    <a href="#beanfactorypostprocessor-1" aria-label="BeanFactoryPostProcessor">BeanFactoryPostProcessor</a></li>
+                <li>
+                    <a href="#beandefinitionregistrypostprocessor" aria-label="BeanDefinitionRegistryPostProcessor">BeanDefinitionRegistryPostProcessor</a></li></ul>
+                </li>
+                <li>
+                    <a href="#initializingbean-1" aria-label="InitializingBean">InitializingBean</a></li>
+                <li>
+                    <a href="#bean%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f" aria-label="Bean生命周期">Bean生命周期</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
         
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
         
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        
+        <div class="post-content"><h1 id="基本注解">基本注解<a hidden class="anchor" aria-hidden="true" href="#基本注解">#</a></h1>
+<h2 id="lookup">@Lookup<a hidden class="anchor" aria-hidden="true" href="#lookup">#</a></h2>
+<p>从容器中查找不同的实例，</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @author Alfred.Ning
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @since 2023年08月12日 20:27:00
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Component</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// @Autowired</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="n">Cat</span><span class="w"> </span><span class="n">cat</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nd">@Lookup</span><span class="w"> </span><span class="c1">// 去容器里找</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="n">Cat</span><span class="w"> </span><span class="nf">getCat</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">cat</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @author Alfred.Ning
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @since 2023年08月13日 14:42:00
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Scope</span><span class="p">(</span><span class="n">scopeName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConfigurableBeanFactory</span><span class="p">.</span><span class="na">SCOPE_PROTOTYPE</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Component</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="resourceresourceloader">Resource+ResourceLoader<a hidden class="anchor" aria-hidden="true" href="#resourceresourceloader">#</a></h2>
+<p>Resource:负责资源</p>
+<p>ResourceLoader: 对应资源加载 ，策略模式。</p>
+<h2 id="beanfactory">BeanFactory<a hidden class="anchor" aria-hidden="true" href="#beanfactory">#</a></h2>
+<p>容器的根节点，入口。</p>
+<p><code>HierarchicalBeanFactory</code>： 定义父子容器</p>
+<p><code>AutowireCapableBeanFactory</code>： 处理自动装配功能</p>
+<p><code>DefaultListableBeanFactory</code>： 内部所有Bean处理信息，所有组件</p>
+<p><code>GenericApplicationContext</code>： 用户使用</p>
+<p><code>AnnotationConfigApplicationContext</code>： 组合了自动装配能力</p>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230821082502931.png" alt="image-20230821082502931"  />
+</p>
+<h2 id="beandefinition">BeanDefinition<a hidden class="anchor" aria-hidden="true" href="#beandefinition">#</a></h2>
+<h2 id="beandefinitionreader">BeanDefinitionReader<a hidden class="anchor" aria-hidden="true" href="#beandefinitionreader">#</a></h2>
+<h2 id="beandefinitionregistry">BeanDefinitionRegistry<a hidden class="anchor" aria-hidden="true" href="#beandefinitionregistry">#</a></h2>
+<h2 id="applicationcontext">ApplicationContext<a hidden class="anchor" aria-hidden="true" href="#applicationcontext">#</a></h2>
+<h2 id="aware">Aware<a hidden class="anchor" aria-hidden="true" href="#aware">#</a></h2>
+<h2 id="beanfactorypostprocessor">BeanFactoryPostProcessor<a hidden class="anchor" aria-hidden="true" href="#beanfactorypostprocessor">#</a></h2>
+<h2 id="initializingbean">InitializingBean<a hidden class="anchor" aria-hidden="true" href="#initializingbean">#</a></h2>
+<h2 id="beanpostprocessor">BeanPostProcessor<a hidden class="anchor" aria-hidden="true" href="#beanpostprocessor">#</a></h2>
+<h1 id="spring整体流程">Spring整体流程<a hidden class="anchor" aria-hidden="true" href="#spring整体流程">#</a></h1>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/Spring%E6%9E%B6%E6%9E%84%E5%8E%9F%E7%90%86%E5%9B%BE.jpg" alt="Spring架构原理图"  />
+</p>
+<h2 id="beandefinition注册流程类如何加载在spring当中">BeanDefinition注册流程（类如何加载在Spring当中）<a hidden class="anchor" aria-hidden="true" href="#beandefinition注册流程类如何加载在spring当中">#</a></h2>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230827153509780.png" alt="image-20230827153509780"  />
+</p>
+<h2 id="aware接口">Aware接口<a hidden class="anchor" aria-hidden="true" href="#aware接口">#</a></h2>
+<blockquote>
+<p>使用到sping组件,使用XXXAware接口直接获取</p>
+<p>实现方式是利用回调，传入组件（ioc容器）</p>
+</blockquote>
+<h3 id="第一种方式-组件中注入ioc容器">第一种方式 组件中注入IOC容器<a hidden class="anchor" aria-hidden="true" href="#第一种方式-组件中注入ioc容器">#</a></h3>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230827160029843.png" alt="image-20230827160029843"  />
+</p>
+<h3 id="第二种方式-实现applicationcontextaware">第二种方式 实现ApplicationContextAware<a hidden class="anchor" aria-hidden="true" href="#第二种方式-实现applicationcontextaware">#</a></h3>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20230827160432579.png" alt="image-20230827160432579"  />
+</p>
+<h3 id="aware接口实现原理">Aware接口实现原理<a hidden class="anchor" aria-hidden="true" href="#aware接口实现原理">#</a></h3>
+<p>例如<code>ApplicationContextAware</code>有一个ApplicationContextAwareProcessor 实现了BeanPostProcessor接口，执行Aware固定的接口</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 所有的aware接口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">postProcessBeforeInitialization</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">bean</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">beanName</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">BeansException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">bean</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">EnvironmentAware</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">bean</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">EmbeddedValueResolverAware</span><span class="w"> </span><span class="o">||</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="n">bean</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">ResourceLoaderAware</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">bean</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">ApplicationEventPublisherAware</span><span class="w"> </span><span class="o">||</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="n">bean</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">MessageSourceAware</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">bean</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">ApplicationContextAware</span><span class="w"> </span><span class="o">||</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="n">bean</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">ApplicationStartupAware</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="k">return</span><span class="w"> </span><span class="n">bean</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	
+</span></span></span></code></pre></div><p><strong>Bean的功能增强 BeanPostProcessor + InitializingBean</strong></p>
+<h2 id="普通bean与工厂bean区别">普通Bean与工厂Bean区别<a hidden class="anchor" aria-hidden="true" href="#普通bean与工厂bean区别">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">*</span><span class="w"> </span><span class="n">工厂bean</span><span class="p">:</span><span class="w"> </span><span class="n">实现FactoryBean接口</span><span class="err">，</span><span class="n">注册的不是HelloFactory</span><span class="err">，</span><span class="n">而是getObject返回的对象</span><span class="err">，</span><span class="n">类型是getObjectType类型</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="w"> </span><span class="n">普通bean</span><span class="p">:</span><span class="w"> </span><span class="n">例如Person</span><span class="w"> </span><span class="n">对象</span><span class="err">，</span><span class="n">注册的组件对象就是person对象</span><span class="err">，</span><span class="n">类型就是Person</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="w"> </span><span class="n">例如Mybatis与Spring整合</span><span class="w">
+</span></span></span></code></pre></div><h2 id="beanpostprocessor-1">BeanPostProcessor<a hidden class="anchor" aria-hidden="true" href="#beanpostprocessor-1">#</a></h2>
+<p>后置增强，对<strong>普通Bean</strong>初始化前后进行功能增强</p>
+<h3 id="beanfactorypostprocessor-1">BeanFactoryPostProcessor<a hidden class="anchor" aria-hidden="true" href="#beanfactorypostprocessor-1">#</a></h3>
+<p>对<strong>BeanFactory</strong>初始化前后进行功能增强</p>
+<ul>
+<li>隔离组件、注册Bean，池化技术</li>
+</ul>
+<h3 id="beandefinitionregistrypostprocessor">BeanDefinitionRegistryPostProcessor<a hidden class="anchor" aria-hidden="true" href="#beandefinitionregistrypostprocessor">#</a></h3>
+<p>bean定义信息注册的后置增强</p>
+<h2 id="initializingbean-1">InitializingBean<a hidden class="anchor" aria-hidden="true" href="#initializingbean-1">#</a></h2>
+<p>Bean组件初始化后，对组件进行后续设置</p>
+<p><strong>BeanPostProcessor在于改变，InitializingBean在于额外处理，不会传入组件任何信息</strong></p>
+<h2 id="bean生命周期">Bean生命周期<a hidden class="anchor" aria-hidden="true" href="#bean生命周期">#</a></h2>
+<blockquote>
+<p>后置处理围绕整个Bean的创建和初始化对Bean功能改造</p>
+</blockquote>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/Bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%B5%81%E7%A8%8B.jpg" alt="Bean生命周期流程"  />
+</p>
+
+
+        </div>
 
         <footer class="post-footer">
             
@@ -283,7 +532,7 @@ if (!doNotTrack) {
 </main>
 
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
+    <span>&copy; 2024 <a href="https://AlfredNing.github.io/">AlfredNing</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

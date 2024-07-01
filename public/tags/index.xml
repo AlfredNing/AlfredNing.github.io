@@ -4,7 +4,35 @@
     <title>🏷️标签 on AlfredNing</title>
     <link>https://AlfredNing.github.io/tags/</link>
     <description>Recent content in 🏷️标签 on AlfredNing</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://AlfredNing.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language><atom:link href="https://AlfredNing.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MyBatis</title>
+      <link>https://AlfredNing.github.io/tags/mybatis/</link>
+      <pubDate>Sun, 17 Sep 2023 08:53:52 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/tags/mybatis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RocketMQ</title>
+      <link>https://AlfredNing.github.io/tags/rocketmq/</link>
+      <pubDate>Tue, 05 Sep 2023 08:37:14 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/tags/rocketmq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dubbo</title>
+      <link>https://AlfredNing.github.io/tags/dubbo/</link>
+      <pubDate>Sun, 03 Sep 2023 12:31:43 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/tags/dubbo/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>设计模式</title>
       <link>https://AlfredNing.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
@@ -24,7 +52,7 @@
     </item>
     
     <item>
-      <title>juc</title>
+      <title>Juc</title>
       <link>https://AlfredNing.github.io/tags/juc/</link>
       <pubDate>Sat, 22 Jul 2023 20:31:52 +0800</pubDate>
       
@@ -60,15 +88,6 @@
     </item>
     
     <item>
-      <title>Vue</title>
-      <link>https://AlfredNing.github.io/tags/vue/</link>
-      <pubDate>Thu, 01 Jun 2023 00:55:03 +0800</pubDate>
-      
-      <guid>https://AlfredNing.github.io/tags/vue/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>DDD</title>
       <link>https://AlfredNing.github.io/tags/ddd/</link>
       <pubDate>Sat, 27 May 2023 23:18:05 +0800</pubDate>
@@ -87,7 +106,7 @@
     </item>
     
     <item>
-      <title>jvm</title>
+      <title>Jvm</title>
       <link>https://AlfredNing.github.io/tags/jvm/</link>
       <pubDate>Mon, 08 May 2023 20:30:30 +0800</pubDate>
       
@@ -105,7 +124,7 @@
     </item>
     
     <item>
-      <title>java8</title>
+      <title>Java8</title>
       <link>https://AlfredNing.github.io/tags/java8/</link>
       <pubDate>Sat, 18 Feb 2023 12:47:59 +0800</pubDate>
       

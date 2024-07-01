@@ -30,7 +30,7 @@ HotSpot执行方式 当虚拟机启动的时候，解释器可以首先发挥作
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3a98f5547189c82a95c3f9771fcf711c0443d8fb2402e878cc7608bafce4aede.css" integrity="sha256-Opj1VHGJyCqVw/l3H89xHARD2PskAuh4zHYIuvzkrt4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0afa94d2b970a706db3fee2bf670661d8e9e2df61019549dcb856ed6d409b75d.css" integrity="sha256-CvqU0rlwpwbbP&#43;4r9nBmHY6eLfYQGVSdy4Vu1tQJt10=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
@@ -40,6 +40,7 @@ HotSpot执行方式 当虚拟机启动的时候，解释器可以首先发挥作
 <link rel="mask-icon" href="https://AlfredNing.github.io/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://AlfredNing.github.io/note/program/jvm/%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/">
 <noscript>
     <style>
         #theme-toggle,
@@ -77,18 +78,13 @@ HotSpot执行方式 当虚拟机启动的时候，解释器可以首先发挥作
 
     </style>
 </noscript>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123-45', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><meta property="og:title" content="执行引擎" />
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="执行引擎" />
 <meta property="og:description" content="执行引擎的定义 将字节码指令解释/编译为对应平台上的本地机器指令。将高级语言翻译成低级语言
 执行引擎的工作流程 从外观上来看，所有的Java虚拟机的执行引擎输入、输出都是一致的：输入的是字节码二进制流，处理过程是字节码解析执行的等效过程，输出的是执行结果。
 执行引擎在执行的过程中究竟需要执行什么样的字节码指令完全依赖于PC寄存器。 每当执行完一项指令操作后，PC寄存器就会更新下一条需要被执行的指令地址。 当然方法在执行的过程中，执行引擎有可能会通过存储在局部变量表中的对象引用准确定位到存储在Java堆区中的对象实例信息，以及通过对象头中的元数据指针定位到目标对象的类型信息。 代码执行和编译的过程 过程1: javac.exe的执行 Java代码编译是由Java源码编译器来完成，流程图如下所示
@@ -110,7 +106,7 @@ HotSpot执行方式 当虚拟机启动的时候，解释器可以首先发挥作
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://AlfredNing.github.io/note/program/jvm/%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/" /><meta property="article:section" content="note" />
 <meta property="article:published_time" content="2023-05-01T21:28:28+08:00" />
-<meta property="article:modified_time" content="2023-05-23T19:14:13+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
+<meta property="article:modified_time" content="2024-07-01T11:38:49+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="执行引擎"/>
@@ -138,28 +134,28 @@ HotSpot执行方式 当虚拟机启动的时候，解释器可以首先发挥作
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [, 
+  "itemListElement": [
     {
       "@type": "ListItem",
-      "position":  2 ,
+      "position":  1 ,
       "name": "笔记",
       "item": "https://AlfredNing.github.io/note/"
     }, 
     {
       "@type": "ListItem",
-      "position":  3 ,
+      "position":  2 ,
       "name": "编程",
       "item": "https://AlfredNing.github.io/note/program/"
     }, 
     {
       "@type": "ListItem",
-      "position":  4 ,
+      "position":  3 ,
       "name": "jvm",
       "item": "https://AlfredNing.github.io/note/program/jvm/"
     }, 
     {
       "@type": "ListItem",
-      "position":  5 ,
+      "position":  4 ,
       "name": "执行引擎",
       "item": "https://AlfredNing.github.io/note/program/jvm/%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/"
     }
@@ -180,7 +176,7 @@ HotSpot执行方式 当虚拟机启动的时候，解释器可以首先发挥作
   "wordCount" : "204",
   "inLanguage": "zh",
   "datePublished": "2023-05-01T21:28:28+08:00",
-  "dateModified": "2023-05-23T19:14:13.6769637+08:00",
+  "dateModified": "2024-07-01T11:38:49.7214789+08:00",
   "author":[{
     "@type": "Person",
     "name": "AlfredNing"
@@ -216,7 +212,7 @@ HotSpot执行方式 当虚拟机启动的时候，解释器可以首先发挥作
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://AlfredNing.github.io" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
+            <a href="https://AlfredNing.github.io/" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -238,6 +234,8 @@ HotSpot执行方式 当虚拟机启动的时候，解释器可以首先发挥作
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -278,15 +276,15 @@ HotSpot执行方式 当虚拟机启动的时候，解释器可以首先发挥作
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://AlfredNing.github.io">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/jvm/">jvm</a></div>
+            <div class="breadcrumbs"><a href="https://AlfredNing.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/">笔记</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/">编程</a>&nbsp;»&nbsp;<a href="https://AlfredNing.github.io/note/program/jvm/">jvm</a></div>
             <h1 class="post-title">
                 执行引擎
             </h1>
-            <div class="post-meta">创建:&nbsp;<span title='2023-05-01 21:28:28 +0800 CST'>2023年-05月-01日</span>&nbsp;|&nbsp;更新:&nbsp;2023年-05月-23日&nbsp;|&nbsp;字数:&nbsp;204字&nbsp;|&nbsp;时长:&nbsp;1分钟&nbsp;|&nbsp;AlfredNing
+            <div class="post-meta">创建:&amp;nbsp;&lt;span title=&#39;2023-05-01 21:28:28 &#43;0800 CST&#39;&gt;2023年-05月-01日&lt;/span&gt;&amp;nbsp;|&amp;nbsp;更新:&amp;nbsp;2024年-07月-01日&amp;nbsp;|&amp;nbsp;字数:&amp;nbsp;204字&amp;nbsp;|&amp;nbsp;时长:&amp;nbsp;1分钟&amp;nbsp;|&amp;nbsp;AlfredNing
 
                 &nbsp;|&nbsp;标签: &nbsp;
                 <ul class="post-tags-meta">
-                    <a href="https://AlfredNing.github.io/tags/jvm/">jvm</a>
+                    <a href="https://AlfredNing.github.io/tags/jvm/">Jvm</a>
                 </ul>
 
                 
@@ -696,7 +694,7 @@ Java字节码的执行是由JVM执行引擎来完成，流程图如下所示
 </main>
 
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://AlfredNing.github.io">AlfredNing</a></span>
+    <span>&copy; 2024 <a href="https://AlfredNing.github.io/">AlfredNing</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
