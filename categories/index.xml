@@ -6,7 +6,16 @@
     <description>Recent content in Categories on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 14 Jul 2024 19:39:52 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Aug 2024 23:24:51 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot</title>
+      <link>https://AlfredNing.github.io/categories/springboot/</link>
+      <pubDate>Mon, 12 Aug 2024 23:24:51 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/categories/springboot/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>随笔</title>
       <link>https://AlfredNing.github.io/categories/%E9%9A%8F%E7%AC%94/</link>

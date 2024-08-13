@@ -6,7 +6,17 @@
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 14 Jul 2024 19:39:52 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Aug 2024 23:24:51 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot脚手架</title>
+      <link>https://AlfredNing.github.io/note/program/spring/springboot%E8%84%9A%E6%89%8B%E6%9E%B6/</link>
+      <pubDate>Mon, 12 Aug 2024 23:24:51 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/spring/springboot%E8%84%9A%E6%89%8B%E6%9E%B6/</guid>
+      <description>本文介绍配置一个好用的springboot脚手架。、
+springCloud和springboot版本之间的对应关系：https://spring.io/projects/spring-cloud springboot和kafka的版本对应关系：https://spring.io/projects/spring-kafka</description>
+    </item>
+    
     <item>
       <title>记20240714</title>
       <link>https://AlfredNing.github.io/thinking/%E8%AE%B020240714/</link>
