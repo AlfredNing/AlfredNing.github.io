@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>AlfredNing</title>
-    <link>https://AlfredNing.github.io/</link>
-    <description>Recent content on AlfredNing</description>
+    <title>随笔 on AlfredNing</title>
+    <link>https://AlfredNing.github.io/categories/%E9%9A%8F%E7%AC%94/</link>
+    <description>Recent content in 随笔 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 14 Jul 2024 19:39:52 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Jul 2024 19:39:52 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>记20240714</title>
       <link>https://AlfredNing.github.io/thinking/%E8%AE%B020240714/</link>
@@ -24,15 +24,6 @@
 好的习惯，是习惯成自然。不随其他情况发生变化。也不是因为今天很累，忘记了诸如此类的而去打破养成习惯。 当习惯一旦养成，万物皆不可摧毁。
 成长就是不断地对抗天性
 人生最值钱的是自己的时间，在你走后，你也许给这个世界留下不了什么。但你一定要证明自己曾来过这个世界。 长远的审视自己，时间很快。 保持专注，保证警醒</description>
-    </item>
-    
-    <item>
-      <title>Test02</title>
-      <link>https://AlfredNing.github.io/test02/</link>
-      <pubDate>Mon, 01 Jul 2024 12:00:39 +0800</pubDate>
-      
-      <guid>https://AlfredNing.github.io/test02/</guid>
-      <description></description>
     </item>
     
     <item>
@@ -61,8 +52,6 @@
 工业革命与颠覆式创新 蒸汽机 电 信息革命-计算机 人工智能 技术革命的共性 时间间隔大约70-90年 拥有核心技术 带来新的财富剧增 信息和能量的造就
 对服务的需求 对高端人才的需求 对品质的需求 对新事物的需求 工业革命的范式 现有产业 + 蒸汽机 = 新的产业 现有产业 + 电 = 新的产业 现有产业 + 摩尔定律 = 新的产业 第四次工业革命 - 智能革命， 上世纪70年代就提出来数据驱动的方法 现有产业 + 智能技术 = 新的产业 工业革命的核心资源：</description>
     </item>
-    
-    
     
   </channel>
 </rss>
