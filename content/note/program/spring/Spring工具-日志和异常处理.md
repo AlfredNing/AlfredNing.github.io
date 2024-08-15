@@ -1,5 +1,5 @@
 ---
-title: "SpringBoot脚手架"
+title: "SpringBoot工具"
 date: 2024-08-12T23:24:51+08:00
 lastmod: 2024-08-12T23:24:51+08:00
 author: ["AlfredNing"]
