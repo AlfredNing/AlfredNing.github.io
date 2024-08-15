@@ -9,12 +9,12 @@
     <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/program/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SpringBoot脚手架</title>
-      <link>https://AlfredNing.github.io/note/program/spring/springboot%E8%84%9A%E6%89%8B%E6%9E%B6/</link>
+      <link>https://AlfredNing.github.io/note/program/spring/spring%E5%B7%A5%E5%85%B7-%E6%97%A5%E5%BF%97%E5%92%8C%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</link>
       <pubDate>Mon, 12 Aug 2024 23:24:51 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/note/program/spring/springboot%E8%84%9A%E6%89%8B%E6%9E%B6/</guid>
-      <description>本文介绍配置一个好用的springboot脚手架。、
-springCloud和springboot版本之间的对应关系：https://spring.io/projects/spring-cloud springboot和kafka的版本对应关系：https://spring.io/projects/spring-kafka</description>
+      <guid>https://AlfredNing.github.io/note/program/spring/spring%E5%B7%A5%E5%85%B7-%E6%97%A5%E5%BF%97%E5%92%8C%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</guid>
+      <description>springCloud和springboot版本之间的对应关系：https://spring.io/projects/spring-cloud springboot和kafka的版本对应关系：https://spring.io/projects/spring-kafka
+SpringBoot全局异常处理 package com.example.demo01.infra.advice; import jakarta.servlet.http.HttpServletResponse; import lombok.extern.slf4j.Slf4j; import org.springframework.http.HttpStatus; import org.springframework.validation.BindingResult; import org.springframework.validation.FieldError; import org.springframework.validation.ObjectError; import org.springframework.web.bind.MethodArgumentNotValidException; import org.springframework.web.bind.annotation.ExceptionHandler; import org.springframework.web.bind.annotation.ResponseBody; import org.springframework.web.bind.annotation.RestControllerAdvice; /** * 全局异常处理器 * * @author Alfred.Ning * @since 2024年08月15日 21:17:00 */ @RestControllerAdvice @ResponseBody @Slf4j public class GlobalExceptionHandler { @ExceptionHandler(value = {MethodArgumentNotValidException.class}) public ResponseResult&amp;lt;String&amp;gt; handleValidException(MethodArgumentNotValidException ex, HttpServletResponse httpServletResponse) { log.error(&amp;#34;[GlobalExceptionHandler][handleValidException] 参数校验exception&amp;#34;, ex); return wrapperBindingResult(ex.getBindingResult(), httpServletResponse); } private ResponseResult&amp;lt;String&amp;gt; wrapperBindingResult(BindingResult bindingResult, HttpServletResponse httpServletResponse) { StringBuilder errorMsg = new StringBuilder(); for (ObjectError error : bindingResult.</description>
     </item>
     
   </channel>
