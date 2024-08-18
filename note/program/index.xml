@@ -8,6 +8,24 @@
     <language>zh</language>
     <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/program/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>排序之归并排序</title>
+      <link>https://AlfredNing.github.io/note/program/java/%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sun, 18 Aug 2024 13:30:46 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/java/%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</guid>
+      <description>原理介绍 采用分治核心思想 代码实现 import java.util.Arrays; /** * 归并排序 * * @author Alfred.Ning * @since 2024年08月18日 20:24:00 */ public class MergeSort { public static void main(String[] args) { int[] nums = {8, 4, 5, 7, 9, 3, 2, 6, 1}; int[] nums1 = new int[nums.length]; System.arraycopy(nums, 0, nums1, 0, nums.length); MergeSort mergeSort = new MergeSort(); mergeSort.mergeSort(nums); mergeSort.sort(nums1); for (int i = 0; i &amp;lt; nums.length; i++) { if (nums[i] != nums1[i]) { System.</description>
+    </item>
+    
+    <item>
+      <title>排序之冒泡排序</title>
+      <link>https://AlfredNing.github.io/note/program/java/%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sun, 18 Aug 2024 13:30:39 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/java/%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>SpringBoot工具</title>
       <link>https://AlfredNing.github.io/note/program/spring/spring%E5%B7%A5%E5%85%B7-%E6%97%A5%E5%BF%97%E5%92%8C%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</link>
       <pubDate>Mon, 12 Aug 2024 23:24:51 +0800</pubDate>
