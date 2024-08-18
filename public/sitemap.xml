@@ -2,46 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://AlfredNing.github.io/</loc>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-08-18T13:34:44+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2024-08-18T13:34:44+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2024-08-18T13:34:44+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2024-08-18T13:34:44+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/note/program/java/%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2024-08-18T13:34:44+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/note/program/java/%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2024-08-18T13:32:44+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/springboot/</loc>
+    <lastmod>2024-08-15T22:43:46+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/springboot/</loc>
+    <lastmod>2024-08-15T22:43:46+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/note/program/spring/spring%E5%B7%A5%E5%85%B7-%E6%97%A5%E5%BF%97%E5%92%8C%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2024-08-15T22:43:46+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/thinking/%E8%AE%B020240714/</loc>
     <lastmod>2024-07-14T20:16:37+08:00</lastmod>
   </url><url>
-    <loc>https://AlfredNing.github.io/categories/</loc>
+    <loc>http://localhost:1313/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2024-07-14T20:16:37+08:00</lastmod>
   </url><url>
-    <loc>https://AlfredNing.github.io/thinking/%E8%AE%B020240714/</loc>
+    <loc>http://localhost:1313/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2024-07-14T20:16:37+08:00</lastmod>
   </url><url>
-    <loc>https://AlfredNing.github.io/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2024-07-14T20:16:37+08:00</lastmod>
-  </url><url>
-    <loc>https://AlfredNing.github.io/categories/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2024-07-14T20:16:37+08:00</lastmod>
-  </url><url>
-    <loc>https://AlfredNing.github.io/test02/</loc>
+    <loc>http://localhost:1313/test02/</loc>
     <lastmod>2024-07-01T14:12:12+08:00</lastmod>
   </url><url>
-    <loc>https://AlfredNing.github.io/thinking/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%94%E6%89%80%E6%84%9F/</loc>
+    <loc>http://localhost:1313/thinking/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%94%E6%89%80%E6%84%9F/</loc>
     <lastmod>2024-07-14T19:40:29+08:00</lastmod>
   </url><url>
-    <loc>https://AlfredNing.github.io/note/</loc>
+    <loc>http://localhost:1313/note/</loc>
     <lastmod>2023-01-09T22:52:31+08:00</lastmod>
   </url><url>
-    <loc>https://AlfredNing.github.io/note/program/</loc>
+    <loc>http://localhost:1313/note/program/</loc>
     <lastmod>2024-07-01T16:32:16+08:00</lastmod>
   </url><url>
-    <loc>https://AlfredNing.github.io/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
     <lastmod>2024-07-01T16:30:54+08:00</lastmod>
   </url><url>
-    <loc>https://AlfredNing.github.io/thinking/</loc>
+    <loc>http://localhost:1313/thinking/</loc>
     <lastmod>2023-01-08T17:41:45+08:00</lastmod>
   </url><url>
-    <loc>https://AlfredNing.github.io/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2023-01-09T22:52:31+08:00</lastmod>
   </url><url>
-    <loc>https://AlfredNing.github.io/archives/</loc>
+    <loc>http://localhost:1313/archives/</loc>
     <lastmod>2023-01-08T17:41:45+08:00</lastmod>
   </url><url>
-    <loc>https://AlfredNing.github.io/search/</loc>
+    <loc>http://localhost:1313/search/</loc>
     <lastmod>2023-01-08T17:41:45+08:00</lastmod>
   </url>
 </urlset>

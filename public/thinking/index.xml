@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>想法 on AlfredNing</title>
-    <link>https://AlfredNing.github.io/thinking/</link>
+    <link>http://localhost:1313/thinking/</link>
     <description>Recent content in 想法 on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/thinking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/thinking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>记20240714</title>
-      <link>https://AlfredNing.github.io/thinking/%E8%AE%B020240714/</link>
+      <link>http://localhost:1313/thinking/%E8%AE%B020240714/</link>
       <pubDate>Sun, 14 Jul 2024 19:39:52 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/thinking/%E8%AE%B020240714/</guid>
+      <guid>http://localhost:1313/thinking/%E8%AE%B020240714/</guid>
       <description>背景 今天打扫了房间，清理掉了很多没有用的东西，最根本性发现几个问题。
 很多东西，都是不需要的 今天扔了好多东西，有的东西甚至都还是全新的，有的甚至当初留下来，想的是以后能用到。可往往占据了地方，结果到最后还是扔掉了。
 仔细想想，其实人生并不是需要那么多额外的东西
@@ -28,10 +28,10 @@
     
     <item>
       <title>浪潮之巔所感</title>
-      <link>https://AlfredNing.github.io/thinking/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%94%E6%89%80%E6%84%9F/</link>
+      <link>http://localhost:1313/thinking/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%94%E6%89%80%E6%84%9F/</link>
       <pubDate>Sun, 04 Jun 2023 21:08:54 +0800</pubDate>
       
-      <guid>https://AlfredNing.github.io/thinking/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%94%E6%89%80%E6%84%9F/</guid>
+      <guid>http://localhost:1313/thinking/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%94%E6%89%80%E6%84%9F/</guid>
       <description>2023年上，看了浪潮之巅。
 20世纪不联网信息产业密度不断扩大，新型了各大历史上著名的公司，有的至今还在，有的早已灭亡。科学技术的不断发展，有的公司靠自己影响力，有的公司靠自己的垄断，有的公司在技术上的发展却无法商业变现。历史上著名的太阳公司，雅虎公司。好的公司里面必要有优秀的人才。
 每一个叫的名字的公司，之前都经历过一段痛苦时间，每一个站在行业顶端的互联网公司，都占据着市场上诸多的利润。不要看到大公司的今天，回头看看，他们的一路。任何事情也都是如此。
