@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>MySQL on AlfredNing</title>
-    <link>https://AlfredNing.github.io/tags/mysql/</link>
+    <link>https://AlfredNing.github.io/categories/mysql/</link>
     <description>Recent content in MySQL on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 07 Sep 2024 14:59:46 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Sep 2024 14:59:46 +0800</lastBuildDate><atom:link href="https://AlfredNing.github.io/categories/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ORM框架设计</title>
       <link>https://AlfredNing.github.io/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/</link>

@@ -8,6 +8,85 @@
     <language>zh</language>
     <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://AlfredNing.github.io/note/program/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>ORM框架设计</title>
+      <link>https://AlfredNing.github.io/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Sat, 07 Sep 2024 14:59:46 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/</guid>
+      <description>&lt;h1 id=&#34;经典的软件架构&#34;&gt;经典的软件架构&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;分层架构：经典的MVC&lt;/li&gt;
+&lt;li&gt;事件驱动架构&lt;/li&gt;
+&lt;li&gt;管道-过滤器架构&lt;/li&gt;
+&lt;li&gt;微核架构：vsCode , idea&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;orm的架构层次&#34;&gt;ORM的架构层次&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;接口层：向上支持程序调用&lt;/li&gt;
+&lt;li&gt;处理层：参数映射-&amp;gt; SQL生成 -&amp;gt; SQL执行 -&amp;gt; 结果处理&lt;/li&gt;
+&lt;li&gt;支撑层：事务管理 连接池管理&lt;/li&gt;
+&lt;li&gt;连接层： 数据库连接驱动&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20240907150455340.png&#34; alt=&#34;image-20240907150455340&#34;  /&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MySQL查询优化</title>
+      <link>https://AlfredNing.github.io/note/program/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Sat, 07 Sep 2024 09:25:42 +0800</pubDate>
+      
+      <guid>https://AlfredNing.github.io/note/program/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/</guid>
+      <description>&lt;h1 id=&#34;一个sql是如何执行的&#34;&gt;一个SQL是如何执行的&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20240907110600002.png&#34; alt=&#34;image-20240907110600002&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;查询缓存：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;执行查询过得语句先缓存&lt;/li&gt;
+&lt;li&gt;推荐使用缓存：数据表修改后，会删除所有缓存相关的。Mysql8 去掉缓存&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;分析器：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;知道干什么&lt;/li&gt;
+&lt;li&gt;词法分析&lt;/li&gt;
+&lt;li&gt;句法分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;优化器：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;优化器的作用知道是怎么做&lt;/li&gt;
+&lt;li&gt;决定如何使用索引&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;执行器：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;校验权限，调用存储引擎&lt;/li&gt;
+&lt;li&gt;没有索引情况，执行器会查询所有行&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;索引组织表&#34;&gt;索引组织表&lt;/h1&gt;
+&lt;p&gt;索引：数据库中对某一列或者多个列的值进行预排序的数据结构&lt;/p&gt;
+&lt;p&gt;主键：非空唯一索引；不指定主键，与声明顺序有关&lt;/p&gt;
+&lt;h2 id=&#34;主流索引查找&#34;&gt;主流索引查找&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;线性查找&lt;/li&gt;
+&lt;li&gt;二分查找&lt;/li&gt;
+&lt;li&gt;二叉查找树&lt;/li&gt;
+&lt;li&gt;平衡二叉树&lt;/li&gt;
+&lt;li&gt;B树&lt;/li&gt;
+&lt;li&gt;B+树&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;二叉树特殊情况下，可以退化成链表，所有引入了平衡二叉树，通过旋转的方式，保证子树间的高度。二叉树明显的缺点是每个节点存储的数据太少。硬盘按块（默认4k）读取&lt;/p&gt;
+&lt;h3 id=&#34;b树&#34;&gt;B树&lt;/h3&gt;
+&lt;p&gt;叶子存储多节点，多数据节点降低树的高度。&lt;/p&gt;
+&lt;h3 id=&#34;b树-1&#34;&gt;B+树&lt;/h3&gt;
+&lt;p&gt;叶子间通过链表相连。只有叶子存储数据&lt;/p&gt;
+&lt;p&gt;高度一般为2-4层，查找速度快&lt;/p&gt;
+&lt;p&gt;Innodb采用B+树结构&lt;/p&gt;
+&lt;h2 id=&#34;聚簇索引&#34;&gt;聚簇索引&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;根据表的主键构造B+树&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>排序之归并排序</title>
       <link>https://AlfredNing.github.io/note/program/java/%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</link>
       <pubDate>Sun, 18 Aug 2024 13:30:46 +0800</pubDate>
