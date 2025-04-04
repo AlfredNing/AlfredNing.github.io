@@ -6,7 +6,16 @@
     <description>Recent content in Categories on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 18 Aug 2024 13:30:46 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Sep 2024 14:59:46 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL</title>
+      <link>http://localhost:1313/categories/mysql/</link>
+      <pubDate>Sat, 07 Sep 2024 14:59:46 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/mysql/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>排序</title>
       <link>http://localhost:1313/categories/%E6%8E%92%E5%BA%8F/</link>

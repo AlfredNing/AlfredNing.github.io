@@ -8,12 +8,48 @@
     <language>zh</language>
     <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/note/program/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>ORM框架设计</title>
+      <link>http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Sat, 07 Sep 2024 14:59:46 +0800</pubDate>
+      
+      <guid>http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/</guid>
+      <description>经典的软件架构 分层架构：经典的MVC 事件驱动架构 管道-过滤器架构 微核架构：vsCode , idea ORM的架构层次 接口层：向上支持程序调用 处理层：参数映射-&amp;gt; SQL生成 -&amp;gt; SQL执行 -&amp;gt; 结果处理 支撑层：事务管理 连接池管理 连接层： 数据库连接驱动 </description>
+    </item>
+    
+    <item>
+      <title>MySQL查询优化</title>
+      <link>http://localhost:1313/note/program/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Sat, 07 Sep 2024 09:25:42 +0800</pubDate>
+      
+      <guid>http://localhost:1313/note/program/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/</guid>
+      <description>一个SQL是如何执行的 查询缓存：
+执行查询过得语句先缓存 推荐使用缓存：数据表修改后，会删除所有缓存相关的。Mysql8 去掉缓存 分析器：
+知道干什么 词法分析 句法分析 优化器：
+优化器的作用知道是怎么做 决定如何使用索引 执行器：
+校验权限，调用存储引擎 没有索引情况，执行器会查询所有行 索引组织表 索引：数据库中对某一列或者多个列的值进行预排序的数据结构
+主键：非空唯一索引；不指定主键，与声明顺序有关
+主流索引查找 线性查找 二分查找 二叉查找树 平衡二叉树 B树 B+树 二叉树特殊情况下，可以退化成链表，所有引入了平衡二叉树，通过旋转的方式，保证子树间的高度。二叉树明显的缺点是每个节点存储的数据太少。硬盘按块（默认4k）读取
+B树 叶子存储多节点，多数据节点降低树的高度。
+B+树 叶子间通过链表相连。只有叶子存储数据
+高度一般为2-4层，查找速度快
+Innodb采用B+树结构
+聚簇索引 根据表的主键构造B+树
+数据和索引放在一起
+叶子节点之间存放数据，而不是指针
+辅助索引 叶子节点不包含数据，存储主键 Innodb存储逻辑结构 数据记录格式 索引建立 联合索引：最左前缀，“带头大哥不能死，中间兄弟不能丢” 字符串的前缀索引：字符串过长，使用前缀索引节约空间； 前缀区分度太小：倒序存储，取的时候反向存储 新建hash字段 字符串like: 全模糊：“%like%” 索引失效 右模糊：&amp;quot;%like&amp;quot; 索引失效 左模糊才可以使用索引 查询优化 覆盖索引 取消回表操作，提高查询性能 数据的查询不只使用到了一个索引，则不是覆盖索引 优化sql语句或者优化联合索引，来使用覆盖索引 有更合适的索引不走 Mysql索引的选择-基于基数 参考索引的基数
+反应字段有多少种取值 选取几个页中取值的平均值，在乘以页数，则为基数 查看索引
+show index from tableName
+区分度越大，mysql最可能选取
+解决措施: 强制使用索引 force index 强制使用索引 优化索引，让mysql重新统计索引 analyze table 会重新统计索引基数 count比较慢 count：统计结果集合不为null的数据个数</description>
+    </item>
+    
+    <item>
       <title>排序之归并排序</title>
       <link>http://localhost:1313/note/program/java/%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</link>
       <pubDate>Sun, 18 Aug 2024 13:30:46 +0800</pubDate>
       
       <guid>http://localhost:1313/note/program/java/%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</guid>
-      <description></description>
+      <description>原理介绍 采用分治核心思想 代码实现 import java.util.Arrays; /** * 归并排序 * * @author Alfred.Ning * @since 2024年08月18日 20:24:00 */ public class MergeSort { public static void main(String[] args) { int[] nums = {8, 4, 5, 7, 9, 3, 2, 6, 1}; int[] nums1 = new int[nums.length]; System.arraycopy(nums, 0, nums1, 0, nums.length); MergeSort mergeSort = new MergeSort(); mergeSort.mergeSort(nums); mergeSort.sort(nums1); for (int i = 0; i &amp;lt; nums.length; i++) { if (nums[i] != nums1[i]) { System.</description>
     </item>
     
     <item>
@@ -22,7 +58,7 @@
       <pubDate>Sun, 18 Aug 2024 13:30:39 +0800</pubDate>
       
       <guid>http://localhost:1313/note/program/java/%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</guid>
-      <description>原理介绍 </description>
+      <description></description>
     </item>
     
     <item>

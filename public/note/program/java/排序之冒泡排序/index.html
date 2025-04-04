@@ -7,13 +7,13 @@
 <meta name="robots" content="index, follow">
 <title>排序之冒泡排序 | AlfredNing</title>
 <meta name="keywords" content="">
-<meta name="description" content="原理介绍 ">
+<meta name="description" content="排序之冒泡排序 - AlfredNing">
 <meta name="author" content="AlfredNing">
 <link rel="canonical" href="http://localhost:1313/note/program/java/%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0afa94d2b970a706db3fee2bf670661d8e9e2df61019549dcb856ed6d409b75d.css" integrity="sha256-CvqU0rlwpwbbP&#43;4r9nBmHY6eLfYQGVSdy4Vu1tQJt10=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b91229cde124e7e554c449f8fad7516eafaf28cae03248ddf56e701706cbffee.css" integrity="sha256-uRIpzeEk5&#43;VUxEn4&#43;tdRbq&#43;vKMrgMkjd9W5wFwbL/&#43;4=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
@@ -61,22 +61,27 @@
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="排序之冒泡排序" />
-<meta property="og:description" content="原理介绍 " />
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="排序之冒泡排序" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/note/program/java/%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" /><meta property="article:section" content="note" />
 <meta property="article:published_time" content="2024-08-18T13:30:39+08:00" />
-<meta property="article:modified_time" content="2024-08-18T13:32:44+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
+<meta property="article:modified_time" content="2025-04-04T17:29:23+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="排序之冒泡排序"/>
-<meta name="twitter:description" content="原理介绍 "/>
+<meta name="twitter:description" content=""/>
 
 
 <script type="application/ld+json">
@@ -111,15 +116,15 @@
   "@type": "BlogPosting",
   "headline": "排序之冒泡排序",
   "name": "排序之冒泡排序",
-  "description": "原理介绍 ",
+  "description": "",
   "keywords": [
     ""
   ],
-  "articleBody": "原理介绍 ",
-  "wordCount" : "1",
+  "articleBody": "",
+  "wordCount" : "0",
   "inLanguage": "zh",
   "datePublished": "2024-08-18T13:30:39+08:00",
-  "dateModified": "2024-08-18T13:32:44.406021+08:00",
+  "dateModified": "2025-04-04T17:29:23.0606061+08:00",
   "author":[{
     "@type": "Person",
     "name": "AlfredNing"
@@ -255,13 +260,13 @@
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1字
+        <span>0字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>1分钟
+        <span>0分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -291,86 +296,8 @@
 
 </div>
         </header> 
-        <aside id="toc-container" class="toc-container wide">
-    <div class="toc">
-        <details  open>
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">目录</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e5%8e%9f%e7%90%86%e4%bb%8b%e7%bb%8d" aria-label="原理介绍">原理介绍</a>
-                </li>
-            </ul>
-        </div>
-        </details>
-    </div>
-</aside>
-<script>
-    let activeElement;
-    let elements;
-    window.addEventListener('DOMContentLoaded', function (event) {
-        checkTocPosition();
-
-        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
         
-        activeElement = elements[0];
-        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-    }, false);
-
-    window.addEventListener('resize', function(event) {
-        checkTocPosition();
-    }, false);
-
-    window.addEventListener('scroll', () => {
         
-        activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
-                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
-                return element;
-            }
-        }) || activeElement
-
-        elements.forEach(element => {
-            const id = encodeURI(element.getAttribute('id')).toLowerCase();
-            if (element === activeElement){
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-            } else {
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-            }
-        })
-    }, false);
-
-    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
-    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
-    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
-
-    function checkTocPosition() {
-        const width = document.body.scrollWidth;
-
-        if (width - main - (toc * 2) - (gap * 4) > 0) {
-            document.getElementById("toc-container").classList.add("wide");
-        } else {
-            document.getElementById("toc-container").classList.remove("wide");
-        }
-    }
-
-    function getOffsetTop(element) {
-        if (!element.getClientRects().length) {
-            return 0;
-        }
-        let rect = element.getBoundingClientRect();
-        let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;
-    }
-</script>
-        
-        <div class="post-content"><h1 id="原理介绍">原理介绍<a hidden class="anchor" aria-hidden="true" href="#原理介绍">#</a></h1>
-
-
-        </div>
 
         <footer class="post-footer">
             
@@ -408,7 +335,7 @@
 </main>
 
 <footer class="footer">
-    <span>&copy; 2024 <a href="http://localhost:1313/">AlfredNing</a></span>
+    <span>&copy; 2025 <a href="http://localhost:1313/">AlfredNing</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

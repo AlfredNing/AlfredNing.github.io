@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>MySQL查询优化 | AlfredNing</title>
+<meta name="keywords" content="">
+<meta name="description" content="一个SQL是如何执行的 查询缓存：
+执行查询过得语句先缓存 推荐使用缓存：数据表修改后，会删除所有缓存相关的。Mysql8 去掉缓存 分析器：
+知道干什么 词法分析 句法分析 优化器：
+优化器的作用知道是怎么做 决定如何使用索引 执行器：
+校验权限，调用存储引擎 没有索引情况，执行器会查询所有行 索引组织表 索引：数据库中对某一列或者多个列的值进行预排序的数据结构
+主键：非空唯一索引；不指定主键，与声明顺序有关
+主流索引查找 线性查找 二分查找 二叉查找树 平衡二叉树 B树 B&#43;树 二叉树特殊情况下，可以退化成链表，所有引入了平衡二叉树，通过旋转的方式，保证子树间的高度。二叉树明显的缺点是每个节点存储的数据太少。硬盘按块（默认4k）读取
+B树 叶子存储多节点，多数据节点降低树的高度。
+B&#43;树 叶子间通过链表相连。只有叶子存储数据
+高度一般为2-4层，查找速度快
+Innodb采用B&#43;树结构
+聚簇索引 根据表的主键构造B&#43;树
+数据和索引放在一起
+叶子节点之间存放数据，而不是指针
+辅助索引 叶子节点不包含数据，存储主键 Innodb存储逻辑结构 数据记录格式 索引建立 联合索引：最左前缀，“带头大哥不能死，中间兄弟不能丢” 字符串的前缀索引：字符串过长，使用前缀索引节约空间； 前缀区分度太小：倒序存储，取的时候反向存储 新建hash字段 字符串like: 全模糊：“%like%” 索引失效 右模糊：&quot;%like&quot; 索引失效 左模糊才可以使用索引 查询优化 覆盖索引 取消回表操作，提高查询性能 数据的查询不只使用到了一个索引，则不是覆盖索引 优化sql语句或者优化联合索引，来使用覆盖索引 有更合适的索引不走 Mysql索引的选择-基于基数 参考索引的基数
+反应字段有多少种取值 选取几个页中取值的平均值，在乘以页数，则为基数 查看索引
+show index from tableName
+区分度越大，mysql最可能选取
+解决措施: 强制使用索引 force index 强制使用索引 优化索引，让mysql重新统计索引 analyze table 会重新统计索引基数 count比较慢 count：统计结果集合不为null的数据个数">
+<meta name="author" content="AlfredNing">
+<link rel="canonical" href="http://localhost:1313/note/program/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="yandex-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b91229cde124e7e554c449f8fad7516eafaf28cae03248ddf56e701706cbffee.css" integrity="sha256-uRIpzeEk5&#43;VUxEn4&#43;tdRbq&#43;vKMrgMkjd9W5wFwbL/&#43;4=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link rel="apple-touch-icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link rel="mask-icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/note/program/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="MySQL查询优化" />
+<meta property="og:description" content="一个SQL是如何执行的 查询缓存：
+执行查询过得语句先缓存 推荐使用缓存：数据表修改后，会删除所有缓存相关的。Mysql8 去掉缓存 分析器：
+知道干什么 词法分析 句法分析 优化器：
+优化器的作用知道是怎么做 决定如何使用索引 执行器：
+校验权限，调用存储引擎 没有索引情况，执行器会查询所有行 索引组织表 索引：数据库中对某一列或者多个列的值进行预排序的数据结构
+主键：非空唯一索引；不指定主键，与声明顺序有关
+主流索引查找 线性查找 二分查找 二叉查找树 平衡二叉树 B树 B&#43;树 二叉树特殊情况下，可以退化成链表，所有引入了平衡二叉树，通过旋转的方式，保证子树间的高度。二叉树明显的缺点是每个节点存储的数据太少。硬盘按块（默认4k）读取
+B树 叶子存储多节点，多数据节点降低树的高度。
+B&#43;树 叶子间通过链表相连。只有叶子存储数据
+高度一般为2-4层，查找速度快
+Innodb采用B&#43;树结构
+聚簇索引 根据表的主键构造B&#43;树
+数据和索引放在一起
+叶子节点之间存放数据，而不是指针
+辅助索引 叶子节点不包含数据，存储主键 Innodb存储逻辑结构 数据记录格式 索引建立 联合索引：最左前缀，“带头大哥不能死，中间兄弟不能丢” 字符串的前缀索引：字符串过长，使用前缀索引节约空间； 前缀区分度太小：倒序存储，取的时候反向存储 新建hash字段 字符串like: 全模糊：“%like%” 索引失效 右模糊：&quot;%like&quot; 索引失效 左模糊才可以使用索引 查询优化 覆盖索引 取消回表操作，提高查询性能 数据的查询不只使用到了一个索引，则不是覆盖索引 优化sql语句或者优化联合索引，来使用覆盖索引 有更合适的索引不走 Mysql索引的选择-基于基数 参考索引的基数
+反应字段有多少种取值 选取几个页中取值的平均值，在乘以页数，则为基数 查看索引
+show index from tableName
+区分度越大，mysql最可能选取
+解决措施: 强制使用索引 force index 强制使用索引 优化索引，让mysql重新统计索引 analyze table 会重新统计索引基数 count比较慢 count：统计结果集合不为null的数据个数" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/note/program/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/" /><meta property="article:section" content="note" />
+<meta property="article:published_time" content="2024-09-07T09:25:42+08:00" />
+<meta property="article:modified_time" content="2025-04-04T17:29:23+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MySQL查询优化"/>
+<meta name="twitter:description" content="一个SQL是如何执行的 查询缓存：
+执行查询过得语句先缓存 推荐使用缓存：数据表修改后，会删除所有缓存相关的。Mysql8 去掉缓存 分析器：
+知道干什么 词法分析 句法分析 优化器：
+优化器的作用知道是怎么做 决定如何使用索引 执行器：
+校验权限，调用存储引擎 没有索引情况，执行器会查询所有行 索引组织表 索引：数据库中对某一列或者多个列的值进行预排序的数据结构
+主键：非空唯一索引；不指定主键，与声明顺序有关
+主流索引查找 线性查找 二分查找 二叉查找树 平衡二叉树 B树 B&#43;树 二叉树特殊情况下，可以退化成链表，所有引入了平衡二叉树，通过旋转的方式，保证子树间的高度。二叉树明显的缺点是每个节点存储的数据太少。硬盘按块（默认4k）读取
+B树 叶子存储多节点，多数据节点降低树的高度。
+B&#43;树 叶子间通过链表相连。只有叶子存储数据
+高度一般为2-4层，查找速度快
+Innodb采用B&#43;树结构
+聚簇索引 根据表的主键构造B&#43;树
+数据和索引放在一起
+叶子节点之间存放数据，而不是指针
+辅助索引 叶子节点不包含数据，存储主键 Innodb存储逻辑结构 数据记录格式 索引建立 联合索引：最左前缀，“带头大哥不能死，中间兄弟不能丢” 字符串的前缀索引：字符串过长，使用前缀索引节约空间； 前缀区分度太小：倒序存储，取的时候反向存储 新建hash字段 字符串like: 全模糊：“%like%” 索引失效 右模糊：&quot;%like&quot; 索引失效 左模糊才可以使用索引 查询优化 覆盖索引 取消回表操作，提高查询性能 数据的查询不只使用到了一个索引，则不是覆盖索引 优化sql语句或者优化联合索引，来使用覆盖索引 有更合适的索引不走 Mysql索引的选择-基于基数 参考索引的基数
+反应字段有多少种取值 选取几个页中取值的平均值，在乘以页数，则为基数 查看索引
+show index from tableName
+区分度越大，mysql最可能选取
+解决措施: 强制使用索引 force index 强制使用索引 优化索引，让mysql重新统计索引 analyze table 会重新统计索引基数 count比较慢 count：统计结果集合不为null的数据个数"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "笔记",
+      "item": "http://localhost:1313/note/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "编程",
+      "item": "http://localhost:1313/note/program/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "MySQL查询优化",
+      "item": "http://localhost:1313/note/program/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "MySQL查询优化",
+  "name": "MySQL查询优化",
+  "description": "一个SQL是如何执行的 查询缓存：\n执行查询过得语句先缓存 推荐使用缓存：数据表修改后，会删除所有缓存相关的。Mysql8 去掉缓存 分析器：\n知道干什么 词法分析 句法分析 优化器：\n优化器的作用知道是怎么做 决定如何使用索引 执行器：\n校验权限，调用存储引擎 没有索引情况，执行器会查询所有行 索引组织表 索引：数据库中对某一列或者多个列的值进行预排序的数据结构\n主键：非空唯一索引；不指定主键，与声明顺序有关\n主流索引查找 线性查找 二分查找 二叉查找树 平衡二叉树 B树 B+树 二叉树特殊情况下，可以退化成链表，所有引入了平衡二叉树，通过旋转的方式，保证子树间的高度。二叉树明显的缺点是每个节点存储的数据太少。硬盘按块（默认4k）读取\nB树 叶子存储多节点，多数据节点降低树的高度。\nB+树 叶子间通过链表相连。只有叶子存储数据\n高度一般为2-4层，查找速度快\nInnodb采用B+树结构\n聚簇索引 根据表的主键构造B+树\n数据和索引放在一起\n叶子节点之间存放数据，而不是指针\n辅助索引 叶子节点不包含数据，存储主键 Innodb存储逻辑结构 数据记录格式 索引建立 联合索引：最左前缀，“带头大哥不能死，中间兄弟不能丢” 字符串的前缀索引：字符串过长，使用前缀索引节约空间； 前缀区分度太小：倒序存储，取的时候反向存储 新建hash字段 字符串like: 全模糊：“%like%” 索引失效 右模糊：\u0026quot;%like\u0026quot; 索引失效 左模糊才可以使用索引 查询优化 覆盖索引 取消回表操作，提高查询性能 数据的查询不只使用到了一个索引，则不是覆盖索引 优化sql语句或者优化联合索引，来使用覆盖索引 有更合适的索引不走 Mysql索引的选择-基于基数 参考索引的基数\n反应字段有多少种取值 选取几个页中取值的平均值，在乘以页数，则为基数 查看索引\nshow index from tableName\n区分度越大，mysql最可能选取\n解决措施: 强制使用索引 force index 强制使用索引 优化索引，让mysql重新统计索引 analyze table 会重新统计索引基数 count比较慢 count：统计结果集合不为null的数据个数",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "一个SQL是如何执行的 查询缓存：\n执行查询过得语句先缓存 推荐使用缓存：数据表修改后，会删除所有缓存相关的。Mysql8 去掉缓存 分析器：\n知道干什么 词法分析 句法分析 优化器：\n优化器的作用知道是怎么做 决定如何使用索引 执行器：\n校验权限，调用存储引擎 没有索引情况，执行器会查询所有行 索引组织表 索引：数据库中对某一列或者多个列的值进行预排序的数据结构\n主键：非空唯一索引；不指定主键，与声明顺序有关\n主流索引查找 线性查找 二分查找 二叉查找树 平衡二叉树 B树 B+树 二叉树特殊情况下，可以退化成链表，所有引入了平衡二叉树，通过旋转的方式，保证子树间的高度。二叉树明显的缺点是每个节点存储的数据太少。硬盘按块（默认4k）读取\nB树 叶子存储多节点，多数据节点降低树的高度。\nB+树 叶子间通过链表相连。只有叶子存储数据\n高度一般为2-4层，查找速度快\nInnodb采用B+树结构\n聚簇索引 根据表的主键构造B+树\n数据和索引放在一起\n叶子节点之间存放数据，而不是指针\n辅助索引 叶子节点不包含数据，存储主键 Innodb存储逻辑结构 数据记录格式 索引建立 联合索引：最左前缀，“带头大哥不能死，中间兄弟不能丢” 字符串的前缀索引：字符串过长，使用前缀索引节约空间； 前缀区分度太小：倒序存储，取的时候反向存储 新建hash字段 字符串like: 全模糊：“%like%” 索引失效 右模糊：\"%like\" 索引失效 左模糊才可以使用索引 查询优化 覆盖索引 取消回表操作，提高查询性能 数据的查询不只使用到了一个索引，则不是覆盖索引 优化sql语句或者优化联合索引，来使用覆盖索引 有更合适的索引不走 Mysql索引的选择-基于基数 参考索引的基数\n反应字段有多少种取值 选取几个页中取值的平均值，在乘以页数，则为基数 查看索引\nshow index from tableName\n区分度越大，mysql最可能选取\n解决措施: 强制使用索引 force index 强制使用索引 优化索引，让mysql重新统计索引 analyze table 会重新统计索引基数 count比较慢 count：统计结果集合不为null的数据个数\n存储引擎查询结果集 server层逐个结果判断是否为null, 不为null则加1 count(非索引字段)：理论上是最慢\ncount(索引字段)： 覆盖索引，但是server需要引擎判断\ncount(主键)： server仍然需要引擎判断\ncount(1)：只扫描索引树，没有解析数据行的过程，理论是更快，但是server层仍然每次需要判断“1是否为null\"\ncount(*)：一般用来返回数据表行数，MyIsam直接返回数据表行数，直接返回索引树中数据的个数\norder by比较慢 order by执行过程 根据where条件查询 将查询结果放入sort_buffer 对中间结果集按照order by 字段排序 需要的情况下回表生成完整结果集合 中间结果集：\n中间表小的时候，直接放在内存 中间表大于sort_buffer_size, 放入磁盘 优化内存占用，减少sort_buffer_size 优化排序时间，增大sort_buffer_size 回表生成完整结果集：\n当行小于max_length_for_sort_data 生成全字段中间结果表 大于阈值，只生成排序字段+中间结果表，需要回表 调大阈值不一定改善效率，因为结果集排序效率低 索引覆盖\n跳过生成中间结果集，直接输出查询结果 order 字段需要有索引，或在联合索引的左侧 其他相关字段(条件，输出)都在上述的索引中 随机选取比较慢 rand(): 0-1直接随机值\nrand执行过程 select A, B from test order by rand() limit 1 创建一个临时表，临时表字段为A,B 从表中取出一行，调用rand()， 将结果和数据放入临时表 针对临时表，将rand+行位置放入sort_buffer 对sort_buffer排序，取出第一个位置主键，查询临时表 慢的原因：\nsql执行过程中，出现了两次中间结果 需要一个优化结果，但又排序 调用了很多次的rand 解决方案 临时方案 select max(id), min(id) into @M, @N from test; set @X = floor((@M - @N + 1) * rand() + @N); select A, B from test where id \u003e @X limit 1; 业务方案 查询数据表总数total\ntotal范围内，随机选取一个数字r\n执行sql\nselect A,B from test limit r, 1 索引下推 explain Extra中 ： use index condition\n使用索引先过滤再次回表查询\n松散索引扫描 Mysql 8.0 特性\n函数放弃索引的情况 MySQL中，对索引字段做函数操作，优化器放弃索引\n时间函数 字符串转数字 字符编码转换 解决方案 时间函数转区间(between and) 数字强转字符串 高级编码转低级 分页查询慢 偏移量大时，效率低 分页原理 先执行条件部分，在执行分页逻辑limit之后 丢弃很多无用的数据，效率低下 优化思路 走覆盖索引 得到数据Id 根据数据Id，得到最终结果集 selec A,B,C from test order by B limit 900,10; -- 数据库只有c索引; A是主键 改进后 select t1.A, t1.B, t1.C from test t1 inner join (select A from test t2 order by B limit 900, 10) t2 on t1.A = t2.A ",
+  "wordCount" : "250",
+  "inLanguage": "zh",
+  "datePublished": "2024-09-07T09:25:42+08:00",
+  "dateModified": "2025-04-04T17:29:23.0616478+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "AlfredNing"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/note/program/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AlfredNing",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/%3Clink%20/%20abs%20url%3E"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="AlfredNing (Alt + H)">AlfredNing</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/note/" title="📓笔记">
+                    <span>📓笔记</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/thinking/" title="🤔随笔">
+                    <span>🤔随笔</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="🔎搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔎搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="🗄️归档">
+                    <span>🗄️归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about" title="🤙关于">
+                    <span>🤙关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="http://localhost:1313/">主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/note/">笔记</a>&nbsp;»&nbsp;<a href="http://localhost:1313/note/program/">编程</a></div>
+            <h1 class="post-title">
+                MySQL查询优化
+            </h1>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2024年-09月-07日
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>250字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>2分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>AlfredNing
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="http://localhost:1313/tags/mysql/" style="color: var(--secondary)!important;">MySQL</a>
+            </span>
+        </span>
+    </span>
+</span>
+                &nbsp;|&nbsp;标签: &nbsp;
+                <ul class="post-tags-meta">
+                    <a href="http://localhost:1313/tags/mysql/">MySQL</a>
+                </ul>
+
+                
+                
+            </span>
+
+</div>
+        </header> 
+        <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%b8%80%e4%b8%aasql%e6%98%af%e5%a6%82%e4%bd%95%e6%89%a7%e8%a1%8c%e7%9a%84" aria-label="一个SQL是如何执行的">一个SQL是如何执行的</a></li>
+                <li>
+                    <a href="#%e7%b4%a2%e5%bc%95%e7%bb%84%e7%bb%87%e8%a1%a8" aria-label="索引组织表">索引组织表</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%bb%e6%b5%81%e7%b4%a2%e5%bc%95%e6%9f%a5%e6%89%be" aria-label="主流索引查找">主流索引查找</a><ul>
+                        
+                <li>
+                    <a href="#b%e6%a0%91" aria-label="B树">B树</a></li>
+                <li>
+                    <a href="#b%e6%a0%91-1" aria-label="B&#43;树">B+树</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%81%9a%e7%b0%87%e7%b4%a2%e5%bc%95" aria-label="聚簇索引">聚簇索引</a></li>
+                <li>
+                    <a href="#%e8%be%85%e5%8a%a9%e7%b4%a2%e5%bc%95" aria-label="辅助索引">辅助索引</a></li>
+                <li>
+                    <a href="#innodb%e5%ad%98%e5%82%a8%e9%80%bb%e8%be%91%e7%bb%93%e6%9e%84" aria-label="Innodb存储逻辑结构">Innodb存储逻辑结构</a></li>
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e8%ae%b0%e5%bd%95%e6%a0%bc%e5%bc%8f" aria-label="数据记录格式">数据记录格式</a></li>
+                <li>
+                    <a href="#%e7%b4%a2%e5%bc%95%e5%bb%ba%e7%ab%8b" aria-label="索引建立">索引建立</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%9f%a5%e8%af%a2%e4%bc%98%e5%8c%96" aria-label="查询优化">查询优化</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a6%86%e7%9b%96%e7%b4%a2%e5%bc%95" aria-label="覆盖索引">覆盖索引</a></li>
+                <li>
+                    <a href="#%e6%9c%89%e6%9b%b4%e5%90%88%e9%80%82%e7%9a%84%e7%b4%a2%e5%bc%95%e4%b8%8d%e8%b5%b0" aria-label="有更合适的索引不走">有更合适的索引不走</a><ul>
+                        
+                <li>
+                    <a href="#mysql%e7%b4%a2%e5%bc%95%e7%9a%84%e9%80%89%e6%8b%a9-%e5%9f%ba%e4%ba%8e%e5%9f%ba%e6%95%b0" aria-label="Mysql索引的选择-基于基数">Mysql索引的选择-基于基数</a></li>
+                <li>
+                    <a href="#%e8%a7%a3%e5%86%b3%e6%8e%aa%e6%96%bd-%e5%bc%ba%e5%88%b6%e4%bd%bf%e7%94%a8%e7%b4%a2%e5%bc%95" aria-label="解决措施: 强制使用索引">解决措施: 强制使用索引</a></li></ul>
+                </li>
+                <li>
+                    <a href="#count%e6%af%94%e8%be%83%e6%85%a2" aria-label="count比较慢">count比较慢</a></li>
+                <li>
+                    <a href="#order-by%e6%af%94%e8%be%83%e6%85%a2" aria-label="order by比较慢">order by比较慢</a><ul>
+                        
+                <li>
+                    <a href="#order-by%e6%89%a7%e8%a1%8c%e8%bf%87%e7%a8%8b" aria-label="order by执行过程">order by执行过程</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%9a%8f%e6%9c%ba%e9%80%89%e5%8f%96%e6%af%94%e8%be%83%e6%85%a2" aria-label="随机选取比较慢">随机选取比较慢</a><ul>
+                        
+                <li>
+                    <a href="#rand%e6%89%a7%e8%a1%8c%e8%bf%87%e7%a8%8b" aria-label="rand执行过程">rand执行过程</a></li>
+                <li>
+                    <a href="#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88" aria-label="解决方案">解决方案</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%b4%e6%97%b6%e6%96%b9%e6%a1%88" aria-label="临时方案">临时方案</a></li>
+                <li>
+                    <a href="#%e4%b8%9a%e5%8a%a1%e6%96%b9%e6%a1%88" aria-label="业务方案">业务方案</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%b4%a2%e5%bc%95%e4%b8%8b%e6%8e%a8" aria-label="索引下推">索引下推</a></li>
+                <li>
+                    <a href="#%e6%9d%be%e6%95%a3%e7%b4%a2%e5%bc%95%e6%89%ab%e6%8f%8f" aria-label="松散索引扫描">松散索引扫描</a></li>
+                <li>
+                    <a href="#%e5%87%bd%e6%95%b0%e6%94%be%e5%bc%83%e7%b4%a2%e5%bc%95%e7%9a%84%e6%83%85%e5%86%b5" aria-label="函数放弃索引的情况">函数放弃索引的情况</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88-1" aria-label="解决方案">解决方案</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%88%86%e9%a1%b5%e6%9f%a5%e8%af%a2%e6%85%a2" aria-label="分页查询慢">分页查询慢</a><ul>
+                        
+                <li>
+                    <a href="#%e5%88%86%e9%a1%b5%e5%8e%9f%e7%90%86" aria-label="分页原理">分页原理</a></li>
+                <li>
+                    <a href="#%e4%bc%98%e5%8c%96%e6%80%9d%e8%b7%af" aria-label="优化思路">优化思路</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        
+        <div class="post-content"><h1 id="一个sql是如何执行的">一个SQL是如何执行的<a hidden class="anchor" aria-hidden="true" href="#一个sql是如何执行的">#</a></h1>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20240907110600002.png" alt="image-20240907110600002"  />
+</p>
+<p>查询缓存：</p>
+<ol>
+<li>执行查询过得语句先缓存</li>
+<li>推荐使用缓存：数据表修改后，会删除所有缓存相关的。Mysql8 去掉缓存</li>
+</ol>
+<p>分析器：</p>
+<ol>
+<li>知道干什么</li>
+<li>词法分析</li>
+<li>句法分析</li>
+</ol>
+<p>优化器：</p>
+<ol>
+<li>优化器的作用知道是怎么做</li>
+<li>决定如何使用索引</li>
+</ol>
+<p>执行器：</p>
+<ol>
+<li>校验权限，调用存储引擎</li>
+<li>没有索引情况，执行器会查询所有行</li>
+</ol>
+<h1 id="索引组织表">索引组织表<a hidden class="anchor" aria-hidden="true" href="#索引组织表">#</a></h1>
+<p>索引：数据库中对某一列或者多个列的值进行预排序的数据结构</p>
+<p>主键：非空唯一索引；不指定主键，与声明顺序有关</p>
+<h2 id="主流索引查找">主流索引查找<a hidden class="anchor" aria-hidden="true" href="#主流索引查找">#</a></h2>
+<ul>
+<li>线性查找</li>
+<li>二分查找</li>
+<li>二叉查找树</li>
+<li>平衡二叉树</li>
+<li>B树</li>
+<li>B+树</li>
+</ul>
+<p>二叉树特殊情况下，可以退化成链表，所有引入了平衡二叉树，通过旋转的方式，保证子树间的高度。二叉树明显的缺点是每个节点存储的数据太少。硬盘按块（默认4k）读取</p>
+<h3 id="b树">B树<a hidden class="anchor" aria-hidden="true" href="#b树">#</a></h3>
+<p>叶子存储多节点，多数据节点降低树的高度。</p>
+<h3 id="b树-1">B+树<a hidden class="anchor" aria-hidden="true" href="#b树-1">#</a></h3>
+<p>叶子间通过链表相连。只有叶子存储数据</p>
+<p>高度一般为2-4层，查找速度快</p>
+<p>Innodb采用B+树结构</p>
+<h2 id="聚簇索引">聚簇索引<a hidden class="anchor" aria-hidden="true" href="#聚簇索引">#</a></h2>
+<ul>
+<li>
+<p>根据表的主键构造B+树</p>
+</li>
+<li>
+<p>数据和索引放在一起</p>
+</li>
+<li>
+<p>叶子节点之间存放数据，而不是指针</p>
+</li>
+</ul>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20240907113117801.png" alt="image-20240907113117801"  />
+</p>
+<h2 id="辅助索引">辅助索引<a hidden class="anchor" aria-hidden="true" href="#辅助索引">#</a></h2>
+<ul>
+<li>叶子节点不包含数据，存储主键</li>
+</ul>
+<h2 id="innodb存储逻辑结构">Innodb存储逻辑结构<a hidden class="anchor" aria-hidden="true" href="#innodb存储逻辑结构">#</a></h2>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20240907113804595.png" alt="image-20240907113804595"  />
+</p>
+<h2 id="数据记录格式">数据记录格式<a hidden class="anchor" aria-hidden="true" href="#数据记录格式">#</a></h2>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20240907114632016.png" alt="image-20240907114632016"  />
+</p>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20240907114643640.png" alt="image-20240907114643640"  />
+</p>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20240907114659037.png" alt="image-20240907114659037"  />
+</p>
+<h2 id="索引建立">索引建立<a hidden class="anchor" aria-hidden="true" href="#索引建立">#</a></h2>
+<ol>
+<li>联合索引：最左前缀，“带头大哥不能死，中间兄弟不能丢”</li>
+<li>字符串的前缀索引：字符串过长，使用前缀索引节约空间；
+<ol>
+<li>前缀区分度太小：倒序存储，取的时候反向存储</li>
+<li>新建hash字段</li>
+</ol>
+</li>
+<li>字符串like:
+<ol>
+<li>全模糊：“%like%” 索引失效</li>
+<li>右模糊：&quot;%like&quot; 索引失效</li>
+<li>左模糊才可以使用索引</li>
+</ol>
+</li>
+</ol>
+<h1 id="查询优化">查询优化<a hidden class="anchor" aria-hidden="true" href="#查询优化">#</a></h1>
+<h2 id="覆盖索引">覆盖索引<a hidden class="anchor" aria-hidden="true" href="#覆盖索引">#</a></h2>
+<ol>
+<li>取消回表操作，提高查询性能</li>
+<li>数据的查询不只使用到了一个索引，则不是覆盖索引</li>
+<li>优化sql语句或者优化联合索引，来使用覆盖索引</li>
+</ol>
+<h2 id="有更合适的索引不走">有更合适的索引不走<a hidden class="anchor" aria-hidden="true" href="#有更合适的索引不走">#</a></h2>
+<h3 id="mysql索引的选择-基于基数">Mysql索引的选择-基于基数<a hidden class="anchor" aria-hidden="true" href="#mysql索引的选择-基于基数">#</a></h3>
+<p>参考索引的基数</p>
+<ol>
+<li>反应字段有多少种取值</li>
+<li>选取几个页中取值的平均值，在乘以页数，则为基数</li>
+</ol>
+<p>查看索引</p>
+<p><code>show index from tableName</code></p>
+<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20240907120443615.png" alt="image-20240907120443615"  />
+</p>
+<p>区分度越大，mysql最可能选取</p>
+<h3 id="解决措施-强制使用索引">解决措施: 强制使用索引<a hidden class="anchor" aria-hidden="true" href="#解决措施-强制使用索引">#</a></h3>
+<ul>
+<li><code>force index</code> 强制使用索引</li>
+<li>优化索引，让mysql重新统计索引 <code>analyze table</code> 会重新统计索引基数</li>
+</ul>
+<h2 id="count比较慢">count比较慢<a hidden class="anchor" aria-hidden="true" href="#count比较慢">#</a></h2>
+<p>count：统计结果集合不为null的数据个数</p>
+<ol>
+<li>存储引擎查询结果集</li>
+<li>server层逐个结果判断是否为null, 不为null则加1</li>
+</ol>
+<p><strong>count(非索引字段)</strong>：理论上是最慢</p>
+<p><strong>count(索引字段)</strong>： 覆盖索引，但是server需要引擎判断</p>
+<p><strong>count(主键)</strong>： server仍然需要引擎判断</p>
+<p><strong>count(1)</strong>：只扫描索引树，没有解析数据行的过程，<strong>理论是更快</strong>，但是server层仍然每次需要判断“1是否为null&quot;</p>
+<p><strong>count(*)</strong>：一般用来返回数据表行数，MyIsam直接返回数据表行数，直接返回索引树中数据的个数</p>
+<h2 id="order-by比较慢">order by比较慢<a hidden class="anchor" aria-hidden="true" href="#order-by比较慢">#</a></h2>
+<h3 id="order-by执行过程">order by执行过程<a hidden class="anchor" aria-hidden="true" href="#order-by执行过程">#</a></h3>
+<ol>
+<li>根据where条件查询</li>
+<li>将查询结果放入sort_buffer</li>
+<li>对中间结果集按照order by 字段排序</li>
+<li>需要的情况下回表生成完整结果集合</li>
+</ol>
+<p>中间结果集：</p>
+<ul>
+<li>中间表小的时候，直接放在内存</li>
+<li>中间表大于<code>sort_buffer_size</code>, 放入磁盘</li>
+<li>优化内存占用，减少<code>sort_buffer_size</code></li>
+<li>优化排序时间，增大<code>sort_buffer_size</code></li>
+</ul>
+<p>回表生成完整结果集：</p>
+<ul>
+<li>当行小于<code>max_length_for_sort_data</code> 生成全字段中间结果表</li>
+<li>大于阈值，只生成排序字段+中间结果表，需要回表</li>
+<li>调大阈值不一定改善效率，因为结果集排序效率低</li>
+</ul>
+<p><strong>索引覆盖</strong></p>
+<ul>
+<li>跳过生成中间结果集，直接输出查询结果</li>
+<li>order 字段需要有索引，或在联合索引的左侧</li>
+<li>其他相关字段(条件，输出)都在上述的索引中</li>
+</ul>
+<h2 id="随机选取比较慢">随机选取比较慢<a hidden class="anchor" aria-hidden="true" href="#随机选取比较慢">#</a></h2>
+<p>rand(): 0-1直接随机值</p>
+<h3 id="rand执行过程">rand执行过程<a hidden class="anchor" aria-hidden="true" href="#rand执行过程">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span></code></pre></div><ol>
+<li>创建一个临时表，临时表字段为A,B</li>
+<li>从表中取出一行，调用rand()， 将结果和数据放入临时表</li>
+<li>针对临时表，将rand+行位置放入sort_buffer</li>
+<li>对sort_buffer排序，取出第一个位置主键，查询临时表</li>
+</ol>
+<p>慢的原因：</p>
+<ol>
+<li>sql执行过程中，出现了两次中间结果</li>
+<li>需要一个优化结果，但又排序</li>
+<li>调用了很多次的rand</li>
+</ol>
+<h3 id="解决方案">解决方案<a hidden class="anchor" aria-hidden="true" href="#解决方案">#</a></h3>
+<h4 id="临时方案">临时方案<a hidden class="anchor" aria-hidden="true" href="#临时方案">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">id</span><span class="p">),</span><span class="w"> </span><span class="k">min</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="o">@</span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">N</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">floor</span><span class="p">((</span><span class="o">@</span><span class="n">M</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">@</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">N</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w">  </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">@</span><span class="n">X</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h4 id="业务方案">业务方案<a hidden class="anchor" aria-hidden="true" href="#业务方案">#</a></h4>
+<ol>
+<li>
+<p>查询数据表总数total</p>
+</li>
+<li>
+<p>total范围内，随机选取一个数字r</p>
+</li>
+<li>
+<p>执行sql</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span></code></pre></div></li>
+</ol>
+<h2 id="索引下推">索引下推<a hidden class="anchor" aria-hidden="true" href="#索引下推">#</a></h2>
+<blockquote>
+<p>explain Extra中 ： use index condition</p>
+</blockquote>
+<p>使用索引先过滤再次回表查询</p>
+<h2 id="松散索引扫描">松散索引扫描<a hidden class="anchor" aria-hidden="true" href="#松散索引扫描">#</a></h2>
+<p>Mysql 8.0 特性</p>
+<h2 id="函数放弃索引的情况">函数放弃索引的情况<a hidden class="anchor" aria-hidden="true" href="#函数放弃索引的情况">#</a></h2>
+<p>MySQL中，对索引字段做函数操作，优化器放弃索引</p>
+<ul>
+<li>时间函数</li>
+<li>字符串转数字</li>
+<li>字符编码转换</li>
+</ul>
+<h3 id="解决方案-1">解决方案<a hidden class="anchor" aria-hidden="true" href="#解决方案-1">#</a></h3>
+<ol>
+<li>时间函数转区间(between and)</li>
+<li>数字强转字符串</li>
+<li>高级编码转低级</li>
+</ol>
+<h2 id="分页查询慢">分页查询慢<a hidden class="anchor" aria-hidden="true" href="#分页查询慢">#</a></h2>
+<ol>
+<li>偏移量大时，效率低</li>
+</ol>
+<h3 id="分页原理">分页原理<a hidden class="anchor" aria-hidden="true" href="#分页原理">#</a></h3>
+<ul>
+<li>先执行条件部分，在执行分页逻辑limit之后</li>
+<li>丢弃很多无用的数据，效率低下</li>
+</ul>
+<h3 id="优化思路">优化思路<a hidden class="anchor" aria-hidden="true" href="#优化思路">#</a></h3>
+<ul>
+<li>走覆盖索引
+<ul>
+<li>得到数据Id</li>
+<li>根据数据Id，得到最终结果集</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">selec</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="k">C</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">900</span><span class="p">,</span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 数据库只有c索引; A是主键
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">改进后</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="k">C</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">t1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">900</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">t2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">on</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">A</span><span class="w">
+</span></span></span></code></pre></div>
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>ORM框架设计</span>
+  </a>
+  <a class="next" href="http://localhost:1313/note/program/java/%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>排序之归并排序</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment">
+    </div>
+    <script src="https://utteranc.es/client.js"
+        repo="AlfredNing/AlfredNing.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="http://localhost:1313/">AlfredNing</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script></body>
+
+</html>
