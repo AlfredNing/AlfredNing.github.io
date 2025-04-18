@@ -134,7 +134,11 @@ menu:
     - identifier: thinking
       name: 🤔随笔
       url: thinking/
-      weight: 20     
+      weight: 20    
+    - identifier: tools
+      name: 🔨工具
+      url: tools/
+      weight: 20       
     - identifier: search
       name: 🔎搜索
       url: search/

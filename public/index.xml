@@ -6,7 +6,37 @@
     <description>Recent content on AlfredNing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 07 Sep 2024 14:59:46 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Apr 2025 23:04:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>笔记软件obsidian</title>
+      <link>http://localhost:1313/tools/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6obsidian/</link>
+      <pubDate>Fri, 18 Apr 2025 23:04:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tools/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6obsidian/</guid>
+      <description>笔记推荐 以前总在不断的对比到底哪个笔记工具好，兜兜转转使用到了今天的主角obsidian
+为什么放弃了语雀？ 之前用的还可以，但是发现很多细节处理的并不好，比如知识的链接，其他工具的集成。 语雀是阿里的前端开发的，据听说现在的老大已经去了字节了，因为知道阿里的通病，语雀目前不盈利，也不知道到最后会不会被砍掉。国外好多软件都是最终为了收费盈利。
+为什么放弃了notion？ 之前用过一段时间的notion，没有网的时候巨难受，吐槽，然后感觉不怎么像一个笔记软件，其次，记得多了非常凌乱。
+obsidian 真香！！！
+本地记录 自由化程度高 颜值好看 记笔记真爽 obsidian同步方案 obsidian 自带的付费，太贵了，然后网上介绍有github等等之类的，没用过。 自己使用的是oss同步方案，自己购买oss进行同步，反正不到100可以使用五年。 oss同步使用到插件 Remotely Save，唯一难受的就是插件不支持同步，换了电脑之后，插件还要重新安装，不过还好
+主题推荐 border 主题挺好用的
+插件推荐 图片自动上传oss： Image Auto upload 笔记查看图片： Image Toolkit </description>
+    </item>
+    
+    <item>
+      <title>2025_04_04</title>
+      <link>http://localhost:1313/thinking/2025_04_04/</link>
+      <pubDate>Fri, 04 Apr 2025 18:37:38 +0800</pubDate>
+      
+      <guid>http://localhost:1313/thinking/2025_04_04/</guid>
+      <description>现在的我 今天晚上想花一段时间理一下自己。
+我如今已经毕业四年了，没有什么存款，也没有什么产出，还没有拥有自己的事业。拥有的只有发福的身体和一堆坏毛病。
+今天去医院了，很容易积食，之前吃了三个多月的中药，可是现在容易复发。今天的医生就说了，没看出来你体重这么重，还有你的脾和胃比较虚，脉象很弱。记得从初中开始，自己就非常容易口腔溃疡了，医生说我饭量挺大的，然后吃下去，导致胃处理不了，只能通过溃疡这么方式释放出去。这么一说，我恍然大悟。
+现在的我，每天晚上都告诫自己不要刷视频，不要沉迷手机，可是人就很容易在累得环境中放松自己。 自己也告诉了自己很多次，锻炼，少吃点，可往往到了面对的时候，却不能控制自己的食欲。
+想彻底戒断一件事情，就应该在自己即将违背的时候给自己痛恨一击打。
+我深知，人不能过度反思自己，因为过度反思就会造成自己的停滞不前。自己的注意力关注在什么地方，它就会反哺于自己。
+一切为了明天的最好结果。</description>
+    </item>
+    
     <item>
       <title>ORM框架设计</title>
       <link>http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/</link>

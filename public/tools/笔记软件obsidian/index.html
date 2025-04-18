@@ -5,11 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>ORM框架设计 | AlfredNing</title>
+<title>笔记软件obsidian | AlfredNing</title>
 <meta name="keywords" content="">
-<meta name="description" content="经典的软件架构 分层架构：经典的MVC 事件驱动架构 管道-过滤器架构 微核架构：vsCode , idea ORM的架构层次 接口层：向上支持程序调用 处理层：参数映射-&gt; SQL生成 -&gt; SQL执行 -&gt; 结果处理 支撑层：事务管理 连接池管理 连接层： 数据库连接驱动 ">
+<meta name="description" content="笔记推荐 以前总在不断的对比到底哪个笔记工具好，兜兜转转使用到了今天的主角obsidian
+为什么放弃了语雀？ 之前用的还可以，但是发现很多细节处理的并不好，比如知识的链接，其他工具的集成。 语雀是阿里的前端开发的，据听说现在的老大已经去了字节了，因为知道阿里的通病，语雀目前不盈利，也不知道到最后会不会被砍掉。国外好多软件都是最终为了收费盈利。
+为什么放弃了notion？ 之前用过一段时间的notion，没有网的时候巨难受，吐槽，然后感觉不怎么像一个笔记软件，其次，记得多了非常凌乱。
+obsidian 真香！！！
+本地记录 自由化程度高 颜值好看 记笔记真爽 obsidian同步方案 obsidian 自带的付费，太贵了，然后网上介绍有github等等之类的，没用过。 自己使用的是oss同步方案，自己购买oss进行同步，反正不到100可以使用五年。 oss同步使用到插件 Remotely Save，唯一难受的就是插件不支持同步，换了电脑之后，插件还要重新安装，不过还好
+主题推荐 border 主题挺好用的
+插件推荐 图片自动上传oss： Image Auto upload 笔记查看图片： Image Toolkit ">
 <meta name="author" content="AlfredNing">
-<link rel="canonical" href="http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/">
+<link rel="canonical" href="http://localhost:1313/tools/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6obsidian/">
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
@@ -23,7 +29,7 @@
 <link rel="mask-icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/tools/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6obsidian/">
 <noscript>
     <style>
         #theme-toggle,
@@ -72,16 +78,28 @@ if (!doNotTrack) {
 	
 	ga('send', 'pageview');
 }
-</script><meta property="og:title" content="ORM框架设计" />
-<meta property="og:description" content="经典的软件架构 分层架构：经典的MVC 事件驱动架构 管道-过滤器架构 微核架构：vsCode , idea ORM的架构层次 接口层：向上支持程序调用 处理层：参数映射-&gt; SQL生成 -&gt; SQL执行 -&gt; 结果处理 支撑层：事务管理 连接池管理 连接层： 数据库连接驱动 " />
+</script><meta property="og:title" content="笔记软件obsidian" />
+<meta property="og:description" content="笔记推荐 以前总在不断的对比到底哪个笔记工具好，兜兜转转使用到了今天的主角obsidian
+为什么放弃了语雀？ 之前用的还可以，但是发现很多细节处理的并不好，比如知识的链接，其他工具的集成。 语雀是阿里的前端开发的，据听说现在的老大已经去了字节了，因为知道阿里的通病，语雀目前不盈利，也不知道到最后会不会被砍掉。国外好多软件都是最终为了收费盈利。
+为什么放弃了notion？ 之前用过一段时间的notion，没有网的时候巨难受，吐槽，然后感觉不怎么像一个笔记软件，其次，记得多了非常凌乱。
+obsidian 真香！！！
+本地记录 自由化程度高 颜值好看 记笔记真爽 obsidian同步方案 obsidian 自带的付费，太贵了，然后网上介绍有github等等之类的，没用过。 自己使用的是oss同步方案，自己购买oss进行同步，反正不到100可以使用五年。 oss同步使用到插件 Remotely Save，唯一难受的就是插件不支持同步，换了电脑之后，插件还要重新安装，不过还好
+主题推荐 border 主题挺好用的
+插件推荐 图片自动上传oss： Image Auto upload 笔记查看图片： Image Toolkit " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/" /><meta property="article:section" content="note" />
-<meta property="article:published_time" content="2024-09-07T14:59:46+08:00" />
-<meta property="article:modified_time" content="2025-04-04T17:29:23+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
+<meta property="og:url" content="http://localhost:1313/tools/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6obsidian/" /><meta property="article:section" content="tools" />
+<meta property="article:published_time" content="2025-04-18T23:04:00+08:00" />
+<meta property="article:modified_time" content="2025-04-18T23:22:20+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="ORM框架设计"/>
-<meta name="twitter:description" content="经典的软件架构 分层架构：经典的MVC 事件驱动架构 管道-过滤器架构 微核架构：vsCode , idea ORM的架构层次 接口层：向上支持程序调用 处理层：参数映射-&gt; SQL生成 -&gt; SQL执行 -&gt; 结果处理 支撑层：事务管理 连接池管理 连接层： 数据库连接驱动 "/>
+<meta name="twitter:title" content="笔记软件obsidian"/>
+<meta name="twitter:description" content="笔记推荐 以前总在不断的对比到底哪个笔记工具好，兜兜转转使用到了今天的主角obsidian
+为什么放弃了语雀？ 之前用的还可以，但是发现很多细节处理的并不好，比如知识的链接，其他工具的集成。 语雀是阿里的前端开发的，据听说现在的老大已经去了字节了，因为知道阿里的通病，语雀目前不盈利，也不知道到最后会不会被砍掉。国外好多软件都是最终为了收费盈利。
+为什么放弃了notion？ 之前用过一段时间的notion，没有网的时候巨难受，吐槽，然后感觉不怎么像一个笔记软件，其次，记得多了非常凌乱。
+obsidian 真香！！！
+本地记录 自由化程度高 颜值好看 记笔记真爽 obsidian同步方案 obsidian 自带的付费，太贵了，然后网上介绍有github等等之类的，没用过。 自己使用的是oss同步方案，自己购买oss进行同步，反正不到100可以使用五年。 oss同步使用到插件 Remotely Save，唯一难受的就是插件不支持同步，换了电脑之后，插件还要重新安装，不过还好
+主题推荐 border 主题挺好用的
+插件推荐 图片自动上传oss： Image Auto upload 笔记查看图片： Image Toolkit "/>
 
 
 <script type="application/ld+json">
@@ -92,20 +110,14 @@ if (!doNotTrack) {
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "笔记",
-      "item": "http://localhost:1313/note/"
+      "name": "工具",
+      "item": "http://localhost:1313/tools/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "编程",
-      "item": "http://localhost:1313/note/program/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  3 ,
-      "name": "ORM框架设计",
-      "item": "http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/"
+      "name": "笔记软件obsidian",
+      "item": "http://localhost:1313/tools/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6obsidian/"
     }
   ]
 }
@@ -114,24 +126,24 @@ if (!doNotTrack) {
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "ORM框架设计",
-  "name": "ORM框架设计",
-  "description": "经典的软件架构 分层架构：经典的MVC 事件驱动架构 管道-过滤器架构 微核架构：vsCode , idea ORM的架构层次 接口层：向上支持程序调用 处理层：参数映射-\u0026gt; SQL生成 -\u0026gt; SQL执行 -\u0026gt; 结果处理 支撑层：事务管理 连接池管理 连接层： 数据库连接驱动 ",
+  "headline": "笔记软件obsidian",
+  "name": "笔记软件obsidian",
+  "description": "笔记推荐 以前总在不断的对比到底哪个笔记工具好，兜兜转转使用到了今天的主角obsidian\n为什么放弃了语雀？ 之前用的还可以，但是发现很多细节处理的并不好，比如知识的链接，其他工具的集成。 语雀是阿里的前端开发的，据听说现在的老大已经去了字节了，因为知道阿里的通病，语雀目前不盈利，也不知道到最后会不会被砍掉。国外好多软件都是最终为了收费盈利。\n为什么放弃了notion？ 之前用过一段时间的notion，没有网的时候巨难受，吐槽，然后感觉不怎么像一个笔记软件，其次，记得多了非常凌乱。\nobsidian 真香！！！\n本地记录 自由化程度高 颜值好看 记笔记真爽 obsidian同步方案 obsidian 自带的付费，太贵了，然后网上介绍有github等等之类的，没用过。 自己使用的是oss同步方案，自己购买oss进行同步，反正不到100可以使用五年。 oss同步使用到插件 Remotely Save，唯一难受的就是插件不支持同步，换了电脑之后，插件还要重新安装，不过还好\n主题推荐 border 主题挺好用的\n插件推荐 图片自动上传oss： Image Auto upload 笔记查看图片： Image Toolkit ",
   "keywords": [
     ""
   ],
-  "articleBody": "经典的软件架构 分层架构：经典的MVC 事件驱动架构 管道-过滤器架构 微核架构：vsCode , idea ORM的架构层次 接口层：向上支持程序调用 处理层：参数映射-\u003e SQL生成 -\u003e SQL执行 -\u003e 结果处理 支撑层：事务管理 连接池管理 连接层： 数据库连接驱动 ",
-  "wordCount" : "19",
+  "articleBody": "笔记推荐 以前总在不断的对比到底哪个笔记工具好，兜兜转转使用到了今天的主角obsidian\n为什么放弃了语雀？ 之前用的还可以，但是发现很多细节处理的并不好，比如知识的链接，其他工具的集成。 语雀是阿里的前端开发的，据听说现在的老大已经去了字节了，因为知道阿里的通病，语雀目前不盈利，也不知道到最后会不会被砍掉。国外好多软件都是最终为了收费盈利。\n为什么放弃了notion？ 之前用过一段时间的notion，没有网的时候巨难受，吐槽，然后感觉不怎么像一个笔记软件，其次，记得多了非常凌乱。\nobsidian 真香！！！\n本地记录 自由化程度高 颜值好看 记笔记真爽 obsidian同步方案 obsidian 自带的付费，太贵了，然后网上介绍有github等等之类的，没用过。 自己使用的是oss同步方案，自己购买oss进行同步，反正不到100可以使用五年。 oss同步使用到插件 Remotely Save，唯一难受的就是插件不支持同步，换了电脑之后，插件还要重新安装，不过还好\n主题推荐 border 主题挺好用的\n插件推荐 图片自动上传oss： Image Auto upload 笔记查看图片： Image Toolkit ",
+  "wordCount" : "31",
   "inLanguage": "zh",
-  "datePublished": "2024-09-07T14:59:46+08:00",
-  "dateModified": "2025-04-04T17:29:23.0606061+08:00",
+  "datePublished": "2025-04-18T23:04:00+08:00",
+  "dateModified": "2025-04-18T23:22:20.1913627+08:00",
   "author":[{
     "@type": "Person",
     "name": "AlfredNing"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/"
+    "@id": "http://localhost:1313/tools/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6obsidian/"
   },
   "publisher": {
     "@type": "Organization",
@@ -229,9 +241,9 @@ if (!doNotTrack) {
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="http://localhost:1313/">主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/note/">笔记</a>&nbsp;»&nbsp;<a href="http://localhost:1313/note/program/">编程</a></div>
+            <div class="breadcrumbs"><a href="http://localhost:1313/">主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/tools/">工具</a></div>
             <h1 class="post-title">
-                ORM框架设计
+                笔记软件obsidian
             </h1>
             <div class="post-meta">
 
@@ -252,7 +264,7 @@ if (!doNotTrack) {
 <span class="parent-post-meta">
     <span id="post_meta_style_1">
         <span class="fa fa-calendar-check-o"></span>
-        <span>2024年-09月-07日
+        <span>2025年-04月-18日
             &nbsp;&nbsp;
         </span>
     </span>
@@ -265,7 +277,7 @@ if (!doNotTrack) {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>19字
+        <span>31字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -285,14 +297,12 @@ if (!doNotTrack) {
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="http://localhost:1313/tags/mysql/" style="color: var(--secondary)!important;">MySQL</a>
             </span>
         </span>
     </span>
 </span>
                 &nbsp;|&nbsp;标签: &nbsp;
                 <ul class="post-tags-meta">
-                    <a href="http://localhost:1313/tags/mysql/">MySQL</a>
                 </ul>
 
                 
@@ -310,10 +320,17 @@ if (!doNotTrack) {
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e7%bb%8f%e5%85%b8%e7%9a%84%e8%bd%af%e4%bb%b6%e6%9e%b6%e6%9e%84" aria-label="经典的软件架构">经典的软件架构</a></li>
+                    <a href="#%e7%ac%94%e8%ae%b0%e6%8e%a8%e8%8d%90" aria-label="笔记推荐">笔记推荐</a><ul>
+                        
                 <li>
-                    <a href="#orm%e7%9a%84%e6%9e%b6%e6%9e%84%e5%b1%82%e6%ac%a1" aria-label="ORM的架构层次">ORM的架构层次</a>
+                    <a href="#obsidian%e5%90%8c%e6%ad%a5%e6%96%b9%e6%a1%88" aria-label="obsidian同步方案">obsidian同步方案</a></li>
+                <li>
+                    <a href="#%e4%b8%bb%e9%a2%98%e6%8e%a8%e8%8d%90" aria-label="主题推荐">主题推荐</a></li>
+                <li>
+                    <a href="#%e6%8f%92%e4%bb%b6%e6%8e%a8%e8%8d%90" aria-label="插件推荐">插件推荐</a>
                 </li>
+            </ul>
+            </li>
             </ul>
         </div>
         </details>
@@ -379,35 +396,36 @@ if (!doNotTrack) {
     }
 </script>
         
-        <div class="post-content"><h1 id="经典的软件架构">经典的软件架构<a hidden class="anchor" aria-hidden="true" href="#经典的软件架构">#</a></h1>
-<ol>
-<li>分层架构：经典的MVC</li>
-<li>事件驱动架构</li>
-<li>管道-过滤器架构</li>
-<li>微核架构：vsCode , idea</li>
-</ol>
-<h1 id="orm的架构层次">ORM的架构层次<a hidden class="anchor" aria-hidden="true" href="#orm的架构层次">#</a></h1>
-<ol>
-<li>接口层：向上支持程序调用</li>
-<li>处理层：参数映射-&gt; SQL生成 -&gt; SQL执行 -&gt; 结果处理</li>
-<li>支撑层：事务管理 连接池管理</li>
-<li>连接层： 数据库连接驱动</li>
-</ol>
-<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20240907150455340.png" alt="image-20240907150455340"  />
-</p>
+        <div class="post-content"><h1 id="笔记推荐">笔记推荐<a hidden class="anchor" aria-hidden="true" href="#笔记推荐">#</a></h1>
+<p>以前总在不断的对比到底哪个笔记工具好，兜兜转转使用到了今天的主角<strong>obsidian</strong></p>
+<p>为什么放弃了语雀？
+之前用的还可以，但是发现很多细节处理的并不好，比如知识的链接，其他工具的集成。 语雀是阿里的前端开发的，据听说现在的老大已经去了字节了，因为知道阿里的通病，语雀目前不盈利，也不知道到最后会不会被砍掉。国外好多软件都是最终为了收费盈利。</p>
+<p>为什么放弃了notion？
+之前用过一段时间的notion，没有网的时候巨难受，吐槽，然后感觉不怎么像一个笔记软件，其次，记得多了非常凌乱。</p>
+<p><strong>obsidian 真香！！！</strong></p>
+<ul>
+<li>本地记录</li>
+<li>自由化程度高</li>
+<li>颜值好看</li>
+<li>记笔记真爽</li>
+</ul>
+<h2 id="obsidian同步方案">obsidian同步方案<a hidden class="anchor" aria-hidden="true" href="#obsidian同步方案">#</a></h2>
+<p>obsidian 自带的付费，太贵了，然后网上介绍有github等等之类的，没用过。
+自己使用的是oss同步方案，自己购买oss进行同步，反正不到100可以使用五年。
+oss同步使用到插件 <strong>Remotely Save</strong>，唯一难受的就是插件不支持同步，换了电脑之后，插件还要重新安装，不过还好</p>
+<h2 id="主题推荐">主题推荐<a hidden class="anchor" aria-hidden="true" href="#主题推荐">#</a></h2>
+<p>border 主题挺好用的</p>
+<h2 id="插件推荐">插件推荐<a hidden class="anchor" aria-hidden="true" href="#插件推荐">#</a></h2>
+<ul>
+<li>图片自动上传oss：  Image Auto upload</li>
+<li>笔记查看图片： Image Toolkit</li>
+</ul>
 
 
         </div>
 
         <footer class="post-footer">
             
-<nav class="paginav">
-  <a class="next" href="http://localhost:1313/note/program/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/">
-    <span class="title">下一页 »</span>
-    <br>
-    <span>MySQL查询优化</span>
-  </a>
-</nav>
 
         </footer>
     </div><div>

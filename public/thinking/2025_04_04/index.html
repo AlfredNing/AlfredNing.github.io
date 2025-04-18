@@ -5,11 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>ORM框架设计 | AlfredNing</title>
+<title>2025_04_04 | AlfredNing</title>
 <meta name="keywords" content="">
-<meta name="description" content="经典的软件架构 分层架构：经典的MVC 事件驱动架构 管道-过滤器架构 微核架构：vsCode , idea ORM的架构层次 接口层：向上支持程序调用 处理层：参数映射-&gt; SQL生成 -&gt; SQL执行 -&gt; 结果处理 支撑层：事务管理 连接池管理 连接层： 数据库连接驱动 ">
+<meta name="description" content="现在的我 今天晚上想花一段时间理一下自己。
+我如今已经毕业四年了，没有什么存款，也没有什么产出，还没有拥有自己的事业。拥有的只有发福的身体和一堆坏毛病。
+今天去医院了，很容易积食，之前吃了三个多月的中药，可是现在容易复发。今天的医生就说了，没看出来你体重这么重，还有你的脾和胃比较虚，脉象很弱。记得从初中开始，自己就非常容易口腔溃疡了，医生说我饭量挺大的，然后吃下去，导致胃处理不了，只能通过溃疡这么方式释放出去。这么一说，我恍然大悟。
+现在的我，每天晚上都告诫自己不要刷视频，不要沉迷手机，可是人就很容易在累得环境中放松自己。 自己也告诉了自己很多次，锻炼，少吃点，可往往到了面对的时候，却不能控制自己的食欲。
+想彻底戒断一件事情，就应该在自己即将违背的时候给自己痛恨一击打。
+我深知，人不能过度反思自己，因为过度反思就会造成自己的停滞不前。自己的注意力关注在什么地方，它就会反哺于自己。
+一切为了明天的最好结果。">
 <meta name="author" content="AlfredNing">
-<link rel="canonical" href="http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/">
+<link rel="canonical" href="http://localhost:1313/thinking/2025_04_04/">
 <meta name="google-site-verification" content="XYZabc">
 <meta name="yandex-verification" content="XYZabc">
 <meta name="msvalidate.01" content="XYZabc">
@@ -23,7 +29,7 @@
 <link rel="mask-icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/thinking/2025_04_04/">
 <noscript>
     <style>
         #theme-toggle,
@@ -72,16 +78,28 @@ if (!doNotTrack) {
 	
 	ga('send', 'pageview');
 }
-</script><meta property="og:title" content="ORM框架设计" />
-<meta property="og:description" content="经典的软件架构 分层架构：经典的MVC 事件驱动架构 管道-过滤器架构 微核架构：vsCode , idea ORM的架构层次 接口层：向上支持程序调用 处理层：参数映射-&gt; SQL生成 -&gt; SQL执行 -&gt; 结果处理 支撑层：事务管理 连接池管理 连接层： 数据库连接驱动 " />
+</script><meta property="og:title" content="2025_04_04" />
+<meta property="og:description" content="现在的我 今天晚上想花一段时间理一下自己。
+我如今已经毕业四年了，没有什么存款，也没有什么产出，还没有拥有自己的事业。拥有的只有发福的身体和一堆坏毛病。
+今天去医院了，很容易积食，之前吃了三个多月的中药，可是现在容易复发。今天的医生就说了，没看出来你体重这么重，还有你的脾和胃比较虚，脉象很弱。记得从初中开始，自己就非常容易口腔溃疡了，医生说我饭量挺大的，然后吃下去，导致胃处理不了，只能通过溃疡这么方式释放出去。这么一说，我恍然大悟。
+现在的我，每天晚上都告诫自己不要刷视频，不要沉迷手机，可是人就很容易在累得环境中放松自己。 自己也告诉了自己很多次，锻炼，少吃点，可往往到了面对的时候，却不能控制自己的食欲。
+想彻底戒断一件事情，就应该在自己即将违背的时候给自己痛恨一击打。
+我深知，人不能过度反思自己，因为过度反思就会造成自己的停滞不前。自己的注意力关注在什么地方，它就会反哺于自己。
+一切为了明天的最好结果。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/" /><meta property="article:section" content="note" />
-<meta property="article:published_time" content="2024-09-07T14:59:46+08:00" />
-<meta property="article:modified_time" content="2025-04-04T17:29:23+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
+<meta property="og:url" content="http://localhost:1313/thinking/2025_04_04/" /><meta property="article:section" content="thinking" />
+<meta property="article:published_time" content="2025-04-04T18:37:38+08:00" />
+<meta property="article:modified_time" content="2025-04-04T21:41:39+08:00" /><meta property="og:site_name" content="Alfred.Ning" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="ORM框架设计"/>
-<meta name="twitter:description" content="经典的软件架构 分层架构：经典的MVC 事件驱动架构 管道-过滤器架构 微核架构：vsCode , idea ORM的架构层次 接口层：向上支持程序调用 处理层：参数映射-&gt; SQL生成 -&gt; SQL执行 -&gt; 结果处理 支撑层：事务管理 连接池管理 连接层： 数据库连接驱动 "/>
+<meta name="twitter:title" content="2025_04_04"/>
+<meta name="twitter:description" content="现在的我 今天晚上想花一段时间理一下自己。
+我如今已经毕业四年了，没有什么存款，也没有什么产出，还没有拥有自己的事业。拥有的只有发福的身体和一堆坏毛病。
+今天去医院了，很容易积食，之前吃了三个多月的中药，可是现在容易复发。今天的医生就说了，没看出来你体重这么重，还有你的脾和胃比较虚，脉象很弱。记得从初中开始，自己就非常容易口腔溃疡了，医生说我饭量挺大的，然后吃下去，导致胃处理不了，只能通过溃疡这么方式释放出去。这么一说，我恍然大悟。
+现在的我，每天晚上都告诫自己不要刷视频，不要沉迷手机，可是人就很容易在累得环境中放松自己。 自己也告诉了自己很多次，锻炼，少吃点，可往往到了面对的时候，却不能控制自己的食欲。
+想彻底戒断一件事情，就应该在自己即将违背的时候给自己痛恨一击打。
+我深知，人不能过度反思自己，因为过度反思就会造成自己的停滞不前。自己的注意力关注在什么地方，它就会反哺于自己。
+一切为了明天的最好结果。"/>
 
 
 <script type="application/ld+json">
@@ -92,20 +110,14 @@ if (!doNotTrack) {
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "笔记",
-      "item": "http://localhost:1313/note/"
+      "name": "想法",
+      "item": "http://localhost:1313/thinking/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "编程",
-      "item": "http://localhost:1313/note/program/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  3 ,
-      "name": "ORM框架设计",
-      "item": "http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/"
+      "name": "2025_04_04",
+      "item": "http://localhost:1313/thinking/2025_04_04/"
     }
   ]
 }
@@ -114,24 +126,24 @@ if (!doNotTrack) {
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "ORM框架设计",
-  "name": "ORM框架设计",
-  "description": "经典的软件架构 分层架构：经典的MVC 事件驱动架构 管道-过滤器架构 微核架构：vsCode , idea ORM的架构层次 接口层：向上支持程序调用 处理层：参数映射-\u0026gt; SQL生成 -\u0026gt; SQL执行 -\u0026gt; 结果处理 支撑层：事务管理 连接池管理 连接层： 数据库连接驱动 ",
+  "headline": "2025_04_04",
+  "name": "2025_04_04",
+  "description": "现在的我 今天晚上想花一段时间理一下自己。\n我如今已经毕业四年了，没有什么存款，也没有什么产出，还没有拥有自己的事业。拥有的只有发福的身体和一堆坏毛病。\n今天去医院了，很容易积食，之前吃了三个多月的中药，可是现在容易复发。今天的医生就说了，没看出来你体重这么重，还有你的脾和胃比较虚，脉象很弱。记得从初中开始，自己就非常容易口腔溃疡了，医生说我饭量挺大的，然后吃下去，导致胃处理不了，只能通过溃疡这么方式释放出去。这么一说，我恍然大悟。\n现在的我，每天晚上都告诫自己不要刷视频，不要沉迷手机，可是人就很容易在累得环境中放松自己。 自己也告诉了自己很多次，锻炼，少吃点，可往往到了面对的时候，却不能控制自己的食欲。\n想彻底戒断一件事情，就应该在自己即将违背的时候给自己痛恨一击打。\n我深知，人不能过度反思自己，因为过度反思就会造成自己的停滞不前。自己的注意力关注在什么地方，它就会反哺于自己。\n一切为了明天的最好结果。",
   "keywords": [
     ""
   ],
-  "articleBody": "经典的软件架构 分层架构：经典的MVC 事件驱动架构 管道-过滤器架构 微核架构：vsCode , idea ORM的架构层次 接口层：向上支持程序调用 处理层：参数映射-\u003e SQL生成 -\u003e SQL执行 -\u003e 结果处理 支撑层：事务管理 连接池管理 连接层： 数据库连接驱动 ",
-  "wordCount" : "19",
+  "articleBody": "现在的我 今天晚上想花一段时间理一下自己。\n我如今已经毕业四年了，没有什么存款，也没有什么产出，还没有拥有自己的事业。拥有的只有发福的身体和一堆坏毛病。\n今天去医院了，很容易积食，之前吃了三个多月的中药，可是现在容易复发。今天的医生就说了，没看出来你体重这么重，还有你的脾和胃比较虚，脉象很弱。记得从初中开始，自己就非常容易口腔溃疡了，医生说我饭量挺大的，然后吃下去，导致胃处理不了，只能通过溃疡这么方式释放出去。这么一说，我恍然大悟。\n现在的我，每天晚上都告诫自己不要刷视频，不要沉迷手机，可是人就很容易在累得环境中放松自己。 自己也告诉了自己很多次，锻炼，少吃点，可往往到了面对的时候，却不能控制自己的食欲。\n想彻底戒断一件事情，就应该在自己即将违背的时候给自己痛恨一击打。\n我深知，人不能过度反思自己，因为过度反思就会造成自己的停滞不前。自己的注意力关注在什么地方，它就会反哺于自己。\n一切为了明天的最好结果。\n",
+  "wordCount" : "9",
   "inLanguage": "zh",
-  "datePublished": "2024-09-07T14:59:46+08:00",
-  "dateModified": "2025-04-04T17:29:23.0606061+08:00",
+  "datePublished": "2025-04-04T18:37:38+08:00",
+  "dateModified": "2025-04-04T21:41:39+08:00",
   "author":[{
     "@type": "Person",
     "name": "AlfredNing"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/note/program/mysql/orm%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/"
+    "@id": "http://localhost:1313/thinking/2025_04_04/"
   },
   "publisher": {
     "@type": "Organization",
@@ -229,9 +241,9 @@ if (!doNotTrack) {
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="http://localhost:1313/">主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/note/">笔记</a>&nbsp;»&nbsp;<a href="http://localhost:1313/note/program/">编程</a></div>
+            <div class="breadcrumbs"><a href="http://localhost:1313/">主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/thinking/">想法</a></div>
             <h1 class="post-title">
-                ORM框架设计
+                2025_04_04
             </h1>
             <div class="post-meta">
 
@@ -252,7 +264,7 @@ if (!doNotTrack) {
 <span class="parent-post-meta">
     <span id="post_meta_style_1">
         <span class="fa fa-calendar-check-o"></span>
-        <span>2024年-09月-07日
+        <span>2025年-04月-04日
             &nbsp;&nbsp;
         </span>
     </span>
@@ -265,7 +277,7 @@ if (!doNotTrack) {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>19字
+        <span>9字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -285,14 +297,14 @@ if (!doNotTrack) {
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="http://localhost:1313/tags/mysql/" style="color: var(--secondary)!important;">MySQL</a>
+                <a href="http://localhost:1313/tags/%E9%9A%8F%E7%AC%94/" style="color: var(--secondary)!important;">随笔</a>
             </span>
         </span>
     </span>
 </span>
                 &nbsp;|&nbsp;标签: &nbsp;
                 <ul class="post-tags-meta">
-                    <a href="http://localhost:1313/tags/mysql/">MySQL</a>
+                    <a href="http://localhost:1313/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
                 </ul>
 
                 
@@ -310,9 +322,7 @@ if (!doNotTrack) {
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e7%bb%8f%e5%85%b8%e7%9a%84%e8%bd%af%e4%bb%b6%e6%9e%b6%e6%9e%84" aria-label="经典的软件架构">经典的软件架构</a></li>
-                <li>
-                    <a href="#orm%e7%9a%84%e6%9e%b6%e6%9e%84%e5%b1%82%e6%ac%a1" aria-label="ORM的架构层次">ORM的架构层次</a>
+                    <a href="#%e7%8e%b0%e5%9c%a8%e7%9a%84%e6%88%91" aria-label="现在的我">现在的我</a>
                 </li>
             </ul>
         </div>
@@ -379,35 +389,20 @@ if (!doNotTrack) {
     }
 </script>
         
-        <div class="post-content"><h1 id="经典的软件架构">经典的软件架构<a hidden class="anchor" aria-hidden="true" href="#经典的软件架构">#</a></h1>
-<ol>
-<li>分层架构：经典的MVC</li>
-<li>事件驱动架构</li>
-<li>管道-过滤器架构</li>
-<li>微核架构：vsCode , idea</li>
-</ol>
-<h1 id="orm的架构层次">ORM的架构层次<a hidden class="anchor" aria-hidden="true" href="#orm的架构层次">#</a></h1>
-<ol>
-<li>接口层：向上支持程序调用</li>
-<li>处理层：参数映射-&gt; SQL生成 -&gt; SQL执行 -&gt; 结果处理</li>
-<li>支撑层：事务管理 连接池管理</li>
-<li>连接层： 数据库连接驱动</li>
-</ol>
-<p><img loading="lazy" src="https://nq-bucket.oss-cn-shanghai.aliyuncs.com/note_img/image-20240907150455340.png" alt="image-20240907150455340"  />
-</p>
+        <div class="post-content"><h1 id="现在的我">现在的我<a hidden class="anchor" aria-hidden="true" href="#现在的我">#</a></h1>
+<p>今天晚上想花一段时间理一下自己。</p>
+<p>我如今已经毕业四年了，没有什么存款，也没有什么产出，还没有拥有自己的事业。拥有的只有发福的身体和一堆坏毛病。</p>
+<p>今天去医院了，很容易积食，之前吃了三个多月的中药，可是现在容易复发。今天的医生就说了，没看出来你体重这么重，还有你的脾和胃比较虚，脉象很弱。记得从初中开始，自己就非常容易口腔溃疡了，医生说我饭量挺大的，然后吃下去，导致胃处理不了，只能通过溃疡这么方式释放出去。这么一说，我恍然大悟。</p>
+<p>现在的我，每天晚上都告诫自己不要刷视频，不要沉迷手机，可是人就很容易在累得环境中放松自己。 自己也告诉了自己很多次，锻炼，少吃点，可往往到了面对的时候，却不能控制自己的食欲。</p>
+<p>想彻底戒断一件事情，就应该在自己即将违背的时候给自己痛恨一击打。</p>
+<p>我深知，人不能过度反思自己，因为过度反思就会造成自己的停滞不前。自己的注意力关注在什么地方，它就会反哺于自己。</p>
+<p>一切为了明天的最好结果。</p>
 
 
         </div>
 
         <footer class="post-footer">
             
-<nav class="paginav">
-  <a class="next" href="http://localhost:1313/note/program/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/">
-    <span class="title">下一页 »</span>
-    <br>
-    <span>MySQL查询优化</span>
-  </a>
-</nav>
 
         </footer>
     </div><div>
