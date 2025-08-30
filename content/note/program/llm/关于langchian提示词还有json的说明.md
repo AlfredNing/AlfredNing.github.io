@@ -29,7 +29,6 @@ cover:
 ---
 
 > 所有目标的实现都是源于对过程的深究
-> [个人博客](https://alfredning.github.io/)
 
 # 问题阐述
 
