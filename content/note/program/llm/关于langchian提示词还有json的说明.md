@@ -1,5 +1,5 @@
 ---
-title: "关于langchian提示词还有json的说明"
+title: "关于langchain提示词还有json的说明"
 date: 2025-08-30T16:45:29+08:00
 lastmod: 2025-08-30T16:45:29+08:00
 author: ["AlfredNing"]
