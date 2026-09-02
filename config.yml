@@ -128,7 +128,7 @@ params:
 menu:
   main:
     - identifier: note
-      name: 📓笔记
+      name: 📚知识库
       url: note/
       weight: 10  
     - identifier: thinking
