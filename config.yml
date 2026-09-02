@@ -132,7 +132,7 @@ menu:
       url: note/
       weight: 10  
     - identifier: thinking
-      name: 🤔随笔
+      name: 🤔随想
       url: thinking/
       weight: 20    
     - identifier: tools

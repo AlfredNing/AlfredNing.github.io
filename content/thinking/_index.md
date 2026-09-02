@@ -1,5 +1,5 @@
 ---
-title: "想法"
+title: "随想"
 date: 2023-01-08
 description: ""
 publishdate: 2023-01-08
